@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using LittleWizard.Cards.Interface;
 using LittleWizard.Powers;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -6,7 +7,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.Cards.Common;
 
-public class FreezingRay() : LittleWizardCard(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
+public class FreezingRay() : LittleWizardCard(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies), IElementCard
 {
     private const string CalculatedWaterElement = "CalculatedWaterElement";
     

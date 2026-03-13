@@ -17,6 +17,12 @@
     "LITTLEWIZARD-FIREBALL.description": "",
     "LITTLEWIZARD-FIREBALL.title": "Fireball",
 
+    "LITTLEWIZARD-WATERBALL.title": "Waterball",
+    "LITTLEWIZARD-WATERBALL.description": "",
+
+    "LITTLEWIZARD-ROCKBALL.title": "Rockball",
+    "LITTLEWIZARD-ROCKBALL.description": "",
+
     "LITTLEWIZARD-ACCELERATE_BURNING.description": "",
     "LITTLEWIZARD-ACCELERATE_BURNING.title": "AccelerateBurning",
 
@@ -24,5 +30,8 @@
     "LITTLEWIZARD-FREEZING_RAY.title": "FreezingRay",
 
     "LITTLEWIZARD-EARTHBOUND.title": "Earthbound",
-    "LITTLEWIZARD-EARTHBOUND.description": ""
+    "LITTLEWIZARD-EARTHBOUND.description": "",
+
+    "LITTLEWIZARD-DEADLINE_DASH.title": "DeadlineDash",
+    "LITTLEWIZARD-DEADLINE_DASH.description": ""
 }

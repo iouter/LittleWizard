@@ -1,3 +1,4 @@
+using LittleWizard.Cards.Interface;
 using LittleWizard.Localization.DynamicVars;
 using LittleWizard.Powers;
 using MegaCrit.Sts2.Core.Commands;
@@ -7,7 +8,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.Cards.Common;
 
-public class Fireball() : LittleWizardCard(1, CardType.Skill, CardRarity.Common, TargetType.AllEnemies)
+public class Fireball() : LittleWizardCard(1, CardType.Skill, CardRarity.Common, TargetType.AllEnemies), IElementCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

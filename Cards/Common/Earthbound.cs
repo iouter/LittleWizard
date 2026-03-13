@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using LittleWizard.Cards.Interface;
 using LittleWizard.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -8,7 +9,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.Cards.Common;
 
-public class Earthbound() : LittleWizardCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class Earthbound() : LittleWizardCard(1, CardType.Skill, CardRarity.Common, TargetType.Self), IElementCard
 {
     private const string CalculatedEarthElement = "CalculatedEarthElement";
     

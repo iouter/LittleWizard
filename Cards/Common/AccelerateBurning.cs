@@ -1,3 +1,4 @@
+using LittleWizard.Cards.Interface;
 using LittleWizard.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -6,7 +7,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.Cards.Common;
 
-public class AccelerateBurning() : LittleWizardCard(1, CardType.Skill, CardRarity.Common, TargetType.AllEnemies)
+public class AccelerateBurning() : LittleWizardCard(1, CardType.Skill, CardRarity.Common, TargetType.AllEnemies), IElementCard
 {
     private const string CalculatedFireElement = "CalculatedFireElement";
     private const string CalculatedFireElementThreshold = "CalculatedWaterElementThreshold";
