@@ -18,7 +18,7 @@ public class Rockball() : LittleWizardCard(1, CardType.Skill, CardRarity.Common,
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         ArgumentNullException.ThrowIfNull(play.Target);
-        await PowerCmd.Apply<FireElement>(play.Target, DynamicVarsHelper.GetPowerVar<EarthElement>(DynamicVars).BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<EarthElement>(play.Target, DynamicVarsHelper.GetPowerVar<EarthElement>(DynamicVars).BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
