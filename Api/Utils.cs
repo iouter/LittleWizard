@@ -18,19 +18,42 @@ public static class Utils
 
     public static async Task GivePower<T>(CardModel cardModel, CardPlay play) where T : PowerModel
     {
-        Debug.Assert(play.Target != null);
-        await GivePower<T>(play.Target,
-            cardModel.DynamicVars,
-            cardModel.Owner.Creature,
-            cardModel);
-    }
-
-    public static async Task GivePowerToAllEnemies<T>(CardModel cardModel) where T : PowerModel
-    {
-        Debug.Assert(cardModel.CombatState != null);
-        foreach (var enemy in cardModel.CombatState.HittableEnemies)
-            await GivePower<T>(enemy, cardModel.DynamicVars,
-                cardModel.Owner.Creature,
-                cardModel);
+        switch (cardModel.TargetType)
+        {
+            case TargetType.Self:
+            {
+                await GivePower<T>(cardModel.Owner.Creature,
+                    cardModel.DynamicVars,
+                    cardModel.Owner.Creature,
+                    cardModel);
+                return;
+            }
+            case TargetType.AllEnemies:
+            {
+                Debug.Assert(cardModel.CombatState != null);
+                foreach (var enemy in cardModel.CombatState.HittableEnemies)
+                    await GivePower<T>(enemy, cardModel.DynamicVars,
+                        cardModel.Owner.Creature,
+                        cardModel);
+                return;
+            }
+            case TargetType.None:
+            case TargetType.AnyEnemy:
+            case TargetType.RandomEnemy:
+            case TargetType.AnyPlayer:
+            case TargetType.AnyAlly:
+            case TargetType.TargetedNoCreature:
+            case TargetType.Osty:
+            case TargetType.AllAllies:
+            default:
+            {
+                Debug.Assert(play.Target != null);
+                await GivePower<T>(play.Target,
+                    cardModel.DynamicVars,
+                    cardModel.Owner.Creature,
+                    cardModel);
+                return;
+            }
+        }
     }
 }

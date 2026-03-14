@@ -21,7 +21,7 @@ public class Wave() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, T
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
-        await Utils.GivePowerToAllEnemies<WaterElement>(this);
+        await Utils.GivePower<WaterElement>(this, cardPlay);
     }
 
     protected override void OnUpgrade()

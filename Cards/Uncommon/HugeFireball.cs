@@ -21,7 +21,7 @@ public class HugeFireball()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CommonActions.CardAttack(this, cardPlay).Execute(choiceContext);
-        await Utils.GivePowerToAllEnemies<FireElement>(this);
+        await Utils.GivePower<FireElement>(this, cardPlay);
     }
 
     protected override void OnUpgrade()
