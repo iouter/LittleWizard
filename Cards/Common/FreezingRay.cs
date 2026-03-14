@@ -14,7 +14,7 @@ public class FreezingRay()
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new CalculationBaseVar(6),
-        new CalculationExtraVar(1),
+        new ExtraDamageVar(1),
         new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, target) =>
             target?.GetPowerAmount<WaterElement>() ?? 0)
     ];
@@ -28,6 +28,6 @@ public class FreezingRay()
 
     protected override void OnUpgrade()
     {
-        DynamicVars.CalculationExtra.UpgradeValueBy(1);
+        DynamicVars.ExtraDamage.UpgradeValueBy(1);
     }
 }

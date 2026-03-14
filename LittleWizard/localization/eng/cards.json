@@ -1,6 +1,7 @@
 {
   "LITTLEWIZARD-CALLBACK.description": "",
   "LITTLEWIZARD-CALLBACK.title": "Callback",
+  "LITTLEWIZARD-CALLBACK.selectionScreenPrompt": "",
   "LITTLEWIZARD-COLORFUL_BALLS.description": "",
   "LITTLEWIZARD-COLORFUL_BALLS.title": "ColorfulBalls",
   "LITTLEWIZARD-DEFEND_LITTLE_WIZARD.description": "",
@@ -51,6 +52,7 @@
   "LITTLEWIZARD-EROSION_RAY.description": "",
   "LITTLEWIZARD-PROPHECY.description": "",
   "LITTLEWIZARD-PROPHECY.title": "Prophecy",
+  "LITTLEWIZARD-PROPHECY.selectionScreenPrompt": "",
   "LITTLEWIZARD-WAVE.description": "",
   "LITTLEWIZARD-WAVE.title": "Wave",
   "LITTLEWIZARD-ELEMENT_DRAW.description": "",
@@ -59,6 +61,7 @@
   "LITTLEWIZARD-GATHER_ELEMENTS.description": "",
   "LITTLEWIZARD-MANA_CONVERT.title": "ManaConvert",
   "LITTLEWIZARD-MANA_CONVERT.description": "",
+  "LITTLEWIZARD-MANA_CONVERT.selectionScreenPrompt": "",
   "LITTLEWIZARD-MANAGER_MASTER.title": "ManagerMaster",
   "LITTLEWIZARD-MANAGER_MASTER.description": "",
   "LITTLEWIZARD-HUGE_FIREBALL.description": "",

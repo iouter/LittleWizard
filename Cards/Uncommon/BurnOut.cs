@@ -13,7 +13,7 @@ public class BurnOut() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new CalculationBaseVar(0),
-        new CalculationExtraVar(6),
+        new ExtraDamageVar(6),
         new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, target) =>
             target?.GetPowerAmount<FireElement>() ?? 0)
     ];
@@ -31,6 +31,6 @@ public class BurnOut() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon
 
     protected override void OnUpgrade()
     {
-        DynamicVars.CalculationExtra.UpgradeValueBy(2);
+        DynamicVars.ExtraDamage.UpgradeValueBy(2);
     }
 }
