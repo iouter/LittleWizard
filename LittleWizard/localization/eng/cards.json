@@ -57,5 +57,8 @@
     "LITTLEWIZARD-WHIM.title": "Whim",
 
     "LITTLEWIZARD-DESTROY_GRADES.title": "DestroyGrades",
-    "LITTLEWIZARD-DESTROY_GRADES.description": ""
+    "LITTLEWIZARD-DESTROY_GRADES.description": "",
+
+    "LITTLEWIZARD-NUMB_HANDS.description": "",
+    "LITTLEWIZARD-NUMB_HANDS.title": "NumbHands"
 }
