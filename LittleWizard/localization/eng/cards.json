@@ -63,5 +63,8 @@
     "LITTLEWIZARD-NUMB_HANDS.title": "NumbHands",
 
     "LITTLEWIZARD-REMOVE_DEFENSE.description": "",
-    "LITTLEWIZARD-REMOVE_DEFENSE.title": "RemoveDefense"
+    "LITTLEWIZARD-REMOVE_DEFENSE.title": "RemoveDefense",
+
+    "LITTLEWIZARD-MAGIC_MISSILE.title": "MagicMissile",
+    "LITTLEWIZARD-MAGIC_MISSILE.description": ""
 }
