@@ -1,12 +1,38 @@
-.godot/
-bin/
-/android/
-.git/
+```
+# Compiled and build artifacts
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.out
+
+# Dependencies
+node_modules/
+venv/
+.venv/
+__pycache__/
+.mypy_cache/
+.pytest_cache/
+target/
+.gradle/
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# Environment
+.env
+.env.local
+.env.*
+
+# Editors
+.vscode/
 .idea/
-.vs/
-publish/
-Properties/
-packages/
-.editorconfig
-*cs.uid
-*.user
+
+# Build directories
+build/
+dist/
+```

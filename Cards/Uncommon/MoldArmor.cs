@@ -1,0 +1,43 @@
+using LittleWizard.Api;
+using LittleWizard.Api.DynamicVars;
+using LittleWizard.Cards.Interface;
+using LittleWizard.Powers.Elements;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.ValueProps;
+
+namespace LittleWizard.Cards.Uncommon;
+
+public class MoldArmor() : LittleWizardCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy), IElementCard
+{
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new BlockVar(8, ValueProp.Move)
+    ];
+
+    public override IEnumerable<CardKeyword> CanonicalKeywords =>
+    [
+        CardKeyword.Retain
+    ];
+
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        ArgumentNullException.ThrowIfNull(cardPlay.Target);
+        
+        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
+        
+        var earthAmount = cardPlay.Target.GetPowerAmount<EarthElement>();
+        if (earthAmount >= 6)
+        {
+            await PowerCmd.Remove<EarthElement>(cardPlay.Target);
+            await CreatureCmd.GainBlock(Owner.Creature, (int)earthAmount, cardPlay);
+        }
+    }
+
+    protected override void OnUpgrade()
+    {
+        EnergyCost.UpgradeBy(-1);
+    }
+}
