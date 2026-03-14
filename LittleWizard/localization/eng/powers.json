@@ -17,5 +17,33 @@
 
     "LITTLEWIZARD-WARMUP_BEAM_POWER.title": "WarmupBeamPower",
     "LITTLEWIZARD-WARMUP_BEAM_POWER.description": "",
-    "LITTLEWIZARD-WARMUP_BEAM_POWER.smartDescription": ""
+    "LITTLEWIZARD-WARMUP_BEAM_POWER.smartDescription": "",
+
+    "LITTLEWIZARD-GATHER_ELEMENTS_POWER.title": "GatherElementsPower",
+    "LITTLEWIZARD-GATHER_ELEMENTS_POWER.description": "",
+    "LITTLEWIZARD-GATHER_ELEMENTS_POWER.smartDescription": "",
+    
+    "LITTLEWIZARD-GATHER_ELEMENTS_UPGRADE_POWER.description": "",
+    "LITTLEWIZARD-GATHER_ELEMENTS_UPGRADE_POWER.title": "GatherElementsUpgradePower",
+    "LITTLEWIZARD-GATHER_ELEMENTS_UPGRADE_POWER.smartDescription": "",
+
+    "LITTLEWIZARD-MANAGER_MASTER_POWER.description": "",
+    "LITTLEWIZARD-MANAGER_MASTER_POWER.title": "ManagerMasterPower",
+    "LITTLEWIZARD-MANAGER_MASTER_POWER.smartDescription": "",
+
+    "LITTLEWIZARD-EXPLORE_TABOO_POWER.title": "ExploreTabooPower",
+    "LITTLEWIZARD-EXPLORE_TABOO_POWER.description": "",
+    "LITTLEWIZARD-EXPLORE_TABOO_POWER.smartDescription": "",
+
+    "LITTLEWIZARD-NO_FIRE_ELEMENT_POWER.smartDescription": "",
+    "LITTLEWIZARD-NO_FIRE_ELEMENT_POWER.description": "",
+    "LITTLEWIZARD-NO_FIRE_ELEMENT_POWER.title": "NoFireElementPower",
+
+    "LITTLEWIZARD-MANA_BURST_POWER.smartDescription": "",
+    "LITTLEWIZARD-MANA_BURST_POWER.description": "",
+    "LITTLEWIZARD-MANA_BURST_POWER.title": "ManaBurstPower",
+
+    "LITTLEWIZARD-MANA_BURST_UPGRADE_POWER.description": "",
+    "LITTLEWIZARD-MANA_BURST_UPGRADE_POWER.smartDescription": "",
+    "LITTLEWIZARD-MANA_BURST_UPGRADE_POWER.title": "ManaBurstUpgradePower"
 }

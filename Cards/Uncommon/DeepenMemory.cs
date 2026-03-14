@@ -10,24 +10,20 @@ public class DeepenMemory() : LittleWizardCard(1, CardType.Skill, CardRarity.Unc
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
-        CardKeyword.Exhaust
+        CardKeyword.Exhaust,
+        CardKeyword.Ethereal
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (Owner.PlayerCombatState == null) return;
-        
         var prefs = new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1);
-        var cardToCopy = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, null, this)).FirstOrDefault();
-        
-        if (cardToCopy == null) return;
-        
-        // Create a copy and add to hand
-        // This needs specific API support for copying cards
+        var card = (await CardSelectCmd.FromSimpleGrid(choiceContext, PileType.Hand.GetPile(Owner).Cards.ToList(), Owner, prefs)).FirstOrDefault();
+        if (card == null) return;
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(card.CreateClone(), PileType.Hand, true));
     }
 
     protected override void OnUpgrade()
     {
-        RemoveKeyword(CardKeyword.Exhaust);
+        RemoveKeyword(CardKeyword.Ethereal);
     }
 }

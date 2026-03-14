@@ -14,30 +14,26 @@ public class MoldArmor() : LittleWizardCard(2, CardType.Skill, CardRarity.Uncomm
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new BlockVar(8, ValueProp.Move)
+        new BlockVar(8, ValueProp.Move),
+        new PowerVar<EarthElement>(6)
     ];
-
-    public override IEnumerable<CardKeyword> CanonicalKeywords =>
-    [
-        CardKeyword.Retain
-    ];
-
+    
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
-        
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
         
         var earthAmount = cardPlay.Target.GetPowerAmount<EarthElement>();
-        if (earthAmount >= 6)
+        if (earthAmount >= DynamicVarsHelper.GetPowerVar<EarthElement>(DynamicVars).BaseValue)
         {
             await PowerCmd.Remove<EarthElement>(cardPlay.Target);
-            await CreatureCmd.GainBlock(Owner.Creature, (int)earthAmount, cardPlay);
+            await CreatureCmd.GainBlock(Owner.Creature, cardPlay.Target.Block, ValueProp.Unpowered, cardPlay);
         }
     }
 
     protected override void OnUpgrade()
     {
         EnergyCost.UpgradeBy(-1);
+        AddKeyword(CardKeyword.Retain);
     }
 }

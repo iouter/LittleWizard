@@ -33,9 +33,11 @@ public class ElementConvert() : LittleWizardCard(0, CardType.Skill, CardRarity.U
             await PowerCmd.Apply<WaterElement>(cardPlay.Target, earthAmount, Owner.Creature, this);
         }
     }
-
-    protected override void OnUpgrade()
+    
+    protected override PileType GetResultPileType()
     {
-        // Upgrade: Return this card to your hand
+        if (!IsUpgraded) return base.GetResultPileType();
+        var resultPileType = base.GetResultPileType();
+        return resultPileType != PileType.Discard ? resultPileType : PileType.Hand;
     }
 }

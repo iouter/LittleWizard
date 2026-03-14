@@ -1,3 +1,4 @@
+using BaseLib.Utils;
 using LittleWizard.Api;
 using LittleWizard.Api.DynamicVars;
 using LittleWizard.Cards.Interface;
@@ -16,6 +17,7 @@ public class Adapt() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, 
     [
         new DamageVar(8, ValueProp.Move),
         new PowerVar<FireElement>(1),
+        new EnergyVar(2),
         new BlockVar(13, ValueProp.Move)
     ];
 
@@ -36,13 +38,14 @@ public class Adapt() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, 
         {
             await CommonActions.CardAttack(this, cardPlay.Target).Execute(choiceContext);
             await Utils.GivePower<FireElement>(this, cardPlay);
+            return;
         }
-        
         if (waterAmount > 0)
         {
-            await PlayerCmd.GainEnergy(2, Owner);
+            if (Owner.Creature.Player != null)
+                await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner.Creature.Player);
+            return;
         }
-        
         if (earthAmount > 0)
         {
             await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
@@ -51,6 +54,6 @@ public class Adapt() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, 
 
     protected override void OnUpgrade()
     {
-        // Innate is already set
+        AddKeyword(CardKeyword.Innate);
     }
 }

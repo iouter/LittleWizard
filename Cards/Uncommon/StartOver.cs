@@ -19,11 +19,7 @@ public class StartOver() : LittleWizardCard(2, CardType.Skill, CardRarity.Uncomm
         {
             await CardCmd.Exhaust(choiceContext, card);
         }
-        
-        for (int i = 0; i < count; i++)
-        {
-            await CardPileCmd.Draw(choiceContext, Owner);
-        }
+        await CardPileCmd.Draw(choiceContext, count, Owner);
     }
 
     protected override void OnUpgrade()

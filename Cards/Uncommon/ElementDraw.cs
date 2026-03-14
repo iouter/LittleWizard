@@ -10,11 +10,6 @@ namespace LittleWizard.Cards.Uncommon;
 
 public class ElementDraw() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy), IElementCard
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new CalculationBaseVar(0)
-    ];
-
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
         CardKeyword.Exhaust
@@ -25,17 +20,24 @@ public class ElementDraw() : LittleWizardCard(1, CardType.Skill, CardRarity.Unco
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
         
         var fireAmount = cardPlay.Target.GetPowerAmount<FireElement>();
-        var waterAmount = cardPlay.Target.GetPowerAmount<WaterElement>();
-        var earthAmount = cardPlay.Target.GetPowerAmount<EarthElement>();
-        
-        var totalElements = fireAmount + waterAmount + earthAmount;
-        
-        if (totalElements > 0)
+        if (fireAmount > 0)
         {
             await PowerCmd.Remove<FireElement>(cardPlay.Target);
+        }
+        var waterAmount = cardPlay.Target.GetPowerAmount<WaterElement>();
+        if (waterAmount > 0)
+        {
             await PowerCmd.Remove<WaterElement>(cardPlay.Target);
+        }
+        var earthAmount = cardPlay.Target.GetPowerAmount<EarthElement>();
+        if (earthAmount > 0)
+        {
             await PowerCmd.Remove<EarthElement>(cardPlay.Target);
-            
+        }
+        
+        var totalElements = fireAmount + waterAmount + earthAmount;
+        if (totalElements > 0)
+        {
             await PlayerCmd.GainEnergy((int)totalElements, Owner);
         }
     }

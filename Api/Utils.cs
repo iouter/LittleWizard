@@ -17,8 +17,8 @@ public static class Utils
     public static async Task GivePower<T>(CardModel cardModel, CardPlay play) where T : PowerModel
     {
         ArgumentNullException.ThrowIfNull(play.Target);
-        await PowerCmd.Apply<T>(play.Target,
-            DynamicVarsHelper.GetPowerVar<T>(cardModel.DynamicVars).BaseValue,
+        await GivePower<T>(play.Target,
+            cardModel.DynamicVars,
             cardModel.Owner.Creature,
             cardModel);
     }

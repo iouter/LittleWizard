@@ -1,14 +1,21 @@
 using LittleWizard.Api;
+using LittleWizard.Api.DynamicVars;
 using LittleWizard.Cards.Interface;
 using LittleWizard.Powers.Elements;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.Cards.Uncommon;
 
 public class WaterBlade() : LittleWizardCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies), IElementCard
 {
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new PowerVar<WaterElement>(6)
+    ];
+
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
         CardKeyword.Exhaust
@@ -16,16 +23,14 @@ public class WaterBlade() : LittleWizardCard(2, CardType.Skill, CardRarity.Uncom
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (Owner.PlayerCombatState == null) return;
-        
-        foreach (var enemy in Owner.PlayerCombatState.Enemies)
+        ArgumentNullException.ThrowIfNull(cardPlay.Target);
+        if (cardPlay.Target.GetPowerAmount<WaterElement>() > DynamicVarsHelper.GetPowerVar<WaterElement>(DynamicVars).BaseValue)
         {
-            var waterAmount = enemy.GetPowerAmount<WaterElement>();
-            if (waterAmount >= 6)
+            if (cardPlay.Target.Block > 0)
             {
-                // Remove block from enemy
-                enemy.CurrentBlock = 0;
+                await CreatureCmd.LoseBlock(cardPlay.Target, cardPlay.Target.Block);
             }
+            await PowerCmd.Remove<WaterElement>(cardPlay.Target);
         }
     }
 

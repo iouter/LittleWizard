@@ -78,5 +78,68 @@
     "LITTLEWIZARD-PROPHECY.title": "Prophecy",
 
     "LITTLEWIZARD-WAVE.description": "",
-    "LITTLEWIZARD-WAVE.title": "Wave"
+    "LITTLEWIZARD-WAVE.title": "Wave",
+
+    "LITTLEWIZARD-ELEMENT_DRAW.description": "",
+    "LITTLEWIZARD-ELEMENT_DRAW.title": "ElementDraw",
+
+    "LITTLEWIZARD-GATHER_ELEMENTS.title": "GatherElements",
+    "LITTLEWIZARD-GATHER_ELEMENTS.description": "",
+
+    "LITTLEWIZARD-MANA_CONVERT.title": "ManaConvert",
+    "LITTLEWIZARD-MANA_CONVERT.description": "",
+
+    "LITTLEWIZARD-MANAGER_MASTER.title": "ManagerMaster",
+    "LITTLEWIZARD-MANAGER_MASTER.description": "",
+
+    "LITTLEWIZARD-HUGE_FIREBALL.description": "",
+    "LITTLEWIZARD-HUGE_FIREBALL.title": "HugeFireball",
+
+    "LITTLEWIZARD-STALAGMITE.title": "Stalagmite",
+    "LITTLEWIZARD-STALAGMITE.description": "",
+
+    "LITTLEWIZARD-BURN_OUT.title": "BurnOut",
+    "LITTLEWIZARD-BURN_OUT.description": "",
+
+    "LITTLEWIZARD-ICE_BLOCK.description": "",
+    "LITTLEWIZARD-ICE_BLOCK.title": "IceBlock",
+
+    "LITTLEWIZARD-MOLD_ARMOR.description": "",
+    "LITTLEWIZARD-MOLD_ARMOR.title": "MoldArmor",
+
+    "LITTLEWIZARD-ADAPT.title": "Adapt",
+    "LITTLEWIZARD-ADAPT.description": "",
+
+    "LITTLEWIZARD-EXPLORE_TABOO.description": "",
+    "LITTLEWIZARD-EXPLORE_TABOO.title": "ExploreTaboo",
+
+    "LITTLEWIZARD-ELEMENT_CONVERT.description": "",
+    "LITTLEWIZARD-ELEMENT_CONVERT.title": "ElementConvert",
+
+    "LITTLEWIZARD-ROCK_BLAST.description": "",
+    "LITTLEWIZARD-ROCK_BLAST.title": "RockBlast",
+
+    "LITTLEWIZARD-ELEMENT_BURST.title": "ElementBurst",
+    "LITTLEWIZARD-ELEMENT_BURST.description": "",
+
+    "LITTLEWIZARD-EARTH_FURY.description": "",
+    "LITTLEWIZARD-EARTH_FURY.title": "EarthFury",
+
+    "LITTLEWIZARD-WATER_BLADE.description": "",
+    "LITTLEWIZARD-WATER_BLADE.title": "WaterBlade",
+
+    "LITTLEWIZARD-ELEMENT_AGGREGATION.description": "",
+    "LITTLEWIZARD-ELEMENT_AGGREGATION.title": "ElementAggregation",
+
+    "LITTLEWIZARD-START_OVER.title": "StartOver",
+    "LITTLEWIZARD-START_OVER.description": "",
+
+    "LITTLEWIZARD-MANA_BURST.title": "ManaBurst",
+    "LITTLEWIZARD-MANA_BURST.description": "",
+
+    "LITTLEWIZARD-DEEPEN_MEMORY.description": "",
+    "LITTLEWIZARD-DEEPEN_MEMORY.title": "DeepenMemory",
+
+    "LITTLEWIZARD-MEMORY_PALACE.description": "",
+    "LITTLEWIZARD-MEMORY_PALACE.title": "MemoryPalace"
 }

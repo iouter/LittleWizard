@@ -1,3 +1,4 @@
+using BaseLib.Utils;
 using LittleWizard.Api;
 using LittleWizard.Api.DynamicVars;
 using LittleWizard.Cards.Interface;
@@ -6,10 +7,11 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.Cards.Uncommon;
 
-public class FireballUncommon() : LittleWizardCard(3, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies), IElementCard
+public class HugeFireball() : LittleWizardCard(3, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies), IElementCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

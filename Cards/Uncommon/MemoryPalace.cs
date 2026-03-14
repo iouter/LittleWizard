@@ -1,32 +1,39 @@
 using LittleWizard.Api;
+using LittleWizard.Powers;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.Cards.Uncommon;
 
-public class MemoryPalace() : LittleWizardCard(3, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+public class MemoryPalace() : LittleWizardCard(3, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new CardsVar(5)
+    ];
+
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
+        CardKeyword.Ethereal,
         CardKeyword.Exhaust
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        // Copy 5 cards from draw pile to hand
-        // This needs specific API support for copying cards from draw pile
-        await PowerCmd.Apply<MemoryPalacePower>(Owner.Creature, 5, Owner.Creature, this);
+        var prefs = new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 5);
+        var cards = (await CardSelectCmd.FromSimpleGrid(choiceContext, PileType.Hand.GetPile(Owner).Cards.ToList(), Owner, prefs)).ToList();
+        foreach (var card in cards)
+        {
+            CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(card.CreateClone(), PileType.Hand, true));
+        }
     }
 
     protected override void OnUpgrade()
     {
-        // Upgrade: Copy 6 cards instead of 5
+        DynamicVars.Cards.UpgradeValueBy(1);
     }
-}
-
-public class MemoryPalacePower : LittleWizardPower
-{
-    public override PowerType Type => PowerType.Buff;
-    public override PowerStackType StackType => PowerStackType.Single;
 }
