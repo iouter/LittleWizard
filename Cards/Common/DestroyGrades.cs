@@ -1,3 +1,4 @@
+using LittleWizard.Api;
 using LittleWizard.Api.DynamicVars;
 using LittleWizard.Cards.Interface;
 using LittleWizard.Powers;
@@ -25,8 +26,7 @@ public class DestroyGrades() : LittleWizardCard(1, CardType.Skill, CardRarity.Co
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        ArgumentNullException.ThrowIfNull(cardPlay.Target);
-        await PowerCmd.Apply<FireElement>(cardPlay.Target, DynamicVarsHelper.GetPowerVar<FireElement>(DynamicVars).BaseValue, Owner.Creature, this);
+        await Utils.GivePower<FireElement>(this, cardPlay);
         var prefs = new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1);
         var card = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, null, this)).FirstOrDefault();
         if (card == null)

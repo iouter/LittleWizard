@@ -1,3 +1,4 @@
+using LittleWizard.Api;
 using LittleWizard.Api.DynamicVars;
 using LittleWizard.Cards.Interface;
 using LittleWizard.Powers;
@@ -18,8 +19,7 @@ public class Waterball() : LittleWizardCard(1, CardType.Skill, CardRarity.Common
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        ArgumentNullException.ThrowIfNull(play.Target);
-        await PowerCmd.Apply<WaterElement>(play.Target, DynamicVarsHelper.GetPowerVar<WaterElement>(DynamicVars).BaseValue, Owner.Creature, this);
+        await Utils.GivePower<WaterElement>(this, play);
     }
 
     protected override void OnUpgrade()

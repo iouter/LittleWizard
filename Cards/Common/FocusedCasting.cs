@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using LittleWizard.Api;
 using LittleWizard.Api.DynamicVars;
 using LittleWizard.Cards.Interface;
 using LittleWizard.Powers.Cards;
@@ -18,8 +19,7 @@ public class FocusedCasting() : LittleWizardCard(1, CardType.Skill, CardRarity.C
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        ArgumentNullException.ThrowIfNull(cardPlay.Target);
-        await PowerCmd.Apply<FocusedCastingPower>(cardPlay.Target, DynamicVarsHelper.GetPowerVar<FocusedCastingPower>(DynamicVars).BaseValue, Owner.Creature, this);
+        await Utils.GivePower<FocusedCastingPower>(this, cardPlay);
     }
 
     protected override void OnUpgrade()

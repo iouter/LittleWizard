@@ -1,3 +1,4 @@
+using LittleWizard.Api;
 using LittleWizard.Api.DynamicVars;
 using LittleWizard.Cards.Interface;
 using LittleWizard.Powers;
@@ -19,7 +20,7 @@ public class Rockball() : LittleWizardCard(1, CardType.Skill, CardRarity.Common,
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         ArgumentNullException.ThrowIfNull(play.Target);
-        await PowerCmd.Apply<EarthElement>(play.Target, DynamicVarsHelper.GetPowerVar<EarthElement>(DynamicVars).BaseValue, Owner.Creature, this);
+        await Utils.GivePower<EarthElement>(this, play);
     }
 
     protected override void OnUpgrade()

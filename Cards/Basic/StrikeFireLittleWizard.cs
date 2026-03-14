@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using LittleWizard.Api;
 using LittleWizard.Api.DynamicVars;
 using LittleWizard.Powers;
 using LittleWizard.Powers.Elements;
@@ -22,7 +23,7 @@ public class StrikeFireLittleWizard() : LittleWizardCard(1, CardType.Attack, Car
     {
         ArgumentNullException.ThrowIfNull(play.Target);
         await CommonActions.CardAttack(this, play.Target).Execute(choiceContext);
-        await PowerCmd.Apply<FireElement>(play.Target, DynamicVarsHelper.GetPowerVar<FireElement>(DynamicVars).BaseValue, Owner.Creature, this);
+        await Utils.GivePower<FireElement>(this, play);
     }
 
     protected override void OnUpgrade()

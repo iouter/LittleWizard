@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using LittleWizard.Api;
 using LittleWizard.Api.DynamicVars;
 using LittleWizard.Powers;
 using LittleWizard.Powers.Elements;
@@ -22,7 +23,7 @@ public class StrikeWaterLittleWizard() : LittleWizardCard(1, CardType.Attack, Ca
     {
         ArgumentNullException.ThrowIfNull(play.Target);
         await CommonActions.CardAttack(this, play.Target).Execute(choiceContext);
-        await PowerCmd.Apply<WaterElement>(play.Target, DynamicVarsHelper.GetPowerVar<WaterElement>(DynamicVars).BaseValue, Owner.Creature, this);
+        await Utils.GivePower<WaterElement>(this, play);
     }
 
     protected override void OnUpgrade()
