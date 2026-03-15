@@ -1,0 +1,22 @@
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using InscryptionAPI.Card;
+using InscryptionAPI.Misc;
+
+namespace LittleWizard.Cards.Uncommon.Temp;
+
+public class Hail() : LittleWizardCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy), IElementCard
+{
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(10, ValueProp.Move), new PowerVar<WaterElement>(3)];
+
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
+    {
+        await CommonActions.CardAttack(this, play.Target).Execute(choiceContext);
+        await Utils.GivePower<WaterElement>(this, play);
+    }
+
+    protected override void OnUpgrade()
+    {
+        DynamicVars.Damage.UpgradeValueBy(3);
+    }
+}
