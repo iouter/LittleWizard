@@ -1,12 +1,55 @@
-.godot/
-bin/
-/android/
-.git/
-.idea/
-.vs/
-publish/
-Properties/
-packages/
-.editorconfig
-*cs.uid
+```
+# Compiled files
+*.dll
+*.exe
+*.pdb
+*.mdb
+*.ilk
+*.exp
+*.lib
+*.so
+*.dylib
+
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Unity specific
+Library/
+Temp/
+Build/
+*.unityproj
+*.sln
+*.csproj
+*.userprefs
+*.pidb
 *.user
+*.svclog
+*.cache
+*.booproj
+*.unitypackage
+
+# Visual Studio Code
+.vscode/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Dependencies
+node_modules/
+packages/
+```
