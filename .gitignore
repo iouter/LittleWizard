@@ -1,55 +1,64 @@
 ```
 # Compiled files
-*.dll
 *.exe
-*.pdb
-*.mdb
-*.ilk
-*.exp
-*.lib
+*.dll
 *.so
-*.dylib
+*.class
+*.pyc
+__pycache__/
 
-# Build results
-[Bb]in/
-[Oo]bj/
-[Ll]og/
-[Ll]ogs/
-
-# Unity specific
-Library/
-Temp/
-Build/
-*.unityproj
-*.sln
-*.csproj
-*.userprefs
-*.pidb
-*.user
-*.svclog
-*.cache
-*.booproj
-*.unitypackage
-
-# Visual Studio Code
-.vscode/
-
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
-desktop.ini
-
-# Environment
+# Dependencies
+node_modules/
+venv/
+.venv/
 .env
 .env.local
 *.env.*
 
-# Dependencies
-node_modules/
-packages/
+# Build artifacts
+dist/
+build/
+target/
+*.o
+*.obj
+*.out
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+
+# Logs
+*.log
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Archives
+*.zip
+*.gz
+*.tar
+*.tgz
+*.bz2
+*.xz
+*.7z
+*.rar
+*.zst
+*.lz4
+*.lzh
+*.cab
+*.arj
+*.rpm
+*.deb
+*.Z
+*.lz
+*.lzo
 ```
