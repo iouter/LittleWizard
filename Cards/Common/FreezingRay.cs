@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using LittleWizard.Cards.Interface;
 using LittleWizard.Powers.Elements;
 using MegaCrit.Sts2.Core.Commands;
@@ -21,6 +22,7 @@ public class FreezingRay()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        Debug.Assert(CombatState != null, nameof(CombatState) + " != null");
         await DamageCmd.Attack(DynamicVars.CalculatedDamage.Calculate(cardPlay.Target)).FromCard(this)
             .TargetingAllOpponents(CombatState).Execute(choiceContext);
     }
