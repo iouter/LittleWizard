@@ -126,5 +126,8 @@
   "LITTLEWIZARD-SPREAD.description": "",
   "LITTLEWIZARD-SPREAD.title": "Spread",
   "LITTLEWIZARD-WILD_SWING.title": "WildSwing",
-  "LITTLEWIZARD-WILD_SWING.description": ""
+  "LITTLEWIZARD-WILD_SWING.description": "",
+  "LITTLEWIZARD-REJUVENATION.description": "",
+  "LITTLEWIZARD-REJUVENATION.title": "Rejuvenation",
+  "LITTLEWIZARD-REJUVENATION.selectionScreenPrompt": ""
 }
