@@ -1,3 +1,4 @@
+using LittleWizard.Api;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -19,6 +20,8 @@ public class MorningGrumpinessPower : LittleWizardPower
         DamageResult result, ValueProp props,
         Creature? dealer, CardModel? cardSource)
     {
+        if (target != Owner || !Utils.IsPoweredAttack(props) || result.UnblockedDamage <= 0)
+            return;
         await PowerCmd.Remove(this);
     }
 
