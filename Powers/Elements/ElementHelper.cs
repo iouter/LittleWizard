@@ -1,9 +1,11 @@
 using LittleWizard.Interface;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Random;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.Powers.Elements;
 
@@ -35,27 +37,28 @@ public static class ElementHelper
         }
     }
 
-    public static void FireAndWater(Creature owner, decimal amountA, decimal amountB)
+    public static void FireAndWater(Creature owner, decimal amountA, decimal amountB, Creature? applier)
     {
         var sum = amountA + amountB;
-        PowerCmd.Apply<ElementTemporaryStrengthPower>(owner, sum, null, null);
-        PowerCmd.Apply<VulnerablePower>(owner, sum, null, null);
-        _ = OnElementReactor(owner);
+        PowerCmd.Apply<ElementTemporaryStrengthPower>(owner, sum, applier, null);
+        PowerCmd.Apply<VulnerablePower>(owner, sum, applier, null);
+        _ = OnElementReactor(owner, applier);
     }
 
-    public static void FireAndEarth(Creature owner, decimal amountA, decimal amountB)
+    public static void FireAndEarth(Creature owner, decimal amountA, decimal amountB, Creature? applier)
     {
-        DamageCmd.Attack(amountA * amountB).Targeting(owner).Execute(null);
-        _ = OnElementReactor(owner);
+        CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), owner, amountA * amountB, ValueProp.Unpowered, applier,
+            null);
+        _ = OnElementReactor(owner, applier);
     }
 
-    public static void WaterAndEarth(Creature owner, decimal amountA, decimal amountB)
+    public static void WaterAndEarth(Creature owner, decimal amountA, decimal amountB, Creature? applier)
     {
         if (amountA * amountB > Rng.Chaotic.NextInt(0, 100)) CreatureCmd.Stun(owner);
-        _ = OnElementReactor(owner);
+        _ = OnElementReactor(owner, applier);
     }
 
-    private static async Task OnElementReactor(Creature owner)
+    private static async Task OnElementReactor(Creature owner, Creature? applier)
     {
         if (owner.CombatState == null) return;
         foreach (var player in owner.CombatState.Players)

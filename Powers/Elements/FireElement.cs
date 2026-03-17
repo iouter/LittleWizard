@@ -25,7 +25,7 @@ public class FireElement : BaseElement
     }
 
     public override bool TryModifyPowerAmountReceived(PowerModel canonicalPower, Creature target, decimal amount,
-        Creature applier,
+        Creature? applier,
         out decimal modifiedAmount)
     {
         if (target != Owner)
@@ -38,13 +38,13 @@ public class FireElement : BaseElement
         {
             case WaterElement water:
             {
-                ElementHelper.FireAndWater(Owner, Amount, amount);
+                ElementHelper.FireAndWater(Owner, Amount, amount, applier);
                 modifiedAmount = 0;
                 return true;
             }
             case EarthElement earth:
             {
-                ElementHelper.FireAndEarth(Owner, Amount, amount);
+                ElementHelper.FireAndEarth(Owner, Amount, amount, applier);
                 modifiedAmount = 0;
                 return true;
             }
