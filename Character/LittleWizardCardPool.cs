@@ -7,8 +7,8 @@ namespace LittleWizard.Character;
 public class LittleWizardCardPool : CustomCardPoolModel
 {
 	public override string Title => LittleWizard.InnerName;
-    public override string BigEnergyIconPath => "D:/sts2_project/LittleWizard_beta/LittleWizard/images/ui/combat/LittleWizard_energy_icon.png";
-    public override string TextEnergyIconPath => "D:/sts2_project/LittleWizard_beta/LittleWizard/images/ui/combat/text_LittleWizard_energy_icon.png";
+    public override string BigEnergyIconPath => "res://LittleWizard/images/ui/combat/LittleWizard_energy_icon.png";
+    public override string TextEnergyIconPath => "res://LittleWizard/images/ui/combat//text_LittleWizard_energy_icon.png";
 	public override string EnergyColorName => LittleWizard.InnerName;
 
     public override Color ShaderColor => new("384A61");
