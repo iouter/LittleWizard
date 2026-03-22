@@ -40,7 +40,9 @@ public class LittleWizard : PlaceholderCharacterModel
     ];
 
     public override CustomEnergyCounter? CustomEnergyCounter => new
-        CustomEnergyCounter(i => "res://LittleWizard/images/ui/combat/energy_counters/LittleWizard/LittleWizard_orb_layer_" + i + ".png", 
-            new Color(0.4f, 0.1f, 0.9f), 
+        CustomEnergyCounter(
+            i => "res://LittleWizard/images/ui/combat/energy_counters/LittleWizard/LittleWizard_orb_layer_" + i +
+                 ".png",
+            new Color(0.4f, 0.1f, 0.9f),
             new Color(0.7f, 0.1f, 0.9f));
 }
