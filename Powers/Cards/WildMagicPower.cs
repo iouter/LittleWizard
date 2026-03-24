@@ -1,4 +1,5 @@
 using LittleWizard.Api;
+using LittleWizard.Api.Powers;
 using LittleWizard.Powers.Elements;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;

@@ -1,4 +1,5 @@
-using LittleWizard.Interface;
+using LittleWizard.Api.Interface;
+using LittleWizard.Powers.Elements;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -7,7 +8,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace LittleWizard.Powers.Elements;
+namespace LittleWizard.Api.Powers;
 
 public static class ElementHelper
 {

@@ -1,6 +1,6 @@
 using MegaCrit.Sts2.Core.Entities.Creatures;
 
-namespace LittleWizard.Interface;
+namespace LittleWizard.Api.Interface;
 
 public interface IAfterElementReactor
 {

@@ -1,5 +1,6 @@
 using LittleWizard.Api;
-using LittleWizard.Interface;
+using LittleWizard.Api.Cards;
+using LittleWizard.Api.Interface;
 using LittleWizard.Powers.Elements;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;

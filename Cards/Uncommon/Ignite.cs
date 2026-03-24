@@ -1,7 +1,8 @@
 using System.Diagnostics;
 using BaseLib.Utils;
 using LittleWizard.Api;
-using LittleWizard.Interface;
+using LittleWizard.Api.Cards;
+using LittleWizard.Api.Interface;
 using LittleWizard.Powers.Cards;
 using LittleWizard.Powers.Elements;
 using MegaCrit.Sts2.Core.Entities.Cards;
