@@ -3,7 +3,7 @@ using BaseLib.Utils;
 using LittleWizard.Character;
 using MegaCrit.Sts2.Core.Entities.Cards;
 
-namespace LittleWizard.Cards;
+namespace LittleWizard.Api.Cards;
 
 [Pool(typeof(LittleWizardCardPool))]
 public abstract class LittleWizardCard(

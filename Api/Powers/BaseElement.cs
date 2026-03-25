@@ -2,7 +2,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Models;
 
-namespace LittleWizard.Powers.Elements;
+namespace LittleWizard.Api.Powers;
 
 public abstract class BaseElement : LittleWizardPower
 {

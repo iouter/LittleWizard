@@ -1,7 +1,8 @@
 using BaseLib.Utils;
+using LittleWizard.Api.Cards;
 using LittleWizard.Api.DynamicVars;
-using LittleWizard.Interface;
-using LittleWizard.Powers.Elements;
+using LittleWizard.Api.Interface;
+using LittleWizard.Api.Powers;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;

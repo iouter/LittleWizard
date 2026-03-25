@@ -1,3 +1,4 @@
+using LittleWizard.Api.Cards;
 using LittleWizard.Character;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;

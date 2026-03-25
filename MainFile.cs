@@ -7,7 +7,6 @@ using Logger = MegaCrit.Sts2.Core.Logging.Logger;
 namespace LittleWizard;
 
 [ModInitializer(nameof(Initialize))]
-
 public partial class MainFile : Node
 {
     private const string ModId = "LittleWizard"; //At the moment, this is used only for the Logger and harmony names.

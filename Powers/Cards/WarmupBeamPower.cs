@@ -1,4 +1,4 @@
-using LittleWizard.Powers.Elements;
+using LittleWizard.Api.Powers;
 
 namespace LittleWizard.Powers.Cards;
 

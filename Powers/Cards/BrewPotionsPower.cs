@@ -1,3 +1,4 @@
+using LittleWizard.Api.Powers;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;

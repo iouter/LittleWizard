@@ -1,7 +1,7 @@
 using BaseLib.Abstracts;
 using BaseLib.Extensions;
 
-namespace LittleWizard.Powers;
+namespace LittleWizard.Api.Powers;
 
 public abstract class LittleWizardPower : CustomPowerModel
 {
