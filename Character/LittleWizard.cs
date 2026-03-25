@@ -46,4 +46,8 @@ public class LittleWizard : PlaceholderCharacterModel
 		return
     "res://LittleWizard/images/ui/combat/energy_counters/LittleWizard/LittleWizard_orb_layer_" + i +".png";
 	}
+    public override string CustomTrailPath => "";
+    public override string CustomIconPath => "res://LittleWizard/scenes/LittleWizard/LittleWizard_icon.tscn";
+    public override string CustomIconTexturePath => "res://LittleWizard/images/LittleWizard/character_icon_LittleWizard.png";
+    public override string CustomCharacterSelectIconPath => "res://LittleWizard/images/ui/top_panel/character_icon_LittleWizard_outline.png";
 }

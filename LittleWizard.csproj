@@ -69,8 +69,8 @@
 
     <ItemGroup>
 
-        <PackageReference Include="Alchyr.Sts2.BaseLib" Version="0.1.3" PrivateAssets="All"/>
-        <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="0.1.4"/>
+        <PackageReference Include="Alchyr.Sts2.BaseLib" Version="0.2.0" PrivateAssets="All" />
+        <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="0.1.6" />
         <AdditionalFiles Include="LittleWizard/localization/**/*.json"/>
     </ItemGroup>
 
