@@ -94,5 +94,8 @@
   "LITTLEWIZARD-WILD_MAGIC_POWER.description": "",
   "LITTLEWIZARD-BREW_POTIONS_POWER.title": "BrewPotionsPower",
   "LITTLEWIZARD-BREW_POTIONS_POWER.smartDescription": "",
-  "LITTLEWIZARD-BREW_POTIONS_POWER.description": ""
+  "LITTLEWIZARD-BREW_POTIONS_POWER.description": "",
+  "LITTLEWIZARD-WATER_VAPOUR_POWER.description": "",
+  "LITTLEWIZARD-WATER_VAPOUR_POWER.smartDescription": "",
+  "LITTLEWIZARD-WATER_VAPOUR_POWER.title": "WaterVapourPower"
 }

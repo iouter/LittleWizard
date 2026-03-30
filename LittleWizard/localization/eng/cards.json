@@ -189,5 +189,9 @@
   "LITTLEWIZARD-IGNITE.description": "",
   "LITTLEWIZARD-IGNITE.title": "Ignite",
   "LITTLEWIZARD-RETRAIN.title": "Retrain",
-  "LITTLEWIZARD-RETRAIN.description": ""
+  "LITTLEWIZARD-RETRAIN.description": "",
+  "LITTLEWIZARD-WATER_VAPOUR.description": "",
+  "LITTLEWIZARD-WATER_VAPOUR.title": "WaterVapour",
+  "LITTLEWIZARD-SHORT_CIRCUIT_STRIKE.description": "",
+  "LITTLEWIZARD-SHORT_CIRCUIT_STRIKE.title": "ShortCircuitStrike"
 }

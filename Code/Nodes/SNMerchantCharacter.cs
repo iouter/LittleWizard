@@ -20,7 +20,7 @@ public partial class SNMerchantCharacter : NMerchantCharacter
         var spineBody = new MegaSprite((Variant)(GodotObject)GetChild(0));
         spineBody.SetNormalMaterial(premultMat);
 
-        
+
         PlayAnimation("Idle", true);
     }
 }

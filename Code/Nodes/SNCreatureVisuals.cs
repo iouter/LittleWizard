@@ -25,7 +25,7 @@ public partial class SNCreatureVisuals : NCreatureVisuals
 
         if (SpineBody != null)
             SpineBody.SetNormalMaterial(premultMat);
-        
+
 
         //StancePower.EnsureEyeSetup(Body);
     }
