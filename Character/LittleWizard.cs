@@ -34,15 +34,19 @@ public class LittleWizard : PlaceholderCharacterModel
         ModelDb.Card<Callback>()
     ];
 
-    public override IReadOnlyList<RelicModel> StartingRelics =>
-    [
-        ModelDb.Relic<FireElementGem>()
-    ];
-
-    public override CustomEnergyCounter? CustomEnergyCounter => new
-        CustomEnergyCounter(
-            i => "res://LittleWizard/images/ui/combat/energy_counters/LittleWizard/LittleWizard_orb_layer_" + i +
-                 ".png",
-            new Color(0.4f, 0.1f, 0.9f),
-            new Color(0.7f, 0.1f, 0.9f));
+	public override IReadOnlyList<RelicModel> StartingRelics =>
+	[
+		ModelDb.Relic<FireElementGem>()
+	];
+	public override CustomEnergyCounter? CustomEnergyCounter => new
+	CustomEnergyCounter(EnergyCounterPaths,new Color(0.4f,0.1f,0.9f),new Color(0.7f,0.1f,0.9f));
+	private string EnergyCounterPaths(int i)
+	{
+		return
+    "res://LittleWizard/images/ui/combat/energy_counters/LittleWizard/LittleWizard_orb_layer_" + i +".png";
+	}
+    public override string CustomTrailPath => "";
+    public override string CustomIconPath => "res://LittleWizard/scenes/LittleWizard/LittleWizard_icon.tscn";
+    public override string CustomIconTexturePath => "res://LittleWizard/images/LittleWizard/character_icon_LittleWizard.png";
+    public override string CustomCharacterSelectIconPath => "res://LittleWizard/images/ui/top_panel/character_icon_LittleWizard_outline.png";
 }
