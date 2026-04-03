@@ -193,5 +193,8 @@
   "LITTLEWIZARD-SHORT_CIRCUIT_WATER_BALL.description": "",
   "LITTLEWIZARD-SHORT_CIRCUIT_WATER_BALL.title": "ShortCircuitWaterBall",
   "LITTLEWIZARD-REBIRTH_CEREMONY.description": "",
-  "LITTLEWIZARD-REBIRTH_CEREMONY.title": "RebirthCeremony"
+  "LITTLEWIZARD-REBIRTH_CEREMONY.title": "RebirthCeremony",
+  "LITTLEWIZARD-TURNBACK.description": "",
+  "LITTLEWIZARD-TURNBACK.title": "Turnback",
+  "LITTLEWIZARD-TURNBACK.selectionScreenPrompt": ""
 }
