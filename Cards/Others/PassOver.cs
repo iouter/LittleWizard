@@ -11,6 +11,8 @@ namespace LittleWizard.Cards.Others;
 [Pool(typeof(TokenCardPool))]
 public class PassOver() : CustomCardModel(1, CardType.Skill, CardRarity.Token, TargetType.Self)
 {
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         IEnumerable<CardModel> cards = PileType.Hand.GetPile(Owner).Cards;

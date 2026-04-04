@@ -13,13 +13,14 @@ public class Recall() : LittleWizardCard(1, CardType.Power, CardRarity.Rare, Tar
         new CardsVar(15)
     ];
 
-    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    protected override Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         foreach (var card in PileType.Hand.GetPile(Owner).Cards.Where(c => c.IsUpgradable))
             CardCmd.Upgrade(card);
+        return Task.CompletedTask;
     }
 
-    protected override async void OnUpgrade()
+    protected override void OnUpgrade()
     {
         EnergyCost.UpgradeBy(-1);
     }
