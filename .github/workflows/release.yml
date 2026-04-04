@@ -32,7 +32,7 @@ jobs:
         run: dotnet publish -c Release --no-restore
         env:
           GodotPath: ${{ steps.godot-path.outputs.GODOT_EXE }}
-          ModsPath: ${{ github.workspace }}/mods_output
+          ModsPath: ${{ github.workspace }}/mods_output/
       - name: Package Release Artifacts
         run: |
           cd mods_output/LittleWizard
