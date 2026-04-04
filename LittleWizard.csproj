@@ -7,7 +7,7 @@
         <DefaultItemExcludes>packages/**</DefaultItemExcludes>
         <AppOutputBase>$(MSBuildProjectDirectory)\</AppOutputBase>
         <PathMap>$(AppOutputBase)=.\</PathMap>
-        <Version>0.1.1</Version>
+        <Version>0.3.0</Version>
         <Authors>iouter, w_s_L</Authors>
     </PropertyGroup>
 
@@ -68,7 +68,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-
         <PackageReference Include="Alchyr.Sts2.BaseLib" Version="0.2.0" PrivateAssets="All"/>
         <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="0.1.6"/>
         <AdditionalFiles Include="LittleWizard/localization/**/*.json"/>
