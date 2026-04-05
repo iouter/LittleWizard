@@ -32,10 +32,9 @@ jobs:
         run: |
           wget -O spine.zip "https://spine-godot.s3.eu-central-1.amazonaws.com/4.2/4.5.1-stable/spine-godot-extension-4.2-4.5.1-stable.zip"
           unzip spine.zip -d spine_temp
-          mkdir -p bin
-          cp -r spine_temp/bin/* /home/runner/work/LittleWizard/LittleWizard/bin/
-          ls -l /home/runner/work/LittleWizard/LittleWizard
-          ls -l /home/runner/work/LittleWizard/LittleWizard/bin/
+          mkdir -p "${{ github.workspace }}/bin"
+          cp -r spine_temp/bin/* "${{ github.workspace }}/bin/"
+          ls -l "${{ github.workspace }}/bin/"
       - name: Publish
         run: dotnet publish -c Release --no-restore
         env:
