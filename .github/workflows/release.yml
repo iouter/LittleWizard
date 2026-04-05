@@ -35,7 +35,7 @@ jobs:
           mkdir -p "${{ github.workspace }}/bin"
           cp -r spine_temp/bin/* "${{ github.workspace }}/bin/"
       - name: Pre-load Godot project to initialize GDExtensions
-        run: godot --headless --quit
+        run: godot --headless --editor --quit
       - name: Publish
         run: dotnet publish -c Release --no-restore
         env:
