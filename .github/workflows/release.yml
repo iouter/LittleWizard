@@ -38,7 +38,7 @@ jobs:
           wget -O spine.zip "https://spine-godot.s3.eu-central-1.amazonaws.com/4.2/4.5.1-stable/spine-godot-extension-4.2-4.5.1-stable.zip"
           unzip spine.zip -d spine_temp
       - name: Publish
-        run: dotnet publish -c Release --no-restore
+        run: dotnet publish -c Release
         env:
           GodotPath: ${{ steps.godot-path.outputs.GODOT_EXE }}
           ModsPath: ${{ github.workspace }}/mods_output/
