@@ -1,0 +1,16 @@
+{
+  "LITTLEWIZARD-LITTLE_WIZARD.titleObject": "The LittleWizard",
+  "LITTLEWIZARD-LITTLE_WIZARD.possessiveAdjective": "his/her/its",
+  "LITTLEWIZARD-LITTLE_WIZARD.goldMonologue": "Line spoken when obtaining a large amount of gold",
+  "LITTLEWIZARD-LITTLE_WIZARD.aromaPrinciple": "Lore",
+  "LITTLEWIZARD-LITTLE_WIZARD.pronounPossessive": "his/hers/its",
+  "LITTLEWIZARD-LITTLE_WIZARD.pronounObject": "him/her/it",
+  "LITTLEWIZARD-LITTLE_WIZARD.banter.dead.endTurnPing": "...",
+  "LITTLEWIZARD-LITTLE_WIZARD.eventDeathPrevention": "Co-op survival line",
+  "LITTLEWIZARD-LITTLE_WIZARD.title": "The LittleWizard",
+  "LITTLEWIZARD-LITTLE_WIZARD.cardsModifierTitle": "__ Cards",
+  "LITTLEWIZARD-LITTLE_WIZARD.pronounSubject": "he/she/it",
+  "LITTLEWIZARD-LITTLE_WIZARD.cardsModifierDescription": "__ cards will now appear in rewards and shops.",
+  "LITTLEWIZARD-LITTLE_WIZARD.description": "Character Selection\nScreen Description",
+  "LITTLEWIZARD-LITTLE_WIZARD.banter.alive.endTurnPing": "Co-op hurry up end turn ping message"
+}
