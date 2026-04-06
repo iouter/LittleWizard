@@ -14,7 +14,8 @@ public class WaterUnderTheBridgePower : LittleWizardPower
 
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner.Creature != Owner) return;
+        if (cardPlay.Card.Owner.Creature != Owner)
+            return;
         if (cardPlay.Card.CanonicalKeywords.Contains(CardKeyword.Ethereal))
             await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Move, cardPlay);
     }

@@ -8,12 +8,11 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.Cards.Uncommon;
 
-public class ManagerMaster() : LittleWizardCard(0, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+public class ManagerMaster()
+    : LittleWizardCard(0, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new PowerVar<ManagerMasterPower>(1)
-    ];
+        [new PowerVar<ManagerMasterPower>(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

@@ -10,14 +10,16 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace LittleWizard.Cards.Uncommon;
 
-public class WaterVapour() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class WaterVapour()
+    : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WaterVapourPower>(2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         var target = cardPlay.Target;
-        if (target is null) return;
+        if (target is null)
+            return;
 
         var artifact = target.GetPowerAmount<ArtifactPower>();
         if (artifact > 0)

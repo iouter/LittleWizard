@@ -13,12 +13,17 @@ public class ManagerMasterPower : LittleWizardPower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Single;
 
-    public override async Task AfterCardExhausted(PlayerChoiceContext choiceContext, CardModel card,
-        bool causedByEthereal)
+    public override async Task AfterCardExhausted(
+        PlayerChoiceContext choiceContext,
+        CardModel card,
+        bool causedByEthereal
+    )
     {
-        if (Owner.Player == null || card.Owner != Owner.Player) return;
+        if (Owner.Player == null || card.Owner != Owner.Player)
+            return;
 
-        if (causedByEthereal) await PowerCmd.Remove(this);
+        if (causedByEthereal)
+            await PowerCmd.Remove(this);
     }
 
     public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
@@ -29,7 +34,12 @@ public class ManagerMasterPower : LittleWizardPower
             return;
         }
 
-        await PowerCmd.Apply<EnergyNextTurnPower>(Owner.Player.Creature, Amount, Owner.Player.Creature, null);
+        await PowerCmd.Apply<EnergyNextTurnPower>(
+            Owner.Player.Creature,
+            Amount,
+            Owner.Player.Creature,
+            null
+        );
         await PowerCmd.Remove(this);
     }
 }

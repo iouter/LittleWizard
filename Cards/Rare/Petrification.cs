@@ -13,10 +13,7 @@ public class Petrification() : LittleWizardCard(1, CardType.Skill, CardRarity.Ra
     private decimal _extraBlockFromPlays;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new BlockVar(6, ValueProp.Move),
-        new(IncreasedBlock, 6)
-    ];
+        [new BlockVar(6, ValueProp.Move), new(IncreasedBlock, 6)];
 
     private decimal ExtraBlockFromPlays
     {
@@ -31,9 +28,11 @@ public class Petrification() : LittleWizardCard(1, CardType.Skill, CardRarity.Ra
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CommonActions.CardBlock(this, cardPlay);
-        if (Owner.PlayerCombatState == null) return;
+        if (Owner.PlayerCombatState == null)
+            return;
         var played = Owner.PlayerCombatState.AllCards.OfType<Petrification>();
-        foreach (var play in played) play.BuffFromPlay(DynamicVars[IncreasedBlock].BaseValue);
+        foreach (var play in played)
+            play.BuffFromPlay(DynamicVars[IncreasedBlock].BaseValue);
     }
 
     protected override void AfterDowngraded()

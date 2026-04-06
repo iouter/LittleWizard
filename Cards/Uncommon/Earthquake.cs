@@ -17,12 +17,12 @@ public class Earthquake()
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new DamageVar(5, ValueProp.Move),
-        new PowerVar<EarthElement>(3),
-        new PowerVar<VulnerablePower>(1),
-        new PowerVar<WeakPower>(1)
-    ];
+        [
+            new DamageVar(5, ValueProp.Move),
+            new PowerVar<EarthElement>(3),
+            new PowerVar<VulnerablePower>(1),
+            new PowerVar<WeakPower>(1),
+        ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {

@@ -17,12 +17,17 @@ public sealed class FireElementGem : LittleWizardRelics
     public override async Task BeforeSideTurnStart(
         PlayerChoiceContext choiceContext,
         CombatSide side,
-        CombatState combatState)
+        CombatState combatState
+    )
     {
         if (side != Owner.Creature.Side || combatState.RoundNumber > 1)
             return;
         Flash();
-        await PowerCmd.Apply<FireElement>(combatState.HittableEnemies, DynamicVars["FireElement"].BaseValue,
-            Owner.Creature, null);
+        await PowerCmd.Apply<FireElement>(
+            combatState.HittableEnemies,
+            DynamicVars["FireElement"].BaseValue,
+            Owner.Creature,
+            null
+        );
     }
 }

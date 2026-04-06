@@ -8,10 +8,7 @@ namespace LittleWizard.Cards.Rare;
 
 public class Recall() : LittleWizardCard(1, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new CardsVar(15)
-    ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(15)];
 
     protected override Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

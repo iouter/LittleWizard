@@ -13,11 +13,20 @@ public abstract class BaseMoreElementPower : CustomPowerModel
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override bool TryModifyPowerAmountReceived(PowerModel canonicalPower, Creature target, decimal amount,
+    public override bool TryModifyPowerAmountReceived(
+        PowerModel canonicalPower,
+        Creature target,
+        decimal amount,
         Creature? applier,
-        out decimal modifiedAmount)
+        out decimal modifiedAmount
+    )
     {
-        if (amount == 0 || canonicalPower is not BaseElement || !canonicalPower.Owner.IsEnemy || applier != Owner)
+        if (
+            amount == 0
+            || canonicalPower is not BaseElement
+            || !canonicalPower.Owner.IsEnemy
+            || applier != Owner
+        )
         {
             modifiedAmount = amount;
             return false;

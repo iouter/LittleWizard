@@ -15,24 +15,22 @@ public class WaterBlade()
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new PowerVar<WaterElement>(6)
-    ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WaterElement>(6)];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords =>
-    [
-        CardKeyword.Exhaust
-    ];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         Debug.Assert(CombatState != null, nameof(CombatState) + " != null");
         foreach (var enemy in CombatState.HittableEnemies)
         {
-            if (enemy.GetPowerAmount<WaterElement>() <
-                DynamicVarsHelper.GetPowerVar<WaterElement>(DynamicVars).BaseValue) continue;
-            if (enemy.Block > 0) await CreatureCmd.LoseBlock(enemy, enemy.Block);
+            if (
+                enemy.GetPowerAmount<WaterElement>()
+                < DynamicVarsHelper.GetPowerVar<WaterElement>(DynamicVars).BaseValue
+            )
+                continue;
+            if (enemy.Block > 0)
+                await CreatureCmd.LoseBlock(enemy, enemy.Block);
         }
     }
 

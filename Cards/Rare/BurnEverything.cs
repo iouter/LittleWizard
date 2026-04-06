@@ -18,16 +18,15 @@ public class BurnEverything()
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new PowerVar<FireElement>(4),
-        new PowerVar<BurnEverythingPower>(4)
-    ];
+        [new PowerVar<FireElement>(4), new PowerVar<BurnEverythingPower>(4)];
 
     protected override bool HasEnergyCostX => true;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var xValue = DynamicVarsHelper.GetPowerVar<FireElement>(DynamicVars).BaseValue * ResolveEnergyXValue();
+        var xValue =
+            DynamicVarsHelper.GetPowerVar<FireElement>(DynamicVars).BaseValue
+            * ResolveEnergyXValue();
         Debug.Assert(CombatState != null, nameof(CombatState) + " != null");
         foreach (var enemy in CombatState.Enemies)
             await PowerCmd.Apply<FireElement>(enemy, xValue, Owner.Creature, this);

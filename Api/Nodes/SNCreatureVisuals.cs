@@ -20,11 +20,10 @@ public partial class SNCreatureVisuals : NCreatureVisuals
         // so the spine sprite must use PremultAlpha blend mode
         var premultMat = new CanvasItemMaterial
         {
-            BlendMode = CanvasItemMaterial.BlendModeEnum.PremultAlpha
+            BlendMode = CanvasItemMaterial.BlendModeEnum.PremultAlpha,
         };
 
         SpineBody?.SetNormalMaterial(premultMat);
-
 
         //StancePower.EnsureEyeSetup(Body);
     }
@@ -32,13 +31,16 @@ public partial class SNCreatureVisuals : NCreatureVisuals
     public void InitEye(MegaSprite controller)
     {
         _eyeBone = controller.GetSkeleton()?.FindBone("eye_anchor");
-        controller.ConnectWorldTransformsChanged(Callable.From<Variant>(OnEyeWorldTransformsChanged));
+        controller.ConnectWorldTransformsChanged(
+            Callable.From<Variant>(OnEyeWorldTransformsChanged)
+        );
         GetTree().ProcessFrame += SetupEye;
     }
 
     private void SetupEye()
     {
-        if (_eyeSetupDone) return;
+        if (_eyeSetupDone)
+            return;
         _eyeSetupDone = true;
         GetTree().ProcessFrame -= SetupEye;
 
@@ -55,7 +57,8 @@ public partial class SNCreatureVisuals : NCreatureVisuals
 
     private void OnEyeWorldTransformsChanged(Variant _)
     {
-        if (_eyeNode == null || _eyeBone == null) return;
+        if (_eyeNode == null || _eyeBone == null)
+            return;
         var worldX = _eyeBone.BoundObject.Call("get_world_x").As<float>();
         var worldY = _eyeBone.BoundObject.Call("get_world_y").As<float>();
         _eyeNode.Position = new Vector2(worldX, worldY);

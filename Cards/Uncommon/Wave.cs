@@ -11,15 +11,13 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.Cards.Uncommon;
 
-public class Wave() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies)
+public class Wave()
+    : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new BlockVar(6, ValueProp.Move),
-        new PowerVar<WaterElement>(1)
-    ];
+        [new BlockVar(6, ValueProp.Move), new PowerVar<WaterElement>(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

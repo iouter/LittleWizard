@@ -19,11 +19,20 @@ public abstract class BaseBannedPower<T> : LittleWizardPower
         await PowerCmd.Decrement(this);
     }
 
-    public override bool TryModifyPowerAmountReceived(PowerModel canonicalPower, Creature target, decimal amount,
+    public override bool TryModifyPowerAmountReceived(
+        PowerModel canonicalPower,
+        Creature target,
+        decimal amount,
         Creature? applier,
-        out decimal modifiedAmount)
+        out decimal modifiedAmount
+    )
     {
-        if (amount == 0 || canonicalPower is not T || !canonicalPower.Owner.IsEnemy || applier != Owner)
+        if (
+            amount == 0
+            || canonicalPower is not T
+            || !canonicalPower.Owner.IsEnemy
+            || applier != Owner
+        )
         {
             modifiedAmount = amount;
             return false;

@@ -8,7 +8,8 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.Cards.Uncommon;
 
-public class DeepThought() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class DeepThought()
+    : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DeepThoughtPower>(1)];
 

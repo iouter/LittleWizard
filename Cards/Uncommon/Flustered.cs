@@ -17,7 +17,8 @@ public class Flustered() : LittleWizardCard(2, CardType.Skill, CardRarity.Uncomm
             while (handCards.Count == 10)
             {
                 var card = (await CardPileCmd.Draw(choiceContext, 1, Owner)).FirstOrDefault();
-                if (card?.EnergyCost != null && card.EnergyCost.GetResolved() == 0) break;
+                if (card?.EnergyCost != null && card.EnergyCost.GetResolved() == 0)
+                    break;
             }
         }
     }

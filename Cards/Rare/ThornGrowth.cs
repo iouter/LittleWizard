@@ -9,27 +9,38 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.Cards.Rare;
 
-public class ThornGrowth() : LittleWizardCard(0, CardType.Skill, CardRarity.Rare, TargetType.AllAllies)
+public class ThornGrowth()
+    : LittleWizardCard(0, CardType.Skill, CardRarity.Rare, TargetType.AllAllies)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new HpLossVar(2),
-        new PowerVar<ThornsPower>(4),
-        new BlockVar(5, ValueProp.Move)
-    ];
+        [new HpLossVar(2), new PowerVar<ThornsPower>(4), new BlockVar(5, ValueProp.Move)];
 
-    public override CardMultiplayerConstraint MultiplayerConstraint => CardMultiplayerConstraint.MultiplayerOnly;
+    public override CardMultiplayerConstraint MultiplayerConstraint =>
+        CardMultiplayerConstraint.MultiplayerOnly;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (CombatState == null) return;
-        foreach (var creature in CombatState.GetTeammatesOf(Owner.Creature)
-                     .Where(c => c is { IsAlive: true, IsPlayer: true }))
+        if (CombatState == null)
+            return;
+        foreach (
+            var creature in CombatState
+                .GetTeammatesOf(Owner.Creature)
+                .Where(c => c is { IsAlive: true, IsPlayer: true })
+        )
         {
-            await CreatureCmd.Damage(choiceContext, creature, DynamicVars.HpLoss.BaseValue,
-                ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, this);
-            await PowerCmd.Apply<ThornsPower>(creature,
-                DynamicVarsHelper.GetPowerVar<ThornsPower>(DynamicVars).IntValue, Owner.Creature, this);
+            await CreatureCmd.Damage(
+                choiceContext,
+                creature,
+                DynamicVars.HpLoss.BaseValue,
+                ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move,
+                this
+            );
+            await PowerCmd.Apply<ThornsPower>(
+                creature,
+                DynamicVarsHelper.GetPowerVar<ThornsPower>(DynamicVars).IntValue,
+                Owner.Creature,
+                this
+            );
             await CreatureCmd.GainBlock(creature, DynamicVars.Block, cardPlay);
         }
     }

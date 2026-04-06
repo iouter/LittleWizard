@@ -9,10 +9,7 @@ namespace LittleWizard.Cards.Rare;
 
 public class ChildBody() : LittleWizardCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new PowerVar<ChildBodyPower>(1)
-    ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ChildBodyPower>(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

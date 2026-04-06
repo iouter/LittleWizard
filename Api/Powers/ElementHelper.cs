@@ -10,10 +10,12 @@ namespace LittleWizard.Api.Powers;
 
 public static class ElementHelper
 {
-    public static async Task RandomElement(Creature target,
+    public static async Task RandomElement(
+        Creature target,
         decimal amount,
         Creature? applier,
-        CardModel? cardSource)
+        CardModel? cardSource
+    )
     {
         var randomElement = Rng.Chaotic.NextInt(0, 3);
         switch (randomElement)
@@ -36,23 +38,39 @@ public static class ElementHelper
         }
     }
 
-    public static void FireAndWater(Creature owner, decimal amountA, decimal amountB, Creature? applier)
+    public static void FireAndWater(
+        Creature owner,
+        decimal amountA,
+        decimal amountB,
+        Creature? applier
+    )
     {
         PowerCmd.Apply<FireAndWaterElementReactorPower>(owner, amountA + amountB, applier, null);
     }
 
-    public static void FireAndEarth(Creature owner, decimal amountA, decimal amountB, Creature? applier)
+    public static void FireAndEarth(
+        Creature owner,
+        decimal amountA,
+        decimal amountB,
+        Creature? applier
+    )
     {
         PowerCmd.Apply<FireAndEarthElementReactorPower>(owner, amountA * amountB, applier, null);
     }
 
-    public static void WaterAndEarth(Creature owner, decimal amountA, decimal amountB, Creature? applier)
+    public static void WaterAndEarth(
+        Creature owner,
+        decimal amountA,
+        decimal amountB,
+        Creature? applier
+    )
     {
         PowerCmd.Apply<WaterAndEarthElementReactorPower>(owner, amountA * amountB, applier, null);
     }
 
     public static bool IsElementCard(CardModel card)
     {
-        return card.Tags.Contains(CardTagExtensions.LittleWizardElement) || card.Enchantment is IElementEnchantment;
+        return card.Tags.Contains(CardTagExtensions.LittleWizardElement)
+            || card.Enchantment is IElementEnchantment;
     }
 }

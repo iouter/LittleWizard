@@ -7,28 +7,30 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
 namespace LittleWizard.Cards.Uncommon;
 
-public class ElementDraw() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class ElementDraw()
+    : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords =>
-    [
-        CardKeyword.Exhaust
-    ];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
 
         var fireAmount = cardPlay.Target.GetPowerAmount<FireElement>();
-        if (fireAmount > 0) await PowerCmd.Remove<FireElement>(cardPlay.Target);
+        if (fireAmount > 0)
+            await PowerCmd.Remove<FireElement>(cardPlay.Target);
         var waterAmount = cardPlay.Target.GetPowerAmount<WaterElement>();
-        if (waterAmount > 0) await PowerCmd.Remove<WaterElement>(cardPlay.Target);
+        if (waterAmount > 0)
+            await PowerCmd.Remove<WaterElement>(cardPlay.Target);
         var earthAmount = cardPlay.Target.GetPowerAmount<EarthElement>();
-        if (earthAmount > 0) await PowerCmd.Remove<EarthElement>(cardPlay.Target);
+        if (earthAmount > 0)
+            await PowerCmd.Remove<EarthElement>(cardPlay.Target);
 
         var totalElements = fireAmount + waterAmount + earthAmount;
-        if (totalElements > 0) await PlayerCmd.GainEnergy(totalElements, Owner);
+        if (totalElements > 0)
+            await PlayerCmd.GainEnergy(totalElements, Owner);
     }
 
     protected override void OnUpgrade()

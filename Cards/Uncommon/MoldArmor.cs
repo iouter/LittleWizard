@@ -11,15 +11,13 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.Cards.Uncommon;
 
-public class MoldArmor() : LittleWizardCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class MoldArmor()
+    : LittleWizardCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new BlockVar(8, ValueProp.Move),
-        new PowerVar<EarthElement>(6)
-    ];
+        [new BlockVar(8, ValueProp.Move), new PowerVar<EarthElement>(6)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -30,7 +28,12 @@ public class MoldArmor() : LittleWizardCard(2, CardType.Skill, CardRarity.Uncomm
         if (earthAmount >= DynamicVarsHelper.GetPowerVar<EarthElement>(DynamicVars).BaseValue)
         {
             await PowerCmd.Remove<EarthElement>(cardPlay.Target);
-            await CreatureCmd.GainBlock(Owner.Creature, cardPlay.Target.Block, ValueProp.Unpowered, cardPlay);
+            await CreatureCmd.GainBlock(
+                Owner.Creature,
+                cardPlay.Target.Block,
+                ValueProp.Unpowered,
+                cardPlay
+            );
         }
     }
 

@@ -12,10 +12,7 @@ namespace LittleWizard.Cards.Uncommon;
 public class RockWall() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new BlockVar(25, ValueProp.Move),
-        new PowerVar<RockWallPower>(2)
-    ];
+        [new BlockVar(25, ValueProp.Move), new PowerVar<RockWallPower>(2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {

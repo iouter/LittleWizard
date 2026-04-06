@@ -19,6 +19,11 @@ public sealed class FireEnchantment : EnchantmentModel, IElementEnchantment
     public override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay? cardPlay)
     {
         if (cardPlay is { Target: not null })
-            await PowerCmd.Apply<FireElement>(cardPlay.Target, 1, cardPlay.Card.Owner.Creature, cardPlay.Card);
+            await PowerCmd.Apply<FireElement>(
+                cardPlay.Target,
+                1,
+                cardPlay.Card.Owner.Creature,
+                cardPlay.Card
+            );
     }
 }

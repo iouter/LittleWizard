@@ -7,12 +7,11 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.Cards.Rare;
 
-public class ElementBlessing() : LittleWizardCard(0, CardType.Power, CardRarity.Rare, TargetType.Self)
+public class ElementBlessing()
+    : LittleWizardCard(0, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new PowerVar<ElementBlessingPower>(1)
-    ];
+        [new PowerVar<ElementBlessingPower>(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

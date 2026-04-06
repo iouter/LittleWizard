@@ -9,10 +9,7 @@ namespace LittleWizard.Cards.Rare;
 
 public class EndlessWall() : LittleWizardCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new BlockVar(11, ValueProp.Move)
-    ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(11, ValueProp.Move)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

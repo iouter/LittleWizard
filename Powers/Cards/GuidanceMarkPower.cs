@@ -20,7 +20,8 @@ public class GuidanceMarkPower : LittleWizardPower
         decimal amount,
         ValueProp props,
         Creature? dealer,
-        CardModel? cardSource)
+        CardModel? cardSource
+    )
     {
         if (target != Owner || !Utils.IsPoweredAttack(props))
             return 1M;

@@ -24,7 +24,8 @@ public class ManaBurstPower : LittleWizardPower
 
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner != Owner.Player) return;
+        if (cardPlay.Card.Owner != Owner.Player)
+            return;
         var data = GetInternalData<Data>();
         data.SkillCardsUsed += 1;
         if (data.SkillCardsUsed >= GetThreshold())

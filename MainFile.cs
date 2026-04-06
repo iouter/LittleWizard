@@ -21,7 +21,6 @@ public partial class MainFile : Node
         ScriptManagerBridge.LookupScriptsInAssembly(assembly);
     }
 
-
     public static void Initialize()
     {
         Harmony harmony = new(ModId);

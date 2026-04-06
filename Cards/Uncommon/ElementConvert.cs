@@ -39,7 +39,8 @@ public class ElementConvert()
 
     protected override PileType GetResultPileType()
     {
-        if (!IsUpgraded) return base.GetResultPileType();
+        if (!IsUpgraded)
+            return base.GetResultPileType();
         var resultPileType = base.GetResultPileType();
         return resultPileType != PileType.Discard ? resultPileType : PileType.Hand;
     }

@@ -13,7 +13,8 @@ public class WaterVapourPower : LittleWizardPower
 
     public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
     {
-        if (side != CombatSide.Enemy) return;
+        if (side != CombatSide.Enemy)
+            return;
         await PowerCmd.Apply<WaterElement>(Owner, Amount, Owner, null);
     }
 }

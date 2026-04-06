@@ -16,14 +16,26 @@ public class GatherElementsUpgradePower : LittleWizardPower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override async Task BeforeHandDraw(Player player, PlayerChoiceContext choiceContext, CombatState combatState)
+    public override async Task BeforeHandDraw(
+        Player player,
+        PlayerChoiceContext choiceContext,
+        CombatState combatState
+    )
     {
-        if (player != Owner.Player) return;
+        if (player != Owner.Player)
+            return;
 
-        var cards = CardFactory.GetDistinctForCombat(player,
-            ModelDb.CardPool<LittleWizardCardPool>().GetUnlockedCards(player.UnlockState,
-                player.RunState.CardMultiplayerConstraint).Where(ElementHelper.IsElementCard),
-            Amount, player.RunState.Rng.CombatCardSelection).ToList();
+        var cards = CardFactory
+            .GetDistinctForCombat(
+                player,
+                ModelDb
+                    .CardPool<LittleWizardCardPool>()
+                    .GetUnlockedCards(player.UnlockState, player.RunState.CardMultiplayerConstraint)
+                    .Where(ElementHelper.IsElementCard),
+                Amount,
+                player.RunState.Rng.CombatCardSelection
+            )
+            .ToList();
 
         foreach (var card in cards)
         {

@@ -7,12 +7,10 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.Cards.Rare;
 
-public class HealingCurse() : LittleWizardCard(3, CardType.Skill, CardRarity.Rare, TargetType.AnyPlayer)
+public class HealingCurse()
+    : LittleWizardCard(3, CardType.Skill, CardRarity.Rare, TargetType.AnyPlayer)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new HealVar(10)
-    ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new HealVar(10)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 

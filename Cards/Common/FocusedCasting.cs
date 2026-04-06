@@ -9,14 +9,13 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.Cards.Common;
 
-public class FocusedCasting() : LittleWizardCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class FocusedCasting()
+    : LittleWizardCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new PowerVar<FocusedCastingPower>(1)
-    ];
+        [new PowerVar<FocusedCastingPower>(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

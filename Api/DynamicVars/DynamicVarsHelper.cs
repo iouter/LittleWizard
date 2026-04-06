@@ -20,7 +20,8 @@ public static class DynamicVarsHelper
         return (ThresholdVar)varSet[ThresholdVar.DefaultName];
     }
 
-    public static PowerVar<T> GetPowerVar<T>(DynamicVarSet varSet) where T : PowerModel
+    public static PowerVar<T> GetPowerVar<T>(DynamicVarSet varSet)
+        where T : PowerModel
     {
         return (PowerVar<T>)varSet[typeof(T).Name];
     }

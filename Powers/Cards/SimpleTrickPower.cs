@@ -13,7 +13,8 @@ public class SimpleTrickPower : LittleWizardPower
     public override bool TryModifyEnergyCostInCombat(
         CardModel card,
         decimal originalCost,
-        out decimal modifiedCost)
+        out decimal modifiedCost
+    )
     {
         if (card.Type == CardType.Power)
         {

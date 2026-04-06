@@ -16,17 +16,18 @@ public sealed class ColorfulBalls()
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new DamageVar(6, ValueProp.Move),
-        new RandomElementVar(3)
-    ];
+        [new DamageVar(6, ValueProp.Move), new RandomElementVar(3)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         ArgumentNullException.ThrowIfNull(play.Target);
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
-        await ElementHelper.RandomElement(play.Target, DynamicVarsHelper.GetRandomElementVar(DynamicVars).BaseValue,
-            Owner.Creature, this);
+        await ElementHelper.RandomElement(
+            play.Target,
+            DynamicVarsHelper.GetRandomElementVar(DynamicVars).BaseValue,
+            Owner.Creature,
+            this
+        );
     }
 
     protected override void OnUpgrade()

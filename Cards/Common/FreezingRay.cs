@@ -15,12 +15,13 @@ public class FreezingRay()
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new CalculationBaseVar(6),
-        new ExtraDamageVar(1),
-        new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, target) =>
-            target?.GetPowerAmount<WaterElement>() ?? 0)
-    ];
+        [
+            new CalculationBaseVar(6),
+            new ExtraDamageVar(1),
+            new CalculatedDamageVar(ValueProp.Move).WithMultiplier(
+                (card, target) => target?.GetPowerAmount<WaterElement>() ?? 0
+            ),
+        ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

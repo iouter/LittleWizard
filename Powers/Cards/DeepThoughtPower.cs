@@ -14,8 +14,8 @@ public class DeepThoughtPower : LittleWizardPower
 
     public override bool ShouldPlayerResetEnergy(Player player)
     {
-        return player.Creature.CombatState != null &&
-               (player.Creature.CombatState.RoundNumber == 1 || player != Owner.Player);
+        return player.Creature.CombatState != null
+            && (player.Creature.CombatState.RoundNumber == 1 || player != Owner.Player);
     }
 
     public override bool ShouldFlush(Player player)

@@ -13,16 +13,22 @@ public class WaterElement : BaseElement
         decimal amount,
         ValueProp props,
         Creature? dealer,
-        CardModel? cardSource)
+        CardModel? cardSource
+    )
     {
         if (dealer != Owner || !Utils.IsPoweredAttack(props))
             return base.ModifyDamageMultiplicative(target, amount, props, dealer, cardSource);
-        return base.ModifyDamageMultiplicative(target, amount, props, dealer, cardSource) - Amount * (decimal)0.03;
+        return base.ModifyDamageMultiplicative(target, amount, props, dealer, cardSource)
+            - Amount * (decimal)0.03;
     }
 
-    public override bool TryModifyPowerAmountReceived(PowerModel canonicalPower, Creature target, decimal amount,
+    public override bool TryModifyPowerAmountReceived(
+        PowerModel canonicalPower,
+        Creature target,
+        decimal amount,
         Creature? applier,
-        out decimal modifiedAmount)
+        out decimal modifiedAmount
+    )
     {
         if (target != Owner)
         {

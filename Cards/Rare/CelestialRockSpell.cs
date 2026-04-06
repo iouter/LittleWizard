@@ -16,10 +16,7 @@ public class CelestialRockSpell()
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new DamageVar(48, ValueProp.Move),
-        new PowerVar<FireElement>(10)
-    ];
+        [new DamageVar(48, ValueProp.Move), new PowerVar<FireElement>(10)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
 

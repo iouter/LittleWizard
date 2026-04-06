@@ -7,15 +7,13 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.Cards.Common;
 
-public class TemporaryHandwriting() : LittleWizardCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class TemporaryHandwriting()
+    : LittleWizardCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     private const string ExtraCards = "ExtraCards";
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new CardsVar(1),
-        new(ExtraCards, 1)
-    ];
+        [new CardsVar(1), new(ExtraCards, 1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

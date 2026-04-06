@@ -13,13 +13,11 @@ namespace LittleWizard.Cards.Basic;
 public class StrikeFireLittleWizard()
     : LittleWizardCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
 {
-    protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike, CardTagExtensions.LittleWizardElement];
+    protected override HashSet<CardTag> CanonicalTags =>
+        [CardTag.Strike, CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new DamageVar(6, ValueProp.Move),
-        new PowerVar<FireElement>(1)
-    ];
+        [new DamageVar(6, ValueProp.Move), new PowerVar<FireElement>(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {

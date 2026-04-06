@@ -15,11 +15,10 @@ public partial class SNMerchantCharacter : NMerchantCharacter
         // so the spine sprite must use PremultAlpha blend mode
         var premultMat = new CanvasItemMaterial
         {
-            BlendMode = CanvasItemMaterial.BlendModeEnum.PremultAlpha
+            BlendMode = CanvasItemMaterial.BlendModeEnum.PremultAlpha,
         };
         var spineBody = new MegaSprite((Variant)(GodotObject)GetChild(0));
         spineBody.SetNormalMaterial(premultMat);
-
 
         PlayAnimation("relaxed_loop", true);
     }

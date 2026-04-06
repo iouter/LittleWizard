@@ -7,7 +7,8 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.Cards.Uncommon;
 
-public class FlatTumble() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class FlatTumble()
+    : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(7, ValueProp.Move)];
 

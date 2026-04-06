@@ -12,21 +12,20 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.Cards.Common;
 
-public class ShortCircuitWaterBall() : LittleWizardCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class ShortCircuitWaterBall()
+    : LittleWizardCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new DamageVar(7, ValueProp.Move),
-        new PowerVar<WaterElement>(1)
-    ];
+        [new DamageVar(7, ValueProp.Move), new PowerVar<WaterElement>(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CommonActions.CardAttack(this, cardPlay).Execute(choiceContext);
         await Utils.GivePower<WaterElement>(this, cardPlay);
-        if (cardPlay.Target != null) await PowerCmd.Remove<ArtifactPower>(cardPlay.Target);
+        if (cardPlay.Target != null)
+            await PowerCmd.Remove<ArtifactPower>(cardPlay.Target);
     }
 
     protected override void OnUpgrade()

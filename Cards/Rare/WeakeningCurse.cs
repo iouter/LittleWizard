@@ -9,13 +9,11 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.Cards.Rare;
 
-public class WeakeningCurse() : LittleWizardCard(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+public class WeakeningCurse()
+    : LittleWizardCard(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new DamageVar(11, ValueProp.Move),
-        new PowerVar<StrengthPower>(-8)
-    ];
+        [new DamageVar(11, ValueProp.Move), new PowerVar<StrengthPower>(-8)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

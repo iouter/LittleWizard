@@ -10,7 +10,12 @@ public class Prophecy() : LittleWizardCard(1, CardType.Skill, CardRarity.Common,
 {
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var card = await CommonActions.SelectSingleCard(this, SelectionScreenPrompt, choiceContext, PileType.Discard);
+        var card = await CommonActions.SelectSingleCard(
+            this,
+            SelectionScreenPrompt,
+            choiceContext,
+            PileType.Discard
+        );
         if (card == null)
             return;
         await CardPileCmd.Add(card, PileType.Draw);

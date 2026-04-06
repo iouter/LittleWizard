@@ -11,16 +11,17 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.Cards.Uncommon;
 
-public class Stalagmite() : LittleWizardCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class Stalagmite()
+    : LittleWizardCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new BlockVar(7, ValueProp.Move),
-        new DamageVar(9, ValueProp.Move),
-        new PowerVar<EarthElement>(3)
-    ];
+        [
+            new BlockVar(7, ValueProp.Move),
+            new DamageVar(9, ValueProp.Move),
+            new PowerVar<EarthElement>(3),
+        ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

@@ -12,7 +12,8 @@ public class FireElement : BaseElement
 {
     public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
     {
-        if (side != Owner.Side) return;
+        if (side != Owner.Side)
+            return;
 
         await CreatureCmd.Damage(
             new ThrowingPlayerChoiceContext(),
@@ -22,12 +23,17 @@ public class FireElement : BaseElement
             null,
             null
         );
-        if (!Owner.IsAlive) await Cmd.CustomScaledWait(0.1f, 0.25f);
+        if (!Owner.IsAlive)
+            await Cmd.CustomScaledWait(0.1f, 0.25f);
     }
 
-    public override bool TryModifyPowerAmountReceived(PowerModel canonicalPower, Creature target, decimal amount,
+    public override bool TryModifyPowerAmountReceived(
+        PowerModel canonicalPower,
+        Creature target,
+        decimal amount,
         Creature? applier,
-        out decimal modifiedAmount)
+        out decimal modifiedAmount
+    )
     {
         if (target != Owner)
         {

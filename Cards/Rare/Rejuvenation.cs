@@ -16,9 +16,13 @@ public class Rejuvenation() : LittleWizardCard(6, CardType.Power, CardRarity.Rar
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var cards = await CommonActions.SelectCards(this, CardSelectorPrefs.RemoveSelectionPrompt, choiceContext,
+        var cards = await CommonActions.SelectCards(
+            this,
+            CardSelectorPrefs.RemoveSelectionPrompt,
+            choiceContext,
             PileType.Deck,
-            DynamicVars.Cards.IntValue);
+            DynamicVars.Cards.IntValue
+        );
         foreach (var card in cards)
         {
             await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);

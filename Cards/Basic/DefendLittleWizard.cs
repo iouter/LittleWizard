@@ -7,7 +7,8 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.Cards.Basic;
 
-public class DefendLittleWizard() : LittleWizardCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
+public class DefendLittleWizard()
+    : LittleWizardCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Defend];
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(5, ValueProp.Move)];

@@ -12,15 +12,17 @@ namespace LittleWizard.Cards.Common;
 public class RestMoment() : LittleWizardCard(2, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new BlockVar(10, ValueProp.Move),
-        new EnergyVar(2)
-    ];
+        [new BlockVar(10, ValueProp.Move), new EnergyVar(2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CommonActions.CardBlock(this, cardPlay);
-        await PowerCmd.Apply<EnergyNextTurnPower>(Owner.Creature, DynamicVars.Energy.BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<EnergyNextTurnPower>(
+            Owner.Creature,
+            DynamicVars.Energy.BaseValue,
+            Owner.Creature,
+            this
+        );
     }
 
     protected override void OnUpgrade()

@@ -7,16 +7,19 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.Cards.Common;
 
-public class WandStrike() : LittleWizardCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class WandStrike()
+    : LittleWizardCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new CalculationBaseVar(8),
-        new ExtraDamageVar(8),
-        new CalculatedDamageVar(ValueProp.Move).WithMultiplier((_, target) => target is { Block: > 0 } ? 1 : 0)
-    ];
+        [
+            new CalculationBaseVar(8),
+            new ExtraDamageVar(8),
+            new CalculatedDamageVar(ValueProp.Move).WithMultiplier(
+                (_, target) => target is { Block: > 0 } ? 1 : 0
+            ),
+        ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {

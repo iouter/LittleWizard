@@ -15,20 +15,25 @@ public class BurnEverythingPower : LittleWizardPower
 
     public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
     {
-        if (side != Owner.Side) return;
+        if (side != Owner.Side)
+            return;
         await PowerCmd.Apply<FireElement>(Owner, Amount, Owner, null);
     }
 
     public override async Task BeforeDeath(Creature creature)
     {
-        if (creature != Owner) return;
+        if (creature != Owner)
+            return;
 
-        if (Owner.CombatState == null) return;
+        if (Owner.CombatState == null)
+            return;
         foreach (var enemy in Owner.CombatState.HittableEnemies)
         {
-            if (enemy.IsDead) continue;
+            if (enemy.IsDead)
+                continue;
             var fire = enemy.GetPowerAmount<FireElement>();
-            if (fire > 0) await PowerCmd.Apply<FireElement>(enemy, fire, Owner, null);
+            if (fire > 0)
+                await PowerCmd.Apply<FireElement>(enemy, fire, Owner, null);
         }
     }
 }

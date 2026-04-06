@@ -5,5 +5,6 @@ namespace LittleWizard.Api.Extensions;
 
 public static class CardTagExtensions
 {
-    [CustomEnum] public static CardTag LittleWizardElement;
+    [CustomEnum]
+    public static CardTag LittleWizardElement;
 }

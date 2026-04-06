@@ -12,20 +12,18 @@ namespace LittleWizard.Cards.Common;
 public class Whim() : LittleWizardCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new DiscardsVar(1),
-        new CardsVar(4)
-    ];
+        [new DiscardsVar(1), new CardsVar(4)];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords =>
-    [
-        CardKeyword.Exhaust
-    ];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var card = await CommonActions.SelectSingleCard(this, CardSelectorPrefs.DiscardSelectionPrompt, choiceContext,
-            PileType.Hand);
+        var card = await CommonActions.SelectSingleCard(
+            this,
+            CardSelectorPrefs.DiscardSelectionPrompt,
+            choiceContext,
+            PileType.Hand
+        );
         if (card != null)
             await CardCmd.DiscardAndDraw(choiceContext, [card], DynamicVars.Cards.IntValue);
         else

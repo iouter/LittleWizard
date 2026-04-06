@@ -15,8 +15,14 @@ public class FireAndEarthElementReactorPower : LittleWizardPower
 
     public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
-        await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), Owner, Amount, ValueProp.Unpowered, applier,
-            cardSource);
+        await CreatureCmd.Damage(
+            new ThrowingPlayerChoiceContext(),
+            Owner,
+            Amount,
+            ValueProp.Unpowered,
+            applier,
+            cardSource
+        );
         await PowerCmd.Remove(this);
     }
 }

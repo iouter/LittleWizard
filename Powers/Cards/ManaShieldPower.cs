@@ -13,16 +13,21 @@ public class ManaShieldPower : LittleWizardPower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Single;
 
-    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    public override async Task AfterPlayerTurnStart(
+        PlayerChoiceContext choiceContext,
+        Player player
+    )
     {
-        if (Owner != player.Creature) return;
+        if (Owner != player.Creature)
+            return;
 
         await CreatureCmd.GainBlock(Owner, 3, ValueProp.Move, null);
     }
 
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner != Owner.Player) return;
+        if (cardPlay.Card.Owner != Owner.Player)
+            return;
 
         var card = cardPlay.Card;
 

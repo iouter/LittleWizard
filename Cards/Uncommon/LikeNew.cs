@@ -15,20 +15,34 @@ public class LikeNew() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon
 {
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (Owner.Creature.Player == null) return;
-        var cardToExhaust = await CommonActions.SelectSingleCard(this, CardSelectorPrefs.ExhaustSelectionPrompt,
-            choiceContext, PileType.Hand);
+        if (Owner.Creature.Player == null)
+            return;
+        var cardToExhaust = await CommonActions.SelectSingleCard(
+            this,
+            CardSelectorPrefs.ExhaustSelectionPrompt,
+            choiceContext,
+            PileType.Hand
+        );
 
-        if (cardToExhaust == null) return;
+        if (cardToExhaust == null)
+            return;
         var cost = cardToExhaust.EnergyCost.GetResolved();
         await CardCmd.Exhaust(choiceContext, cardToExhaust);
 
-        var card = CardFactory.GetDistinctForCombat(Owner,
-            ModelDb.CardPool<LittleWizardCardPool>().GetUnlockedCards(Owner.UnlockState,
-                Owner.RunState.CardMultiplayerConstraint).Where(ElementHelper.IsElementCard),
-            1, Owner.Creature.Player.RunState.Rng.CombatCardSelection).FirstOrDefault();
+        var card = CardFactory
+            .GetDistinctForCombat(
+                Owner,
+                ModelDb
+                    .CardPool<LittleWizardCardPool>()
+                    .GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint)
+                    .Where(ElementHelper.IsElementCard),
+                1,
+                Owner.Creature.Player.RunState.Rng.CombatCardSelection
+            )
+            .FirstOrDefault();
 
-        if (card == null) return;
+        if (card == null)
+            return;
         card.EnergyCost.SetThisCombat(cost);
         await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, true);
     }

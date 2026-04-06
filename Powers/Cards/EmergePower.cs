@@ -10,10 +10,15 @@ public class EmergePower : AfterElementReactPower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    protected override async Task AfterElementReact(Creature owner, decimal amount, Creature? applier,
-        CardModel? cardSource)
+    protected override async Task AfterElementReact(
+        Creature owner,
+        decimal amount,
+        Creature? applier,
+        CardModel? cardSource
+    )
     {
-        if (owner != Owner) return;
+        if (owner != Owner)
+            return;
         await ElementHelper.RandomElement(owner, Amount, applier, cardSource);
     }
 }

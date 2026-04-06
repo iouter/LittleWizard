@@ -18,16 +18,28 @@ public class WildMagicPower : LittleWizardPower
         decimal amount,
         ValueProp props,
         Creature? dealer,
-        CardModel? cardSource)
+        CardModel? cardSource
+    )
     {
-        return dealer != null && (Utils.IsPoweredAttack(props) || cardSource == null ||
-                                  (dealer != Owner && !Owner.Pets.Contains(dealer)) || target == null)
+        return
+            dealer != null
+            && (
+                Utils.IsPoweredAttack(props)
+                || cardSource == null
+                || (dealer != Owner && !Owner.Pets.Contains(dealer))
+                || target == null
+            )
             ? base.ModifyDamageMultiplicative(target, amount, props, dealer, cardSource)
             : Amount;
     }
 
-    public override decimal ModifyPowerAmountGiven(PowerModel power, Creature giver, decimal amount, Creature? target,
-        CardModel? cardSource)
+    public override decimal ModifyPowerAmountGiven(
+        PowerModel power,
+        Creature giver,
+        decimal amount,
+        Creature? target,
+        CardModel? cardSource
+    )
     {
         if (giver != Owner || power is not BaseElement)
             return base.ModifyPowerAmountGiven(power, giver, amount, target, cardSource);
@@ -35,10 +47,16 @@ public class WildMagicPower : LittleWizardPower
         return Amount;
     }
 
-    public override decimal ModifyBlockMultiplicative(Creature target, decimal block, ValueProp props,
+    public override decimal ModifyBlockMultiplicative(
+        Creature target,
+        decimal block,
+        ValueProp props,
         CardModel? cardSource,
-        CardPlay? cardPlay)
+        CardPlay? cardPlay
+    )
     {
-        return target != Owner ? base.ModifyBlockMultiplicative(target, block, props, cardSource, cardPlay) : 0;
+        return target != Owner
+            ? base.ModifyBlockMultiplicative(target, block, props, cardSource, cardPlay)
+            : 0;
     }
 }

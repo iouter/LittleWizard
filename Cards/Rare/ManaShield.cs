@@ -12,9 +12,7 @@ namespace LittleWizard.Cards.Rare;
 public class ManaShield() : LittleWizardCard(0, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new BlockVar(4, ValueProp.Move), new PowerVar<ManaShieldPower>(1)
-    ];
+        [new BlockVar(4, ValueProp.Move), new PowerVar<ManaShieldPower>(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

@@ -11,7 +11,8 @@ public class ManaSurgePower : LittleWizardPower
 
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {
-        if (player.Creature != Owner) return amount;
+        if (player.Creature != Owner)
+            return amount;
         return amount + Amount;
     }
 }

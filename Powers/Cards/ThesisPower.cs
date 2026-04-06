@@ -14,7 +14,8 @@ public class ThesisPower : LittleWizardPower
     public override Task AfterPlayerTurnStartLate(PlayerChoiceContext choiceContext, Player player)
     {
         var cards = PileType.Hand.GetPile(player).Cards;
-        foreach (var card in cards) card.SetToFreeThisTurn();
+        foreach (var card in cards)
+            card.SetToFreeThisTurn();
 
         return Task.CompletedTask;
     }

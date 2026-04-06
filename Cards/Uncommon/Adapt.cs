@@ -16,17 +16,14 @@ public class Adapt() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, 
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new DamageVar(8, ValueProp.Move),
-        new PowerVar<FireElement>(1),
-        new EnergyVar(2),
-        new BlockVar(13, ValueProp.Move)
-    ];
+        [
+            new DamageVar(8, ValueProp.Move),
+            new PowerVar<FireElement>(1),
+            new EnergyVar(2),
+            new BlockVar(13, ValueProp.Move),
+        ];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords =>
-    [
-        CardKeyword.Innate
-    ];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Innate];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -50,7 +47,8 @@ public class Adapt() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, 
             return;
         }
 
-        if (earthAmount > 0) await CommonActions.CardBlock(this, cardPlay);
+        if (earthAmount > 0)
+            await CommonActions.CardBlock(this, cardPlay);
     }
 
     protected override void OnUpgrade()

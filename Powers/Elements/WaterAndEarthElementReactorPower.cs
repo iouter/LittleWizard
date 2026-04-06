@@ -14,7 +14,8 @@ public class WaterAndEarthElementReactorPower : LittleWizardPower
 
     public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
-        if (Amount > Rng.Chaotic.NextInt(0, 100)) await CreatureCmd.Stun(Owner);
+        if (Amount > Rng.Chaotic.NextInt(0, 100))
+            await CreatureCmd.Stun(Owner);
         await PowerCmd.Remove(this);
     }
 }

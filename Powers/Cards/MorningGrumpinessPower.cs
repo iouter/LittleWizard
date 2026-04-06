@@ -17,9 +17,14 @@ public class MorningGrumpinessPower : LittleWizardPower
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target,
-        DamageResult result, ValueProp props,
-        Creature? dealer, CardModel? cardSource)
+    public override async Task AfterDamageReceived(
+        PlayerChoiceContext choiceContext,
+        Creature target,
+        DamageResult result,
+        ValueProp props,
+        Creature? dealer,
+        CardModel? cardSource
+    )
     {
         if (target != Owner || !Utils.IsPoweredAttack(props) || result.UnblockedDamage <= 0)
             return;
@@ -28,7 +33,8 @@ public class MorningGrumpinessPower : LittleWizardPower
 
     public override Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        if (Owner != player.Creature) return Task.CompletedTask;
+        if (Owner != player.Creature)
+            return Task.CompletedTask;
         PlayerCmd.EndTurn(player, true);
         return Task.CompletedTask;
     }

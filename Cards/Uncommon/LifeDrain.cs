@@ -8,13 +8,11 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.Cards.Uncommon;
 
-public class LifeDrain() : LittleWizardCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class LifeDrain()
+    : LittleWizardCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new DamageVar(5, ValueProp.Unblockable),
-        new HealVar(2)
-    ];
+        [new DamageVar(5, ValueProp.Unblockable), new HealVar(2)];
 
     public override CardKeyword[] CanonicalKeywords => [CardKeyword.Ethereal, CardKeyword.Exhaust];
 

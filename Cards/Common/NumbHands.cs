@@ -9,13 +9,11 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.Cards.Common;
 
-public class NumbHands() : LittleWizardCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class NumbHands()
+    : LittleWizardCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new DamageVar(5, ValueProp.Move),
-        new PowerVar<StrengthPower>(-1)
-    ];
+        [new DamageVar(5, ValueProp.Move), new PowerVar<StrengthPower>(-1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {

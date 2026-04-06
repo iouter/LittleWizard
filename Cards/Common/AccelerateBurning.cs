@@ -16,20 +16,26 @@ public class AccelerateBurning()
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new CalculationBaseVar(1),
-        new ThresholdVar(5),
-        new CalculationExtraVar(1),
-        new CalculatedVar(CalculatedFireElement).WithMultiplier((card, target) =>
-            Math.Floor((decimal)(target?.GetPowerAmount<FireElement>() ?? 0)) /
-            DynamicVarsHelper.GetThresholdVar(card.DynamicVars).BaseValue)
-    ];
+        [
+            new CalculationBaseVar(1),
+            new ThresholdVar(5),
+            new CalculationExtraVar(1),
+            new CalculatedVar(CalculatedFireElement).WithMultiplier(
+                (card, target) =>
+                    Math.Floor((decimal)(target?.GetPowerAmount<FireElement>() ?? 0))
+                    / DynamicVarsHelper.GetThresholdVar(card.DynamicVars).BaseValue
+            ),
+        ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
-        await PowerCmd.Apply<FireElement>(cardPlay.Target,
-            ((CalculatedVar)DynamicVars[CalculatedFireElement]).Calculate(cardPlay.Target), Owner.Creature, this);
+        await PowerCmd.Apply<FireElement>(
+            cardPlay.Target,
+            ((CalculatedVar)DynamicVars[CalculatedFireElement]).Calculate(cardPlay.Target),
+            Owner.Creature,
+            this
+        );
     }
 
     protected override void OnUpgrade()

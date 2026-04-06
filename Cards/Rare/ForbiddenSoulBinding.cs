@@ -7,20 +7,25 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.Cards.Rare;
 
-public class ForbiddenSoulBinding() : LittleWizardCard(2, CardType.Skill, CardRarity.Rare, TargetType.AnyEnemy)
+public class ForbiddenSoulBinding()
+    : LittleWizardCard(2, CardType.Skill, CardRarity.Rare, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new CalculationBaseVar(15),
-        new ExtraDamageVar(1),
-        new CalculatedDamageVar(ValueProp.Unblockable).WithMultiplier((card, target) => target?.Block ?? 0)
-    ];
+        [
+            new CalculationBaseVar(15),
+            new ExtraDamageVar(1),
+            new CalculatedDamageVar(ValueProp.Unblockable).WithMultiplier(
+                (card, target) => target?.Block ?? 0
+            ),
+        ];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal, CardKeyword.Exhaust];
+    public override IEnumerable<CardKeyword> CanonicalKeywords =>
+        [CardKeyword.Ethereal, CardKeyword.Exhaust];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Target == null) return;
+        if (cardPlay.Target == null)
+            return;
         await CommonActions.CardAttack(this, cardPlay).Execute(choiceContext);
     }
 

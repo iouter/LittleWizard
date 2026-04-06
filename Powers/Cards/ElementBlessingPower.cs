@@ -13,7 +13,8 @@ public class ElementBlessingPower : LittleWizardPower
 
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner != Owner.Player) return;
+        if (cardPlay.Card.Owner != Owner.Player)
+            return;
 
         var card = cardPlay.Card;
 

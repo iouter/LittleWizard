@@ -19,6 +19,11 @@ public sealed class EarthEnchantment : EnchantmentModel, IElementEnchantment
     public override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay? cardPlay)
     {
         if (cardPlay is { Target: not null })
-            await PowerCmd.Apply<EarthElement>(cardPlay.Target, Amount, cardPlay.Card.Owner.Creature, cardPlay.Card);
+            await PowerCmd.Apply<EarthElement>(
+                cardPlay.Target,
+                Amount,
+                cardPlay.Card.Owner.Creature,
+                cardPlay.Card
+            );
     }
 }

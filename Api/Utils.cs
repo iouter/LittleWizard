@@ -11,31 +11,47 @@ namespace LittleWizard.Api;
 
 public static class Utils
 {
-    public static async Task GivePower<T>(Creature target, DynamicVarSet varSet, Creature? applier, CardModel cardModel)
+    public static async Task GivePower<T>(
+        Creature target,
+        DynamicVarSet varSet,
+        Creature? applier,
+        CardModel cardModel
+    )
         where T : PowerModel
     {
-        await PowerCmd.Apply<T>(target, DynamicVarsHelper.GetPowerVar<T>(varSet).BaseValue, applier, cardModel);
+        await PowerCmd.Apply<T>(
+            target,
+            DynamicVarsHelper.GetPowerVar<T>(varSet).BaseValue,
+            applier,
+            cardModel
+        );
     }
 
-    public static async Task GivePower<T>(CardModel cardModel, CardPlay play) where T : PowerModel
+    public static async Task GivePower<T>(CardModel cardModel, CardPlay play)
+        where T : PowerModel
     {
         switch (cardModel.TargetType)
         {
             case TargetType.Self:
             {
-                await GivePower<T>(cardModel.Owner.Creature,
+                await GivePower<T>(
+                    cardModel.Owner.Creature,
                     cardModel.DynamicVars,
                     cardModel.Owner.Creature,
-                    cardModel);
+                    cardModel
+                );
                 return;
             }
             case TargetType.AllEnemies:
             {
                 Debug.Assert(cardModel.CombatState != null);
                 foreach (var enemy in cardModel.CombatState.HittableEnemies)
-                    await GivePower<T>(enemy, cardModel.DynamicVars,
+                    await GivePower<T>(
+                        enemy,
+                        cardModel.DynamicVars,
                         cardModel.Owner.Creature,
-                        cardModel);
+                        cardModel
+                    );
                 return;
             }
             case TargetType.RandomEnemy:
@@ -43,11 +59,14 @@ public static class Utils
                 Debug.Assert(cardModel.CombatState != null);
                 var targets = cardModel.CombatState.HittableEnemies;
                 var target = cardModel.Owner.RunState.Rng.CombatTargets.NextItem(targets);
-                if (target == null) return;
-                await GivePower<T>(target,
+                if (target == null)
+                    return;
+                await GivePower<T>(
+                    target,
                     cardModel.DynamicVars,
                     cardModel.Owner.Creature,
-                    cardModel);
+                    cardModel
+                );
                 return;
             }
             case TargetType.None:
@@ -60,10 +79,12 @@ public static class Utils
             default:
             {
                 Debug.Assert(play.Target != null);
-                await GivePower<T>(play.Target,
+                await GivePower<T>(
+                    play.Target,
                     cardModel.DynamicVars,
                     cardModel.Owner.Creature,
-                    cardModel);
+                    cardModel
+                );
                 return;
             }
         }

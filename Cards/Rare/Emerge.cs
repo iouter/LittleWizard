@@ -10,10 +10,7 @@ namespace LittleWizard.Cards.Rare;
 
 public class Emerge() : LittleWizardCard(1, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new PowerVar<EmergePower>(3)
-    ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<EmergePower>(3)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

@@ -16,10 +16,7 @@ public class HugeFireball()
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new DamageVar(24, ValueProp.Move),
-        new PowerVar<FireElement>(3)
-    ];
+        [new DamageVar(24, ValueProp.Move), new PowerVar<FireElement>(3)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

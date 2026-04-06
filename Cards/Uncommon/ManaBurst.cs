@@ -11,16 +11,17 @@ namespace LittleWizard.Cards.Uncommon;
 
 public class ManaBurst() : LittleWizardCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new PowerVar<ManaBurstPower>(1)
-    ];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ManaBurstPower>(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (IsUpgraded)
-            await PowerCmd.Apply<ManaBurstUpgradePower>(Owner.Creature,
-                DynamicVarsHelper.GetPowerVar<ManaBurstPower>(DynamicVars).BaseValue, Owner.Creature, this);
+            await PowerCmd.Apply<ManaBurstUpgradePower>(
+                Owner.Creature,
+                DynamicVarsHelper.GetPowerVar<ManaBurstPower>(DynamicVars).BaseValue,
+                Owner.Creature,
+                this
+            );
         else
             await Utils.GivePower<ManaBurstPower>(this, cardPlay);
     }
