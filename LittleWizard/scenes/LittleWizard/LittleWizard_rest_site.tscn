@@ -25,16 +25,8 @@ offset_right = -22.0
 offset_bottom = 27.0
 
 [node name="SelectionReticle" parent="ControlRoot" instance=ExtResource("3_mt86d")]
-_import_path = NodePath("")
 unique_name_in_owner = true
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
 physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-layout_mode = 0
 layout_mode = 0
 offset_left = -230.0
 offset_top = -379.0
