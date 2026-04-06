@@ -25,7 +25,8 @@ public sealed class ColorfulBalls()
     {
         ArgumentNullException.ThrowIfNull(play.Target);
         await CommonActions.CardAttack(this, play.Target).Execute(choiceContext);
-        await ElementHelper.RandomElement(play.Target, DynamicVarsHelper.GetRandomElementVar(DynamicVars).BaseValue, Owner.Creature, this);
+        await ElementHelper.RandomElement(play.Target, DynamicVarsHelper.GetRandomElementVar(DynamicVars).BaseValue,
+            Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

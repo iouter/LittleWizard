@@ -17,7 +17,7 @@ public sealed class Callback() : LittleWizardCard(1, CardType.Skill, CardRarity.
             .FirstOrDefault();
         if (card == null)
             return;
-        await CardPileCmd.Add(card, PileType.Draw);
+        await CardPileCmd.Add(card, PileType.Draw, CardPilePosition.Top);
     }
 
     protected override void OnUpgrade()
