@@ -1,10 +1,10 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bfbsbl4t3kkur"]
 
-[ext_resource type="Shader" uid="uid://c66gb6g7tup3n" path="res://shaders/hsv.gdshader" id="1_w7j2p"]
+[ext_resource type="Shader" uid="uid://tug86hr6uwry" path="res://shaders/hsv.gdshader" id="1_w7j2p"]
 
 [resource]
 resource_local_to_scene = true
 shader = ExtResource("1_w7j2p")
 shader_parameter/h = 0.750000035625
 shader_parameter/s = 0.6000000285
-shader_parameter/v = 1.1
+shader_parameter/v = 1.0
