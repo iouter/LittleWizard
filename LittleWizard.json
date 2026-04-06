@@ -3,7 +3,7 @@
   "name": "LittleWizard",
   "author": "iouter, w_s_L, AOShiRo",
   "description": "Add a new character",
-  "version": "v0.5.7",
+  "version": "v0.6.0",
   "has_pck": true,
   "has_dll": true,
   "dependencies": [
