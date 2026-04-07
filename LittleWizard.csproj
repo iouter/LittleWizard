@@ -126,27 +126,27 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup Condition="Exists('$(Sts2DataDir)/sts2.dll')">
+    <Reference Include="sts2">
+      <HintPath>$(Sts2DataDir)/sts2.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>$(Sts2DataDir)/0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="GodotSharp">
+      <HintPath>$(Sts2DataDir)/GodotSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
   <ItemGroup Condition="!Exists('$(Sts2DataDir)/sts2.dll')">
     <PackageReference
       Include="BSchneppe.Sts2.ReferenceAssemblies"
       Version="0.101.0-beta-a6b8b83d"
       PrivateAssets="All"
     />
-  </ItemGroup>
-
-  <ItemGroup Condition="Exists('$(Sts2DataDir)/sts2.dll')">
-    <Reference Include="sts2">
-      <HintPath>$(Sts2DataDir)/sts2.dll</HintPath>
-      <Private>true</Private>
-    </Reference>
-    <Reference Include="0Harmony">
-      <HintPath>$(Sts2DataDir)/0Harmony.dll</HintPath>
-      <Private>true</Private>
-    </Reference>
-    <Reference Include="GodotSharp">
-      <HintPath>$(Sts2DataDir)/GodotSharp.dll</HintPath>
-      <Private>true</Private>
-    </Reference>
   </ItemGroup>
 
   <Target Name="CopyToModsFolderOnBuild" AfterTargets="PostBuildEvent">
