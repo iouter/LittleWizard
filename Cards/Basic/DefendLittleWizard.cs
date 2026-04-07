@@ -1,6 +1,8 @@
 using BaseLib.Utils;
 using LittleWizard.Api.Cards;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -15,7 +17,20 @@ public class DefendLittleWizard()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        await CommonActions.CardBlock(this, play);
+        await CreatureCmd.TriggerAnim(
+            base.Owner.Creature,
+            "Cast",
+            base.Owner.Character.CastAnimDelay
+        );
+        await PotionCmd.TryToProcure(
+            PotionFactory
+                .CreateRandomPotionInCombat(
+                    base.Owner,
+                    base.Owner.RunState.Rng.CombatPotionGeneration
+                )
+                .ToMutable(),
+            base.Owner
+        );
     }
 
     protected override void OnUpgrade()
