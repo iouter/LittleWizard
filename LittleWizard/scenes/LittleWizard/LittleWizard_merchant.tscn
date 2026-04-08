@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bowvvch36t701"]
+[gd_scene load_steps=4 format=3 uid="uid://bowvvch36t701"]
 
-[ext_resource type="Script" uid="uid://cv7c7afw8w1wh" path="res://Api/Nodes/SNMerchantCharacter.cs" id="1_8sym6"]
+[ext_resource type="Script" uid="uid://c5ffkajifkju2" path="res://Api/Nodes/SNMerchantCharacter.cs" id="1_8sym6"]
 [ext_resource type="SpineSkeletonDataResource" uid="uid://bo0xchrk5fhc5" path="res://LittleWizard/animations/merchant/LittleWizard_merchant_skel_data.tres" id="2_g2n7t"]
+[ext_resource type="PackedScene" uid="uid://kr7l5ksp7ab" path="res://LittleWizard/scenes/LittleWizard/LittleWizard_Energy.tscn" id="3_7nkxu"]
 
 [node name="LittleWizardMerchant" type="Node2D"]
 script = ExtResource("1_8sym6")
@@ -14,3 +15,16 @@ preview_frame = false
 preview_time = 0.0
 position = Vector2(0, 44.999996)
 scale = Vector2(0.7, 0.7)
+
+[node name="SpineBoneNode" type="SpineBoneNode" parent="SpineSprite"]
+bone_name = "WE"
+show_behind_parent = true
+position = Vector2(-65.01571, -381.85165)
+rotation = -1.5951279
+scale = Vector2(0.68670243, 0.68670243)
+
+[node name="LittleWizardEnergy" parent="SpineSprite/SpineBoneNode" instance=ExtResource("3_7nkxu")]
+show_behind_parent = true
+position = Vector2(-0.59115505, -1.0319862)
+rotation = 1.5951279
+scale = Vector2(0.86126274, 0.86126274)

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://1sb3yjut1s62"]
+[gd_scene load_steps=4 format=3 uid="uid://1sb3yjut1s62"]
 
 [ext_resource type="SpineSkeletonDataResource" uid="uid://dg6y6ftx4fk20" path="res://LittleWizard/animations/characters/LittleWizard_skel_data.tres" id="1_7laj3"]
+[ext_resource type="PackedScene" uid="uid://kr7l5ksp7ab" path="res://LittleWizard/scenes/LittleWizard/LittleWizard_Energy.tscn" id="2_qyedg"]
+[ext_resource type="PackedScene" uid="uid://bgwa4cw8uquj1" path="res://LittleWizard/scenes/LittleWizard/LittleWizard_Energy_A.tscn" id="3_ifk35"]
 
 [node name="LittleWizard" type="Node2D"]
 metadata/_edit_group_ = true
@@ -14,6 +16,22 @@ preview_time = 0.0
 unique_name_in_owner = true
 position = Vector2(0, -14.999999)
 scale = Vector2(0.3937148, 0.3937148)
+
+[node name="SpineBoneNode" type="SpineBoneNode" parent="Visuals"]
+bone_name = "WE"
+show_behind_parent = true
+position = Vector2(-65.01572, -381.8517)
+scale = Vector2(0.6867025, 0.6867025)
+
+[node name="LittleWizardEnergy" parent="Visuals/SpineBoneNode" instance=ExtResource("2_qyedg")]
+visible = false
+position = Vector2(-1.6421578, -1.749676)
+rotation = -0.020226672
+scale = Vector2(1, 1)
+
+[node name="LittleWizardEnergyA" parent="Visuals/SpineBoneNode" instance=ExtResource("3_ifk35")]
+position = Vector2(3.6377363, -1.9410394)
+scale = Vector2(1.5, 1.5)
 
 [node name="Bounds" type="Control" parent="."]
 unique_name_in_owner = true
