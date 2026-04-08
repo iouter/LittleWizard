@@ -9,11 +9,14 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 namespace LittleWizard.Cards.Rare;
 
 public class HealingCurse()
-    : LittleWizardCard(3, CardType.Skill, CardRarity.Rare, TargetType.AnyPlayer)
+    : LittleWizardCard(3, CardType.Skill, CardRarity.Rare, TargetType.AnyAlly)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new HealVar(10)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+
+    public override CardMultiplayerConstraint MultiplayerConstraint =>
+        CardMultiplayerConstraint.MultiplayerOnly;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
