@@ -1,13 +1,13 @@
+using LittleWizard.Api.Enchantments;
 using LittleWizard.Api.Interface;
 using LittleWizard.Powers.Elements;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Models;
 
 namespace LittleWizard.Enchantments;
 
-public sealed class EarthEnchantment : EnchantmentModel, IElementEnchantment
+public sealed class EarthEnchantment : LittleWizardEnchantment, IElementEnchantment
 {
     public override bool ShowAmount => true;
 

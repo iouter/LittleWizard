@@ -1,13 +1,13 @@
+using LittleWizard.Api.Enchantments;
 using LittleWizard.Api.Interface;
 using LittleWizard.Powers.Elements;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Models;
 
 namespace LittleWizard.Enchantments;
 
-public class WaterEnchantment : EnchantmentModel, IElementEnchantment
+public class WaterEnchantment : LittleWizardEnchantment, IElementEnchantment
 {
     public override bool ShowAmount => true;
 
@@ -21,7 +21,7 @@ public class WaterEnchantment : EnchantmentModel, IElementEnchantment
         if (cardPlay is { Target: not null })
             await PowerCmd.Apply<WaterElement>(
                 cardPlay.Target,
-                1,
+                Amount,
                 cardPlay.Card.Owner.Creature,
                 cardPlay.Card
             );
