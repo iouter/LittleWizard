@@ -94,7 +94,7 @@ damping_min = 0.1
 damping_max = 0.2
 scale_amount_min = 0.01
 scale_amount_max = 0.02
-color = Color(0.9254902, 0.76862746, 0.40392157, 1)
+color = Color(0.9254902, 0.92941177, 0.40392157, 1)
 color_ramp = SubResource("Gradient_jn630")
 
 [node name="OuterTrail" type="Line2D" parent="Sprites"]
