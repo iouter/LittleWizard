@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5gnxbh2bf5ak"
-path="res://.godot/imported/LittleWizard_merchant.png-c35e1914d4ef57ac46fe7626e06f8b42.ctex"
+uid="uid://8ee2cyb72pb6"
+path="res://.godot/imported/O_energy.png-94e37ea1cfaf310fa39d5758007a06d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LittleWizard/animations/merchant/LittleWizard/LittleWizard_merchant.png"
-dest_files=["res://.godot/imported/LittleWizard_merchant.png-c35e1914d4ef57ac46fe7626e06f8b42.ctex"]
+source_file="res://LittleWizard/images/vfx/vfx_weapon_energy/O_energy.png"
+dest_files=["res://.godot/imported/O_energy.png-94e37ea1cfaf310fa39d5758007a06d3.ctex"]
 
 [params]
 
