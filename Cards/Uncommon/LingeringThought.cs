@@ -21,7 +21,7 @@ public class LingeringThought()
             choiceContext,
             PileType.Hand
         );
-        card?.AddKeyword(CardKeyword.Innate);
+        card?.AddKeyword(CardKeyword.Retain);
     }
 
     protected override void OnUpgrade()
