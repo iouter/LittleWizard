@@ -8,7 +8,7 @@
         <DefaultItemExcludes>packages/**</DefaultItemExcludes>
         <AppOutputBase>$(MSBuildProjectDirectory)\</AppOutputBase>
         <PathMap>$(AppOutputBase)=.\</PathMap>
-        <Version>0.8.4</Version>
+        <Version>0.8.5</Version>
         <Authors>iouter, w_s_L, AOShiRo</Authors>
     </PropertyGroup>
 
