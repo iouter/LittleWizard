@@ -45,3 +45,4 @@ public class StunPower : LittleWizardPower
         await PowerCmd.Decrement(this);
     }
 }
+ 

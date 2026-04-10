@@ -35,13 +35,17 @@ jobs:
           mkdir -p ${{ github.workspace }}/.godot/mono/temp/bin/Release/publish/
       - name: Download and install Spine GDExtension
         run: |
+          cd ${{ github.workspace }}
           wget -O spine.zip "https://spine-godot.s3.eu-central-1.amazonaws.com/4.2/4.5.1-stable/spine-godot-extension-4.2-4.5.1-stable.zip"
-          unzip spine.zip -d spine_temp
+          unzip spine.zip -o
+          cd bin
+          ls
       - name: Publish
         run: dotnet publish -c Release
         env:
           GodotPath: ${{ steps.godot-path.outputs.GODOT_EXE }}
           ModsPath: ${{ github.workspace }}/mods_output/
+          DebugMode: false
       - name: Package Release Artifacts
         run: |
           cd mods_output/LittleWizard
