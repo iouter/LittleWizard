@@ -37,7 +37,7 @@ jobs:
         run: |
           cd ${{ github.workspace }}
           wget -O spine.zip "https://spine-godot.s3.eu-central-1.amazonaws.com/4.2/4.5.1-stable/spine-godot-extension-4.2-4.5.1-stable.zip"
-          unzip spine.zip -o
+          unzip -o spine.zip
           cd bin
           ls
       - name: Publish
