@@ -57,7 +57,7 @@ angle_min = -180.0
 angle_max = 633.0
 scale_amount_min = 0.01
 scale_amount_max = 0.02
-color = Color(1, 0.45490196, 0.7921569, 1)
+color = Color(0.5247888, 0.2723479, 0.9523416, 1)
 color_ramp = SubResource("Gradient_kodus")
 
 [node name="CPUParticles2D2" type="CPUParticles2D" parent="Sprites"]
@@ -73,7 +73,7 @@ angular_velocity_min = 80.0
 angular_velocity_max = 80.0
 scale_amount_min = 0.01
 scale_amount_max = 0.02
-color = Color(0.8156863, 0.50980395, 0.26666668, 1)
+color = Color(0.8156863, 0.6627451, 0.1254902, 1)
 color_ramp = SubResource("Gradient_bx15j")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Sprites"]
@@ -94,7 +94,7 @@ damping_min = 0.1
 damping_max = 0.2
 scale_amount_min = 0.01
 scale_amount_max = 0.02
-color = Color(0.9254902, 0.92941177, 0.40392157, 1)
+color = Color(0.91049206, 0.8479451, 0.35363457, 1)
 color_ramp = SubResource("Gradient_jn630")
 
 [node name="OuterTrail" type="Line2D" parent="Sprites"]
