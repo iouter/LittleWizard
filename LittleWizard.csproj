@@ -10,7 +10,6 @@
         <PathMap>$(AppOutputBase)=.\</PathMap>
         <Version>0.8.1</Version>
         <Authors>iouter, w_s_L, AOShiRo</Authors>
-        <DebugMode Condition="'$(DebugMode)' == ''">true</DebugMode>
     </PropertyGroup>
 
     <!-- OS Detection -->
