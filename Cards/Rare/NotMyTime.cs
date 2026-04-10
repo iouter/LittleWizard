@@ -29,7 +29,7 @@ public class NotMyTime()
             );
             if (card == null)
                 continue;
-            await CardCmd.AutoPlay(choiceContext, card, Owner.Creature);
+            await CardCmd.AutoPlay(choiceContext, card, cardPlay.Target);
         }
     }
 
