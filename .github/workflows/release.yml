@@ -28,24 +28,16 @@ jobs:
         id: godot-path
         run: |
           echo "GODOT_EXE=$(which godot)" >> $GITHUB_OUTPUT
-      - name: Clean Godot Cache
-        run: |
-          rm -rf ~/.godot/
-          rm -rf ${{ github.workspace }}/.godot/mono/temp/
-          mkdir -p ${{ github.workspace }}/.godot/mono/temp/bin/Release/publish/
       - name: Download and install Spine GDExtension
         run: |
           cd ${{ github.workspace }}
           wget -O spine.zip "https://spine-godot.s3.eu-central-1.amazonaws.com/4.2/4.5.1-stable/spine-godot-extension-4.2-4.5.1-stable.zip"
           unzip -o spine.zip
-          cd bin
-          ls
       - name: Publish
-        run: dotnet publish -c Release
+        run: dotnet publish -c Release /p:DebugMode=false
         env:
           GodotPath: ${{ steps.godot-path.outputs.GODOT_EXE }}
           ModsPath: ${{ github.workspace }}/mods_output/
-          DebugMode: false
       - name: Package Release Artifacts
         run: |
           cd mods_output/LittleWizard
