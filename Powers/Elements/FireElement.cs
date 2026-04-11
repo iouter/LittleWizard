@@ -36,7 +36,7 @@ public class FireElement : BaseElement
         await CreatureCmd.Damage(
             new ThrowingPlayerChoiceContext(),
             Owner,
-            Amount,
+            Math.Ceiling((decimal)(Amount / 2)),
             ValueProp.Unblockable | ValueProp.Unpowered,
             null,
             null
