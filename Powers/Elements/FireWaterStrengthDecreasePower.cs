@@ -12,7 +12,6 @@ public class FireWaterStrengthDecreasePower : CustomTemporaryPowerModel
 {
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
-
     public override string CustomPackedIconPath =>
         "res://LittleWizard/images/powers/fire_and_water_element_reactor_power.png";
     public override string CustomBigIconPath =>

@@ -24,22 +24,22 @@ public class FireElement : BaseElement
             return;
 
         foreach (var target in enemies)
-        {            
+        {
             GD.Print($"Creating fire vfx for target {target.Name}");
             var vfx = SNFireBurningVfx.Create(target, 1.0f, true);
             if (vfx == null)
                 GD.PrintErr($"Failed to create fire vfx for {target.Name}");
             else
                 GD.Print($"Vfx created: {vfx.Name}");*/
-            
-            await CreatureCmd.Damage(
-                new ThrowingPlayerChoiceContext(),
-                Owner,
-                Amount,
-                ValueProp.Unblockable | ValueProp.Unpowered,
-                null,
-                null
-            );
+
+        await CreatureCmd.Damage(
+            new ThrowingPlayerChoiceContext(),
+            Owner,
+            Amount,
+            ValueProp.Unblockable | ValueProp.Unpowered,
+            null,
+            null
+        );
         //};//
         if (!Owner.IsAlive)
             await Cmd.CustomScaledWait(0.1f, 0.25f);

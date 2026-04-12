@@ -18,7 +18,6 @@ public class WaterEarthStrengthDecreasePower : CustomTemporaryPowerModel
         "res://LittleWizard/images/powers/water_and_earth_element_reactor_power.png";
     public override string CustomBigIconPath =>
         "res://LittleWizard/images/powers/big/water_and_earth_element_reactor_power.png";
-
     public override PowerModel InternallyAppliedPower => ModelDb.Power<StrengthPower>();
     public override AbstractModel OriginModel => ModelDb.Power<WaterAndEarthElementReactorPower>();
 
