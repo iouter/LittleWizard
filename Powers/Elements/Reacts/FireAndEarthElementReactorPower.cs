@@ -23,6 +23,7 @@ public class FireAndEarthElementReactorPower : LittleWizardPower
             applier,
             cardSource
         );
+        PowerCmd.Apply<ElementBlockPower>(Owner, Amount, applier, null);
         PowerCmd.Remove(this);
         return Task.CompletedTask;
     }
