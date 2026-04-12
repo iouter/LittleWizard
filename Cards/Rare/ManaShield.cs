@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.Cards.Rare;
 
-public class ManaShield() : LittleWizardCard(0, CardType.Power, CardRarity.Rare, TargetType.Self)
+public class ManaShield() : LittleWizardCard(1, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new BlockVar(4, ValueProp.Move), new PowerVar<ManaShieldPower>(1)];
