@@ -40,7 +40,7 @@ public class WaterEarthDebuffPower : CustomTemporaryPowerModel
         CardModel? cardSource
     )
     {
-        if (target != Owner || dealer == null || !props.IsPoweredAttack() || result.WasFullyBlocked)
+        if (target != Owner || dealer == null || result.WasFullyBlocked)
             return;
 
         var creature = dealer;
