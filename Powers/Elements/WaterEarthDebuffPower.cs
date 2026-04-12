@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using BaseLib.Abstracts;
 using LittleWizard.Api.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -12,20 +13,23 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.Powers.Elements.Reacts;
 
-public class WaterEarthDebuffPower : LittleWizardPower
+public class WaterEarthDebuffPower : CustomTemporaryPowerModel
 {
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
+    public override PowerModel InternallyAppliedPower => ModelDb.Power<StrengthPower>();
+    public override AbstractModel OriginModel => ModelDb.Power<WaterAndEarthElementReactorPower>();
 
     public override string CustomPackedIconPath =>
         "res://LittleWizard/images/powers/water_and_earth_element_reactor_power.png";
     public override string CustomBigIconPath =>
         "res://LittleWizard/images/powers/big/water_and_earth_element_reactor_power.png";
 
-    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
-    {
-        await PowerCmd.Apply<StrengthPower>(Owner, -Amount, applier, cardSource);
-    }
+    protected override Func<Creature, decimal, Creature?, CardModel?, bool, Task> ApplyPowerFunc =>
+          async (target, amount, applier, cardSource, _) =>
+          {
+              await PowerCmd.Apply<StrengthPower>(target, -amount, applier, cardSource);
+          };
 
     public override async Task AfterDamageReceived(
         PlayerChoiceContext choiceContext,
