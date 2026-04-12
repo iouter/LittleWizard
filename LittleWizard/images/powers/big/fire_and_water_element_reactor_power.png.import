@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7kiw1qtfvgvo"
-path="res://.godot/imported/element_temporary_strength_power.png-0d3a46fb6b9d709954245d8c5513ddc8.ctex"
+uid="uid://cla38os0akco1"
+path="res://.godot/imported/fire_and_water_element_reactor_power.png-fb45c907106f0ecff57ca2f072d6cfd4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LittleWizard/images/powers/big/element_temporary_strength_power.png"
-dest_files=["res://.godot/imported/element_temporary_strength_power.png-0d3a46fb6b9d709954245d8c5513ddc8.ctex"]
+source_file="res://LittleWizard/images/powers/big/fire_and_water_element_reactor_power.png"
+dest_files=["res://.godot/imported/fire_and_water_element_reactor_power.png-fb45c907106f0ecff57ca2f072d6cfd4.ctex"]
 
 [params]
 
