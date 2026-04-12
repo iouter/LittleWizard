@@ -26,10 +26,10 @@ public class WaterEarthDebuffPower : CustomTemporaryPowerModel
         "res://LittleWizard/images/powers/big/water_and_earth_element_reactor_power.png";
 
     protected override Func<Creature, decimal, Creature?, CardModel?, bool, Task> ApplyPowerFunc =>
-          async (target, amount, applier, cardSource, _) =>
-          {
-              await PowerCmd.Apply<StrengthPower>(target, -amount, applier, cardSource);
-          };
+        async (target, amount, applier, cardSource, _) =>
+        {
+            await PowerCmd.Apply<StrengthPower>(target, -amount, applier, cardSource);
+        };
 
     public override async Task AfterDamageReceived(
         PlayerChoiceContext choiceContext,
@@ -55,13 +55,5 @@ public class WaterEarthDebuffPower : CustomTemporaryPowerModel
 
         Flash();
         await CreatureCmd.GainBlock(creature, Amount, ValueProp.Move, null);
-    }
-
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
-    {
-        if (side == CombatSide.Enemy)
-        {
-            await PowerCmd.Remove(this);
-        }
     }
 }
