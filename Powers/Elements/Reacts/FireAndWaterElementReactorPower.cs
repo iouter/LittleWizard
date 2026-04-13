@@ -15,7 +15,7 @@ public class FireAndWaterElementReactorPower : LittleWizardPower
 
     public override Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
-        PowerCmd.Apply<FireWaterStrengthDecreasePower>(Owner, Amount, applier, cardSource);
+        PowerCmd.Apply<FireWaterReactor>(Owner, Amount, applier, cardSource);
         CreatureCmd.Damage(
             new ThrowingPlayerChoiceContext(),
             Owner,

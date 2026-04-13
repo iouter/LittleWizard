@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.Powers.Elements;
 
-public class FireEarthElementBlockPower : LittleWizardPower
+public class FireEarthReactor : LittleWizardPower
 {
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;

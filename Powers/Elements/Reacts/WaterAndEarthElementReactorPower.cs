@@ -15,7 +15,7 @@ public class WaterAndEarthElementReactorPower : LittleWizardPower
 
     public override Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
-        PowerCmd.Apply<WaterEarthDebuffPower>(Owner, Amount, applier, cardSource);
+        PowerCmd.Apply<WaterEarthReactor>(Owner, Amount, applier, cardSource);
         PowerCmd.Remove(this);
         return Task.CompletedTask;
     }

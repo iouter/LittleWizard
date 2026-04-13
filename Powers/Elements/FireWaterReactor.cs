@@ -1,5 +1,6 @@
 ﻿using BaseLib.Abstracts;
 using LittleWizard.Api.Extensions;
+using LittleWizard.Powers.Elements.Reacts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -8,7 +9,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace LittleWizard.Powers.Elements;
 
-public class FireWaterStrengthDecreasePower : CustomTemporaryPowerModel
+public class FireWaterReactor : CustomTemporaryPowerModel
 {
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
