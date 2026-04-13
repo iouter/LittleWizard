@@ -2,4 +2,4 @@ using LittleWizard.Api.Powers;
 
 namespace LittleWizard.Powers.Cards;
 
-public sealed class WarmupBeamPower : BaseMoreElementPower;
+public sealed class WarmupBeamPower : BaseMoreElementReceivedPower;
