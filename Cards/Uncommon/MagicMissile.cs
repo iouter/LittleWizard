@@ -1,6 +1,6 @@
+using BaseLib.Utils;
 using LittleWizard.Api.Animation;
 using LittleWizard.Api.Cards;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -11,8 +11,6 @@ namespace LittleWizard.Cards.Uncommon;
 public class MagicMissile()
     : LittleWizardCard(0, CardType.Attack, CardRarity.Uncommon, TargetType.RandomEnemy)
 {
-    private static readonly Random _random = new Random();
-
     protected override bool HasEnergyCostX => true;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
@@ -20,36 +18,14 @@ public class MagicMissile()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (Owner?.Creature == null)
-            return;
+        int times = ResolveEnergyXValue() * ResolveEnergyXValue();
 
-        var combatState = Owner.Creature.CombatState;
-        if (combatState == null)
-            return;
-
-        var enemies = combatState.HittableEnemies?.ToList();
-        if (enemies == null || enemies.Count == 0)
-            return;
-
-        int x = ResolveEnergyXValue();
-        int times = x * x;
-        int damagePerHit = IsUpgraded ? 4 : 3;
+        await CommonActions
+            .CardAttack(this, cardPlay, hitCount: times)
+            .Unpowered()
+            .Execute(choiceContext);
 
         await AnimationHelper.TriggerCastAnimationOwner(this);
-
-        for (int i = 0; i < times; i++)
-        {
-            await CreatureCmd.TriggerAnim(Owner.Creature, "Attack", 0.05f);
-            var target = enemies[_random.Next(enemies.Count)];
-            await CreatureCmd.Damage(
-                choiceContext,
-                target,
-                damagePerHit,
-                ValueProp.Unpowered,
-                Owner.Creature,
-                this
-            );
-        }
     }
 
     protected override void OnUpgrade()
