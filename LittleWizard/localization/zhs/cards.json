@@ -126,7 +126,7 @@
     "LITTLEWIZARD-SPREAD.title": "蔓延",
     "LITTLEWIZARD-SPREAD.description": "给予其他敌人该名敌人身上的所有[gold]元素[/gold]层数。",
     "LITTLEWIZARD-WILD_SWING.title": "胡乱挥打",
-    "LITTLEWIZARD-WILD_SWING.description": "给予自身1层[gold]易伤[/gold]。对所有敌人造成{Damage:diff()}点伤害{Repea:diff()}次。",
+    "LITTLEWIZARD-WILD_SWING.description": "给予自身1层[gold]易伤[/gold]。对所有敌人造成{Damage:diff()}点伤害{Repeat:diff()}次。",
     "LITTLEWIZARD-REJUVENATION.title": "返老还童",
     "LITTLEWIZARD-REJUVENATION.description": "可选择{Cards:diff()}张手牌移出牌库。",
     "LITTLEWIZARD-BURN_EVERYTHING.title": "焚净一切",
