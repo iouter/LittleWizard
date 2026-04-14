@@ -6,27 +6,11 @@ namespace LittleWizard.Api.Powers;
 
 public abstract class LittleWizardPower : CustomPowerModel
 {
-    private string GetIconBaseName()
-    {
-        string rawName = Id.Entry.RemovePrefix();
-        return rawName.ToLowerInvariant();
-    }
+    private string GetIconBaseName() => Id.Entry.RemovePrefix().ToLowerInvariant();
 
-    public override string CustomPackedIconPath
-    {
-        get
-        {
-            string fileName = $"{GetIconBaseName()}.png";
-            return $"res://{MainFile.ModId}/images/powers/{fileName}";
-        }
-    }
+    public override string CustomPackedIconPath =>
+        $"res://{MainFile.ModId}/images/powers/{GetIconBaseName()}.png";
 
-    public override string CustomBigIconPath
-    {
-        get
-        {
-            string fileName = $"{GetIconBaseName()}.png";
-            return $"res://{MainFile.ModId}/images/powers/{fileName}";
-        }
-    }
+    public override string CustomBigIconPath =>
+        $"res://{MainFile.ModId}/images/powers/{GetIconBaseName()}.png";
 }

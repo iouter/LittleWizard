@@ -1,4 +1,3 @@
-using System.Text;
 using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
@@ -16,9 +15,5 @@ public abstract class LittleWizardRelics : CustomRelicModel
     protected override string PackedIconOutlinePath =>
         $"{GetBaseFileName()}_outline.tres".TresRelicImagePath();
 
-    private string GetBaseFileName()
-    {
-        var rawName = Id.Entry.RemovePrefix();
-        return rawName.ToLowerInvariant();
-    }
+    private string GetBaseFileName() => Id.Entry.RemovePrefix().ToLowerInvariant();
 }
