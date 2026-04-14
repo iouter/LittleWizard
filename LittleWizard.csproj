@@ -145,6 +145,11 @@
     />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="LittleWizard\images\LittleWizard\hands\" />
+    <Folder Include="LittleWizard\images\card_portraits\" />
+  </ItemGroup>
+
   <Target Name="GenerateVersionedManifest" BeforeTargets="BeforeBuild">
     <PropertyGroup>
       <JsonVersion>v$(Version)</JsonVersion>
