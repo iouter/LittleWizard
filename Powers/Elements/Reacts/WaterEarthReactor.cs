@@ -22,11 +22,6 @@ public class WaterEarthReactor : LittleWizardPower
     public override string CustomBigIconPath =>
         "res://LittleWizard/images/powers/big/water_and_earth_element_reactor_power.png";
 
-    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
-    {
-        await PowerCmd.Apply<StrengthPower>(Owner, -Amount, applier, cardSource);
-    }
-
     public override async Task AfterDamageReceived(
         PlayerChoiceContext choiceContext,
         Creature target,

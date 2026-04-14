@@ -6,7 +6,6 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.Powers.Elements.Reacts;
 
@@ -19,19 +18,6 @@ public class FireWaterReactor : LittleWizardPower
         "res://LittleWizard/images/powers/fire_and_water_element_reactor_power.png";
     public override string CustomBigIconPath =>
         "res://LittleWizard/images/powers/big/fire_and_water_element_reactor_power.png";
-
-    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
-    {
-        await CreatureCmd.Damage(
-            new ThrowingPlayerChoiceContext(),
-            Owner,
-            Amount,
-            ValueProp.Unpowered,
-            applier,
-            cardSource
-        );
-        await PowerCmd.Apply<StrengthPower>(Owner, -Amount, applier, cardSource);
-    }
 
     public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
     {

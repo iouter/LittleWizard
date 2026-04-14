@@ -4,7 +4,11 @@ using LittleWizard.Powers.Elements;
 using LittleWizard.Powers.Elements.Reacts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.Api.Powers;
 
@@ -23,20 +27,14 @@ public static class ElementHelper
             switch (randomElement)
             {
                 case 0:
-                {
                     await PowerCmd.Apply<FireElement>(target, amount, applier, cardSource);
                     return;
-                }
                 case 1:
-                {
                     await PowerCmd.Apply<WaterElement>(target, amount, applier, cardSource);
                     return;
-                }
                 case 2:
-                {
                     await PowerCmd.Apply<EarthElement>(target, amount, applier, cardSource);
                     return;
-                }
             }
         }
     }
@@ -48,7 +46,17 @@ public static class ElementHelper
         Creature? applier
     )
     {
-        PowerCmd.Apply<FireWaterReactor>(owner, amountA + amountB, applier, null);
+        decimal totalAmount = amountA + amountB;
+        CreatureCmd.Damage(
+            new ThrowingPlayerChoiceContext(),
+            owner,
+            totalAmount,
+            ValueProp.Unpowered,
+            applier,
+            null
+        );
+        PowerCmd.Apply<StrengthPower>(owner, -totalAmount, applier, null);
+        PowerCmd.Apply<FireWaterReactor>(owner, totalAmount, applier, null);
     }
 
     public static void FireAndEarth(
@@ -58,7 +66,16 @@ public static class ElementHelper
         Creature? applier
     )
     {
-        PowerCmd.Apply<FireEarthReactor>(owner, amountA + amountB, applier, null);
+        decimal totalAmount = amountA + amountB;
+        CreatureCmd.Damage(
+            new ThrowingPlayerChoiceContext(),
+            owner,
+            totalAmount,
+            ValueProp.Unpowered,
+            applier,
+            null
+        );
+        PowerCmd.Apply<FireEarthReactor>(owner, totalAmount, applier, null);
     }
 
     public static void WaterAndEarth(
@@ -68,7 +85,10 @@ public static class ElementHelper
         Creature? applier
     )
     {
-        PowerCmd.Apply<WaterEarthReactor>(owner, amountA + amountB, applier, null);
+        decimal totalAmount = amountA + amountB;
+
+        PowerCmd.Apply<StrengthPower>(owner, -totalAmount, applier, null);
+        PowerCmd.Apply<WaterEarthReactor>(owner, totalAmount, applier, null);
     }
 
     public static bool IsElementCard(CardModel card)
