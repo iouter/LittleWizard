@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace LittleWizard.Cards.Others;
 
 public class RebirthCeremony()
-    : LittleWizardCard(1, CardType.Power, CardRarity.Ancient, TargetType.Self)
+    : LittleWizardCard(1, CardType.Skill, CardRarity.Ancient, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new HpLossVar(3)];
 

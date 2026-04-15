@@ -11,27 +11,27 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace LittleWizard.Cards.Uncommon;
 
 public class FreezingRay()
-    : LittleWizardCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+    : LittleWizardCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(3, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [
+            new CalculationBaseVar(6),
+            new ExtraDamageVar(1),
+            new CalculatedDamageVar(ValueProp.Move).WithMultiplier(
+                (card, target) => target?.GetPowerAmount<WaterElement>() ?? 0
+            ),
+        ];
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var target = cardPlay.Target;
-        if (target == null)
-            return;
-        int water = target.GetPowerAmount<WaterElement>();
-        int hits = water * (IsUpgraded ? 2 : 1);
-        if (hits <= 0)
-            return;
-
-        await CommonActions.CardAttack(this, cardPlay, hitCount: hits).Execute(choiceContext);
+        await CommonActions.CardAttack(this, cardPlay).Execute(choiceContext);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
+        DynamicVars.ExtraDamage.UpgradeValueBy(1);
     }
 }

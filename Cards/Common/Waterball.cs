@@ -1,4 +1,3 @@
-using BaseLib.Utils;
 using LittleWizard.Api;
 using LittleWizard.Api.Animation;
 using LittleWizard.Api.Cards;
@@ -8,28 +7,24 @@ using LittleWizard.Powers.Elements;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.Cards.Common;
 
 public class Waterball()
-    : LittleWizardCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+    : LittleWizardCard(1, CardType.Skill, CardRarity.Common, TargetType.AllEnemies)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DamageVar(8, ValueProp.Move), new PowerVar<WaterElement>(3)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WaterElement>(3)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        await CommonActions.CardAttack(this, play).Execute(choiceContext);
         await Utils.GivePower<WaterElement>(this, play);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2m);
         DynamicVarsHelper.GetPowerVar<WaterElement>(DynamicVars).UpgradeValueBy(2);
     }
 }
