@@ -72,7 +72,7 @@ public class LittleWizard : PlaceholderCharacterModel
     public override string CustomCharacterSelectIconPath =>
         "res://LittleWizard/images/LittleWizard/char_select_LittleWizard.png";
     public override string CustomArmPointingTexturePath =>
-     "res://LittleWizard/images/LittleWizard/hands/multiplayer_hand_LittleWizard_point.png";
+        "res://LittleWizard/images/LittleWizard/hands/multiplayer_hand_LittleWizard_point.png";
 
     public override string CustomArmRockTexturePath =>
         "res://LittleWizard/images/LittleWizard/hands/multiplayer_hand_LittleWizard_rock.png";
