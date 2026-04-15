@@ -147,10 +147,6 @@
         />
     </ItemGroup>
 
-    <ItemGroup>
-        <Folder Include="LittleWizard\images\card_portraits\" />
-    </ItemGroup>
-
     <Target Name="GetGitVersion" BeforeTargets="GenerateVersionedManifest">
         <Exec
             Command="git describe --tags --abbrev=0"
