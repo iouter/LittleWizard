@@ -1,13 +1,16 @@
 using BaseLib.Abstracts;
+using BaseLib.Extensions;
 using LittleWizard.Api.Extensions;
 
 namespace LittleWizard.Api.Powers;
 
 public abstract class LittleWizardPower : CustomPowerModel
 {
+    private string GetIconBaseName() => Id.Entry.RemovePrefix().ToLowerInvariant();
+
     public override string CustomPackedIconPath =>
-        $"{Utils.GetModelSnakeCase(this)}.png".PowerImagePath();
+        $"res://{MainFile.ModId}/images/powers/{GetIconBaseName()}.png";
 
     public override string CustomBigIconPath =>
-        $"{Utils.GetModelSnakeCase(this)}.png".BigPowerImagePath();
+        $"res://{MainFile.ModId}/images/powers/{GetIconBaseName()}.png";
 }

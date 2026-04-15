@@ -31,6 +31,7 @@ public class Adapt() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, 
         if (fireAmount > 0)
         {
             await CommonActions.Draw(this, choiceContext);
+            await CommonActions.Draw(this, choiceContext);
         }
         else if (waterAmount > 0)
         {
