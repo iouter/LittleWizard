@@ -21,19 +21,6 @@ public class FireEarthReactor : LittleWizardPower
     public override string CustomBigIconPath =>
         "res://LittleWizard/images/powers/big/fire_and_earth_element_reactor_power.png";
 
-    public override Task AfterApplied(Creature? applier, CardModel? cardSource)
-    {
-        CreatureCmd.Damage(
-            new ThrowingPlayerChoiceContext(),
-            Owner,
-            Amount,
-            ValueProp.Unpowered,
-            applier,
-            cardSource
-        );
-        return Task.CompletedTask;
-    }
-
     public override async Task AfterDamageReceived(
         PlayerChoiceContext choiceContext,
         Creature target,

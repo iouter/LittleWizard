@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace LittleWizard.Api.Powers;
 
-public abstract class BaseMoreElementPower : CustomPowerModel
+public abstract class BaseMoreElementReceivedPower : CustomPowerModel
 {
     public override PowerType Type => Owner.IsPlayer ? PowerType.Buff : PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;

@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using BaseLib.Extensions;
 using LittleWizard.Api.DynamicVars;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -93,5 +94,10 @@ public static class Utils
     public static bool IsPoweredAttack(ValueProp props)
     {
         return props.HasFlag(ValueProp.Move) && !props.HasFlag(ValueProp.Unpowered);
+    }
+
+    public static string GetModelSnakeCase(AbstractModel model)
+    {
+        return model.Id.Entry.RemovePrefix().ToLowerInvariant();
     }
 }
