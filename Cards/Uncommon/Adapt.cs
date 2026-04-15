@@ -16,7 +16,7 @@ public class Adapt() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, 
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new CardsVar(1), new EnergyVar(2), new BlockVar(13, ValueProp.Move)];
+        [new CardsVar(2), new EnergyVar(2), new BlockVar(13, ValueProp.Move)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Innate];
 
@@ -30,7 +30,6 @@ public class Adapt() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, 
 
         if (fireAmount > 0)
         {
-            await CommonActions.Draw(this, choiceContext);
             await CommonActions.Draw(this, choiceContext);
         }
         else if (waterAmount > 0)

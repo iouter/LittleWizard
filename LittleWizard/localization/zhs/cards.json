@@ -24,7 +24,7 @@
     "LITTLEWIZARD-ROCKBALL.description": "造成{Damage:diff()}点伤害。给予{EarthElement:diff()}层[gold]土元素[/gold]。",
     "LITTLEWIZARD-ACCELERATE_BURNING.description": "给予{CalculatedFireElement:diff()}层[gold]火元素[/gold]。敌人身上每有{Threshold:diff()}层[gold]火元素[/gold]，则额外给予这名敌人{CalculationExtra:diff()}层[gold]火元素[/gold]。",
     "LITTLEWIZARD-ACCELERATE_BURNING.title": "助燃",
-    "LITTLEWIZARD-FREEZING_RAY.description": "敌人身上每有1层[gold]水元素[/gold]，造成{IfUpgraded:show:2|1}次3点伤害。",
+    "LITTLEWIZARD-FREEZING_RAY.description": "敌人身上每有1层[gold]水元素[/gold]，造成{Repeat:diff()}次3点伤害。",
     "LITTLEWIZARD-FREEZING_RAY.title": "冻结射线",
     "LITTLEWIZARD-EARTHBOUND.title": "岩土附身",
     "LITTLEWIZARD-EARTHBOUND.description": "获得{CalculatedBlock:diff()}点[gold]格挡[/gold]。\n敌人身上每有1层[gold]土元素[/gold]，则额外获得{CalculationExtra:diff()}点格挡。",

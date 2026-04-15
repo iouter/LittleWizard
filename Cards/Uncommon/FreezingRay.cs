@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using BaseLib.Utils;
 using LittleWizard.Api.Animation;
 using LittleWizard.Api.Cards;
@@ -14,16 +15,13 @@ public class FreezingRay()
     : LittleWizardCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
-
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(3, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [new DamageVar(3, ValueProp.Move), new RepeatVar(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var target = cardPlay.Target;
-        if (target == null)
-            return;
-        int water = target.GetPowerAmount<WaterElement>();
-        int hits = water * (IsUpgraded ? 2 : 1);
+        Debug.Assert(cardPlay.Target != null);
+        var hits = cardPlay.Target.GetPowerAmount<WaterElement>() * DynamicVars.Repeat.IntValue;
         if (hits <= 0)
             return;
 
@@ -33,6 +31,6 @@ public class FreezingRay()
 
     protected override void OnUpgrade()
     {
-        base.OnUpgrade();
+        DynamicVars.Repeat.UpgradeValueBy(1);
     }
 }
