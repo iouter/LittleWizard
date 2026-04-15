@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 namespace LittleWizard.Cards.Common;
 
 public class Waterball()
-    : LittleWizardCard(1, CardType.Skill, CardRarity.Common, TargetType.AllEnemies)
+    : LittleWizardCard(1, CardType.Skill, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 

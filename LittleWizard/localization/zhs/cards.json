@@ -74,7 +74,7 @@
     "LITTLEWIZARD-MOLD_ARMOR.title": "模具护甲",
     "LITTLEWIZARD-MOLD_ARMOR.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n如果该敌人至少有{EarthElement:diff()}层[gold]土元素[/gold]，则移除所有层数，并获得该敌人拥有的格挡值等量的格挡。",
     "LITTLEWIZARD-ADAPT.title": "随机应变",
-    "LITTLEWIZARD-ADAPT.description": "如果该敌人身上有[gold]火元素[/gold]：自身抽1张牌。\n如果有[gold]水元素[/gold]：自身恢复{Energy:energyIcons()}。\n如果有[gold]土元素[/gold]：自身获得{Block:diff()}点[gold]格挡[/gold]。",
+    "LITTLEWIZARD-ADAPT.description": "如果该敌人身上有[gold]火元素[/gold]：自身抽2张牌。\n如果有[gold]水元素[/gold]：自身恢复{Energy:energyIcons()}。\n如果有[gold]土元素[/gold]：自身获得{Block:diff()}点[gold]格挡[/gold]。",
     "LITTLEWIZARD-EXPLORE_TABOO.title": "探索禁忌",
     "LITTLEWIZARD-EXPLORE_TABOO.description": "给予自身{FireElement:diff()}层[gold]火元素[/gold]。在每个回合开始时获得{Energy:diff()}点{energyPrefix:energyIcons(1)}。",
     "LITTLEWIZARD-ELEMENT_CONVERT.title": "元素转换",
