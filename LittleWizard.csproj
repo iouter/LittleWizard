@@ -104,67 +104,6 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="MinVer" Version="6.0.0">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-    </ItemGroup>
-
-    <ItemGroup>
-        <Compile Remove="LittleWizard/**" />
-        <Compile Remove="materials/**" />
-        <Compile Remove="shaders/**" />
-        <Compile Remove="images/**" />
-        <EmbeddedResource Remove="LittleWizard/**" />
-        <EmbeddedResource Remove="materials/**" />
-        <EmbeddedResource Remove="shaders/**" />
-        <EmbeddedResource Remove="images/**" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <None Include=".gitignore" />
-        <None Include="LittleWizard.json" />
-        <None Include="project.godot" />
-        <None Include="LittleWizard/**" />
-    </ItemGroup>
-
-    <ItemGroup Condition="Exists('$(Sts2DataDir)/sts2.dll')">
-        <Reference Include="sts2">
-            <HintPath>$(Sts2DataDir)/sts2.dll</HintPath>
-            <Private>false</Private>
-        </Reference>
-        <Reference Include="0Harmony">
-            <HintPath>$(Sts2DataDir)/0Harmony.dll</HintPath>
-            <Private>false</Private>
-        </Reference>
-        <Reference Include="GodotSharp">
-            <HintPath>$(Sts2DataDir)/GodotSharp.dll</HintPath>
-            <Private>false</Private>
-        </Reference>
-    </ItemGroup>
-
-    <ItemGroup Condition="!Exists('$(Sts2DataDir)/sts2.dll')">
-        <PackageReference
-            Include="BSchneppe.Sts2.ReferenceAssemblies"
-            Version="0.103.0-beta-bb50d016"
-            PrivateAssets="All"
-        />
-    </ItemGroup>
-
-    <Target Name="GenerateVersionedManifest" BeforeTargets="BeforeBuild">
-        <PropertyGroup>
-            <JsonVersion>v$(Version)</JsonVersion>
-            <GeneratedJsonPath>$(OutputPath)LittleWizard.json</GeneratedJsonPath>
-        </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Alchyr.Sts2.BaseLib" Version="0.3.0" PrivateAssets="All" />
-        <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="0.1.7" />
-        <AdditionalFiles Include="LittleWizard/localization/**/*.json" />
-        <PackageReference Include="CSharpier.MsBuild" Version="1.2.6">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
     </ItemGroup>
 
     <ItemGroup>
