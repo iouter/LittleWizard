@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://dqx6x4uplq62c"
+path="res://.godot/imported/LittleWizard_select.skel-91c35323d109ee2a66c9db3c7f9b35ad.spskel"
+
+[deps]
+
+source_file="res://LittleWizard/animations/character_select/LittleWizard/LittleWizard_select.skel"
+dest_files=["res://.godot/imported/LittleWizard_select.skel-91c35323d109ee2a66c9db3c7f9b35ad.spskel"]
+
+[params]
+
