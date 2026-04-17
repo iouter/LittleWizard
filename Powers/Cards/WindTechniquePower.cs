@@ -32,11 +32,4 @@ public class WindTechniquePower : LittleWizardPower
     {
         await PowerCmd.Apply<StunPower>(oldOwner, 1, oldOwner, null);
     }
-
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
-    {
-        if (side != CombatSide.Enemy)
-            return;
-        await PowerCmd.Decrement(this);
-    }
 }

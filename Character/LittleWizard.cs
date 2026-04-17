@@ -82,4 +82,6 @@ public class LittleWizard : PlaceholderCharacterModel
 
     public override string CustomArmScissorsTexturePath =>
         "res://LittleWizard/images/LittleWizard/hands/multiplayer_hand_LittleWizard_scissors.png";
+    public override string CustomCharacterSelectBg =>
+        "res://LittleWizard/scenes/LittleWizard/LittleWizard_select_bg.tscn";
 }
