@@ -33,7 +33,7 @@
     "LITTLEWIZARD-ANVIL_TRANSFER.title": "铁砧砸击",
     "LITTLEWIZARD-ANVIL_TRANSFER.description": "造成{Damage:diff()}点伤害。\n随机[gold]升级[/gold]你[gold]手牌[/gold]中的1张牌。",
     "LITTLEWIZARD-TEMPORARY_HANDWRITING.title": "临时笔迹",
-    "LITTLEWIZARD-TEMPORARY_HANDWRITING.description": "抽{Cards:diff()}张牌。\n如果该次抽牌不会使抽牌堆洗牌，则额外抽{ExtraCards:diff()}张牌。",
+    "LITTLEWIZARD-TEMPORARY_HANDWRITING.description": "抽{Cards:diff()}张牌。\n如果手牌数小于5，再额外抽{ExtraCards:diff()}张牌。",
     "LITTLEWIZARD-REST_MOMENT.title": "休息片刻",
     "LITTLEWIZARD-REST_MOMENT.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n在下个回合，\n获得{Energy:energyIcons()}。",
     "LITTLEWIZARD-WHIM.title": "临时起意",
