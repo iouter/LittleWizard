@@ -97,7 +97,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Alchyr.Sts2.BaseLib" Version="0.3.0" PrivateAssets="All" />
+        <PackageReference Include="Alchyr.Sts2.BaseLib" Version="3.0.6" PrivateAssets="All" />
         <PackageReference Include="Alchyr.Sts2.ModAnalyzers" Version="0.1.7" />
         <AdditionalFiles Include="LittleWizard/localization/**/*.json" />
         <PackageReference Include="CSharpier.MsBuild" Version="1.2.6">
@@ -140,11 +140,7 @@
     </ItemGroup>
 
     <ItemGroup Condition="!Exists('$(Sts2DataDir)/sts2.dll')">
-        <PackageReference
-            Include="BSchneppe.Sts2.ReferenceAssemblies"
-            Version="0.103.0-beta-bb50d016"
-            PrivateAssets="All"
-        />
+        <PackageReference Include="BSchneppe.Sts2.ReferenceAssemblies" Version="0.103.2" PrivateAssets="All" />
     </ItemGroup>
 
     <Target Name="GetGitVersion" BeforeTargets="GenerateVersionedManifest">
