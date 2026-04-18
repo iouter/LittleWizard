@@ -1,6 +1,6 @@
 [gd_scene load_steps=45 format=3 uid="uid://dear5rgdw4v5j"]
 
-[ext_resource type="Script" uid="uid://b6u42jl6ddbi8" path="res://Api/Nodes/SNFireBurningVfx.cs" id="1_v1lan"]
+[ext_resource type="Script" uid="uid://dgi125umcmnd2" path="res://Api/Nodes/SNFireBurningVfx.cs" id="1_v1lan"]
 [ext_resource type="PackedScene" uid="uid://b5yx8vni82dcj" path="res://LittleWizard/scenes/vfx/fire_impact/vfx_fire_flipbook.tscn" id="2_4wfup"]
 [ext_resource type="PackedScene" uid="uid://cq0m6037hbecy" path="res://LittleWizard/scenes/vfx/common/vfx_common_glow.tscn" id="3_b36y4"]
 [ext_resource type="PackedScene" uid="uid://chqoe33c4gm6a" path="res://LittleWizard/scenes/vfx/common/vfx_common_specks.tscn" id="4_5cwiy"]

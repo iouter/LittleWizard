@@ -1,10 +1,10 @@
 [gd_scene load_steps=45 format=3 uid="uid://dear5rgdw4v5j"]
 
 [ext_resource type="Script" uid="uid://dgi125umcmnd2" path="res://Api/Nodes/SNFireBurningVfx.cs" id="1_v1lan"]
-[ext_resource type="PackedScene" uid="uid://b5yx8vni82dcj" path="res://LittleWizard/scenes/vfx/fire_impact/vfx_fire_flipbook.tscn" id="2_4wfup"]
-[ext_resource type="PackedScene" uid="uid://cq0m6037hbecy" path="res://LittleWizard/scenes/vfx/common/vfx_common_glow.tscn" id="3_b36y4"]
-[ext_resource type="PackedScene" uid="uid://chqoe33c4gm6a" path="res://LittleWizard/scenes/vfx/common/vfx_common_specks.tscn" id="4_5cwiy"]
-[ext_resource type="PackedScene" uid="uid://b650ue7xoin5g" path="res://LittleWizard/scenes/vfx/fire_impact/vfx_fire_burst_right_flipbook.tscn" id="5_kowan"]
+[ext_resource type="PackedScene" uid="uid://b5yx8vni82dcj" path="res://scenes/vfx/fire_impact/vfx_fire_flipbook.tscn" id="2_4wfup"]
+[ext_resource type="PackedScene" uid="uid://cq0m6037hbecy" path="res://scenes/vfx/common/vfx_common_glow.tscn" id="3_b36y4"]
+[ext_resource type="PackedScene" uid="uid://chqoe33c4gm6a" path="res://scenes/vfx/common/vfx_common_specks.tscn" id="4_5cwiy"]
+[ext_resource type="PackedScene" uid="uid://b650ue7xoin5g" path="res://scenes/vfx/fire_impact/vfx_fire_burst_right_flipbook.tscn" id="5_kowan"]
 
 [sub_resource type="Curve" id="Curve_efdra"]
 _data = [Vector2(0.745679, 0.750912), 0.0, 0.0, 0, 0, Vector2(1, 0), -6.32812, 0.0, 0, 0]

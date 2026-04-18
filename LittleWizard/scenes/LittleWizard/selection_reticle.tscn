@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bgy88bk44xxvk"]
 
-[ext_resource type="Script" uid="uid://5fxqdvvse4qs" path="res://Api/Nodes/SNSelectionReticle.cs" id="1_fjma1"]
+[ext_resource type="Script" uid="uid://bfabyns8uiitj" path="res://Api/Nodes/SNSelectionReticle.cs" id="1_fjma1"]
 [ext_resource type="Texture2D" uid="uid://dn1lmffvpayqo" path="res://LittleWizard/images/ui/combat/combat_reticle.png" id="2_75ikg"]
 
 [node name="SelectionReticle" type="Control"]

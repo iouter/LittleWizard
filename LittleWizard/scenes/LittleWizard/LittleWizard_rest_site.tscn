@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://devshk3yqwgr1" path="res://Api/Nodes/SNRestSiteCharacter.cs" id="1_3ujm4"]
 [ext_resource type="SpineSkeletonDataResource" uid="uid://c1huly8nd45q" path="res://LittleWizard/animations/rest_site/LittleWizard_rest_site_skel_data.tres" id="1_dht52"]
-[ext_resource type="PackedScene" uid="uid://bgy88bk44xxvk" path="res://LittleWizard/scenes/LittleWizard/selection_reticle.tscn" id="3_mt86d"]
+[ext_resource type="PackedScene" uid="uid://bgy88bk44xxvk" path="res://scenes/LittleWizard/selection_reticle.tscn" id="3_mt86d"]
 
 [node name="LittleWizardRestSite" type="Node2D"]
 script = ExtResource("1_3ujm4")
