@@ -1,10 +1,10 @@
 [gd_scene load_steps=16 format=3 uid="uid://cko5h8p38rpsk"]
 
-[ext_resource type="Script" uid="uid://cmbe7oixepccw" path="res://Api/Nodes/SNCardTrailVfx.cs" id="1_icb7t"]
+[ext_resource type="Script" uid="uid://c8wjkinpxv2pn" path="res://Api/Nodes/SNCardTrailVfx.cs" id="1_icb7t"]
 [ext_resource type="Material" uid="uid://c4ycqv0gdxvmr" path="res://LittleWizard/themes/canvas_item_material_additive_shared.tres" id="1_pciub"]
 [ext_resource type="Texture2D" uid="uid://bvyxwduukii3l" path="res://LittleWizard/images/packed/vfx/trail.png" id="2_icb7t"]
 [ext_resource type="Texture2D" uid="uid://dbw515weyqfds" path="res://LittleWizard/images/packed/vfx/trail2.png" id="3_ikop2"]
-[ext_resource type="Script" uid="uid://bxii410w1b7ft" path="res://Api/Nodes/SNCardTrail.cs" id="4_ikop2"]
+[ext_resource type="Script" uid="uid://daewres1koio7" path="res://Api/Nodes/SNCardTrail.cs" id="4_ikop2"]
 [ext_resource type="Texture2D" uid="uid://yo8myvujk2ft" path="res://LittleWizard/images/vfx/brush_particle_2.png" id="4_tkoe1"]
 [ext_resource type="Texture2D" uid="uid://b5mp1yvvyjcwo" path="res://LittleWizard/images/vfx/vfx_ghostly_power_up/sparkle.png" id="5_semep"]
 [ext_resource type="Texture2D" uid="uid://d158aj8swms4a" path="res://LittleWizard/images/packed/vfx/small_card_silhouette.png" id="6_076ce"]
