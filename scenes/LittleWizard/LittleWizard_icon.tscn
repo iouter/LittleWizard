@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 	pass
 "
 
-[node name="LittleWizardicon" type="TextureRect"]
+[node name="LittleWizardicon2" type="TextureRect"]
 offset_right = 57.0
 offset_bottom = 57.0
 texture = ExtResource("1_k7ov5")
