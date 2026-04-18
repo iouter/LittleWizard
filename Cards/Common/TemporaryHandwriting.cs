@@ -18,15 +18,14 @@ public class TemporaryHandwriting()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CommonActions.Draw(this, choiceContext);
-        if (Owner.PlayerCombatState != null)
+        if (Owner.PlayerCombatState == null)
         {
-            var count = Owner.PlayerCombatState.DrawPile.Cards.Count;
-            var draws = DynamicVars[ExtraCards].BaseValue;
-            if (count >= draws)
-                await CardPileCmd.Draw(choiceContext, draws, Owner);
-            else
-                await CardPileCmd.Draw(choiceContext, count, Owner);
+            return;
         }
+        var count = Owner.PlayerCombatState.Hand.Cards.Count;
+        var draws = DynamicVars[ExtraCards].BaseValue;
+        if (count < 5)
+            await CardPileCmd.Draw(choiceContext, draws, Owner);
     }
 
     protected override void OnUpgrade()
