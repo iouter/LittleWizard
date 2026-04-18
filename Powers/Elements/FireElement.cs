@@ -1,5 +1,3 @@
-//using System.Linq;//
-
 using LittleWizard.Api.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -8,31 +6,21 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
-//using LittleWizard.Api.Nodes;//
-//using MegaCrit.Sts2.Core.Nodes.Vfx;//
-
 namespace LittleWizard.Powers.Elements;
 
 public class FireElement : BaseElement
 {
+    public override Task AfterApplied(Creature? applier, CardModel? cardSource)
+    {
+        ElementSoundHelper.PlayAppliedSound(this, applier);
+        return base.AfterApplied(applier, cardSource);
+    }
+
     public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
     {
         if (side != Owner.Side)
             return;
-
-        /*var enemies = combatState.HittableEnemies;
-        if (!enemies.Any())
-            return;
-
-        foreach (var target in enemies)
-        {
-            GD.Print($"Creating fire vfx for target {target.Name}");
-            var vfx = SNFireBurningVfx.Create(target, 1.0f, true);
-            if (vfx == null)
-                GD.PrintErr($"Failed to create fire vfx for {target.Name}");
-            else
-                GD.Print($"Vfx created: {vfx.Name}");*/
-
+        ElementSoundHelper.PlayTriggerSound(this);
         await CreatureCmd.Damage(
             new ThrowingPlayerChoiceContext(),
             Owner,
@@ -41,7 +29,6 @@ public class FireElement : BaseElement
             null,
             null
         );
-        //};//
         if (!Owner.IsAlive)
             await Cmd.CustomScaledWait(0.1f, 0.25f);
     }

@@ -12,6 +12,12 @@ namespace LittleWizard.Powers.Elements;
 
 public class EarthElement : BaseElement
 {
+    public override Task AfterApplied(Creature? applier, CardModel? cardSource)
+    {
+        ElementSoundHelper.PlayAppliedSound(this, applier);
+        return base.AfterApplied(applier, cardSource);
+    }
+
     protected override object InitInternalData() => new Data();
 
     private class Data
