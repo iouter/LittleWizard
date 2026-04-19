@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using LittleWizard.Api.Animation;
 using LittleWizard.Api.Cards;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -17,9 +18,14 @@ public class MagicMissile()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
+        int times = ResolveEnergyXValue() * ResolveEnergyXValue();
+
         await CommonActions
-            .CardAttack(this, cardPlay, ResolveEnergyXValue() * ResolveEnergyXValue())
+            .CardAttack(this, cardPlay, hitCount: times)
+            .Unpowered()
             .Execute(choiceContext);
+
+        await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 
     protected override void OnUpgrade()

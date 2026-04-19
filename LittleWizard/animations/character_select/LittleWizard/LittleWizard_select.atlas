@@ -1,0 +1,43 @@
+LittleWizard_select.png
+	size: 5847, 10088
+	filter: Linear, Linear
+	pma: true
+1
+	bounds: 1, 7607, 3508, 2480
+	offsets: 1, 1, 3510, 2482
+10
+	bounds: 3527, 6161, 569, 605
+	offsets: 0, 4, 569, 609
+11
+	bounds: 3933, 2890, 306, 304
+	offsets: 0, 1, 306, 305
+12
+	bounds: 2588, 33, 1737, 1354
+	rotate: 90
+3
+	bounds: 1, 4102, 2886, 1766
+4
+	bounds: 1, 1, 2587, 1899
+	offsets: 777, 0, 3364, 2217
+	rotate: 180
+5
+	bounds: 3510, 9037, 1826, 1050
+6
+	bounds: 3527, 6842, 204, 252
+7
+	bounds: 2888, 3068, 2800, 2448
+	rotate: 90
+8
+	bounds: 3933, 3190, 563, 359
+9
+	bounds: 3527, 5154, 2462, 2319
+	rotate: 90
+h1
+	bounds: 2443, 1788, 2313, 1489
+	rotate: 90
+h2
+	bounds: 3510, 7617, 1345, 1419
+h3
+	bounds: 1, 5869, 3525, 1737
+h4
+	bounds: 1, 2035, 2442, 2066

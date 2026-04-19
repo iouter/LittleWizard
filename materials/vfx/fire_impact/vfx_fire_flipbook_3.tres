@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=8 format=3 uid="uid://4cvhnh8xn8lg"]
 
-[ext_resource type="Shader" uid="uid://b74ju7rwrgwnc" path="res://shaders/vfx/common/vfx_flipbook_shader.gdshader" id="1_a54kx"]
+[ext_resource type="Shader" uid="uid://13x3kddehpeh" path="res://shaders/vfx/common/vfx_flipbook_shader.gdshader" id="1_a54kx"]
 
 [sub_resource type="Curve" id="Curve_ejie0"]
 _data = [Vector2(0, 0), 0.0, 1.6273886, 0, 0, Vector2(1, 1), 0.28151762, 0.0, 0, 0]

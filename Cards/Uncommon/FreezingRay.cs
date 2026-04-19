@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using BaseLib.Utils;
 using LittleWizard.Api.Animation;
 using LittleWizard.Api.Cards;
@@ -11,27 +12,25 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace LittleWizard.Cards.Uncommon;
 
 public class FreezingRay()
-    : LittleWizardCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies)
+    : LittleWizardCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
-
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [
-            new CalculationBaseVar(6),
-            new ExtraDamageVar(1),
-            new CalculatedDamageVar(ValueProp.Move).WithMultiplier(
-                (card, target) => target?.GetPowerAmount<WaterElement>() ?? 0
-            ),
-        ];
+        [new DamageVar(3, ValueProp.Move), new RepeatVar(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await CommonActions.CardAttack(this, cardPlay).Execute(choiceContext);
+        Debug.Assert(cardPlay.Target != null);
+        var hits = cardPlay.Target.GetPowerAmount<WaterElement>() * DynamicVars.Repeat.IntValue;
+        if (hits <= 0)
+            return;
+
+        await CommonActions.CardAttack(this, cardPlay, hitCount: hits).Execute(choiceContext);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.ExtraDamage.UpgradeValueBy(1);
+        DynamicVars.Repeat.UpgradeValueBy(1);
     }
 }

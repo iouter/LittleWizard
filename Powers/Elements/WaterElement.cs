@@ -8,6 +8,12 @@ namespace LittleWizard.Powers.Elements;
 
 public class WaterElement : BaseElement
 {
+    public override Task AfterApplied(Creature? applier, CardModel? cardSource)
+    {
+        ElementSoundHelper.PlayAppliedSound(this, applier);
+        return base.AfterApplied(applier, cardSource);
+    }
+
     public override decimal ModifyDamageAdditive(
         Creature? target,
         decimal amount,
@@ -35,7 +41,6 @@ public class WaterElement : BaseElement
             modifiedAmount = amount;
             return false;
         }
-
         switch (canonicalPower)
         {
             case FireElement fire:

@@ -15,12 +15,7 @@ public abstract class AfterElementReactPower : LittleWizardPower
     {
         if (power.Owner != Owner)
             return;
-        if (
-            power
-            is FireAndWaterElementReactorPower
-                or FireAndEarthElementReactorPower
-                or WaterAndEarthElementReactorPower
-        )
+        if (power is FireWaterReactor or FireEarthReactor or WaterEarthReactor)
             await AfterElementReact(Owner, amount, applier, cardSource);
         await base.AfterPowerAmountChanged(power, amount, applier, cardSource);
     }

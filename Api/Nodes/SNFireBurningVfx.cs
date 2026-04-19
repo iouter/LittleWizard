@@ -1,4 +1,3 @@
-using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 
 namespace LittleWizard.Api.Nodes;

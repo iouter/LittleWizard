@@ -11,8 +11,6 @@ namespace LittleWizard.Cards.Uncommon;
 public class ElementConvert()
     : LittleWizardCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
-
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
@@ -34,7 +32,7 @@ public class ElementConvert()
         else if (earthAmount > 0)
         {
             await PowerCmd.Remove<EarthElement>(cardPlay.Target);
-            await PowerCmd.Apply<WaterElement>(cardPlay.Target, earthAmount, Owner.Creature, this);
+            await PowerCmd.Apply<FireElement>(cardPlay.Target, earthAmount, Owner.Creature, this);
         }
 
         await AnimationHelper.TriggerCastAnimationOwner(this);

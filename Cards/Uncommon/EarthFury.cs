@@ -1,9 +1,7 @@
 using System.Diagnostics;
 using BaseLib.Utils;
-using LittleWizard.Api;
 using LittleWizard.Api.Animation;
 using LittleWizard.Api.Cards;
-using LittleWizard.Api.DynamicVars;
 using LittleWizard.Api.Extensions;
 using LittleWizard.Powers.Elements;
 using MegaCrit.Sts2.Core.Commands;

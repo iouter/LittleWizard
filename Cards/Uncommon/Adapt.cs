@@ -1,5 +1,4 @@
 using BaseLib.Utils;
-using LittleWizard.Api;
 using LittleWizard.Api.Animation;
 using LittleWizard.Api.Cards;
 using LittleWizard.Api.Extensions;
@@ -17,7 +16,7 @@ public class Adapt() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, 
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new CardsVar(1), new EnergyVar(2), new BlockVar(13, ValueProp.Move)];
+        [new CardsVar(2), new EnergyVar(2), new BlockVar(13, ValueProp.Move)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Innate];
 

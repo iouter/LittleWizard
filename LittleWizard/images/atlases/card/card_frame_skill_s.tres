@@ -1,7 +1,4 @@
-[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cwvw75o"]
-
-[ext_resource type="Texture2D" uid="uid://ct1wp0o0ybdqh" path="res://LittleWizard/images/atlases/ui_atlas_0.png" id="1"]
+[gd_resource type="AtlasTexture" format=3 uid="uid://cwvw75o"]
 
 [resource]
-atlas = ExtResource("1")
 region = Rect2(1221, 929, 598, 844)

@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://cx7vluba2bqm0"
+path="res://.godot/imported/LittleWizard_select.atlas-57b9d5c333043b140f08132f916a0df7.spatlas"
+
+[deps]
+
+source_file="res://LittleWizard/animations/character_select/LittleWizard/LittleWizard_select.atlas"
+dest_files=["res://.godot/imported/LittleWizard_select.atlas-57b9d5c333043b140f08132f916a0df7.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"

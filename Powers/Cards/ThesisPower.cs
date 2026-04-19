@@ -81,4 +81,9 @@ namespace LittleWizard.Powers.Cards
             public int cardsPlayedThisTurn;
         }
     }
+
+    private class Data
+    {
+        public int CardsPlayedThisTurn;
+    }
 }

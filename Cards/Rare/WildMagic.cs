@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.Cards.Rare;
 
-public class WildMagic() : LittleWizardCard(4, CardType.Power, CardRarity.Rare, TargetType.Self)
+public class WildMagic() : LittleWizardCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WildMagicPower>(1)];
 

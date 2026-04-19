@@ -26,6 +26,10 @@ public class ManaBurstPower : LittleWizardPower
     {
         if (cardPlay.Card.Owner != Owner.Player)
             return;
+        if (cardPlay.Card.Type != CardType.Skill)
+        {
+            return;
+        }
         var data = GetInternalData<Data>();
         data.SkillCardsUsed += 1;
         if (data.SkillCardsUsed >= GetThreshold())

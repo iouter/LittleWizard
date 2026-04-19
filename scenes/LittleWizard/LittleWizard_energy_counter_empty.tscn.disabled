@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bohgj75ytcbsr"]
+
+[ext_resource type="Script" uid="uid://brnpdgrrrhg1v" path="res://Api/Nodes/SNEnergyCounter.cs" id="1_xexum"]
+
+[node name="IroncladEnergyCounter" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_xexum")
+metadata/_edit_group_ = true

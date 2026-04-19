@@ -2,7 +2,7 @@
 
 [ext_resource type="SpineSkeletonDataResource" uid="uid://bo0xchrk5fhc5" path="res://LittleWizard/animations/merchant/LittleWizard_merchant_skel_data.tres" id="1_8sym6"]
 [ext_resource type="Script" uid="uid://c5ffkajifkju2" path="res://Api/Nodes/SNMerchantCharacter.cs" id="1_g2n7t"]
-[ext_resource type="PackedScene" uid="uid://bgwa4cw8uquj1" path="res://LittleWizard/scenes/LittleWizard/LittleWizard_Energy_A.tscn" id="3_7nkxu"]
+[ext_resource type="PackedScene" uid="uid://bgwa4cw8uquj1" path="res://scenes/LittleWizard/LittleWizard_Energy_A.tscn" id="3_7nkxu"]
 
 [node name="LittleWizardMerchant" type="Node2D"]
 script = ExtResource("1_g2n7t")
@@ -19,9 +19,9 @@ scale = Vector2(0.6, 0.6)
 [node name="SpineBoneNode" type="SpineBoneNode" parent="SpineSprite"]
 bone_name = "WE"
 show_behind_parent = true
-position = Vector2(-50.86606, -381.99686)
-rotation = -1.5872154
-scale = Vector2(0.6867025, 0.6867025)
+position = Vector2(-46.26424, -382.1657)
+rotation = 0.019571017
+scale = Vector2(0.68670255, 0.68670255)
 
 [node name="LittleWizardEnergyA" parent="SpineSprite/SpineBoneNode" instance=ExtResource("3_7nkxu")]
 scale = Vector2(2.25, 2.25)

@@ -1,4 +1,3 @@
-using BaseLib.Extensions;
 using LittleWizard.Api.Cards;
 using LittleWizard.Powers.Elements;
 using MegaCrit.Sts2.Core.Commands;
@@ -14,16 +13,10 @@ public class FrozenWorld()
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
-            new PowerVar<WaterElement>(4),
             new CalculationBaseVar(8),
             new CalculationExtraVar(8),
             new CalculatedBlockVar(ValueProp.Move).WithMultiplier(
-                (_, target) =>
-                    target != null
-                    && target.GetPowerAmount<WaterElement>()
-                        >= DynamicVars.Power<WaterElement>().BaseValue
-                        ? 1
-                        : 0
+                (_, target) => target != null && target.GetPowerAmount<WaterElement>() >= 4 ? 1 : 0
             ),
         ];
 

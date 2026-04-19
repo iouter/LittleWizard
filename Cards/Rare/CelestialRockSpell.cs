@@ -1,4 +1,3 @@
-using BaseLib.Utils;
 using LittleWizard.Api;
 using LittleWizard.Api.Animation;
 using LittleWizard.Api.Cards;
@@ -34,7 +33,7 @@ public class CelestialRockSpell()
             var target = Owner.RunState.Rng.CombatTargets.NextItem(targets);
             if (target == null)
                 continue;
-            await CommonActions.CardAttack(this, target).Execute(choiceContext);
+            await CreatureCmd.Damage(choiceContext, target, DynamicVars.Damage, this);
             await Utils.GivePower<FireElement>(target, DynamicVars, Owner.Creature, this);
             await AnimationHelper.TriggerCastAnimationOwner(this);
         }

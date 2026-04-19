@@ -16,6 +16,10 @@ jobs:
       - name: Extract version from tag
         id: version
         run: echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+      - name: Restore Tools
+        run: dotnet tool restore
+      - name: Check formatting with CSharpier
+        run: dotnet csharpier check .
       - name: Restore dependencies
         run: dotnet restore
       - name: Setup Godot Action
@@ -28,24 +32,18 @@ jobs:
         id: godot-path
         run: |
           echo "GODOT_EXE=$(which godot)" >> $GITHUB_OUTPUT
-      - name: Clean Godot Cache
-        run: |
-          rm -rf ~/.godot/
-          rm -rf ${{ github.workspace }}/.godot/mono/temp/
-          mkdir -p ${{ github.workspace }}/.godot/mono/temp/bin/Release/publish/
       - name: Download and install Spine GDExtension
         run: |
           cd ${{ github.workspace }}
           wget -O spine.zip "https://spine-godot.s3.eu-central-1.amazonaws.com/4.2/4.5.1-stable/spine-godot-extension-4.2-4.5.1-stable.zip"
-          unzip spine.zip -o
-          cd bin
-          ls
+          unzip -o spine.zip
+      - name: Import Godot project
+        run: godot --headless --editor --quit --path . --import
       - name: Publish
         run: dotnet publish -c Release
         env:
           GodotPath: ${{ steps.godot-path.outputs.GODOT_EXE }}
           ModsPath: ${{ github.workspace }}/mods_output/
-          DebugMode: false
       - name: Package Release Artifacts
         run: |
           cd mods_output/LittleWizard

@@ -19,7 +19,7 @@ public class Stalagmite()
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
             new BlockVar(7, ValueProp.Move),
-            new DamageVar(9, ValueProp.Move),
+            new DamageVar(3, ValueProp.Move),
             new PowerVar<EarthElement>(3),
         ];
 
@@ -32,8 +32,7 @@ public class Stalagmite()
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Block.UpgradeValueBy(2);
-        DynamicVars.Damage.UpgradeValueBy(2);
+        DynamicVars.Damage.UpgradeValueBy(1);
         DynamicVarsHelper.GetPowerVar<EarthElement>(DynamicVars).UpgradeValueBy(2);
     }
 }

@@ -1,4 +1,5 @@
 using BaseLib.Abstracts;
+using BaseLib.Extensions;
 using BaseLib.Utils;
 using LittleWizard.Character;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -13,4 +14,8 @@ public abstract class LittleWizardCard(
     TargetType target,
     bool showInCardLibrary = true,
     bool autoAdd = true
-) : CustomCardModel(baseCost, type, rarity, target, showInCardLibrary, autoAdd) { }
+) : CustomCardModel(baseCost, type, rarity, target, showInCardLibrary, autoAdd)
+{
+    public override string? CustomPortraitPath =>
+        $"res://{MainFile.ModId}/images/card_portraits/{Id.Entry.RemovePrefix().ToLowerInvariant()}.png";
+}

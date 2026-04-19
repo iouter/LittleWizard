@@ -14,8 +14,6 @@ namespace LittleWizard.Cards.Rare;
 public class SelfHypnosis()
     : LittleWizardCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
-    protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
-
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
             new DamageVar(17, ValueProp.Move),
