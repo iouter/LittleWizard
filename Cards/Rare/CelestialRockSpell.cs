@@ -4,6 +4,7 @@ using LittleWizard.Api.Animation;
 using LittleWizard.Api.Cards;
 using LittleWizard.Api.Extensions;
 using LittleWizard.Powers.Elements;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -33,7 +34,7 @@ public class CelestialRockSpell()
             var target = Owner.RunState.Rng.CombatTargets.NextItem(targets);
             if (target == null)
                 continue;
-            await CommonActions.CardAttack(this, target).Execute(choiceContext);
+            await CreatureCmd.Damage(choiceContext, target, DynamicVars.Damage, this);
             await Utils.GivePower<FireElement>(target, DynamicVars, Owner.Creature, this);
             await AnimationHelper.TriggerCastAnimationOwner(this);
         }
