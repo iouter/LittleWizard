@@ -10,22 +10,29 @@ namespace LittleWizard.Cards.Uncommon;
 public class LingeringThought()
     : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(5, ValueProp.Move)];
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [new BlockVar(7, ValueProp.Move), new CardsVar(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         await CommonActions.CardBlock(this, play);
-        var card = await CommonActions.SelectSingleCard(
+        var cards = await CommonActions.SelectCards(
             this,
             SelectionScreenPrompt,
             choiceContext,
-            PileType.Hand
+            PileType.Hand,
+            minCount: 0,
+            maxCount: DynamicVars.Cards.IntValue
         );
-        card?.AddKeyword(CardKeyword.Retain);
+        foreach (var card in cards)
+        {
+            card.AddKeyword(CardKeyword.Innate);
+        }
     }
 
     protected override void OnUpgrade()
     {
-        AddKeyword(CardKeyword.Innate);
+        DynamicVars.Block.UpgradeValueBy(2);
+        DynamicVars.Cards.UpgradeValueBy(1);
     }
 }
