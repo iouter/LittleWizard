@@ -1,6 +1,5 @@
 using BaseLib.Abstracts;
 using BaseLib.Extensions;
-using LittleWizard.Api.Extensions;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;

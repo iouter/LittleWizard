@@ -10,17 +10,11 @@ namespace LittleWizard.Powers.Elements;
 
 public class FireElement : BaseElement
 {
-    public override Task AfterApplied(Creature? applier, CardModel? cardSource)
-    {
-        ElementSoundHelper.PlayAppliedSound(this, applier);
-        return base.AfterApplied(applier, cardSource);
-    }
-
     public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
     {
         if (side != Owner.Side)
             return;
-        ElementSoundHelper.PlayTriggerSound(this);
+        PlaySound();
         await CreatureCmd.Damage(
             new ThrowingPlayerChoiceContext(),
             Owner,
