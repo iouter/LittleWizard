@@ -2,7 +2,7 @@
     "LITTLEWIZARD-CALLBACK.description": "将弃牌堆中的1张能给予[gold]元素[/gold]的牌放到你的抽牌堆顶。",
     "LITTLEWIZARD-CALLBACK.title": "回拨",
     "LITTLEWIZARD-CALLBACK.selectionScreenPrompt": "将1张牌放到你的抽牌堆顶",
-    "LITTLEWIZARD-COLORFUL_BALLS.description": "造成{Damage:diff()}点伤害。\n给予{RandomElement:diff()}层随机的[gold]元素[/gold]。",
+    "LITTLEWIZARD-COLORFUL_BALLS.description": "造成{Damage:diff()}点伤害。\n给予{RandomElement:diff()}层随机的一种[gold]元素[/gold]。",
     "LITTLEWIZARD-COLORFUL_BALLS.title": "缤纷彩球",
     "LITTLEWIZARD-DEFEND_LITTLE_WIZARD.description": "获得{Block:diff()}点[gold]格挡[/gold]。",
     "LITTLEWIZARD-DEFEND_LITTLE_WIZARD.title": "防御",
