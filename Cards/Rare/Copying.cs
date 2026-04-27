@@ -48,8 +48,7 @@ public class Copying() : LittleWizardCard(1, CardType.Skill, CardRarity.Rare, Ta
             Owner.Creature.Player,
             prefs
         );
-        foreach (var card in cards)
-            await CardPileCmd.Add(card, PileType.Hand);
+        await CardPileCmd.AddGeneratedCardsToCombat(cards, PileType.Hand, true);
     }
 
     protected override void OnUpgrade()
