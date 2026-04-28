@@ -9,7 +9,7 @@ public class ManaSurgePower : LittleWizardPower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override decimal ModifyMaxEnergy(Player player, decimal amount)
+    public override decimal ModifyEnergyGain(Player player, decimal amount)
     {
         if (player.Creature != Owner)
             return amount;

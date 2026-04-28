@@ -152,7 +152,7 @@
     "LITTLEWIZARD-MANA_SHIELD.title": "魔力护体",
     "LITTLEWIZARD-MANA_SHIELD.description": "获得{Block:diff()}点[gold]格挡[/gold]。每回合开始时获得3点格挡。每打出1张能给予[gold]元素[/gold]的卡牌时，获得2点格挡。",
     "LITTLEWIZARD-MANA_SURGE.title": "魔力泉涌",
-    "LITTLEWIZARD-MANA_SURGE.description": "每回合开始时获得{ManaSurgePower:diff()}点{energyPrefix:energyIcons(1)}。",
+    "LITTLEWIZARD-MANA_SURGE.description": "每次获得能量时，额外获得{ManaSurgePower:diff()}点{energyPrefix:energyIcons(1)}。",
     "LITTLEWIZARD-CELESTIAL_ROCK_SPELL.title": "陨石术",
     "LITTLEWIZARD-CELESTIAL_ROCK_SPELL.description": "随机对一个敌人造成{Damage:diff()}点伤害。施加{FireElement:diff()}层[gold]火元素[/gold]。",
     "LITTLEWIZARD-NOT_MY_TIME.title": "死期未到",
