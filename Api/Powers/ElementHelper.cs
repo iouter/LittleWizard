@@ -45,17 +45,7 @@ public static class ElementHelper
         Creature? applier
     )
     {
-        decimal totalAmount = amountA + amountB;
-        CreatureCmd.Damage(
-            new ThrowingPlayerChoiceContext(),
-            owner,
-            totalAmount,
-            ValueProp.Unpowered,
-            applier,
-            null
-        );
-        PowerCmd.Apply<StrengthPower>(owner, -totalAmount, applier, null);
-        PowerCmd.Apply<FireWaterReactor>(owner, totalAmount, applier, null);
+        PowerCmd.Apply<FireWaterReactor>(owner, amountA + amountB, applier, null);
     }
 
     public static void FireAndEarth(
@@ -65,16 +55,7 @@ public static class ElementHelper
         Creature? applier
     )
     {
-        decimal totalAmount = amountA + amountB;
-        CreatureCmd.Damage(
-            new ThrowingPlayerChoiceContext(),
-            owner,
-            totalAmount,
-            ValueProp.Unpowered,
-            applier,
-            null
-        );
-        PowerCmd.Apply<FireEarthReactor>(owner, totalAmount, applier, null);
+        PowerCmd.Apply<FireEarthReactor>(owner, amountA + amountB, applier, null);
     }
 
     public static void WaterAndEarth(
@@ -84,10 +65,7 @@ public static class ElementHelper
         Creature? applier
     )
     {
-        decimal totalAmount = amountA + amountB;
-
-        PowerCmd.Apply<StrengthPower>(owner, -totalAmount, applier, null);
-        PowerCmd.Apply<WaterEarthReactor>(owner, totalAmount, applier, null);
+        PowerCmd.Apply<WaterEarthReactor>(owner, amountA + amountB, applier, null);
     }
 
     public static bool IsElementCard(CardModel card)

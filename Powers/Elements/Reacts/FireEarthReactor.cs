@@ -21,6 +21,44 @@ public class FireEarthReactor : LittleWizardPower
     public override string CustomBigIconPath =>
         "res://LittleWizard/images/powers/big/fire_and_earth_element_reactor_power.png";
 
+    public override async Task BeforeApplied(
+        Creature target,
+        decimal amount,
+        Creature? applier,
+        CardModel? cardSource
+    )
+    {
+        await CreatureCmd.Damage(
+            new ThrowingPlayerChoiceContext(),
+            target,
+            amount,
+            ValueProp.Unpowered,
+            applier,
+            null
+        );
+    }
+
+    public override async Task AfterPowerAmountChanged(
+        PowerModel power,
+        decimal amount,
+        Creature? applier,
+        CardModel? cardSource
+    )
+    {
+        if (power != this || amount == Amount)
+        {
+            return;
+        }
+        await CreatureCmd.Damage(
+            new ThrowingPlayerChoiceContext(),
+            Owner,
+            amount,
+            ValueProp.Unpowered,
+            applier,
+            null
+        );
+    }
+
     public override async Task AfterDamageReceived(
         PlayerChoiceContext choiceContext,
         Creature target,

@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 namespace LittleWizard.Cards.Rare;
 
 public class ElementBlessing()
-    : LittleWizardCard(0, CardType.Power, CardRarity.Rare, TargetType.Self)
+    : LittleWizardCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new PowerVar<ElementBlessingPower>(1)];
@@ -21,5 +21,6 @@ public class ElementBlessing()
     protected override void OnUpgrade()
     {
         AddKeyword(CardKeyword.Innate);
+        EnergyCost.UpgradeBy(-1);
     }
 }
