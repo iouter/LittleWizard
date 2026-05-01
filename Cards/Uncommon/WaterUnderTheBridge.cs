@@ -12,7 +12,7 @@ public class WaterUnderTheBridge()
     : LittleWizardCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new PowerVar<WaterUnderTheBridgePower>(5)];
+        [new PowerVar<WaterUnderTheBridgePower>(7)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
@@ -21,6 +21,6 @@ public class WaterUnderTheBridge()
 
     protected override void OnUpgrade()
     {
-        DynamicVarsHelper.GetPowerVar<WaterUnderTheBridgePower>(DynamicVars).UpgradeValueBy(2);
+        DynamicVarsHelper.GetPowerVar<WaterUnderTheBridgePower>(DynamicVars).UpgradeValueBy(3);
     }
 }
