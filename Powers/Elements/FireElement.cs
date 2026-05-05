@@ -10,19 +10,35 @@ namespace LittleWizard.Powers.Elements;
 
 public class FireElement : BaseElement
 {
+    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
+    {
+        await base.AfterApplied(applier, cardSource);
+    }
+
     public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
     {
         if (side != Owner.Side)
             return;
         PlaySound();
-        await CreatureCmd.Damage(
-            new ThrowingPlayerChoiceContext(),
-            Owner,
-            Amount,
-            ValueProp.Unblockable | ValueProp.Unpowered,
-            null,
-            null
-        );
+
+        int damage;
+        if (Amount == 1)
+            damage = 1;
+        else
+            damage = Amount / 2;
+
+        if (damage > 0)
+        {
+            await CreatureCmd.Damage(
+                new ThrowingPlayerChoiceContext(),
+                Owner,
+                damage,
+                ValueProp.Unblockable | ValueProp.Unpowered,
+                null,
+                null
+            );
+        }
+
         if (!Owner.IsAlive)
             await Cmd.CustomScaledWait(0.1f, 0.25f);
     }
@@ -44,22 +60,16 @@ public class FireElement : BaseElement
         switch (canonicalPower)
         {
             case WaterElement water:
-            {
                 ElementHelper.FireAndWater(Owner, Amount, amount, applier);
                 modifiedAmount = 0;
                 return true;
-            }
             case EarthElement earth:
-            {
                 ElementHelper.FireAndEarth(Owner, Amount, amount, applier);
                 modifiedAmount = 0;
                 return true;
-            }
             default:
-            {
                 modifiedAmount = amount;
                 return false;
-            }
         }
     }
 }
