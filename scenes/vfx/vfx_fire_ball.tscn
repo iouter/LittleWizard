@@ -13,5 +13,5 @@ preview_animation = "-- Empty --"
 preview_frame = false
 preview_time = 0.0
 show_behind_parent = true
-position = Vector2(0, 70)
+position = Vector2(0, 80)
 scale = Vector2(0.5, 0.5)
