@@ -10,11 +10,6 @@ namespace LittleWizard.Powers.Elements;
 
 public class FireElement : BaseElement
 {
-    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
-    {
-        await base.AfterApplied(applier, cardSource);
-    }
-
     public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
     {
         if (side != Owner.Side)
