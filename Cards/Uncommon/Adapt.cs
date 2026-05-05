@@ -18,8 +18,6 @@ public class Adapt() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new CardsVar(2), new EnergyVar(2), new BlockVar(13, ValueProp.Move)];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [];
-
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
