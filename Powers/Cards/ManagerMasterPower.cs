@@ -12,29 +12,26 @@ namespace LittleWizard.Powers.Cards;
 
 public class ManagerMasterPower : LittleWizardPower
 {
-    private int _stack;
-
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Single;
 
-    public override int DisplayAmount => _stack;
+    public override int DisplayAmount => GetInternalData<Data>().FreeEtherealCards;
+
+    protected override object InitInternalData() => new Data();
 
     public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
-        _stack = 0;
-        await Task.CompletedTask;
+        GetInternalData<Data>().FreeEtherealCards = 0;
     }
 
     public override async Task AfterEnergySpent(CardModel card, int amount)
     {
         if (Owner.Player == null || card.Owner != Owner.Player)
             return;
-
         if (card.CanonicalKeywords.Contains(CardKeyword.Ethereal))
             return;
 
-        _stack += amount;
-        await Task.CompletedTask;
+        GetInternalData<Data>().FreeEtherealCards += amount;
     }
 
     public override bool TryModifyEnergyCostInCombat(
@@ -47,11 +44,10 @@ public class ManagerMasterPower : LittleWizardPower
 
         if (Owner.Player == null || card.Owner != Owner.Player)
             return false;
-
         if (!card.CanonicalKeywords.Contains(CardKeyword.Ethereal))
             return false;
 
-        if (_stack > 0)
+        if (GetInternalData<Data>().FreeEtherealCards > 0)
         {
             modifiedCost = 0;
             return true;
@@ -65,11 +61,16 @@ public class ManagerMasterPower : LittleWizardPower
         if (Owner.Player == null || cardPlay.Card.Owner != Owner.Player)
             return;
 
-        if (cardPlay.Card.CanonicalKeywords.Contains(CardKeyword.Ethereal) && _stack > 0)
+        if (cardPlay.Card.CanonicalKeywords.Contains(CardKeyword.Ethereal))
         {
-            _stack--;
+            var data = GetInternalData<Data>();
+            if (data.FreeEtherealCards > 0)
+                data.FreeEtherealCards--;
         }
+    }
 
-        await Task.CompletedTask;
+    private class Data
+    {
+        public int FreeEtherealCards;
     }
 }
