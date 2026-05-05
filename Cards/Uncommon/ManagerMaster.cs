@@ -16,7 +16,6 @@ public class ManagerMaster()
     {
         if (Owner.Creature.Player is null)
             return;
-
         await PowerCmd.Apply<ManagerMasterPower>(
             Owner.Creature,
             DynamicVars.Energy.BaseValue,

@@ -1,20 +1,27 @@
 using LittleWizard.Api.Powers;
+using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace LittleWizard.Powers.Cards;
 
 public class ManagerMasterPower : LittleWizardPower
 {
+    private int _stack;
+
     public override PowerType Type => PowerType.Buff;
-    public override PowerStackType StackType => PowerStackType.Counter;
+    public override PowerStackType StackType => PowerStackType.Single;
+
+    public override int DisplayAmount => _stack;
 
     public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
     {
-        SetAmount(0);
+        _stack = 0;
         await Task.CompletedTask;
     }
 
@@ -26,7 +33,7 @@ public class ManagerMasterPower : LittleWizardPower
         if (card.CanonicalKeywords.Contains(CardKeyword.Ethereal))
             return;
 
-        SetAmount(Amount + amount);
+        _stack += amount;
         await Task.CompletedTask;
     }
 
@@ -44,7 +51,7 @@ public class ManagerMasterPower : LittleWizardPower
         if (!card.CanonicalKeywords.Contains(CardKeyword.Ethereal))
             return false;
 
-        if (Amount > 0)
+        if (_stack > 0)
         {
             modifiedCost = 0;
             return true;
@@ -58,8 +65,10 @@ public class ManagerMasterPower : LittleWizardPower
         if (Owner.Player == null || cardPlay.Card.Owner != Owner.Player)
             return;
 
-        if (cardPlay.Card.CanonicalKeywords.Contains(CardKeyword.Ethereal) && Amount > 0)
-            SetAmount(Amount - 1);
+        if (cardPlay.Card.CanonicalKeywords.Contains(CardKeyword.Ethereal) && _stack > 0)
+        {
+            _stack--;
+        }
 
         await Task.CompletedTask;
     }
