@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using Godot;
 using LittleWizard.Api;
 using LittleWizard.Api.Animation;
 using LittleWizard.Api.Cards;
@@ -22,7 +23,11 @@ public class Fireball()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        await CommonActions.CardAttack(this, play).Execute(choiceContext);
+        await CommonActions
+            .CardAttack(this, play)
+            .WithHitFx("vfx/vfx_fire_ball")
+            .Execute(choiceContext);
+
         await Utils.GivePower<FireElement>(this, play);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
