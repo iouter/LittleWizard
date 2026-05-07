@@ -1,19 +1,19 @@
+using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Relics;
 using LittleWizard.LittleWizardCode.Powers.Elements;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.LittleWizardCode.Relics;
 
-public sealed class FireElementGem : LittleWizardRelics
+public class RitualList : LittleWizardRelics
 {
-    public override RelicRarity Rarity => RelicRarity.Common;
-
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FireElement>(2)];
+    public override RelicRarity Rarity => RelicRarity.Uncommon;
 
     public override async Task BeforeSideTurnStart(
         PlayerChoiceContext choiceContext,
@@ -24,6 +24,16 @@ public sealed class FireElementGem : LittleWizardRelics
         if (side != Owner.Creature.Side || combatState.RoundNumber > 1)
             return;
         Flash();
-        await Utils.GivePower<FireElement>(this, combatState.HittableEnemies);
+        var card = await Utils.SelectSingleCard(
+            Owner,
+            SelectionScreenPrompt,
+            choiceContext,
+            PileType.Draw
+        );
+        if (card == null)
+        {
+            return;
+        }
+        await CardPileCmd.Add(card, PileType.Hand);
     }
 }
