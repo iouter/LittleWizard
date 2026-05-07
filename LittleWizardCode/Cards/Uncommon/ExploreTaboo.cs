@@ -1,0 +1,33 @@
+using LittleWizard.LittleWizardCode.Api;
+using LittleWizard.LittleWizardCode.Api.Cards;
+using LittleWizard.LittleWizardCode.Api.DynamicVars;
+using LittleWizard.LittleWizardCode.Api.Extensions;
+using LittleWizard.LittleWizardCode.Powers.Cards;
+using LittleWizard.LittleWizardCode.Powers.Elements;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+
+namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
+
+public class ExploreTaboo()
+    : LittleWizardCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+{
+    protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
+
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [new PowerVar<FireElement>(3), new PowerVar<ExploreTabooPower>(1)];
+
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
+
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        await Utils.GivePower<FireElement>(this, cardPlay);
+        await Utils.GivePower<ExploreTabooPower>(this, cardPlay);
+    }
+
+    protected override void OnUpgrade()
+    {
+        DynamicVarsHelper.GetPowerVar<ExploreTabooPower>(DynamicVars).UpgradeValueBy(1);
+    }
+}

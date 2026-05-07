@@ -1,0 +1,32 @@
+using BaseLib.Utils;
+using LittleWizard.LittleWizardCode.Api;
+using LittleWizard.LittleWizardCode.Api.Cards;
+using LittleWizard.LittleWizardCode.Api.Extensions;
+using LittleWizard.LittleWizardCode.Powers.Elements;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.ValueProps;
+
+namespace LittleWizard.LittleWizardCode.Cards.Basic;
+
+public class StrikeEarthLittleWizard()
+    : LittleWizardCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
+{
+    protected override HashSet<CardTag> CanonicalTags =>
+        [CardTag.Strike, CardTagExtensions.LittleWizardElement];
+
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [new DamageVar(6, ValueProp.Move), new PowerVar<EarthElement>(1)];
+
+    protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
+    {
+        await CommonActions.CardAttack(this, play).Execute(choiceContext);
+        await Utils.GivePower<EarthElement>(this, play);
+    }
+
+    protected override void OnUpgrade()
+    {
+        DynamicVars.Damage.UpgradeValueBy(3m);
+    }
+}

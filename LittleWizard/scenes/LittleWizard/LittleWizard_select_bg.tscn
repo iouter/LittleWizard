@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d4k2ig4l2q5cw"]
 
 [ext_resource type="SpineSkeletonDataResource" uid="uid://c7q25rly7cd1t" path="res://LittleWizard/animations/character_select/LittleWizard_select_skel_data.tres" id="1_hym5c"]
-[ext_resource type="Script" uid="uid://bt1icobe1blfu" path="res://Api/Nodes/SNSpineAutoPlayer.cs" id="2_6vr46"]
+[ext_resource type="Script" uid="uid://bt1icobe1blfu" path="res://LittleWizardCode/Api/Nodes/SNSpineAutoPlayer.cs" id="2_6vr46"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ou856"]
 
