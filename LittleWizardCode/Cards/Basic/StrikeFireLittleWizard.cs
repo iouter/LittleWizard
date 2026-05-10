@@ -1,5 +1,6 @@
 using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api;
+using LittleWizard.LittleWizardCode.Api.Audios;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Elements;
@@ -21,6 +22,7 @@ public class StrikeFireLittleWizard()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
+        AudioHelper.PlaySoundOnAttack(this);
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
         await Utils.GivePower<FireElement>(this, play);
     }

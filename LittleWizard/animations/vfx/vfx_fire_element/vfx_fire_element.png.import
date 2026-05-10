@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfa4tbgfipmya"
-path="res://.godot/imported/fire_ball.png-8029bd44ac6e9e12ce4f3d37fbe78aed.ctex"
+uid="uid://cd7618wofmal7"
+path="res://.godot/imported/vfx_fire_element.png-5347776f14f1518f4f92feefc8790889.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LittleWizard/animations/vfx/vfx_fire_ball/fire_ball.png"
-dest_files=["res://.godot/imported/fire_ball.png-8029bd44ac6e9e12ce4f3d37fbe78aed.ctex"]
+source_file="res://LittleWizard/animations/vfx/vfx_fire_element/vfx_fire_element.png"
+dest_files=["res://.godot/imported/vfx_fire_element.png-5347776f14f1518f4f92feefc8790889.ctex"]
 
 [params]
 

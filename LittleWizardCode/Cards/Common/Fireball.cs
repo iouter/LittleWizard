@@ -1,6 +1,6 @@
 using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api;
-using LittleWizard.LittleWizardCode.Api.Animation;
+using LittleWizard.LittleWizardCode.Api.Audios;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using LittleWizard.LittleWizardCode.Api.Extensions;
@@ -22,13 +22,13 @@ public class Fireball()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
+        AudioHelper.PlaySoundOnAttack(this);
         await CommonActions
             .CardAttack(this, play)
             .WithHitFx("vfx/vfx_fire_ball")
             .Execute(choiceContext);
 
         await Utils.GivePower<FireElement>(this, play);
-        await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 
     protected override void OnUpgrade()

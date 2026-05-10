@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using LittleWizard.LittleWizardCode.Api.Audios;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -15,6 +16,7 @@ public class StrikeLittleWizard()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
+        AudioHelper.PlaySoundOnAttack(this);
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
     }
 

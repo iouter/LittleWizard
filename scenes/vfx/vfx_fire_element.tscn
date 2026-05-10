@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dear5rgdw4v5j"]
+
+[ext_resource type="Script" uid="uid://bxsmitt8fv182" path="res://LittleWizardCode/Api/Animation/SNVfxSpine.cs" id="1_hr2qw"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://8nccgsec1ajc" path="res://LittleWizard/animations/vfx/vfx_fire_elementl_skel_data_resource.tres" id="1_tygmh"]
+
+[node name="VfxFireElement" type="Node2D"]
+modulate = Color(1, 0.54595, 0.342164, 1)
+script = ExtResource("1_hr2qw")
+
+[node name="SpineSprite" type="SpineSprite" parent="."]
+skeleton_data_res = ExtResource("1_tygmh")
+preview_skin = "Default"
+preview_animation = "animation"
+preview_frame = false
+preview_time = 0.0
+position = Vector2(0, 100)
+scale = Vector2(0.5, 0.5)
