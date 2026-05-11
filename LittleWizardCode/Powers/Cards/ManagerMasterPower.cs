@@ -1,7 +1,11 @@
+using System.Threading.Tasks;
+using Godot;
+using LittleWizard.Api.Powers;
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rooms;
 
@@ -11,12 +15,12 @@ namespace LittleWizard.Powers.Cards
     {
         private class Data
         {
-            public int FreeEtherealCards = 0;
+            public int freeCharges = 0;
         }
 
         public override PowerType Type => PowerType.Buff;
         public override PowerStackType StackType => PowerStackType.Counter;
-        public override int DisplayAmount => GetInternalData<Data>().FreeEtherealCards;
+        public override int DisplayAmount => GetInternalData<Data>().freeCharges;
         public override bool ShouldReceiveCombatHooks => true;
 
         protected override object InitInternalData() => new Data();
@@ -28,7 +32,7 @@ namespace LittleWizard.Powers.Cards
             if (amount > 0)
             {
                 var data = GetInternalData<Data>();
-                data.FreeEtherealCards += amount;
+                data.freeCharges += amount;
                 InvokeDisplayAmountChanged();
             }
             return Task.CompletedTask;
@@ -43,10 +47,10 @@ namespace LittleWizard.Powers.Cards
             if (card.CanonicalKeywords.Contains(CardKeyword.Ethereal))
             {
                 var data = GetInternalData<Data>();
-                if (data.FreeEtherealCards > 0)
+                if (data.freeCharges > 0)
                 {
                     card.SetToFreeThisCombat();
-                    data.FreeEtherealCards--;
+                    data.freeCharges--;
                     InvokeDisplayAmountChanged();
                 }
             }
