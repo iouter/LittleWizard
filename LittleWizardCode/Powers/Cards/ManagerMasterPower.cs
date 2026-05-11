@@ -29,6 +29,7 @@ namespace LittleWizard.Powers.Cards
             {
                 var data = GetInternalData<Data>();
                 data.FreeEtherealCards += amount;
+                InvokeDisplayAmountChanged();
             }
             return Task.CompletedTask;
         }
@@ -46,6 +47,7 @@ namespace LittleWizard.Powers.Cards
                 {
                     card.SetToFreeThisCombat();
                     data.FreeEtherealCards--;
+                    InvokeDisplayAmountChanged();
                 }
             }
             await base.BeforeCardPlayed(cardPlay);
