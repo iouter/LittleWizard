@@ -1,89 +1,59 @@
 using LittleWizard.LittleWizardCode.Api.Powers;
-using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Rooms;
 
-namespace LittleWizard.LittleWizardCode.Powers.Cards;
-
-public class ManagerMasterPower : LittleWizardPower
+namespace LittleWizard.Powers.Cards
 {
-    public override PowerType Type => PowerType.Buff;
-    public override PowerStackType StackType => PowerStackType.Counter;
-
-    public override int DisplayAmount => GetInternalData<Data>().FreeEtherealCards;
-
-    protected override object InitInternalData() => new Data();
-
-    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
+    public class ManagerMasterPower : LittleWizardPower
     {
-        SetAmount(1);
-        GetInternalData<Data>().FreeEtherealCards = 0;
-        InvokeDisplayAmountChanged();
-    }
-
-    public override async Task AfterEnergySpent(CardModel card, int amount)
-    {
-        if (Owner.Player == null || card.Owner != Owner.Player)
-            return;
-        if (card.CanonicalKeywords.Contains(CardKeyword.Ethereal))
-            return;
-
-        GetInternalData<Data>().FreeEtherealCards += amount;
-        InvokeDisplayAmountChanged();
-    }
-
-    public override bool TryModifyEnergyCostInCombat(
-        CardModel card,
-        decimal originalCost,
-        out decimal modifiedCost
-    )
-    {
-        modifiedCost = originalCost;
-        if (Owner.Player == null || card.Owner != Owner.Player)
-            return false;
-        if (!card.CanonicalKeywords.Contains(CardKeyword.Ethereal))
-            return false;
-
-        if (GetInternalData<Data>().FreeEtherealCards > 0)
+        private class Data
         {
-            modifiedCost = 0;
-            return true;
+            public int FreeEtherealCards = 0;
         }
-        return false;
-    }
 
-    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
-        if (Owner.Player == null || cardPlay.Card.Owner != Owner.Player)
-            return;
+        public override PowerType Type => PowerType.Buff;
+        public override PowerStackType StackType => PowerStackType.Counter;
+        public override int DisplayAmount => GetInternalData<Data>().FreeEtherealCards;
+        public override bool ShouldReceiveCombatHooks => true;
 
-        if (cardPlay.Card.CanonicalKeywords.Contains(CardKeyword.Ethereal))
+        protected override object InitInternalData() => new Data();
+
+        public override Task AfterEnergySpent(CardModel card, int amount)
         {
-            var data = GetInternalData<Data>();
-            if (data.FreeEtherealCards > 0)
+            if (Owner?.Player == null)
+                return Task.CompletedTask;
+            if (amount > 0)
             {
-                data.FreeEtherealCards--;
-                InvokeDisplayAmountChanged();
+                var data = GetInternalData<Data>();
+                data.FreeEtherealCards += amount;
             }
+            return Task.CompletedTask;
         }
-    }
 
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
-    {
-        if (Owner.Player == null)
-            return;
-        if (side == Owner.Side)
+        public override async Task BeforeCardPlayed(CardPlay cardPlay)
         {
-            GetInternalData<Data>().FreeEtherealCards = 0;
-            InvokeDisplayAmountChanged();
-        }
-    }
+            if (Owner?.Player == null)
+                return;
 
-    private class Data
-    {
-        public int FreeEtherealCards;
+            var card = cardPlay.Card;
+            if (card.CanonicalKeywords.Contains(CardKeyword.Ethereal))
+            {
+                var data = GetInternalData<Data>();
+                if (data.FreeEtherealCards > 0)
+                {
+                    card.SetToFreeThisCombat();
+                    data.FreeEtherealCards--;
+                }
+            }
+            await base.BeforeCardPlayed(cardPlay);
+        }
+
+        public override async Task AfterCombatEnd(CombatRoom room)
+        {
+            await PowerCmd.Remove(this);
+        }
     }
 }
