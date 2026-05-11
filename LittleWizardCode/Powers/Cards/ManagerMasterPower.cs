@@ -1,6 +1,3 @@
-using System.Threading.Tasks;
-using Godot;
-using LittleWizard.Api.Powers;
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
