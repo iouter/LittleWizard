@@ -11,13 +11,18 @@ namespace LittleWizard.LittleWizardCode.Cards.Common;
 
 public class Extract() : LittleWizardCard(1, CardType.Skill, CardRarity.Common, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new RandomElementVar(2), new CardsVar(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [new RandomElementVar(2), new CardsVar(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         Debug.Assert(cardPlay.Target != null);
-        await ElementHelper.RandomElement(cardPlay.Target, DynamicVarsHelper.GetRandomElementVar(DynamicVars).BaseValue,
-            Owner.Creature, this);
+        await ElementHelper.RandomElement(
+            cardPlay.Target,
+            DynamicVarsHelper.GetRandomElementVar(DynamicVars).BaseValue,
+            Owner.Creature,
+            this
+        );
         await CommonActions.Draw(this, choiceContext);
     }
 

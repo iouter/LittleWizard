@@ -9,11 +9,13 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
 
-public class MagicTrajectory() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class MagicTrajectory()
+    : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     private const string ExtraCards = "ExtraCards";
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1), new(ExtraCards, 2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [new CardsVar(1), new(ExtraCards, 2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
