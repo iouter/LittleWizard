@@ -24,6 +24,7 @@ public class UndeadEssence : LittleWizardRelics
             }
             AssertMutable();
             _resurrectionCount = value;
+            InvokeDisplayAmountChanged();
         }
     }
 
