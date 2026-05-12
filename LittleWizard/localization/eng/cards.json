@@ -198,5 +198,11 @@
     "LITTLEWIZARD-TURNBACK.title": "Turnback",
     "LITTLEWIZARD-TURNBACK.selectionScreenPrompt": "",
     "LITTLEWIZARD-FROZEN_WORLD.description": "",
-    "LITTLEWIZARD-FROZEN_WORLD.title": "FrozenWorld"
+    "LITTLEWIZARD-FROZEN_WORLD.title": "FrozenWorld",
+    "LITTLEWIZARD-EXTRACT.description": "",
+    "LITTLEWIZARD-EXTRACT.title": "Extract",
+    "LITTLEWIZARD-OFFENSIVE_CONVERSION.description": "",
+    "LITTLEWIZARD-OFFENSIVE_CONVERSION.title": "OffensiveConversion",
+    "LITTLEWIZARD-MAGIC_TRAJECTORY.description": "",
+    "LITTLEWIZARD-MAGIC_TRAJECTORY.title": "MagicTrajectory"
 }
