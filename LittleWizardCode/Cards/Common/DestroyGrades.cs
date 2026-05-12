@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.LittleWizardCode.Cards.Common;
@@ -20,6 +21,8 @@ public class DestroyGrades()
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FireElement>(1)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Innate];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Fire];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

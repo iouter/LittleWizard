@@ -5,6 +5,7 @@ using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Elements;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
@@ -17,6 +18,8 @@ public class HugeFireball()
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new DamageVar(24, ValueProp.Move), new PowerVar<FireElement>(3)];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Fire];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

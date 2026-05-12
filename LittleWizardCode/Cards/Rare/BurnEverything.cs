@@ -9,6 +9,7 @@ using LittleWizard.LittleWizardCode.Powers.Elements;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.LittleWizardCode.Cards.Rare;
@@ -20,6 +21,8 @@ public class BurnEverything()
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new PowerVar<FireElement>(4), new PowerVar<BurnEverythingPower>(4)];
+
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Fire];
 
     protected override bool HasEnergyCostX => true;
 
