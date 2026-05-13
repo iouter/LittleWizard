@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rooms;
 
-namespace LittleWizard.Powers.Cards;
+namespace LittleWizard.LittleWizardCode.Powers.Cards;
 
 public class ManagerMasterPower : LittleWizardPower
 {
