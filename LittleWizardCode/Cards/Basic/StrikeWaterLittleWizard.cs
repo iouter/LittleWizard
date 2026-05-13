@@ -22,7 +22,6 @@ public class StrikeWaterLittleWizard()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        AudioHelper.PlaySoundOnAttack(this);
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
         await Utils.GivePower<WaterElement>(this, play);
     }

@@ -24,10 +24,8 @@ public static class AudioHelper
         player.Play();
     }
 
-    public static void PlaySoundOnAttack(CardModel card)
+    public static void PlayOnAttack(CardModel card)
     {
-        if (card?.Type != CardType.Attack)
-            return;
         PlaySound("res://LittleWizard/audios/powers/attack_common.wav");
     }
 }

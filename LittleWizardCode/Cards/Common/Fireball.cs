@@ -22,7 +22,6 @@ public class Fireball()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        AudioHelper.PlaySoundOnAttack(this);
         await CommonActions
             .CardAttack(this, play)
             .WithHitFx("vfx/vfx_fire_ball")

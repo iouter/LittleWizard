@@ -16,7 +16,6 @@ public class StrikeLittleWizard()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        AudioHelper.PlaySoundOnAttack(this);
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
     }
 
