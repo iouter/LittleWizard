@@ -13,7 +13,6 @@ public static class AudioHelper
         var stream = GD.Load<AudioStream>(path);
         if (stream == null)
         {
-            GD.PrintErr($"[LittleWizard] Failed to load: {path}");
             return;
         }
         var player = new AudioStreamPlayer();
@@ -25,6 +24,6 @@ public static class AudioHelper
 
     public static void PlayOnAttack(CardModel card)
     {
-        PlaySound("res://LittleWizard/audios/powers/attack_common.wav");
+        PlaySound("");
     }
 }
