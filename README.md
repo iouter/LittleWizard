@@ -25,7 +25,7 @@ You may not copy, modify, distribute, reverse‑engineer, or use any file from t
 
 **Prerequisites:**
 - Install [.NET SDK 9](https://dotnet.microsoft.com/download/dotnet/9.0)
-- Install [Godot Engine 4.5.1 Mono(.NET)](https://godotengine.org/download/archive/4.5.1-stable/)
+- Install [Godot Engine 4.5.1 Mono (.NET)](https://godotengine.org/download/archive/4.5.1-stable/)
 - Install export templates in Godot (Editor → Manage Export Templates → Download and Install)
 
 **Getting Started:**
