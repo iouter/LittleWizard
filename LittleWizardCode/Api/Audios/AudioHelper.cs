@@ -1,5 +1,6 @@
 using Godot;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Models;
 
 namespace LittleWizard.LittleWizardCode.Api.Audios;
 
@@ -12,14 +13,17 @@ public static class AudioHelper
         var stream = GD.Load<AudioStream>(path);
         if (stream == null)
         {
-            GD.PrintErr($"[LittleWizard] Failed to load: {path}");
             return;
         }
         var player = new AudioStreamPlayer();
         player.Stream = stream;
         player.Finished += () => player.QueueFree();
-        var root = (Engine.GetMainLoop() as SceneTree)?.Root;
-        root?.AddChild(player);
+        (Engine.GetMainLoop() as SceneTree)?.Root?.AddChild(player);
         player.Play();
+    }
+
+    public static void PlayOnAttack(CardModel card)
+    {
+        PlaySound("");
     }
 }

@@ -22,7 +22,7 @@ public class AccelerateBurning()
         [
             new CalculationBaseVar(1),
             new ThresholdVar(5),
-            new CalculationExtraVar(1),
+            new CalculationExtraVar(3),
             new CalculatedVar(CalculatedFireElement).WithMultiplier(
                 (card, target) =>
                     Math.Floor((decimal)(target?.GetPowerAmount<FireElement>() ?? 0))

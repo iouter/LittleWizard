@@ -1,6 +1,6 @@
 using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api;
-using LittleWizard.LittleWizardCode.Api.Animation;
+using LittleWizard.LittleWizardCode.Api.Audios;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using LittleWizard.LittleWizardCode.Api.Extensions;
@@ -31,7 +31,6 @@ public class Fireball()
             .Execute(choiceContext);
 
         await Utils.GivePower<FireElement>(this, play);
-        await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 
     protected override void OnUpgrade()
