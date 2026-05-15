@@ -66,7 +66,6 @@ You may not copy, modify, distribute, reverse‑engineer, or use any file from t
    - Code is automatically formatted on build, or you can run the format command manually
 
 6. Start Developing:
-   - Write code and scenes in the Godot editor
    - Use `dotnet build` to compile only the DLL files
    - Use `dotnet release` to not only compile DLLs, but also export PCK files and copy JSON files, PDB files (if DebugMode is enabled) to the Slay the Spire 2 mod directory
 
