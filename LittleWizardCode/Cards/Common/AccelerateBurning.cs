@@ -35,8 +35,6 @@ public class AccelerateBurning()
                     int fire = target?.GetPowerAmount<FireElement>() ?? 0;
                     int quotient = (int)Math.Floor((decimal)fire / threshold);
                     int result = quotient * (int)extra;
-                    if (result > 0)
-                        result--;
                     return result;
                 }
             ),
