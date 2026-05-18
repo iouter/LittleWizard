@@ -24,8 +24,7 @@ public class FreezingRay()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        Debug.Assert(cardPlay.Target != null);
-        var hits = cardPlay.Target.GetPowerAmount<WaterElement>() * DynamicVars.Repeat.IntValue;
+        var hits = cardPlay.Target!.GetPowerAmount<WaterElement>() * DynamicVars.Repeat.IntValue;
         if (hits <= 0)
             return;
 

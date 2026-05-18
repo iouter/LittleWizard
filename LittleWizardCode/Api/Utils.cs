@@ -65,9 +65,8 @@ public static class Utils
             }
             case TargetType.AllEnemies:
             {
-                Debug.Assert(cardModel.CombatState != null);
                 await GivePower<T>(
-                    cardModel.CombatState.HittableEnemies,
+                    cardModel.CombatState!.HittableEnemies,
                     cardModel.DynamicVars,
                     cardModel.Owner.Creature,
                     cardModel
@@ -76,8 +75,7 @@ public static class Utils
             }
             case TargetType.RandomEnemy:
             {
-                Debug.Assert(cardModel.CombatState != null);
-                var targets = cardModel.CombatState.HittableEnemies;
+                var targets = cardModel.CombatState!.HittableEnemies;
                 var target = cardModel.Owner.RunState.Rng.CombatTargets.NextItem(targets);
                 if (target == null)
                     return;
@@ -98,9 +96,8 @@ public static class Utils
             case TargetType.AllAllies:
             default:
             {
-                Debug.Assert(play.Target != null);
                 await GivePower<T>(
-                    play.Target,
+                    play.Target!,
                     cardModel.DynamicVars,
                     cardModel.Owner.Creature,
                     cardModel

@@ -20,8 +20,7 @@ public class HealingCurse()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        Debug.Assert(cardPlay.Target != null);
-        await CreatureCmd.Heal(cardPlay.Target, DynamicVars.Heal.IntValue);
+        await CreatureCmd.Heal(cardPlay.Target!, DynamicVars.Heal.IntValue);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 

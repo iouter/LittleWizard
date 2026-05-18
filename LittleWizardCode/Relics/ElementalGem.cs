@@ -31,7 +31,6 @@ public class ElementalGem : AfterElementReactRelics
         }
         Flash();
         await Utils.GivePower<DrawCardsNextTurnPower>(this, Owner.Creature);
-        Debug.Assert(Owner.Creature.Player != null);
-        await CardPileCmd.Draw(new ThrowingPlayerChoiceContext(), Owner.Creature.Player);
+        await CardPileCmd.Draw(new ThrowingPlayerChoiceContext(), Owner.Creature.Player!);
     }
 }

@@ -24,8 +24,7 @@ public class EarthFury()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        Debug.Assert(cardPlay.Target != null);
-        var earth = cardPlay.Target.GetPowerAmount<EarthElement>();
+        var earth = cardPlay.Target!.GetPowerAmount<EarthElement>();
         await CommonActions.CardAttack(this, cardPlay.Target, earth).Execute(choiceContext);
         await PowerCmd.Apply<EarthElement>(cardPlay.Target, earth, Owner.Creature, this);
         await AnimationHelper.TriggerCastAnimationOwner(this);

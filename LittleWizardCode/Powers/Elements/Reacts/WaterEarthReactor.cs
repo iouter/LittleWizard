@@ -61,8 +61,7 @@ public class WaterEarthReactor : LittleWizardPower
         var creature = dealer;
         if (dealer.Monster is Osty)
         {
-            Debug.Assert(dealer.PetOwner != null);
-            creature = dealer.PetOwner.Creature;
+            creature = dealer.PetOwner!.Creature;
         }
 
         if (creature.Player == null)
