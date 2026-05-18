@@ -12,14 +12,14 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace LittleWizard.LittleWizardCode.Cards.Rare;
 
 public class CelestialRockSpell()
-    : LittleWizardCard(2, CardType.Attack, CardRarity.Rare, TargetType.RandomEnemy)
+    : LittleWizardCard(3, CardType.Attack, CardRarity.Rare, TargetType.RandomEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new DamageVar(48, ValueProp.Move), new PowerVar<FireElement>(10), new RepeatVar(1)];
 
-    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Fire];
 
@@ -43,13 +43,12 @@ public class CelestialRockSpell()
                 .Targeting(target)
                 .Execute(choiceContext);
 
-            // 施加火焰元素能力
             await Utils.GivePower<FireElement>(target, DynamicVars, Owner.Creature, this);
         }
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Repeat.UpgradeValueBy(1);
+        RemoveKeyword(CardKeyword.Exhaust);
     }
 }
