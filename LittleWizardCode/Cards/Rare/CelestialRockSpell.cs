@@ -25,14 +25,14 @@ public class CelestialRockSpell()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var target = cardPlay.Target;
+        var targets = CombatState!.HittableEnemies;
+        var target = Owner.RunState.Rng.CombatTargets.NextItem(targets);
         if (target == null)
+        {
             return;
-        var targets = CombatState.HittableEnemies;
-        if (targets.Count == 0)
-            return;
+        }
 
-        decimal damageValue = DynamicVars.Damage.ToDecimal(null);
+        var damageValue = DynamicVars.Damage.BaseValue;
 
         await new AttackCommand(damageValue)
             .FromCard(this)
