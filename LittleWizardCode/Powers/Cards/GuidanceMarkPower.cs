@@ -23,8 +23,12 @@ public class GuidanceMarkPower : LittleWizardPower
         CardModel? cardSource
     )
     {
-        if (target != Owner || !Utils.IsPoweredAttack(props))
+        if (target == null || target != Owner)
             return 1M;
+
+        if (!Utils.IsPoweredAttack(props))
+            return 1M;
+
         return 1M + (decimal)Amount / 10;
     }
 

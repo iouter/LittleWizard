@@ -1,6 +1,6 @@
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
@@ -11,20 +11,23 @@ public class GuidancePower : LittleWizardPower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Single;
 
-    public override async Task AfterPlayerTurnStart(
-        PlayerChoiceContext choiceContext,
-        Player player
-    )
+    public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
-        if (player.Creature != Owner)
+        var playerCreature = cardPlay.Card.Owner.Creature;
+        if (playerCreature == null)
             return;
-        if (player.Creature.CombatState == null)
+
+        var combatState = playerCreature.CombatState;
+        if (combatState == null)
             return;
-        var target = player.RunState.Rng.CombatTargets.NextItem(
-            player.Creature.CombatState.HittableEnemies
-        );
-        if (target == null)
+
+        var enemies = combatState.HittableEnemies;
+        if (enemies.Count == 0)
             return;
-        await PowerCmd.Apply<GuidanceMarkPower>(target, Amount, Owner, null);
+
+        foreach (var enemy in enemies)
+        {
+            await PowerCmd.Apply<GuidanceMarkPower>(enemy, Amount, Owner, cardPlay.Card);
+        }
     }
 }
