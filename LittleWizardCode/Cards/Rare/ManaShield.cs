@@ -19,4 +19,9 @@ public class ManaShield() : LittleWizardCard(1, CardType.Power, CardRarity.Rare,
         await CommonActions.CardBlock(this, cardPlay);
         await Utils.GivePower<ManaShieldPower>(this, cardPlay);
     }
+
+    protected override void OnUpgrade()
+    {
+        EnergyCost.UpgradeBy(-1);
+    }
 }
