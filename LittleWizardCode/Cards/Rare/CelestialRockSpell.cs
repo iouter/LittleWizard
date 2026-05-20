@@ -25,7 +25,13 @@ public class CelestialRockSpell()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var target = cardPlay.Target;
+        if (CombatState == null)
+            return;
+        var targets = CombatState.HittableEnemies;
+        if (targets.Count == 0)
+            return;
+
+        var target = Owner.RunState.Rng.CombatTargets.NextItem(targets);
         if (target == null)
             return;
 
