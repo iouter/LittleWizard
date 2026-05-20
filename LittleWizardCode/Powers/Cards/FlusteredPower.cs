@@ -10,13 +10,13 @@ namespace LittleWizard.LittleWizardCode.Powers.Cards;
 public class FlusteredPower : LittleWizardPower
 {
     public override PowerType Type => PowerType.Buff;
-    public override PowerStackType StackType => PowerStackType.Single;
+    public override PowerStackType StackType => PowerStackType.Counter;
 
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
         if (cardPlay.Card.Owner.Creature != Owner)
             return;
-        await CardPileCmd.Draw(context, 1, Owner.Player!);
+        await CardPileCmd.Draw(context, Amount, Owner.Player!);
     }
 
     public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
