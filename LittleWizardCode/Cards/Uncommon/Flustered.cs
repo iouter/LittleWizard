@@ -12,8 +12,7 @@ public class Flustered() : LittleWizardCard(2, CardType.Skill, CardRarity.Uncomm
 {
     public override CardKeyword[] CanonicalKeywords => [CardKeyword.Exhaust];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new PowerVar<FlusteredPower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FlusteredPower>(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
@@ -28,6 +27,6 @@ public class Flustered() : LittleWizardCard(2, CardType.Skill, CardRarity.Uncomm
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1); 
+        EnergyCost.UpgradeBy(-1);
     }
 }
