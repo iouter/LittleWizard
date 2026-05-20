@@ -17,7 +17,7 @@ public class CelestialRockSpell()
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DamageVar(48, ValueProp.Move), new PowerVar<FireElement>(10), new RepeatVar(1)];
+        [new DamageVar(48, ValueProp.Move), new PowerVar<FireElement>(10)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
@@ -25,26 +25,19 @@ public class CelestialRockSpell()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (CombatState == null)
+        var target = cardPlay.Target;
+        if (target == null)
             return;
 
-        for (var i = 0; i < DynamicVars.Repeat.BaseValue; i++)
-        {
-            var targets = CombatState.HittableEnemies;
-            var target = Owner.RunState.Rng.CombatTargets.NextItem(targets);
-            if (target == null)
-                continue;
+        decimal damageValue = DynamicVars.Damage.ToDecimal(null);
 
-            decimal damageValue = DynamicVars.Damage.ToDecimal(null);
+        await new AttackCommand(damageValue)
+            .FromCard(this)
+            .WithHitFx("vfx/vfx_fire_ball")
+            .Targeting(target)
+            .Execute(choiceContext);
 
-            await new AttackCommand(damageValue)
-                .FromCard(this)
-                .WithHitFx("vfx/vfx_fire_ball")
-                .Targeting(target)
-                .Execute(choiceContext);
-
-            await Utils.GivePower<FireElement>(target, DynamicVars, Owner.Creature, this);
-        }
+        await Utils.GivePower<FireElement>(target, DynamicVars, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
