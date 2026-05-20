@@ -78,7 +78,7 @@
     "LITTLEWIZARD-EXPLORE_TABOO.title": "探索禁忌",
     "LITTLEWIZARD-EXPLORE_TABOO.description": "给予自身3层[gold]火元素[/gold]。\n在每个回合开始时获得{ExploreTabooPower:diff()}点{energyPrefix:energyIcons(1)}。",
     "LITTLEWIZARD-ELEMENT_CONVERT.title": "元素转换",
-    "LITTLEWIZARD-ELEMENT_CONVERT.description": "将敌人身上所有层数的元素转换为另一种元素。\n[gold]火[/gold]转换成[gold]水[/gold]，\n[gold]水[/gold]转换成[gold]土[/gold]，\n[gold]土[/gold]转换成[gold]火[/gold]。\n{IfUpgrade:show:将此牌返回你的手牌。}",
+    "LITTLEWIZARD-ELEMENT_CONVERT.description": "将敌人身上的元素转换为另一种。\n[gold]火[/gold]转换成[gold]水[/gold]，\n[gold]水[/gold]转换成[gold]土[/gold]，\n[gold]土[/gold]转换成[gold]火[/gold]。\n{IfUpgrade:show:将此牌返回你的手牌。|}",
     "LITTLEWIZARD-ROCK_BLAST.title": "飞岩爆射",
     "LITTLEWIZARD-ROCK_BLAST.description": "如果目标有一种[gold]元素[/gold]，则给予{EarthElement:diff()}层[gold]土元素[/gold]。\n{IfUpgraded:show:\n触发元素结合后，\n再给予5层[gold]土元素[/gold]。}",
     "LITTLEWIZARD-ELEMENT_BURST.title": "元素爆发",
