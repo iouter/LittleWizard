@@ -16,9 +16,8 @@ public class Extract() : LittleWizardCard(1, CardType.Skill, CardRarity.Common, 
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        Debug.Assert(cardPlay.Target != null);
         await ElementHelper.RandomElement(
-            cardPlay.Target,
+            cardPlay.Target!,
             DynamicVarsHelper.GetRandomElementVar(DynamicVars).BaseValue,
             Owner.Creature,
             this

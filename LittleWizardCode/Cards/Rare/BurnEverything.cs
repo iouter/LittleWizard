@@ -31,8 +31,7 @@ public class BurnEverything()
         var xValue =
             DynamicVarsHelper.GetPowerVar<FireElement>(DynamicVars).BaseValue
             * ResolveEnergyXValue();
-        Debug.Assert(CombatState != null, nameof(CombatState) + " != null");
-        foreach (var enemy in CombatState.Enemies)
+        foreach (var enemy in CombatState!.Enemies)
             await PowerCmd.Apply<FireElement>(enemy, xValue, Owner.Creature, this);
         await Utils.GivePower<BurnEverythingPower>(this, cardPlay);
         await AnimationHelper.TriggerCastAnimationOwner(this);

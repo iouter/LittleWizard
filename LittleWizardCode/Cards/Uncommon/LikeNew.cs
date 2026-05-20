@@ -29,12 +29,19 @@ public class LikeNew() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon
 
         if (cardToExhaust == null)
             return;
-        var cost = cardToExhaust.EnergyCost.GetResolved();
-        if (GetHasEnergyCostX(cardToExhaust))
-            cost = 1;
-
+        int cost;
         if (cardToExhaust.Keywords.Contains(CardKeyword.Unplayable))
+        {
             cost = 0;
+        }
+        else if (GetHasEnergyCostX(cardToExhaust))
+        {
+            cost = 1;
+        }
+        else
+        {
+            cost = cardToExhaust.EnergyCost.GetResolved();
+        }
         await CardCmd.Exhaust(choiceContext, cardToExhaust);
 
         var card = CardFactory
@@ -78,8 +85,6 @@ public class LikeNew() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon
                 "Property 'HasEnergyCostX' not found on type " + cardToExhaust.GetType()
             );
 
-        return (bool)(
-            _hasEnergyCostXProperty.GetValue(cardToExhaust) ?? throw new InvalidOperationException()
-        );
+        return (bool)(_hasEnergyCostXProperty.GetValue(cardToExhaust) ?? false);
     }
 }

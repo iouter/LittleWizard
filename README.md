@@ -54,8 +54,6 @@ You may not copy, modify, distribute, reverse‑engineer, or use any file from t
          <PropertyGroup>
              <GodotPath>Your Godot installation directory</GodotPath>
              <SteamLibraryPath>Your Steam library directory containing Slay the Spire 2</SteamLibraryPath>
-             <!-- When DebugMode is true, debug files will be automatically copied to the Slay the Spire 2 mod directory -->
-             <DebugMode>true or false</DebugMode>
          </PropertyGroup>
      </Project>
      ```
@@ -69,7 +67,13 @@ You may not copy, modify, distribute, reverse‑engineer, or use any file from t
    - Use `dotnet build` to compile only the DLL files
    - Use `dotnet release` to not only compile DLLs, but also export PCK files and copy JSON files, PDB files (if DebugMode is enabled) to the Slay the Spire 2 mod directory
 
-7. Extended Reading:
+7. Versioning:
+   - The version number is automatically generated from Git tags.
+   - If the current commit is exactly on a tag (e.g., `v1.3.5`) and the working tree is clean (no uncommitted changes), the version will be the short form `v1.3.5`.
+   - Otherwise (extra commits, dirty working tree, or no tag), the version will be the full `git describe --long --dirty` output, e.g., `v1.3.5-2-g123abcd` or `v1.3.5-0-g70ca280-dirty`.
+   - The version is written into `LittleWizard.json` and also used as `Version` and `FileVersion` in the assembly.
+
+8. Extended Reading:
    - **How to Enable Debugger**: https://github.com/Alchyr/ModTemplate-StS2/wiki/Testing-and-Debugging#attaching-a-debugger
    - **Slay the Spire 2 Mod Template Setup Guide**: https://github.com/Alchyr/ModTemplate-StS2/wiki
    - **BaseLib Wiki**: https://alchyr.github.io/BaseLib-Wiki/

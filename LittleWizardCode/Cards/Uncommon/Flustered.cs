@@ -1,7 +1,10 @@
+using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Cards;
+using LittleWizard.LittleWizardCode.Powers.Cards;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
 
@@ -9,18 +12,17 @@ public class Flustered() : LittleWizardCard(2, CardType.Skill, CardRarity.Uncomm
 {
     public override CardKeyword[] CanonicalKeywords => [CardKeyword.Exhaust];
 
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<FlusteredPower>(1)];
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        if (Owner.Creature.Player is { PlayerCombatState: not null })
+        int cardsToDraw = 10 - Owner.PlayerCombatState!.Hand.Cards.Count;
+        if (cardsToDraw > 0)
         {
-            var handCards = Owner.Creature.Player.PlayerCombatState.Hand.Cards;
-            while (handCards.Count != 10)
-            {
-                var card = (await CardPileCmd.Draw(choiceContext, 1, Owner)).FirstOrDefault();
-                if (card?.EnergyCost != null && card.EnergyCost.GetResolved() == 0)
-                    break;
-            }
+            await CardPileCmd.Draw(choiceContext, cardsToDraw, Owner);
         }
+
+        await Utils.GivePower<FlusteredPower>(this, play);
     }
 
     protected override void OnUpgrade()

@@ -12,7 +12,7 @@ public class WaterUnderTheBridge()
     : LittleWizardCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new PowerVar<WaterUnderTheBridgePower>(7)];
+        [new PowerVar<WaterUnderTheBridgePower>(8)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {

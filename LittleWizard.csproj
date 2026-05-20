@@ -149,37 +149,69 @@
 
     <Target Name="GetGitVersion" BeforeTargets="GenerateVersionedManifest">
         <Exec
-            Command="git describe --tags --abbrev=0"
+            Command="git describe --tags --long --match &quot;v*&quot; --always --dirty"
             ConsoleToMSBuild="true"
             StandardOutputImportance="high"
             IgnoreExitCode="true"
         >
-            <Output TaskParameter="ConsoleOutput" PropertyName="GitTagRaw" />
+            <Output TaskParameter="ConsoleOutput" PropertyName="GitDescribe" />
             <Output TaskParameter="ExitCode" PropertyName="GitExitCode" />
         </Exec>
 
-        <Message Text="Git exit code: $(GitExitCode)" Importance="High" />
-        <Message Text="Git raw output: '$(GitTagRaw)'" Importance="High" />
+        <PropertyGroup>
+            <GitDescribe>$(GitDescribe.Trim())</GitDescribe>
+        </PropertyGroup>
 
-        <PropertyGroup Condition="'$(GitExitCode)' != '0' Or '$(GitTagRaw)' == ''">
-            <GitTagRaw>0.0.0</GitTagRaw>
+        <PropertyGroup Condition="'$(GitExitCode)' != '0' or '$(GitDescribe)' == ''">
+            <GitDescribe>v0.0.0-0-unknown</GitDescribe>
         </PropertyGroup>
 
         <PropertyGroup>
-            <GitVersion>$([System.Text.RegularExpressions.Regex]::Replace($(GitTagRaw.Trim()), '^v', ''))</GitVersion>
+            <IsDirty
+                Condition="$([System.Text.RegularExpressions.Regex]::IsMatch('$(GitDescribe)', '-dirty$'))"
+                >true</IsDirty
+            >
+        </PropertyGroup>
+
+        <PropertyGroup Condition="'$(IsDirty)' != 'true'">
+            <_CleanPattern>^(v[0-9]+\.[0-9]+\.[0-9]+)-0-g[a-f0-9]+$</_CleanPattern>
+            <_IsCleanTag>$([System.Text.RegularExpressions.Regex]::IsMatch('$(GitDescribe)', '$(_CleanPattern)'))</_IsCleanTag>
+        </PropertyGroup>
+
+        <PropertyGroup Condition="'$(IsDirty)' != 'true' and '$(_IsCleanTag)' == 'true'">
+            <RawVersion>$([System.Text.RegularExpressions.Regex]::Match('$(GitDescribe)', '$(_CleanPattern)').Groups[1].Value)</RawVersion>
+        </PropertyGroup>
+
+        <PropertyGroup Condition="'$(RawVersion)' == ''">
+            <RawVersion>$(GitDescribe)</RawVersion>
         </PropertyGroup>
 
         <PropertyGroup>
-            <JsonVersion>v$(GitVersion)</JsonVersion>
+            <_IsSemVer>$([System.Text.RegularExpressions.Regex]::IsMatch('$(RawVersion)', '^v?\d+\.\d+\.\d+'))</_IsSemVer>
         </PropertyGroup>
 
-        <Message Text="Extracted version: $(GitVersion)" Importance="High" />
-        <Message Text="JSON version: $(JsonVersion)" Importance="High" />
+        <PropertyGroup Condition="'$(_IsSemVer)' != 'true'">
+            <_Sanitized>$([System.Text.RegularExpressions.Regex]::Replace('$(RawVersion)', '[^a-zA-Z0-9\.-]', '-'))</_Sanitized>
+            <RawVersion>0.0.0-$(_Sanitized)</RawVersion>
+        </PropertyGroup>
 
         <PropertyGroup>
-            <Version>$(GitVersion)</Version>
-            <FileVersion>$(GitVersion)</FileVersion>
+            <_StartsWithV>$([System.Text.RegularExpressions.Regex]::IsMatch('$(RawVersion)', '^v'))</_StartsWithV>
         </PropertyGroup>
+        <PropertyGroup Condition="'$(_StartsWithV)' == 'true'">
+            <JsonVersion>$(RawVersion)</JsonVersion>
+        </PropertyGroup>
+        <PropertyGroup Condition="'$(_StartsWithV)' != 'true'">
+            <JsonVersion>v$(RawVersion)</JsonVersion>
+        </PropertyGroup>
+
+        <PropertyGroup>
+            <Version>$(JsonVersion.TrimStart('v'))</Version>
+            <FileVersion>$(Version)</FileVersion>
+        </PropertyGroup>
+
+        <Message Text="Final JsonVersion: $(JsonVersion)" Importance="High" />
+        <Message Text="MSBuild Version: $(Version)" Importance="High" />
     </Target>
 
     <Target
@@ -232,7 +264,7 @@
           Log.LogError($"Failed to generate versioned JSON: {ex.Message}");
           return false;
       }
-      return true;
+      Success = true;
       ]]>
             </Code>
         </Task>
@@ -253,7 +285,7 @@
         </ItemGroup>
         <Copy SourceFiles="@(BaseLibFiles)" DestinationFolder="$(ModsPath)BaseLib/" />
         <Copy
-            Condition="'$(DebugMode)' == 'true'"
+            Condition="'$(Configuration)' != 'ExportRelease'"
             SourceFiles="$(TargetDir)$(TargetName).pdb"
             DestinationFolder="$(ModsPath)$(MSBuildProjectName)/"
         />
