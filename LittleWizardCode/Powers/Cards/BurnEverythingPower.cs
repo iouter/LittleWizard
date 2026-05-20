@@ -19,21 +19,4 @@ public class BurnEverythingPower : LittleWizardPower
             return;
         await PowerCmd.Apply<FireElement>(Owner, Amount, Owner, null);
     }
-
-    public override async Task BeforeDeath(Creature creature)
-    {
-        if (creature != Owner)
-            return;
-
-        if (Owner.CombatState == null)
-            return;
-        foreach (var enemy in Owner.CombatState.HittableEnemies)
-        {
-            if (enemy.IsDead)
-                continue;
-            var fire = enemy.GetPowerAmount<FireElement>();
-            if (fire > 0)
-                await PowerCmd.Apply<FireElement>(enemy, fire, Owner, null);
-        }
-    }
 }
