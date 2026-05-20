@@ -127,7 +127,7 @@
     "LITTLEWIZARD-SPREAD.title": "蔓延",
     "LITTLEWIZARD-SPREAD.description": "给予其他敌人该名敌人身上的所有[gold]元素[/gold]层数。",
     "LITTLEWIZARD-WILD_SWING.title": "胡乱挥打",
-    "LITTLEWIZARD-WILD_SWING.description": "给予自身1层[gold]易伤[/gold]。对所有敌人造成{Damage:diff()}点伤害{Repeat:diff()}次。",
+    "LITTLEWIZARD-WILD_SWING.description": "给予自身1层[gold]易伤[/gold]。对所有敌人造成{Damage:diff()}点伤害{Repeat:diff()}+X次。",
     "LITTLEWIZARD-REJUVENATION.title": "返老还童",
     "LITTLEWIZARD-REJUVENATION.description": "可选择{Cards:diff()}张手牌移出牌库。",
     "LITTLEWIZARD-BURN_EVERYTHING.title": "焚净一切",
@@ -199,10 +199,10 @@
     "LITTLEWIZARD-TURNBACK.selectionScreenPrompt": "选择要放入手牌的牌",
     "LITTLEWIZARD-FROZEN_WORLD.description": "获得{CalculatedBlock:diff()}点[gold]格挡[/gold]。如果敌人拥有至少4层[gold]水元素[/gold]，则额外获得{CalculationExtra:diff()}点[gold]格挡[/gold]",
     "LITTLEWIZARD-FROZEN_WORLD.title": "冻结领域",
-    "LITTLEWIZARD-EXTRACT.description": "",
-    "LITTLEWIZARD-EXTRACT.title": "Extract",
-    "LITTLEWIZARD-OFFENSIVE_CONVERSION.description": "",
-    "LITTLEWIZARD-OFFENSIVE_CONVERSION.title": "OffensiveConversion",
-    "LITTLEWIZARD-MAGIC_TRAJECTORY.description": "",
-    "LITTLEWIZARD-MAGIC_TRAJECTORY.title": "MagicTrajectory"
+    "LITTLEWIZARD-EXTRACT.description": "给予{RandomElement:diff()}层随机元素，抽{Cards:diff()}张牌。",
+    "LITTLEWIZARD-EXTRACT.title": "提取",
+    "LITTLEWIZARD-OFFENSIVE_CONVERSION.description": "获得{Block:diff()}点格挡。\n抽{Cards:diff()}张牌。\n下回合额外抽{Cards:diff()}张牌。",
+    "LITTLEWIZARD-OFFENSIVE_CONVERSION.title": "攻势转换",
+    "LITTLEWIZARD-MAGIC_TRAJECTORY.description": "抽{Cards:diff()}张牌。\n如果该敌人身上拥有元素，则移除元素，并额外抽{ExtraCards:diff()}张牌",
+    "LITTLEWIZARD-MAGIC_TRAJECTORY.title": "魔力轨迹"
 }
