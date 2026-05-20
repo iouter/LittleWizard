@@ -8,8 +8,11 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.LittleWizardCode.Cards.Rare;
 
-public class Guidance() : LittleWizardCard(0, CardType.Power, CardRarity.Rare, TargetType.Self)
+public class Guidance() : LittleWizardCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
+    public override CardMultiplayerConstraint MultiplayerConstraint =>
+        CardMultiplayerConstraint.MultiplayerOnly;
+
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<GuidancePower>(2)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
@@ -21,6 +24,7 @@ public class Guidance() : LittleWizardCard(0, CardType.Power, CardRarity.Rare, T
 
     protected override void OnUpgrade()
     {
+        EnergyCost.UpgradeBy(-1);
         DynamicVarsHelper.GetPowerVar<GuidancePower>(DynamicVars).UpgradeValueBy(1);
     }
 }
