@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
 
 public class RockBlast()
-    : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
+    : LittleWizardCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
