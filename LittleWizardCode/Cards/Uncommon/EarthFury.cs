@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
 
@@ -17,22 +18,41 @@ public class EarthFury()
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<EarthElement>(13)];
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [
+            new CalculationBaseVar(0),
+            new ExtraDamageVar(1),
+            new CalculatedDamageVar(ValueProp.Move).WithMultiplier(
+                (_, target) => target?.GetPowerAmount<EarthElement>() ?? 0
+            ),
+        ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Earth];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var earth = cardPlay.Target!.GetPowerAmount<EarthElement>();
-        await CommonActions.CardAttack(this, cardPlay.Target, earth).Execute(choiceContext);
+        var target = cardPlay.Target;
+        if (target == null)
+        {
+            return;
+        }
+        if (!target.HasPower<EarthElement>())
+        {
+            return;
+        }
+        await AnimationHelper.TriggerCastAnimationOwner(this);
+        await CommonActions.CardAttack(this, cardPlay).Execute(choiceContext);
+        if (target.IsDead)
+        {
+            return;
+        }
         await PowerCmd.Apply<EarthElement>(
             choiceContext,
-            cardPlay.Target,
-            earth,
+            target,
+            target.GetPowerAmount<EarthElement>(),
             Owner.Creature,
             this
         );
-        await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 
     protected override void OnUpgrade()
