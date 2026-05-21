@@ -14,7 +14,7 @@ public class MagicTrajectory()
     private const string ExtraCards = "ExtraCards";
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new CardsVar(1), new(ExtraCards, 2)];
+        [new CardsVar(2), new(ExtraCards, 2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
