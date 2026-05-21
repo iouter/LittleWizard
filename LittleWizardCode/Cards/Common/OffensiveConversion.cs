@@ -19,7 +19,7 @@ public class OffensiveConversion()
     {
         await CommonActions.CardBlock(this, cardPlay);
         await CommonActions.Draw(this, choiceContext);
-        await Utils.GivePower<DrawCardsNextTurnPower>(this, cardPlay);
+        await Utils.GivePower<DrawCardsNextTurnPower>(this, cardPlay, choiceContext);
     }
 
     protected override void OnUpgrade()

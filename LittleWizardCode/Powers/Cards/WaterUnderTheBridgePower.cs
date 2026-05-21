@@ -29,7 +29,7 @@ public class WaterUnderTheBridgePower : LittleWizardPower
     public override Task BeforeSideTurnStart(
         PlayerChoiceContext choiceContext,
         CombatSide side,
-        CombatState combatState
+        ICombatState combatState
     )
     {
         if (side == Owner.Side)

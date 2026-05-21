@@ -2,6 +2,7 @@ using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Relics;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -15,6 +16,7 @@ public class ElementalOre : AfterElementReactRelics
         [new PowerVar<DrawCardsNextTurnPower>(1)];
 
     protected override async Task AfterElementReact(
+        PlayerChoiceContext ctx,
         Creature owner,
         decimal amount,
         Creature? applier,
@@ -26,7 +28,7 @@ public class ElementalOre : AfterElementReactRelics
             return;
         }
         Flash();
-        await Utils.GivePower<DrawCardsNextTurnPower>(this, Owner.Creature);
+        await Utils.GivePower<DrawCardsNextTurnPower>(this, Owner.Creature, ctx);
     }
 
     public override RelicModel GetUpgradeReplacement() => ModelDb.Relic<ElementalGem>();

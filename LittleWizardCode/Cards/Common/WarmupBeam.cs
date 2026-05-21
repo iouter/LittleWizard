@@ -22,7 +22,7 @@ public class WarmupBeam()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
-        await Utils.GivePower<WarmupBeamPower>(this, play);
+        await Utils.GivePower<WarmupBeamPower>(this, play, choiceContext);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 

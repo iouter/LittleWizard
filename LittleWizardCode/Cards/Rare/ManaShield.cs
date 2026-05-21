@@ -17,7 +17,7 @@ public class ManaShield() : LittleWizardCard(1, CardType.Power, CardRarity.Rare,
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CommonActions.CardBlock(this, cardPlay);
-        await Utils.GivePower<ManaShieldPower>(this, cardPlay);
+        await Utils.GivePower<ManaShieldPower>(this, cardPlay, choiceContext);
     }
 
     protected override void OnUpgrade()

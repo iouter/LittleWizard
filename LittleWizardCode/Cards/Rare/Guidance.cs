@@ -19,7 +19,7 @@ public class Guidance() : LittleWizardCard(3, CardType.Power, CardRarity.Rare, T
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<GuidancePower>(this, cardPlay);
+        await Utils.GivePower<GuidancePower>(this, cardPlay, choiceContext);
     }
 
     protected override void OnUpgrade()

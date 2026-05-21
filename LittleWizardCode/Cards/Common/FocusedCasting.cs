@@ -20,7 +20,7 @@ public class FocusedCasting()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<FocusedCastingPower>(this, cardPlay);
+        await Utils.GivePower<FocusedCastingPower>(this, cardPlay, choiceContext);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 

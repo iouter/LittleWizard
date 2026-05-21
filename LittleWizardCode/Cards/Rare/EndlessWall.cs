@@ -16,10 +16,10 @@ public class EndlessWall() : LittleWizardCard(0, CardType.Skill, CardRarity.Rare
         await CommonActions.CardBlock(this, cardPlay);
     }
 
-    protected override PileType GetResultPileType()
+    protected override PileType GetResultPileTypeForCardPlay()
     {
-        var resultPileType = base.GetResultPileType();
-        return resultPileType != PileType.Discard ? resultPileType : PileType.Draw;
+        var result = base.GetResultPileTypeForCardPlay();
+        return result != PileType.Discard ? result : PileType.Draw;
     }
 
     protected override void OnUpgrade()

@@ -18,7 +18,7 @@ public class WindTechnique() : LittleWizardCard(2, CardType.Power, CardRarity.Ra
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<WindTechniquePower>(this, cardPlay);
+        await Utils.GivePower<WindTechniquePower>(this, cardPlay, choiceContext);
     }
 
     protected override void OnUpgrade()

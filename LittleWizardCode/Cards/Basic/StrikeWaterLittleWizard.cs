@@ -25,7 +25,7 @@ public class StrikeWaterLittleWizard()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
-        await Utils.GivePower<WaterElement>(this, play);
+        await Utils.GivePower<WaterElement>(this, play, choiceContext);
     }
 
     protected override void OnUpgrade()

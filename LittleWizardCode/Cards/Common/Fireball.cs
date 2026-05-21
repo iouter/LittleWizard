@@ -29,7 +29,7 @@ public class Fireball()
             .WithHitFx("vfx/vfx_fire_ball")
             .Execute(choiceContext);
 
-        await Utils.GivePower<FireElement>(this, play);
+        await Utils.GivePower<FireElement>(this, play, choiceContext);
     }
 
     protected override void OnUpgrade()

@@ -17,10 +17,10 @@ public class FlatTumble()
         await CommonActions.CardBlock(this, play);
     }
 
-    protected override PileType GetResultPileType()
+    protected override PileType GetResultPileTypeForCardPlay()
     {
-        var resultPileType = base.GetResultPileType();
-        return resultPileType != PileType.Discard ? resultPileType : PileType.Hand;
+        var result = base.GetResultPileTypeForCardPlay();
+        return result != PileType.Discard ? result : PileType.Hand;
     }
 
     protected override void OnUpgrade()

@@ -34,7 +34,7 @@ public class ElementAggregation()
             return;
         if (IsUpgraded)
             card.SetToFreeThisTurn();
-        await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, true);
+        await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, Owner);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 

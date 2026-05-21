@@ -24,6 +24,7 @@ public sealed class ColorfulBalls()
         ArgumentNullException.ThrowIfNull(play.Target);
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
         await ElementHelper.RandomElement(
+            choiceContext,
             play.Target,
             DynamicVarsHelper.GetRandomElementVar(DynamicVars).BaseValue,
             Owner.Creature,

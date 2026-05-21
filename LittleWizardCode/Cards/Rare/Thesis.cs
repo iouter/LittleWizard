@@ -13,7 +13,7 @@ public class Thesis() : LittleWizardCard(3, CardType.Power, CardRarity.Rare, Tar
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<ThesisPower>(this, cardPlay);
+        await Utils.GivePower<ThesisPower>(this, cardPlay, choiceContext);
     }
 
     protected override void OnUpgrade()

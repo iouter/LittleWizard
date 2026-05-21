@@ -25,8 +25,8 @@ public class ExploreTaboo()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<FireElement>(this, cardPlay);
-        await Utils.GivePower<ExploreTabooPower>(this, cardPlay);
+        await Utils.GivePower<FireElement>(this, cardPlay, choiceContext);
+        await Utils.GivePower<ExploreTabooPower>(this, cardPlay, choiceContext);
     }
 
     protected override void OnUpgrade()

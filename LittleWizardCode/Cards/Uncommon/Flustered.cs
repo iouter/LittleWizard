@@ -16,13 +16,13 @@ public class Flustered() : LittleWizardCard(2, CardType.Skill, CardRarity.Uncomm
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        int cardsToDraw = 10 - Owner.PlayerCombatState!.Hand.Cards.Count;
+        var cardsToDraw = 10 - Owner.PlayerCombatState!.Hand.Cards.Count;
         if (cardsToDraw > 0)
         {
             await CardPileCmd.Draw(choiceContext, cardsToDraw, Owner);
         }
 
-        await Utils.GivePower<FlusteredPower>(this, play);
+        await Utils.GivePower<FlusteredPower>(this, play, choiceContext);
     }
 
     protected override void OnUpgrade()

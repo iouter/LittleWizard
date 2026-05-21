@@ -23,7 +23,7 @@ public class DeepenMemory()
         if (card == null)
             return;
         CardCmd.PreviewCardPileAdd(
-            await CardPileCmd.AddGeneratedCardToCombat(card.CreateClone(), PileType.Hand, true)
+            await CardPileCmd.AddGeneratedCardToCombat(card.CreateClone(), PileType.Hand, Owner)
         );
     }
 

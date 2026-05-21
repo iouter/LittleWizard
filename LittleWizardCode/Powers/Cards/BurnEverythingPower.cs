@@ -2,7 +2,6 @@ using LittleWizard.LittleWizardCode.Api.Powers;
 using LittleWizard.LittleWizardCode.Powers.Elements;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
@@ -17,6 +16,6 @@ public class BurnEverythingPower : LittleWizardPower
     {
         if (side != Owner.Side)
             return;
-        await PowerCmd.Apply<FireElement>(Owner, Amount, Owner, null);
+        await PowerCmd.Apply<FireElement>(choiceContext, Owner, Amount, Owner, null);
     }
 }

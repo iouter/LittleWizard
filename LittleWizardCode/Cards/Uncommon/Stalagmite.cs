@@ -30,7 +30,7 @@ public class Stalagmite()
     {
         await CommonActions.CardBlock(this, cardPlay);
         await CommonActions.CardAttack(this, cardPlay).Execute(choiceContext);
-        await Utils.GivePower<EarthElement>(this, cardPlay);
+        await Utils.GivePower<EarthElement>(this, cardPlay, choiceContext);
     }
 
     protected override void OnUpgrade()

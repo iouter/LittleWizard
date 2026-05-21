@@ -34,9 +34,9 @@ public class AccelerateBurning()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        ArgumentNullException.ThrowIfNull(cardPlay.Target);
         await PowerCmd.Apply<FireElement>(
-            cardPlay.Target,
+            choiceContext,
+            cardPlay.Target!,
             ((CalculatedVar)DynamicVars[CalculatedFireElement]).Calculate(cardPlay.Target),
             Owner.Creature,
             this

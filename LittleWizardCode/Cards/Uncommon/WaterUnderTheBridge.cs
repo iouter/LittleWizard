@@ -16,7 +16,7 @@ public class WaterUnderTheBridge()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        await Utils.GivePower<WaterUnderTheBridgePower>(this, play);
+        await Utils.GivePower<WaterUnderTheBridgePower>(this, play, choiceContext);
     }
 
     protected override void OnUpgrade()

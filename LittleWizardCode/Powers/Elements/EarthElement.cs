@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -45,7 +44,7 @@ public class EarthElement : BaseElement
     public override Task BeforeSideTurnStart(
         PlayerChoiceContext choiceContext,
         CombatSide side,
-        CombatState combatState
+        ICombatState combatState
     )
     {
         if (side == Owner.Side)
@@ -73,13 +72,25 @@ public class EarthElement : BaseElement
         {
             case FireElement fire:
             {
-                ElementHelper.FireAndEarth(Owner, Amount, amount, applier);
+                ElementHelper.FireAndEarth(
+                    new ThrowingPlayerChoiceContext(),
+                    Owner,
+                    Amount,
+                    amount,
+                    applier
+                );
                 modifiedAmount = 0;
                 return true;
             }
             case WaterElement water:
             {
-                ElementHelper.WaterAndEarth(Owner, Amount, amount, applier);
+                ElementHelper.WaterAndEarth(
+                    new ThrowingPlayerChoiceContext(),
+                    Owner,
+                    Amount,
+                    amount,
+                    applier
+                );
                 modifiedAmount = 0;
                 return true;
             }

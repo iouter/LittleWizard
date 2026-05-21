@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Api.DynamicVars;
@@ -17,6 +16,7 @@ public class Extract() : LittleWizardCard(1, CardType.Skill, CardRarity.Common, 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await ElementHelper.RandomElement(
+            choiceContext,
             cardPlay.Target!,
             DynamicVarsHelper.GetRandomElementVar(DynamicVars).BaseValue,
             Owner.Creature,

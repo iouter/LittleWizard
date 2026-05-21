@@ -13,7 +13,7 @@ public class WildMagic() : LittleWizardCard(3, CardType.Power, CardRarity.Rare, 
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<WildMagicPower>(this, cardPlay);
+        await Utils.GivePower<WildMagicPower>(this, cardPlay, choiceContext);
     }
 
     protected override void OnUpgrade()

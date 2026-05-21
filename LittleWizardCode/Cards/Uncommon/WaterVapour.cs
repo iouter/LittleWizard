@@ -29,10 +29,16 @@ public class WaterVapour()
         if (artifact > 0)
         {
             await PowerCmd.Remove<ArtifactPower>(target);
-            await PowerCmd.Apply<StrengthPower>(target, -1 * artifact, Owner.Creature, this);
+            await PowerCmd.Apply<StrengthPower>(
+                choiceContext,
+                target,
+                -1 * artifact,
+                Owner.Creature,
+                this
+            );
         }
 
-        await Utils.GivePower<WaterVapourPower>(this, cardPlay);
+        await Utils.GivePower<WaterVapourPower>(this, cardPlay, choiceContext);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 

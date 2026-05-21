@@ -14,6 +14,7 @@ public class ArcaneTome : AfterElementReactRelics
     protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(1)];
 
     protected override async Task AfterElementReact(
+        PlayerChoiceContext ctx,
         Creature owner,
         decimal amount,
         Creature? applier,

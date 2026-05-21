@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -39,6 +38,7 @@ public class FireEarthReactor : LittleWizardPower
     }
 
     public override async Task AfterPowerAmountChanged(
+        PlayerChoiceContext choiceContext,
         PowerModel power,
         decimal amount,
         Creature? applier,
@@ -49,14 +49,7 @@ public class FireEarthReactor : LittleWizardPower
         {
             return;
         }
-        await CreatureCmd.Damage(
-            new ThrowingPlayerChoiceContext(),
-            Owner,
-            amount,
-            ValueProp.Unpowered,
-            applier,
-            null
-        );
+        await CreatureCmd.Damage(choiceContext, Owner, amount, ValueProp.Unpowered, applier, null);
     }
 
     public override async Task AfterDamageReceived(

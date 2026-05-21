@@ -35,10 +35,17 @@ public class FireWaterReactor : LittleWizardPower
             applier,
             null
         );
-        await PowerCmd.Apply<StrengthPower>(target, -amount, applier, null);
+        await PowerCmd.Apply<StrengthPower>(
+            new ThrowingPlayerChoiceContext(),
+            target,
+            -amount,
+            applier,
+            null
+        );
     }
 
     public override async Task AfterPowerAmountChanged(
+        PlayerChoiceContext choiceContext,
         PowerModel power,
         decimal amount,
         Creature? applier,
@@ -49,22 +56,15 @@ public class FireWaterReactor : LittleWizardPower
         {
             return;
         }
-        await CreatureCmd.Damage(
-            new ThrowingPlayerChoiceContext(),
-            Owner,
-            amount,
-            ValueProp.Unpowered,
-            applier,
-            null
-        );
-        await PowerCmd.Apply<StrengthPower>(Owner, -amount, applier, null);
+        await CreatureCmd.Damage(choiceContext, Owner, amount, ValueProp.Unpowered, applier, null);
+        await PowerCmd.Apply<StrengthPower>(choiceContext, Owner, -amount, applier, null);
     }
 
     public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
     {
         if (side == CombatSide.Enemy)
         {
-            await PowerCmd.Apply<StrengthPower>(Owner, Amount, null, null);
+            await PowerCmd.Apply<StrengthPower>(choiceContext, Owner, Amount, null, null);
             await PowerCmd.Remove(this);
         }
     }

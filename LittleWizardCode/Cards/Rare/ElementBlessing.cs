@@ -15,7 +15,7 @@ public class ElementBlessing()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<ElementBlessingPower>(this, cardPlay);
+        await Utils.GivePower<ElementBlessingPower>(this, cardPlay, choiceContext);
     }
 
     protected override void OnUpgrade()

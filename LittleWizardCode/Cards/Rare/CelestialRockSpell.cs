@@ -40,7 +40,13 @@ public class CelestialRockSpell()
             .Targeting(target)
             .Execute(choiceContext);
 
-        await Utils.GivePower<FireElement>(target, DynamicVars, Owner.Creature, this);
+        await Utils.GivePower<FireElement>(
+            choiceContext,
+            target,
+            DynamicVars,
+            Owner.Creature,
+            this
+        );
     }
 
     protected override void OnUpgrade()

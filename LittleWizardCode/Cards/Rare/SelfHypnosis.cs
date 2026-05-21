@@ -24,8 +24,8 @@ public class SelfHypnosis()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CommonActions.CardAttack(this, cardPlay).Execute(choiceContext);
-        await Utils.GivePower<VulnerablePower>(this, cardPlay);
-        await Utils.GivePower<WeakPower>(this, cardPlay);
+        await Utils.GivePower<VulnerablePower>(this, cardPlay, choiceContext);
+        await Utils.GivePower<WeakPower>(this, cardPlay, choiceContext);
         await AnimationHelper.TriggerCastAnimationOwner(this);
 
         var cards = await CommonActions.SelectCards(

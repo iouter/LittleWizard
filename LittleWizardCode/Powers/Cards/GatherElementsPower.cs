@@ -19,7 +19,7 @@ public class GatherElementsPower : LittleWizardPower
     public override async Task BeforeHandDraw(
         Player player,
         PlayerChoiceContext choiceContext,
-        CombatState combatState
+        ICombatState combatState
     )
     {
         if (player != Owner.Player)
@@ -38,6 +38,6 @@ public class GatherElementsPower : LittleWizardPower
             .ToList();
 
         foreach (var card in cards)
-            await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, true);
+            await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, Owner.Player);
     }
 }

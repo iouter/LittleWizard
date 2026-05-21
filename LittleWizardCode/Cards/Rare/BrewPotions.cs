@@ -15,7 +15,7 @@ public class BrewPotions()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<BrewPotionsPower>(this, cardPlay);
+        await Utils.GivePower<BrewPotionsPower>(this, cardPlay, choiceContext);
     }
 
     protected override void OnUpgrade()

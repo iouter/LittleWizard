@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Animation;
 using LittleWizard.LittleWizardCode.Api.Cards;
@@ -32,8 +31,8 @@ public class BurnEverything()
             DynamicVarsHelper.GetPowerVar<FireElement>(DynamicVars).BaseValue
             * ResolveEnergyXValue();
         foreach (var enemy in CombatState!.Enemies)
-            await PowerCmd.Apply<FireElement>(enemy, xValue, Owner.Creature, this);
-        await Utils.GivePower<BurnEverythingPower>(this, cardPlay);
+            await PowerCmd.Apply<FireElement>(choiceContext, enemy, xValue, Owner.Creature, this);
+        await Utils.GivePower<BurnEverythingPower>(this, cardPlay, choiceContext);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 

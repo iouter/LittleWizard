@@ -1,6 +1,7 @@
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 
 namespace LittleWizard.LittleWizardCode.Powers.Cards;
@@ -11,6 +12,7 @@ public class EmergePower : AfterElementReactPower
     public override PowerStackType StackType => PowerStackType.Counter;
 
     protected override async Task AfterElementReact(
+        PlayerChoiceContext ctx,
         Creature owner,
         decimal amount,
         Creature? applier,
@@ -19,6 +21,6 @@ public class EmergePower : AfterElementReactPower
     {
         if (owner != Owner)
             return;
-        await ElementHelper.RandomElement(owner, Amount, applier, cardSource);
+        await ElementHelper.RandomElement(ctx, owner, Amount, applier, cardSource);
     }
 }

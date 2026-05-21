@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Relics;
 using MegaCrit.Sts2.Core.Commands;
@@ -19,6 +18,7 @@ public class ElementalGem : AfterElementReactRelics
         [new PowerVar<DrawCardsNextTurnPower>(2), new CardsVar(1)];
 
     protected override async Task AfterElementReact(
+        PlayerChoiceContext ctx,
         Creature owner,
         decimal amount,
         Creature? applier,
@@ -30,7 +30,7 @@ public class ElementalGem : AfterElementReactRelics
             return;
         }
         Flash();
-        await Utils.GivePower<DrawCardsNextTurnPower>(this, Owner.Creature);
-        await CardPileCmd.Draw(new ThrowingPlayerChoiceContext(), Owner.Creature.Player!);
+        await Utils.GivePower<DrawCardsNextTurnPower>(this, Owner.Creature, ctx);
+        await CardPileCmd.Draw(ctx, Owner.Creature.Player!);
     }
 }

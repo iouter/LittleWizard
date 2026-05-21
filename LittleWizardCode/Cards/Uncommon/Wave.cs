@@ -26,7 +26,7 @@ public class Wave()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
-        await Utils.GivePower<WaterElement>(this, cardPlay);
+        await Utils.GivePower<WaterElement>(this, cardPlay, choiceContext);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 

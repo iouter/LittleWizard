@@ -21,7 +21,7 @@ public class UnlearnedPower : LittleWizardPower
         if (Owner.Player != card.Owner)
             return;
 
-        await PowerCmd.Apply<StrengthPower>(Owner, Amount, Owner, null);
-        await PowerCmd.Apply<DexterityPower>(Owner, Amount, Owner, null);
+        await PowerCmd.Apply<StrengthPower>(choiceContext, Owner, Amount, Owner, null);
+        await PowerCmd.Apply<DexterityPower>(choiceContext, Owner, Amount, Owner, null);
     }
 }

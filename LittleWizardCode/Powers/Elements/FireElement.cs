@@ -10,7 +10,7 @@ namespace LittleWizard.LittleWizardCode.Powers.Elements;
 
 public class FireElement : BaseElement
 {
-    public override async Task AfterSideTurnStart(CombatSide side, CombatState combatState)
+    public override async Task AfterSideTurnStart(CombatSide side, ICombatState combatState)
     {
         if (side != Owner.Side)
             return;
@@ -57,11 +57,23 @@ public class FireElement : BaseElement
         switch (canonicalPower)
         {
             case WaterElement water:
-                ElementHelper.FireAndWater(Owner, Amount, amount, applier);
+                ElementHelper.FireAndWater(
+                    new ThrowingPlayerChoiceContext(),
+                    Owner,
+                    Amount,
+                    amount,
+                    applier
+                );
                 modifiedAmount = 0;
                 return true;
             case EarthElement earth:
-                ElementHelper.FireAndEarth(Owner, Amount, amount, applier);
+                ElementHelper.FireAndEarth(
+                    new ThrowingPlayerChoiceContext(),
+                    Owner,
+                    Amount,
+                    amount,
+                    applier
+                );
                 modifiedAmount = 0;
                 return true;
             default:

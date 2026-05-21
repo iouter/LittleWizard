@@ -15,7 +15,7 @@ public class ManagerMaster()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<ManagerMasterPower>(this, cardPlay);
+        await Utils.GivePower<ManagerMasterPower>(this, cardPlay, choiceContext);
     }
 
     protected override void OnUpgrade()

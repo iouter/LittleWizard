@@ -13,7 +13,7 @@ public class Unlearned() : LittleWizardCard(2, CardType.Power, CardRarity.Rare, 
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<UnlearnedPower>(this, cardPlay);
+        await Utils.GivePower<UnlearnedPower>(this, cardPlay, choiceContext);
     }
 
     protected override void OnUpgrade()

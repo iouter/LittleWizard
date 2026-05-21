@@ -20,6 +20,7 @@ public class RestMoment()
     {
         await CommonActions.CardBlock(this, cardPlay);
         await PowerCmd.Apply<EnergyNextTurnPower>(
+            choiceContext,
             Owner.Creature,
             DynamicVars.Energy.BaseValue,
             Owner.Creature,

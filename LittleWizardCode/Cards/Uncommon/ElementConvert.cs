@@ -21,27 +21,47 @@ public class ElementConvert()
         if (fireAmount > 0)
         {
             await PowerCmd.Remove<FireElement>(cardPlay.Target);
-            await PowerCmd.Apply<WaterElement>(cardPlay.Target, fireAmount, Owner.Creature, this);
+            await PowerCmd.Apply<WaterElement>(
+                choiceContext,
+                cardPlay.Target,
+                fireAmount,
+                Owner.Creature,
+                this
+            );
         }
         else if (waterAmount > 0)
         {
             await PowerCmd.Remove<WaterElement>(cardPlay.Target);
-            await PowerCmd.Apply<EarthElement>(cardPlay.Target, waterAmount, Owner.Creature, this);
+            await PowerCmd.Apply<EarthElement>(
+                choiceContext,
+                cardPlay.Target,
+                waterAmount,
+                Owner.Creature,
+                this
+            );
         }
         else if (earthAmount > 0)
         {
             await PowerCmd.Remove<EarthElement>(cardPlay.Target);
-            await PowerCmd.Apply<FireElement>(cardPlay.Target, earthAmount, Owner.Creature, this);
+            await PowerCmd.Apply<FireElement>(
+                choiceContext,
+                cardPlay.Target,
+                earthAmount,
+                Owner.Creature,
+                this
+            );
         }
 
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 
-    protected override PileType GetResultPileType()
+    protected override PileType GetResultPileTypeForCardPlay()
     {
         if (!IsUpgraded)
-            return base.GetResultPileType();
-        var resultPileType = base.GetResultPileType();
-        return resultPileType != PileType.Discard ? resultPileType : PileType.Hand;
+        {
+            return base.GetResultPileTypeForCardPlay();
+        }
+        var result = base.GetResultPileTypeForCardPlay();
+        return result != PileType.Discard ? result : PileType.Hand;
     }
 }

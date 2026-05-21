@@ -20,7 +20,7 @@ public class Retrain() : LittleWizardCard(1, CardType.Power, CardRarity.Rare, Ta
                 await CardPileCmd.AddGeneratedCardToCombat(
                     CombatState.CreateCard<PassOver>(Owner),
                     PileType.Hand,
-                    true
+                    Owner
                 );
     }
 

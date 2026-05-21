@@ -59,7 +59,7 @@ public class LikeNew() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon
         if (card == null)
             return;
         card.EnergyCost.SetThisCombat(cost);
-        await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, true);
+        await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, Owner);
     }
 
     protected override void OnUpgrade()

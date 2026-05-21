@@ -31,9 +31,9 @@ public class Earthquake()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
-        await Utils.GivePower<EarthElement>(this, play);
-        await Utils.GivePower<VulnerablePower>(this, play);
-        await Utils.GivePower<WeakPower>(this, play);
+        await Utils.GivePower<EarthElement>(this, play, choiceContext);
+        await Utils.GivePower<VulnerablePower>(this, play, choiceContext);
+        await Utils.GivePower<WeakPower>(this, play, choiceContext);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 

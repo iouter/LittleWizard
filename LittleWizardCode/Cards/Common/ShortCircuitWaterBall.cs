@@ -26,7 +26,7 @@ public class ShortCircuitWaterBall()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CommonActions.CardAttack(this, cardPlay).Execute(choiceContext);
-        await Utils.GivePower<WaterElement>(this, cardPlay);
+        await Utils.GivePower<WaterElement>(this, cardPlay, choiceContext);
         if (cardPlay.Target != null)
             await PowerCmd.Remove<ArtifactPower>(cardPlay.Target);
     }

@@ -27,7 +27,7 @@ public class MemoryPalace()
         );
         foreach (var card in cards)
             CardCmd.PreviewCardPileAdd(
-                await CardPileCmd.AddGeneratedCardToCombat(card.CreateClone(), PileType.Hand, true)
+                await CardPileCmd.AddGeneratedCardToCombat(card.CreateClone(), PileType.Hand, Owner)
             );
     }
 

@@ -16,7 +16,7 @@ public class ApprenticeCodex : LittleWizardRelics
     public override async Task BeforeSideTurnStart(
         PlayerChoiceContext choiceContext,
         CombatSide side,
-        CombatState combatState
+        ICombatState combatState
     )
     {
         if (side != Owner.Creature.Side || combatState.RoundNumber > 1)

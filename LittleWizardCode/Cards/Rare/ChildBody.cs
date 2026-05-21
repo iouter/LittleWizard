@@ -13,7 +13,7 @@ public class ChildBody() : LittleWizardCard(3, CardType.Power, CardRarity.Rare, 
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<ChildBodyPower>(this, cardPlay);
+        await Utils.GivePower<ChildBodyPower>(this, cardPlay, choiceContext);
     }
 
     protected override void OnUpgrade()

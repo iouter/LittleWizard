@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using BaseLib.Extensions;
 using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using MegaCrit.Sts2.Core.CardSelection;
@@ -17,6 +16,7 @@ namespace LittleWizard.LittleWizardCode.Api;
 public static class Utils
 {
     public static async Task GivePower<T>(
+        PlayerChoiceContext context,
         Creature target,
         DynamicVarSet varSet,
         Creature? applier,
@@ -25,6 +25,7 @@ public static class Utils
         where T : PowerModel
     {
         await PowerCmd.Apply<T>(
+            context,
             target,
             DynamicVarsHelper.GetPowerVar<T>(varSet).BaseValue,
             applier,
@@ -33,6 +34,7 @@ public static class Utils
     }
 
     public static async Task GivePower<T>(
+        PlayerChoiceContext context,
         IReadOnlyList<Creature> targets,
         DynamicVarSet varSet,
         Creature? applier,
@@ -41,6 +43,7 @@ public static class Utils
         where T : PowerModel
     {
         await PowerCmd.Apply<T>(
+            context,
             targets,
             DynamicVarsHelper.GetPowerVar<T>(varSet).BaseValue,
             applier,
@@ -48,7 +51,11 @@ public static class Utils
         );
     }
 
-    public static async Task GivePower<T>(CardModel cardModel, CardPlay play)
+    public static async Task GivePower<T>(
+        CardModel cardModel,
+        CardPlay play,
+        PlayerChoiceContext context
+    )
         where T : PowerModel
     {
         switch (cardModel.TargetType)
@@ -56,6 +63,7 @@ public static class Utils
             case TargetType.Self:
             {
                 await GivePower<T>(
+                    context,
                     cardModel.Owner.Creature,
                     cardModel.DynamicVars,
                     cardModel.Owner.Creature,
@@ -66,6 +74,7 @@ public static class Utils
             case TargetType.AllEnemies:
             {
                 await GivePower<T>(
+                    context,
                     cardModel.CombatState!.HittableEnemies,
                     cardModel.DynamicVars,
                     cardModel.Owner.Creature,
@@ -80,6 +89,7 @@ public static class Utils
                 if (target == null)
                     return;
                 await GivePower<T>(
+                    context,
                     target,
                     cardModel.DynamicVars,
                     cardModel.Owner.Creature,
@@ -97,6 +107,7 @@ public static class Utils
             default:
             {
                 await GivePower<T>(
+                    context,
                     play.Target!,
                     cardModel.DynamicVars,
                     cardModel.Owner.Creature,
@@ -107,16 +118,36 @@ public static class Utils
         }
     }
 
-    public static async Task GivePower<T>(RelicModel relicModel, Creature target)
+    public static async Task GivePower<T>(
+        RelicModel relicModel,
+        Creature target,
+        PlayerChoiceContext context
+    )
         where T : PowerModel
     {
-        await GivePower<T>(target, relicModel.DynamicVars, relicModel.Owner.Creature, null);
+        await GivePower<T>(
+            context,
+            target,
+            relicModel.DynamicVars,
+            relicModel.Owner.Creature,
+            null
+        );
     }
 
-    public static async Task GivePower<T>(RelicModel relicModel, IReadOnlyList<Creature> targets)
+    public static async Task GivePower<T>(
+        RelicModel relicModel,
+        IReadOnlyList<Creature> targets,
+        PlayerChoiceContext context
+    )
         where T : PowerModel
     {
-        await GivePower<T>(targets, relicModel.DynamicVars, relicModel.Owner.Creature, null);
+        await GivePower<T>(
+            context,
+            targets,
+            relicModel.DynamicVars,
+            relicModel.Owner.Creature,
+            null
+        );
     }
 
     public static bool IsPoweredAttack(ValueProp props)

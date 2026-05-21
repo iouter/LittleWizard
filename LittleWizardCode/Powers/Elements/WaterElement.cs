@@ -1,6 +1,7 @@
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
@@ -39,13 +40,25 @@ public class WaterElement : BaseElement
         {
             case FireElement fire:
             {
-                ElementHelper.FireAndWater(Owner, Amount, amount, applier);
+                ElementHelper.FireAndWater(
+                    new ThrowingPlayerChoiceContext(),
+                    Owner,
+                    Amount,
+                    amount,
+                    applier
+                );
                 modifiedAmount = 0;
                 return true;
             }
             case EarthElement earth:
             {
-                ElementHelper.WaterAndEarth(Owner, Amount, amount, applier);
+                ElementHelper.WaterAndEarth(
+                    new ThrowingPlayerChoiceContext(),
+                    Owner,
+                    Amount,
+                    amount,
+                    applier
+                );
                 modifiedAmount = 0;
                 return true;
             }

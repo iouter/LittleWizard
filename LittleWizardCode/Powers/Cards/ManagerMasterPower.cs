@@ -16,7 +16,7 @@ public class ManagerMasterPower : LittleWizardPower
 
     protected override object InitInternalData() => new Data();
 
-    public override bool IsInstanced => true;
+    public override PowerInstanceType InstanceType => PowerInstanceType.InstancedPerApplier;
 
     private class Data
     {
@@ -48,15 +48,12 @@ public class ManagerMasterPower : LittleWizardPower
 
     public override Task AfterEnergySpent(CardModel card, int amount)
     {
-        if (Owner?.Player == null)
+        if (Owner?.Player == null || amount <= 0)
             return Task.CompletedTask;
-        if (amount > 0)
-        {
-            var data = GetInternalData<Data>();
-            data.FreeEtherealCards += amount;
-            InvokeDisplayAmountChanged();
-            RefreshFreeOnCurrentHand();
-        }
+        var data = GetInternalData<Data>();
+        data.FreeEtherealCards += amount;
+        InvokeDisplayAmountChanged();
+        RefreshFreeOnCurrentHand();
         return Task.CompletedTask;
     }
 
@@ -66,15 +63,16 @@ public class ManagerMasterPower : LittleWizardPower
         bool fromHandDraw
     )
     {
-        if (Owner?.Player == null)
+        if (
+            Owner?.Player == null
+            || card.Owner != Owner.Player
+            || !card.CanonicalKeywords.Contains(CardKeyword.Ethereal)
+        )
             return Task.CompletedTask;
-        if (card.Owner == Owner.Player && card.CanonicalKeywords.Contains(CardKeyword.Ethereal))
+        var data = GetInternalData<Data>();
+        if (data.FreeEtherealCards > 0)
         {
-            var data = GetInternalData<Data>();
-            if (data.FreeEtherealCards > 0)
-            {
-                card.SetToFreeThisCombat();
-            }
+            card.SetToFreeThisCombat();
         }
         return Task.CompletedTask;
     }

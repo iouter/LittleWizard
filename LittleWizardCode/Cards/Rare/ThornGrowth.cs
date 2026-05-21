@@ -38,6 +38,7 @@ public class ThornGrowth()
                 this
             );
             await PowerCmd.Apply<ThornsPower>(
+                choiceContext,
                 creature,
                 DynamicVarsHelper.GetPowerVar<ThornsPower>(DynamicVars).IntValue,
                 Owner.Creature,

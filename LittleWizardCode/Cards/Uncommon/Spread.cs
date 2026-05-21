@@ -25,11 +25,23 @@ public class Spread()
             var water = target.GetPowerAmount<WaterElement>();
             var earth = target.GetPowerAmount<EarthElement>();
             if (fire > 0)
-                await PowerCmd.Apply<FireElement>(enemy, fire, Owner.Creature, this);
+                await PowerCmd.Apply<FireElement>(choiceContext, enemy, fire, Owner.Creature, this);
             else if (water > 0)
-                await PowerCmd.Apply<WaterElement>(enemy, water, Owner.Creature, this);
+                await PowerCmd.Apply<WaterElement>(
+                    choiceContext,
+                    enemy,
+                    water,
+                    Owner.Creature,
+                    this
+                );
             else if (earth > 0)
-                await PowerCmd.Apply<EarthElement>(enemy, earth, Owner.Creature, this);
+                await PowerCmd.Apply<EarthElement>(
+                    choiceContext,
+                    enemy,
+                    earth,
+                    Owner.Creature,
+                    this
+                );
         }
 
         await AnimationHelper.TriggerCastAnimationOwner(this);

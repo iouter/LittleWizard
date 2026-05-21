@@ -4,6 +4,7 @@ using LittleWizard.LittleWizardCode.Powers.Elements;
 using LittleWizard.LittleWizardCode.Powers.Elements.Reacts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 
 namespace LittleWizard.LittleWizardCode.Api.Powers;
@@ -11,6 +12,7 @@ namespace LittleWizard.LittleWizardCode.Api.Powers;
 public static class ElementHelper
 {
     public static async Task RandomElement(
+        PlayerChoiceContext ctx,
         Creature target,
         decimal amount,
         Creature? applier,
@@ -23,46 +25,49 @@ public static class ElementHelper
             switch (randomElement)
             {
                 case 0:
-                    await PowerCmd.Apply<FireElement>(target, amount, applier, cardSource);
+                    await PowerCmd.Apply<FireElement>(ctx, target, amount, applier, cardSource);
                     return;
                 case 1:
-                    await PowerCmd.Apply<WaterElement>(target, amount, applier, cardSource);
+                    await PowerCmd.Apply<WaterElement>(ctx, target, amount, applier, cardSource);
                     return;
                 case 2:
-                    await PowerCmd.Apply<EarthElement>(target, amount, applier, cardSource);
+                    await PowerCmd.Apply<EarthElement>(ctx, target, amount, applier, cardSource);
                     return;
             }
         }
     }
 
     public static void FireAndWater(
+        PlayerChoiceContext ctx,
         Creature owner,
         decimal amountA,
         decimal amountB,
         Creature? applier
     )
     {
-        PowerCmd.Apply<FireWaterReactor>(owner, amountA + amountB, applier, null);
+        PowerCmd.Apply<FireWaterReactor>(ctx, owner, amountA + amountB, applier, null);
     }
 
     public static void FireAndEarth(
+        PlayerChoiceContext ctx,
         Creature owner,
         decimal amountA,
         decimal amountB,
         Creature? applier
     )
     {
-        PowerCmd.Apply<FireEarthReactor>(owner, amountA + amountB, applier, null);
+        PowerCmd.Apply<FireEarthReactor>(ctx, owner, amountA + amountB, applier, null);
     }
 
     public static void WaterAndEarth(
+        PlayerChoiceContext ctx,
         Creature owner,
         decimal amountA,
         decimal amountB,
         Creature? applier
     )
     {
-        PowerCmd.Apply<WaterEarthReactor>(owner, amountA + amountB, applier, null);
+        PowerCmd.Apply<WaterEarthReactor>(ctx, owner, amountA + amountB, applier, null);
     }
 
     public static bool IsElementCard(CardModel card)

@@ -32,7 +32,7 @@ public class RockBlast()
                 || cardPlay.Target.GetPowerAmount<EarthElement>() > 0;
 
             if (hasElement)
-                await Utils.GivePower<EarthElement>(this, cardPlay);
+                await Utils.GivePower<EarthElement>(this, cardPlay, choiceContext);
         }
 
         await AnimationHelper.TriggerCastAnimationOwner(this);

@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Cards;
@@ -24,7 +23,7 @@ public class Ignite()
     {
         await CommonActions.CardAttack(this, play.Target).Execute(choiceContext);
         if (play.Target!.GetPowerAmount<FireElement>() <= 0)
-            await Utils.GivePower<IgnitePower>(this, play);
+            await Utils.GivePower<IgnitePower>(this, play, choiceContext);
     }
 
     protected override void OnUpgrade()

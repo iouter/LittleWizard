@@ -27,7 +27,7 @@ public class GuidancePower : LittleWizardPower
 
         foreach (var enemy in enemies)
         {
-            await PowerCmd.Apply<GuidanceMarkPower>(enemy, Amount, Owner, cardPlay.Card);
+            await PowerCmd.Apply<GuidanceMarkPower>(context, enemy, Amount, Owner, cardPlay.Card);
         }
     }
 }

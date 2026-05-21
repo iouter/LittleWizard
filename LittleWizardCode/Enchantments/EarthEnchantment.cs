@@ -20,6 +20,7 @@ public sealed class EarthEnchantment : LittleWizardEnchantment, IElementEnchantm
     {
         if (cardPlay is { Target: not null })
             await PowerCmd.Apply<EarthElement>(
+                choiceContext,
                 cardPlay.Target,
                 Amount,
                 cardPlay.Card.Owner.Creature,

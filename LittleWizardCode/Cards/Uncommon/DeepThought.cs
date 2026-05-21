@@ -17,7 +17,7 @@ public class DeepThought()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        await Utils.GivePower<DeepThoughtPower>(this, play);
+        await Utils.GivePower<DeepThoughtPower>(this, play, choiceContext);
         PlayerCmd.EndTurn(Owner, false);
     }
 

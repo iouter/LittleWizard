@@ -20,6 +20,7 @@ public class WildSwing()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         await PowerCmd.Apply<VulnerablePower>(
+            choiceContext,
             Owner.Creature,
             DynamicVars.Vulnerable.BaseValue,
             Owner.Creature,

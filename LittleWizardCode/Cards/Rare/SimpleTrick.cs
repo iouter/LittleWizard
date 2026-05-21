@@ -13,7 +13,7 @@ public class SimpleTrick() : LittleWizardCard(0, CardType.Power, CardRarity.Rare
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<SimpleTrickPower>(this, cardPlay);
+        await Utils.GivePower<SimpleTrickPower>(this, cardPlay, choiceContext);
     }
 
     protected override void OnUpgrade()

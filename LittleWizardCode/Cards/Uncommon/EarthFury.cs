@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Animation;
@@ -26,7 +25,13 @@ public class EarthFury()
     {
         var earth = cardPlay.Target!.GetPowerAmount<EarthElement>();
         await CommonActions.CardAttack(this, cardPlay.Target, earth).Execute(choiceContext);
-        await PowerCmd.Apply<EarthElement>(cardPlay.Target, earth, Owner.Creature, this);
+        await PowerCmd.Apply<EarthElement>(
+            choiceContext,
+            cardPlay.Target,
+            earth,
+            Owner.Creature,
+            this
+        );
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 

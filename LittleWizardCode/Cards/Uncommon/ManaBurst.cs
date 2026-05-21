@@ -18,13 +18,14 @@ public class ManaBurst() : LittleWizardCard(1, CardType.Power, CardRarity.Uncomm
     {
         if (IsUpgraded)
             await PowerCmd.Apply<ManaBurstUpgradePower>(
+                choiceContext,
                 Owner.Creature,
                 DynamicVarsHelper.GetPowerVar<ManaBurstPower>(DynamicVars).BaseValue,
                 Owner.Creature,
                 this
             );
         else
-            await Utils.GivePower<ManaBurstPower>(this, cardPlay);
+            await Utils.GivePower<ManaBurstPower>(this, cardPlay, choiceContext);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 }

@@ -53,6 +53,7 @@ public class ElementBurst()
         if (fireAmount > 0)
         {
             await PowerCmd.Apply<FireElement>(
+                choiceContext,
                 cardPlay.Target,
                 ((CalculatedVar)DynamicVars[AnyElement]).Calculate(cardPlay.Target),
                 Owner.Creature,
@@ -64,6 +65,7 @@ public class ElementBurst()
         if (waterAmount > 0)
         {
             await PowerCmd.Apply<WaterElement>(
+                choiceContext,
                 cardPlay.Target,
                 ((CalculatedVar)DynamicVars[AnyElement]).Calculate(cardPlay.Target),
                 Owner.Creature,
@@ -74,6 +76,7 @@ public class ElementBurst()
 
         if (earthAmount > 0)
             await PowerCmd.Apply<EarthElement>(
+                choiceContext,
                 cardPlay.Target,
                 ((CalculatedVar)DynamicVars[AnyElement]).Calculate(cardPlay.Target),
                 Owner.Creature,

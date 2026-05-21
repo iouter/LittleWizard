@@ -20,6 +20,7 @@ public class WaterEnchantment : LittleWizardEnchantment, IElementEnchantment
     {
         if (cardPlay is { Target: not null })
             await PowerCmd.Apply<WaterElement>(
+                choiceContext,
                 cardPlay.Target,
                 Amount,
                 cardPlay.Card.Owner.Creature,

@@ -16,7 +16,7 @@ public class Emerge() : LittleWizardCard(1, CardType.Skill, CardRarity.Rare, Tar
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<EmergePower>(this, cardPlay);
+        await Utils.GivePower<EmergePower>(this, cardPlay, choiceContext);
     }
 
     protected override void OnUpgrade()

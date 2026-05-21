@@ -21,7 +21,7 @@ public class RemoveDefense()
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
         if (cardPlay.Target.Block > 0)
             await CreatureCmd.LoseBlock(cardPlay.Target, cardPlay.Target.Block);
-        await Utils.GivePower<VulnerablePower>(this, cardPlay);
+        await Utils.GivePower<VulnerablePower>(this, cardPlay, choiceContext);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 

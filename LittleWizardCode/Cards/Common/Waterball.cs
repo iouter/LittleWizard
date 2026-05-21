@@ -26,7 +26,7 @@ public class Waterball()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
-        await Utils.GivePower<WaterElement>(this, play);
+        await Utils.GivePower<WaterElement>(this, play, choiceContext);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 
