@@ -112,7 +112,7 @@
     "LITTLEWIZARD-FLUSTERED.title": "手忙脚乱",
     "LITTLEWIZARD-FLUSTERED.description": "抽满手牌。\n本回合内每打出1张牌就抽1张牌。",
     "LITTLEWIZARD-WATER_UNDER_THE_BRIDGE.title": "过往",
-    "LITTLEWIZARD-WATER_UNDER_THE_BRIDGE.description": "每打出一张[gold]虚无[/gold]牌时，获得{WaterUnderTheBridgePower:diff()}点[gold]格挡[/gold]。",
+    "LITTLEWIZARD-WATER_UNDER_THE_BRIDGE.description": "每回合第一次打出[gold]虚无[/gold]牌时，获得{WaterUnderTheBridgePower:diff()}点[gold]格挡[/gold]。",
     "LITTLEWIZARD-HAIL.title": "冰雹",
     "LITTLEWIZARD-HAIL.description": "造成{Damage:diff()}点伤害。\n给予{WaterElement:diff()}层[gold]水元素[/gold]。\n你的回合开始时，如果此牌处于消耗牌堆中，则将其打出。",
     "LITTLEWIZARD-LIFE_DRAIN.title": "吸取生命",
