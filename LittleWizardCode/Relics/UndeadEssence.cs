@@ -1,9 +1,11 @@
+using System.Diagnostics.CodeAnalysis;
 using LittleWizard.LittleWizardCode.Api.Relics;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Saves.Runs;
 
 namespace LittleWizard.LittleWizardCode.Relics;
 
@@ -13,7 +15,9 @@ public class UndeadEssence : LittleWizardRelics
     protected override IEnumerable<DynamicVar> CanonicalVars => [new HealVar(1)];
     private int _resurrectionCount;
 
-    private int ResurrectionCount
+    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
+    [SavedProperty]
+    public int ResurrectionCount
     {
         get => _resurrectionCount;
         set
