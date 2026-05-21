@@ -7,13 +7,13 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.LittleWizardCode.Cards.Rare;
 
-public class Petrification() : LittleWizardCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class Petrification() : LittleWizardCard(2, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     private const string IncreasedBlock = "IncreasedBlock";
     private decimal _extraBlockFromPlays;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new BlockVar(6, ValueProp.Move), new(IncreasedBlock, 6)];
+        [new BlockVar(8, ValueProp.Move), new(IncreasedBlock, 6)];
 
     private decimal ExtraBlockFromPlays
     {
