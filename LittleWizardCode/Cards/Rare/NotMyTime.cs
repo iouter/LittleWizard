@@ -27,7 +27,8 @@ public class NotMyTime()
             var card = Owner.Creature.Player.RunState.Rng.CombatCardSelection.NextItem(
                 PileType
                     .Exhaust.GetPile(Owner)
-                    .Cards.Where(model => !model.Keywords.Contains(CardKeyword.Unplayable)).Where(c => c.Type == CardType.Attack)
+                    .Cards.Where(model => !model.Keywords.Contains(CardKeyword.Unplayable))
+                    .Where(c => c.Type == CardType.Attack)
             );
             if (card == null)
                 continue;
