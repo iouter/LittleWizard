@@ -185,7 +185,7 @@
     "LITTLEWIZARD-BREW_POTIONS.title": "炼制魔药",
     "LITTLEWIZARD-BREW_POTIONS.description": "结束战斗时获得{BrewPotionsPower:diff()}瓶随机的药水。",
     "LITTLEWIZARD-IGNITE.title": "引燃",
-    "LITTLEWIZARD-IGNITE.description": "造成{Damage:diff()}点伤害。\n如果该名敌人未拥有[gold]火元素[/gold]，则接下来被给予的[gold]火元素[/gold]层数翻倍。",
+    "LITTLEWIZARD-IGNITE.description": "造成{Damage:diff()}点伤害。\n如果该名敌人未拥有[gold]火元素[/gold]，则给予[gold]引燃[/gold]。\n如果该名敌人已拥有[gold]火元素[/gold]，则将抽牌堆里2张能给予火元素的牌放入你的手牌。",
     "LITTLEWIZARD-RETRAIN.title": "重修",
     "LITTLEWIZARD-RETRAIN.description": "获得3张\"略过\"。",
     "LITTLEWIZARD-WATER_VAPOUR.title": "水蒸气",
