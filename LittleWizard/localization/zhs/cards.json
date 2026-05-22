@@ -164,7 +164,7 @@
     "LITTLEWIZARD-RECALL.title": "回忆",
     "LITTLEWIZARD-RECALL.description": "升级你手牌中的所有牌。",
     "LITTLEWIZARD-SELF_HYPNOSIS.title": "自我催眠",
-    "LITTLEWIZARD-SELF_HYPNOSIS.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n为任意最多{Cards:diff()}张牌添加或移除[gold]虚无[/gold]。",
+    "LITTLEWIZARD-SELF_HYPNOSIS.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n为任意最多{Cards:diff()}张手牌添加或移除[gold]虚无[/gold]。",
     "LITTLEWIZARD-SELF_HYPNOSIS.selectionScreenPrompt": "选择要修改的牌",
     "LITTLEWIZARD-SIMPLE_TRICK.title": "简易把戏",
     "LITTLEWIZARD-SIMPLE_TRICK.description": "[gold]能力[/gold]牌的能量消耗-1。",
