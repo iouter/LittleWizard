@@ -9,6 +9,8 @@
         <AppOutputBase>$(MSBuildProjectDirectory)\</AppOutputBase>
         <PathMap>$(AppOutputBase)=.\</PathMap>
         <Authors>iouter, w_s_L, AOShiRo</Authors>
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <Prefer32Bit>false</Prefer32Bit>
     </PropertyGroup>
 
     <!-- OS Detection -->
