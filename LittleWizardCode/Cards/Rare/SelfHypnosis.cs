@@ -8,8 +8,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.LittleWizardCode.Cards.Rare;
 
-public class SelfHypnosis()
-    : LittleWizardCard(2, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class SelfHypnosis() : LittleWizardCard(2, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new BlockVar(17, ValueProp.Move), new CardsVar(3)];
