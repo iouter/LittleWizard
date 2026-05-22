@@ -77,7 +77,11 @@ public class FireEarthReactor : LittleWizardPower
         await CreatureCmd.GainBlock(creature, Amount, ValueProp.Move, null);
     }
 
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IEnumerable<Creature> creatures
+    )
     {
         if (side == CombatSide.Enemy)
         {

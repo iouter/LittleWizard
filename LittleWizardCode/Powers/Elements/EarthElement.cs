@@ -44,6 +44,7 @@ public class EarthElement : BaseElement
     public override Task BeforeSideTurnStart(
         PlayerChoiceContext choiceContext,
         CombatSide side,
+        IReadOnlyList<Creature> creatures,
         ICombatState combatState
     )
     {

@@ -45,7 +45,11 @@ public abstract class BaseMoreElementReceivedPower : CustomPowerModel
         return true;
     }
 
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IEnumerable<Creature> creatures
+    )
     {
         if (side != Owner.Side)
             return;
