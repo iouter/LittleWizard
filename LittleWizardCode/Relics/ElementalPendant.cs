@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using LittleWizard.LittleWizardCode.Api.Relics;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -15,7 +16,8 @@ public class ElementalPendant : AfterElementReactRelics
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(3)];
     private bool _usedThisTurn;
 
-    private bool UsedThisTurn
+    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
+    public bool UsedThisTurn
     {
         get => _usedThisTurn;
         set

@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Relics;
 using MegaCrit.Sts2.Core.Commands;
@@ -19,7 +20,8 @@ public class ElementalGem : AfterElementReactRelics
         [new PowerVar<DrawCardsNextTurnPower>(2), new CardsVar(1)];
     private bool _usedThisTurn;
 
-    private bool UsedThisTurn
+    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
+    public bool UsedThisTurn
     {
         get => _usedThisTurn;
         set
