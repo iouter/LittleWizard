@@ -1,7 +1,6 @@
 using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api.Animation;
 using LittleWizard.LittleWizardCode.Api.Cards;
-using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Elements;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -13,8 +12,6 @@ namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
 
 public class Adapt() : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
-
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new CardsVar(2), new EnergyVar(2), new BlockVar(13, ValueProp.Move)];
 
