@@ -7,9 +7,9 @@ using LittleWizard.LittleWizardCode.Powers.Elements;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
-using MegaCrit.Sts2.Core.HoverTips;
 
 namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
 
@@ -18,7 +18,8 @@ public class Ignite()
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.FromPower<IgnitePower>()];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        [HoverTipFactory.FromPower<IgnitePower>()];
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new DamageVar(5, ValueProp.Move), new PowerVar<IgnitePower>(1), new CardsVar(2)];
 
