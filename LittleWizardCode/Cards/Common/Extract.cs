@@ -1,6 +1,7 @@
 using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Api.DynamicVars;
+using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -12,6 +13,8 @@ public class Extract() : LittleWizardCard(1, CardType.Skill, CardRarity.Common, 
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new RandomElementVar(2), new CardsVar(1)];
+
+    public override IEnumerable<CardTag> Tags => [CardTagExtensions.LittleWizardElement];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
