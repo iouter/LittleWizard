@@ -10,7 +10,11 @@ namespace LittleWizard.LittleWizardCode.Powers.Elements;
 
 public class FireElement : BaseElement
 {
-    public override async Task AfterSideTurnStart(CombatSide side, ICombatState combatState)
+    public override async Task AfterSideTurnStart(
+        CombatSide side,
+        IReadOnlyList<Creature> creatures,
+        ICombatState combatState
+    )
     {
         if (side != Owner.Side)
             return;

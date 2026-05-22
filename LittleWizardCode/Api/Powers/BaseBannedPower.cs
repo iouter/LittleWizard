@@ -12,7 +12,11 @@ public abstract class BaseBannedPower<T> : LittleWizardPower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IEnumerable<Creature> creatures
+    )
     {
         if (side != CombatSide.Enemy)
             return;
