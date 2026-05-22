@@ -16,8 +16,7 @@ public class Ignite()
     : LittleWizardCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [HoverTipFactory.FromPower<IgnitePower>()];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>[HoverTipFactory.FromPower<IgnitePower>()];
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new DamageVar(5, ValueProp.Move), new PowerVar<IgnitePower>(1)];
 
