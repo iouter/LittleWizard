@@ -23,6 +23,8 @@ public class BurnEverything()
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Fire];
 
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+
     protected override bool HasEnergyCostX => true;
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
