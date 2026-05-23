@@ -123,7 +123,7 @@
     "LITTLEWIZARD-MORNING_GRUMPINESS.title": "起床气",
     "LITTLEWIZARD-MORNING_GRUMPINESS.description": "结束你的回合。获得{Block:diff()}点[gold]格挡[/gold]。获得{Stun:diff()}层[gold]击晕[/gold]。在解除击晕时，本场战斗永久获得{Strength:diff()}层[gold]力量[/gold]。当生命值降低时会提前解除击晕。",
     "LITTLEWIZARD-ROCK_WALL.title": "岩石墙",
-    "LITTLEWIZARD-ROCK_WALL.description": "获得{Block:diff()}点[gold]格挡[/gold]。你给予的下一次[gold]元素[/gold]层数翻倍。",
+    "LITTLEWIZARD-ROCK_WALL.description": "获得{Block:diff()}点[gold]格挡[/gold]。你给予的下一次[gold]土元素[/gold]层数翻倍。",
     "LITTLEWIZARD-SPREAD.title": "蔓延",
     "LITTLEWIZARD-SPREAD.description": "给予其他敌人该名敌人身上的所有[gold]元素[/gold]层数。",
     "LITTLEWIZARD-WILD_SWING.title": "胡乱挥打",
