@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 namespace LittleWizard.LittleWizardCode.Cards.Rare;
 
 public class ElementConvert()
-    : LittleWizardCard(0, CardType.Skill, CardRarity.Rare, TargetType.AnyEnemy)
+    : LittleWizardCard(1, CardType.Skill, CardRarity.Rare, TargetType.AnyEnemy)
 {
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
