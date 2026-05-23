@@ -17,7 +17,7 @@ public class ExploreTaboo()
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new PowerVar<FireElement>(3), new PowerVar<ExploreTabooPower>(1)];
+        [new PowerVar<FireElement>(4), new PowerVar<ExploreTabooPower>(1)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
 
