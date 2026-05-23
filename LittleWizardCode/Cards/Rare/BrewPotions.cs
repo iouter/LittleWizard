@@ -7,8 +7,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.LittleWizardCode.Cards.Rare;
 
-public class BrewPotions()
-    : LittleWizardCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+public class BrewPotions() : LittleWizardCard(1, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<BrewPotionsPower>(1)];
 

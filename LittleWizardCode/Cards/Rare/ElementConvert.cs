@@ -5,10 +5,10 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
-namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
+namespace LittleWizard.LittleWizardCode.Cards.Rare;
 
 public class ElementConvert()
-    : LittleWizardCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
+    : LittleWizardCard(0, CardType.Skill, CardRarity.Rare, TargetType.AnyEnemy)
 {
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
