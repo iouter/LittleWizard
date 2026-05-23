@@ -9,15 +9,14 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
-namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
+namespace LittleWizard.LittleWizardCode.Cards.Rare;
 
-public class ExploreTaboo()
-    : LittleWizardCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+public class ExploreTaboo() : LittleWizardCard(1, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new PowerVar<FireElement>(3), new PowerVar<ExploreTabooPower>(1)];
+        [new PowerVar<FireElement>(4), new PowerVar<ExploreTabooPower>(1)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
 
