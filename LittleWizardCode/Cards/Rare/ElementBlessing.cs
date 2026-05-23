@@ -21,6 +21,5 @@ public class ElementBlessing()
     protected override void OnUpgrade()
     {
         AddKeyword(CardKeyword.Innate);
-        EnergyCost.UpgradeBy(-1);
     }
 }
