@@ -20,12 +20,7 @@ public class RockWallPower : LittleWizardPower
         out decimal modifiedAmount
     )
     {
-        if (
-            amount == 0
-            || target != Owner
-            || canonicalPower is not EarthElement
-            || !canonicalPower.IsVisible
-        )
+        if (amount == 0 || applier != Owner || canonicalPower is not EarthElement)
         {
             modifiedAmount = amount;
             return false;
