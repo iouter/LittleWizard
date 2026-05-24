@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://t1c5rm4sk3ek"
-valid=false
+uid="uid://c4svxsh4pswrn"
+path="res://.godot/imported/wild_swing.png-71a0454ebb953a774fe55570908974c6.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://LittleWizard/images/card_portraits/big/wild_swing.png"
+dest_files=["res://.godot/imported/wild_swing.png-71a0454ebb953a774fe55570908974c6.ctex"]
 
 [params]
 

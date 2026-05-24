@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coop67jrx64ic"
-valid=false
+uid="uid://0iiuiauj3kml"
+path="res://.godot/imported/rejuvenation.png-75f69bbb976f24e3e05afa59314a035c.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://LittleWizard/images/card_portraits/big/rejuvenation.png"
+dest_files=["res://.godot/imported/rejuvenation.png-75f69bbb976f24e3e05afa59314a035c.ctex"]
 
 [params]
 

@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bewhhsmgjnwil"
-valid=false
+uid="uid://cp4t555jmtu4a"
+path="res://.godot/imported/copying.png-dec86a5f3dda5474769c136fb40012c9.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://LittleWizard/images/card_portraits/copying.png"
+dest_files=["res://.godot/imported/copying.png-dec86a5f3dda5474769c136fb40012c9.ctex"]
 
 [params]
 

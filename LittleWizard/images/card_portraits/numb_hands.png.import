@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cid0u7khqfkws"
-valid=false
+uid="uid://dgrecnd0n74y5"
+path="res://.godot/imported/numb_hands.png-8ff44f2f3f8533cd96965bafa4ba4673.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://LittleWizard/images/card_portraits/numb_hands.png"
+dest_files=["res://.godot/imported/numb_hands.png-8ff44f2f3f8533cd96965bafa4ba4673.ctex"]
 
 [params]
 

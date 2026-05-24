@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgl4rpsxce10v"
-valid=false
+uid="uid://6mqyquqivr67"
+path="res://.godot/imported/pass_over.png-1407aa7efb26c94352896bf9f9dacbc3.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://LittleWizard/images/card_portraits/pass_over.png"
+dest_files=["res://.godot/imported/pass_over.png-1407aa7efb26c94352896bf9f9dacbc3.ctex"]
 
 [params]
 

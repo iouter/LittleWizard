@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5mo1bjvaqfts"
-valid=false
+uid="uid://bdm6m63ujqjtw"
+path="res://.godot/imported/element_aggregation.png-41477a680e60806880472faf28648ab4.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://LittleWizard/images/card_portraits/big/element_aggregation.png"
+dest_files=["res://.godot/imported/element_aggregation.png-41477a680e60806880472faf28648ab4.ctex"]
 
 [params]
 

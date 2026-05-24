@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bobp7ej1ius28"
-valid=false
+uid="uid://bhoovu6h3kmj4"
+path="res://.godot/imported/deadline_dash.png-eb333d2ee956b154bd6319c85f19f32d.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://LittleWizard/images/card_portraits/deadline_dash.png"
+dest_files=["res://.godot/imported/deadline_dash.png-eb333d2ee956b154bd6319c85f19f32d.ctex"]
 
 [params]
 

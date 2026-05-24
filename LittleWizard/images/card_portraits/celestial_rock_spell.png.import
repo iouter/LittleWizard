@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cuhab5d5l17s7"
-valid=false
+uid="uid://c1j05i44mtqux"
+path="res://.godot/imported/celestial_rock_spell.png-c4a595d562ce31c76311eae829b10d1b.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://LittleWizard/images/card_portraits/celestial_rock_spell.png"
+dest_files=["res://.godot/imported/celestial_rock_spell.png-c4a595d562ce31c76311eae829b10d1b.ctex"]
 
 [params]
 

@@ -2,12 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ofa6jymxipi"
-valid=false
+uid="uid://cwg3fgnxdnlsy"
+path="res://.godot/imported/retrain.png-c3d62b1ad66bf9493c4e5a2ea5cd7224.ctex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
 source_file="res://LittleWizard/images/card_portraits/retrain.png"
+dest_files=["res://.godot/imported/retrain.png-c3d62b1ad66bf9493c4e5a2ea5cd7224.ctex"]
 
 [params]
 
