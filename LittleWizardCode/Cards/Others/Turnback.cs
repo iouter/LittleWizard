@@ -2,6 +2,7 @@ using BaseLib.Abstracts;
 using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Cards.Basic;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -14,7 +15,7 @@ public sealed class Turnback()
 {
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var task = CommonActions.SelectCards(
+        var cards = await CommonActions.SelectCards(
             this,
             SelectionScreenPrompt,
             choiceContext,
@@ -22,10 +23,7 @@ public sealed class Turnback()
             0,
             2
         );
-        if (!task.IsCompletedSuccessfully)
-            return;
-        foreach (var card in task.Result)
-            await CommonActions.Draw(card, choiceContext);
+        await CardPileCmd.Add(cards, PileType.Hand);
     }
 
     protected override void OnUpgrade()
