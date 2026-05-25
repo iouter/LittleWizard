@@ -1,8 +1,6 @@
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 
 namespace LittleWizard.LittleWizardCode.Powers.Cards;
@@ -20,79 +18,53 @@ public class ManagerMasterPower : LittleWizardPower
 
     private class Data
     {
-        public int FreeEtherealCards = 0;
-    }
-
-    private void RefreshFreeOnCurrentHand()
-    {
-        if (Owner?.Player?.PlayerCombatState?.Hand?.Cards == null)
-            return;
-        var data = GetInternalData<Data>();
-        if (data.FreeEtherealCards <= 0)
-            return;
-
-        foreach (var card in Owner.Player.PlayerCombatState.Hand.Cards)
-        {
-            if (card.CanonicalKeywords.Contains(CardKeyword.Ethereal))
-            {
-                card.SetToFreeThisCombat();
-            }
-        }
-    }
-
-    public override async Task AfterApplied(Creature? applier, CardModel? cardSource)
-    {
-        await base.AfterApplied(applier, cardSource);
-        RefreshFreeOnCurrentHand();
+        public int FreeEtherealCards;
     }
 
     public override Task AfterEnergySpent(CardModel card, int amount)
     {
-        if (Owner?.Player == null || amount <= 0)
+        if (card.Owner.Creature != Owner)
+        {
             return Task.CompletedTask;
-        var data = GetInternalData<Data>();
-        data.FreeEtherealCards += amount;
+        }
+
+        if (
+            card.Keywords.Contains(CardKeyword.Ethereal)
+            && amount == 0
+            && GetInternalData<Data>().FreeEtherealCards > 0
+        )
+        {
+            GetInternalData<Data>().FreeEtherealCards--;
+            InvokeDisplayAmountChanged();
+            return Task.CompletedTask;
+        }
+
+        if (amount <= 0)
+        {
+            return Task.CompletedTask;
+        }
+
+        GetInternalData<Data>().FreeEtherealCards += amount;
         InvokeDisplayAmountChanged();
-        RefreshFreeOnCurrentHand();
         return Task.CompletedTask;
     }
 
-    public override Task AfterCardDrawn(
-        PlayerChoiceContext choiceContext,
+    public override bool TryModifyEnergyCostInCombat(
         CardModel card,
-        bool fromHandDraw
+        decimal originalCost,
+        out decimal modifiedCost
     )
     {
         if (
-            Owner?.Player == null
-            || card.Owner != Owner.Player
-            || !card.CanonicalKeywords.Contains(CardKeyword.Ethereal)
+            Owner == card.Owner.Creature
+            && card.Keywords.Contains(CardKeyword.Ethereal)
+            && GetInternalData<Data>().FreeEtherealCards > 0
         )
-            return Task.CompletedTask;
-        var data = GetInternalData<Data>();
-        if (data.FreeEtherealCards > 0)
         {
-            card.SetToFreeThisCombat();
+            modifiedCost = 0;
+            return true;
         }
-        return Task.CompletedTask;
-    }
-
-    public override async Task BeforeCardPlayed(CardPlay cardPlay)
-    {
-        if (Owner?.Player == null)
-            return;
-
-        var card = cardPlay.Card;
-        if (card.CanonicalKeywords.Contains(CardKeyword.Ethereal))
-        {
-            var data = GetInternalData<Data>();
-            if (data.FreeEtherealCards > 0)
-            {
-                card.SetToFreeThisCombat();
-                data.FreeEtherealCards--;
-                InvokeDisplayAmountChanged();
-            }
-        }
-        await base.BeforeCardPlayed(cardPlay);
+        modifiedCost = originalCost;
+        return false;
     }
 }
