@@ -9,13 +9,11 @@ namespace LittleWizard.LittleWizardCode.Powers.Cards;
 public class ManaBurstPower : LittleWizardPower
 {
     public override PowerType Type => PowerType.Buff;
-    public override PowerStackType StackType => PowerStackType.Single;
+    public override PowerStackType StackType => PowerStackType.Counter;
     public override int DisplayAmount => GetInternalData<Data>().SkillCardsUsed;
+    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
-    protected override object InitInternalData()
-    {
-        return new Data();
-    }
+    protected override object InitInternalData() => new Data();
 
     protected virtual int GetThreshold()
     {
@@ -32,11 +30,13 @@ public class ManaBurstPower : LittleWizardPower
         }
         var data = GetInternalData<Data>();
         data.SkillCardsUsed += 1;
+        InvokeDisplayAmountChanged();
         if (data.SkillCardsUsed >= GetThreshold())
         {
             Flash();
             await PlayerCmd.GainEnergy(1, Owner.Player);
             data.SkillCardsUsed = 0;
+            InvokeDisplayAmountChanged();
         }
     }
 
