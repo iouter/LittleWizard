@@ -1,6 +1,7 @@
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -27,14 +28,7 @@ public class FireEarthReactor : LittleWizardPower
         CardModel? cardSource
     )
     {
-        await CreatureCmd.Damage(
-            new ThrowingPlayerChoiceContext(),
-            target,
-            amount,
-            ValueProp.Unpowered,
-            applier,
-            null
-        );
+        await Task.CompletedTask;
     }
 
     public override async Task AfterPowerAmountChanged(
@@ -46,10 +40,25 @@ public class FireEarthReactor : LittleWizardPower
     )
     {
         if (power != this || amount == Amount)
-        {
             return;
-        }
         await CreatureCmd.Damage(choiceContext, Owner, amount, ValueProp.Unpowered, applier, null);
+    }
+
+    public override async Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)
+    {
+        if (command == null)
+            return;
+        if (command.Attacker?.Side != CombatSide.Player)
+            return;
+
+        await CreatureCmd.Damage(
+            choiceContext,
+            Owner,
+            Amount,
+            ValueProp.Unpowered,
+            command.Attacker,
+            null
+        );
     }
 
     public override async Task AfterDamageReceived(
