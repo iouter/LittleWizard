@@ -12,6 +12,7 @@ namespace LittleWizard.LittleWizardCode.Powers.Elements;
 public class WaterElement : BaseElement
 {
     private int deleteStrength;
+
     public override decimal ModifyDamageAdditive(
         Creature? target,
         decimal amount,
@@ -74,12 +75,12 @@ public class WaterElement : BaseElement
     }
 
     public override async Task AfterPowerAmountChanged(
-           PlayerChoiceContext choiceContext,
-           PowerModel power,
-           decimal amount,
-           Creature? applier,
-           CardModel? cardSource
-       )
+        PlayerChoiceContext choiceContext,
+        PowerModel power,
+        decimal amount,
+        Creature? applier,
+        CardModel? cardSource
+    )
     {
         if (power != this)
             return;
@@ -89,13 +90,13 @@ public class WaterElement : BaseElement
         if (newReduction == deleteStrength)
             return;
 
-            await PowerCmd.Apply<StrengthPower>(
-                choiceContext,
-                Owner,
-                deleteStrength,
-                applier,
-                cardSource
-            );
+        await PowerCmd.Apply<StrengthPower>(
+            choiceContext,
+            Owner,
+            deleteStrength,
+            applier,
+            cardSource
+        );
 
         deleteStrength = newReduction;
 
