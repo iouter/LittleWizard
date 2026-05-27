@@ -21,16 +21,6 @@ public class FireEarthReactor : LittleWizardPower
     public override string CustomBigIconPath =>
         "res://LittleWizard/images/powers/big/fire_and_earth_element_reactor_power.png";
 
-    public override async Task BeforeApplied(
-        Creature target,
-        decimal amount,
-        Creature? applier,
-        CardModel? cardSource
-    )
-    {
-        await Task.CompletedTask;
-    }
-
     public override async Task AfterPowerAmountChanged(
         PlayerChoiceContext choiceContext,
         PowerModel power,
