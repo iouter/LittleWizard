@@ -96,5 +96,8 @@ public class WaterElement : BaseElement
                 cardSource
             );
         }
+
+        if (!applier!.HasPower<WaterElement>())
+            await PowerCmd.Remove(existing);
     }
 }
