@@ -1,8 +1,10 @@
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Powers;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.LittleWizardCode.Powers.Elements;
@@ -67,6 +69,32 @@ public class WaterElement : BaseElement
                 modifiedAmount = amount;
                 return false;
             }
+        }
+    }
+
+    public override async Task AfterPowerAmountChanged(
+        PlayerChoiceContext choiceContext,
+        PowerModel power,
+        decimal amount,
+        Creature? applier,
+        CardModel? cardSource
+    )
+    {
+        if (power != this)
+            return;
+
+        var existing = Owner.GetPower<StrengthPower>();
+        await PowerCmd.Remove(existing);
+
+        if (Amount > 1)
+        {
+            await PowerCmd.Apply<StrengthPower>(
+                choiceContext,
+                Owner,
+                -Amount / 2,
+                applier,
+                cardSource
+            );
         }
     }
 }
