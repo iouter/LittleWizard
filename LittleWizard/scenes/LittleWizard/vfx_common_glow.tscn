@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=3 uid="uid://buri2as6capmp"]
+
+[ext_resource type="Material" uid="uid://coaxocxfhjl87" path="res://LittleWizard/materials/vfx_glow.tres" id="1_r4x4e"]
+[ext_resource type="Texture2D" uid="uid://ch67ex51x8g8b" path="res://LittleWizard/images/ui/combat/LittleWizard/energy_counters/common_glow.png" id="2_upwo5"]
+
+[sub_resource type="Curve" id="Curve_y5gtb"]
+_data = [Vector2(0, 0.353), 0.0, -0.753, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_qedqn"]
+curve = SubResource("Curve_y5gtb")
+
+[sub_resource type="Curve" id="Curve_vgal1"]
+_data = [Vector2(0, 0), 0.0, 11.542, 0, 0, Vector2(0.203, 0.842), 0.0, 0.211, 0, 0, Vector2(1, 1), 0.198, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_ic6fi"]
+curve = SubResource("Curve_vgal1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x046i"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+scale_min = 3.5
+scale_max = 3.5
+scale_curve = SubResource("CurveTexture_ic6fi")
+alpha_curve = SubResource("CurveTexture_qedqn")
+
+[node name="vfx_common_glow" type="GPUParticles2D"]
+self_modulate = Color(0.8280576, 0.59821755, 1, 1)
+material = ExtResource("1_r4x4e")
+emitting = false
+amount = 1
+texture = ExtResource("2_upwo5")
+process_material = SubResource("ParticleProcessMaterial_x046i")

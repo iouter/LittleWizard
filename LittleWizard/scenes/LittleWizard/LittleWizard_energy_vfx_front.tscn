@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfmw8p4tmbtuj"]
+
+[ext_resource type="Script" uid="uid://b2kpk61ieigx0" path="res://LittleWizardCode/Api/Nodes/SNParticlesContainer.cs" id="1_ek0ca"]
+[ext_resource type="PackedScene" uid="uid://bfd3qmv8bbm3v" path="res://LittleWizard/scenes/LittleWizard/vfx_common_specks.tscn" id="2_peqvm"]
+
+[node name="WatcherEnergyVfxFront" type="Node2D"]
+script = ExtResource("1_ek0ca")
+
+[node name="vfx_common_specks" parent="." instance=ExtResource("2_peqvm")]

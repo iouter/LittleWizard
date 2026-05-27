@@ -36,15 +36,9 @@ public class LittleWizard : PlaceholderCharacterModel
 
     public override IReadOnlyList<RelicModel> StartingRelics => [ModelDb.Relic<ElementalOre>()];
 
-    public override CustomEnergyCounter? CustomEnergyCounter =>
-        new CustomEnergyCounter(
-            i =>
-                "res://LittleWizard/images/ui/combat/LittleWizard/LittleWizard_orb_layer_"
-                + i
-                + ".png",
-            new Color(0.4f, 0.1f, 0.9f),
-            new Color(0.7f, 0.1f, 0.9f)
-        );
+    public override string CustomEnergyCounterPath =>
+        "res://LittleWizard/scenes/LittleWizard/LittleWizard_energy_counter.tscn";
+    public override Color EnergyLabelOutlineColor => new(0x552262FF);
 
     public override string CustomAttackSfx => "res://";
     public override string CustomCastSfx => "res://";
@@ -65,6 +59,9 @@ public class LittleWizard : PlaceholderCharacterModel
 
     public override string CustomIconTexturePath =>
         "res://LittleWizard/images/LittleWizard/character_icon_LittleWizard.png";
+
+    public override string CustomIconOutlineTexturePath =>
+        "res://LittleWizard/images/ui/top_panel/character_icon_LittleWizard_outline.png";
 
     public override string CustomCharacterSelectLockedIconPath =>
         "res://LittleWizard/images/LittleWizard/char_select_LittleWizard_locked.png";

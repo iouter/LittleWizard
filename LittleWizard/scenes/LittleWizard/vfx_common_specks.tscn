@@ -1,0 +1,104 @@
+[gd_scene load_steps=18 format=3 uid="uid://bfd3qmv8bbm3v"]
+
+[ext_resource type="Material" uid="uid://c4ov3ifwiuir1" path="res://LittleWizard/materials/vfx_speck_glow_white.tres" id="1_hqlpk"]
+[ext_resource type="Texture2D" uid="uid://c6764a78yl120" path="res://LittleWizard/images/ui/combat/LittleWizard/energy_counters/common_glow_speck.png" id="2_2rlyg"]
+
+[sub_resource type="Curve" id="Curve_hyyfl"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.178, 1), 0.0, 0.0, 0, 0, Vector2(0.18, 0), 0.0, 0.0, 0, 0, Vector2(0.245, 0), 0.0, 0.0, 0, 0, Vector2(0.251, 1), 0.0, 0.0, 0, 0, Vector2(0.695, 1), 0.0, 0.0, 0, 0, Vector2(0.702, 0), 0.0, 0.0, 0, 0, Vector2(0.749, 0), 0.0, 0.0, 0, 0, Vector2(0.752, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 10
+
+[sub_resource type="CurveTexture" id="CurveTexture_g5e16"]
+curve = SubResource("Curve_hyyfl")
+
+[sub_resource type="Gradient" id="Gradient_hqlpk"]
+offsets = PackedFloat32Array(0.171, 0.646)
+colors = PackedColorArray(1, 1, 1, 1, 2.454, 2.454, 2.454, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2rlyg"]
+gradient = SubResource("Gradient_hqlpk")
+use_hdr = true
+
+[sub_resource type="Curve" id="Curve_peqvm"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.887, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_s0bh4"]
+curve = SubResource("Curve_peqvm")
+
+[sub_resource type="Curve" id="Curve_hqlpk"]
+_data = [Vector2(0.648, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -6.301, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2rlyg"]
+curve = SubResource("Curve_hqlpk")
+
+[sub_resource type="Curve" id="Curve_2rlyg"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.605), -1.448, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_gxqjh"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 0.998), 0.0, 0.0, 0, 0, Vector2(1, 3.253), 6.035, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_02pvi"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_hyyfl"]
+curve_x = SubResource("Curve_2rlyg")
+curve_y = SubResource("Curve_gxqjh")
+curve_z = SubResource("Curve_02pvi")
+
+[sub_resource type="Curve" id="Curve_s0bh4"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xwhrg"]
+curve = SubResource("Curve_s0bh4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_peqvm"]
+lifetime_randomness = 0.8
+particle_flag_align_y = true
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+direction = Vector3(-1, 0, 0)
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 400.0
+initial_velocity_max = 1200.0
+radial_velocity_min = 149.99997
+radial_velocity_max = 249.99997
+radial_velocity_curve = SubResource("CurveTexture_s0bh4")
+gravity = Vector3(0, 0, 0)
+scale_min = 0.14999999
+scale_max = 0.25
+scale_curve = SubResource("CurveTexture_2rlyg")
+scale_over_velocity_max = 670.70996
+scale_over_velocity_curve = SubResource("CurveXYZTexture_hyyfl")
+color_initial_ramp = SubResource("GradientTexture1D_2rlyg")
+alpha_curve = SubResource("CurveTexture_g5e16")
+turbulence_enabled = true
+turbulence_noise_strength = 5.0
+turbulence_noise_scale = 10.1
+turbulence_noise_speed = Vector3(0.1, 0.1, 0.1)
+turbulence_noise_speed_random = 1.0
+turbulence_influence_min = 0.65000004
+turbulence_influence_max = 0.85
+turbulence_influence_over_life = SubResource("CurveTexture_xwhrg")
+
+[node name="vfx_common_specks" type="GPUParticles2D"]
+self_modulate = Color(0.8526096, 0.5831905, 1, 1)
+material = ExtResource("1_hqlpk")
+rotation = 1.5732375
+emitting = false
+amount = 6
+texture = ExtResource("2_2rlyg")
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+fixed_fps = 60
+process_material = SubResource("ParticleProcessMaterial_peqvm")

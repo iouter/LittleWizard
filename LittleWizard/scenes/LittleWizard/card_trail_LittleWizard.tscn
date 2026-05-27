@@ -1,10 +1,10 @@
 [gd_scene load_steps=16 format=3 uid="uid://cko5h8p38rpsk"]
 
-[ext_resource type="Script" uid="uid://cmbe7oixepccw" path="res://LittleWizardCode/Api/Nodes/SNCardTrailVfx.cs" id="1_icb7t"]
+[ext_resource type="Script" uid="uid://btsxtchfu34ui" path="res://LittleWizardCode/Api/Nodes/SNCardTrailVfx.cs" id="1_icb7t"]
 [ext_resource type="Material" uid="uid://c4ycqv0gdxvmr" path="res://LittleWizard/themes/canvas_item_material_additive_shared.tres" id="1_pciub"]
 [ext_resource type="Texture2D" uid="uid://bvyxwduukii3l" path="res://LittleWizard/images/packed/vfx/trail.png" id="2_icb7t"]
 [ext_resource type="Texture2D" uid="uid://dbw515weyqfds" path="res://LittleWizard/images/packed/vfx/trail2.png" id="3_ikop2"]
-[ext_resource type="Script" uid="uid://bxii410w1b7ft" path="res://LittleWizardCode/Api/Nodes/SNCardTrail.cs" id="4_ikop2"]
+[ext_resource type="Script" uid="uid://ci6mfphe4xbqu" path="res://LittleWizardCode/Api/Nodes/SNCardTrail.cs" id="4_ikop2"]
 [ext_resource type="Texture2D" uid="uid://yo8myvujk2ft" path="res://LittleWizard/images/vfx/brush_particle_2.png" id="4_tkoe1"]
 [ext_resource type="Texture2D" uid="uid://b5mp1yvvyjcwo" path="res://LittleWizard/images/vfx/vfx_ghostly_power_up/sparkle.png" id="5_semep"]
 [ext_resource type="Texture2D" uid="uid://d158aj8swms4a" path="res://LittleWizard/images/packed/vfx/small_card_silhouette.png" id="6_076ce"]
@@ -112,13 +112,13 @@ scale_amount_max = 0.05
 color = Color(1, 1, 0, 1)
 color_ramp = SubResource("Gradient_5ufin")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprites"]
+[node name="Sprite2D2" type="Sprite2D" parent="Sprites"]
 modulate = Color(0.39215687, 0.003921569, 0.95686275, 0.7529412)
 material = ExtResource("1_pciub")
 scale = Vector2(1.1, 1.054)
 texture = ExtResource("6_076ce")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Sprites"]
+[node name="Sprite2D3" type="Sprite2D" parent="Sprites"]
 modulate = Color(0.8546456, 0.45940685, 0.69136685, 0.5019608)
 material = ExtResource("1_pciub")
 scale = Vector2(0.9, 0.9)

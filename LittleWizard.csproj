@@ -145,6 +145,10 @@
         <PackageReference Include="Book.StS2.RefLib" Version="0.106.0-beta" />
     </ItemGroup>
 
+    <ItemGroup>
+        <Folder Include="LittleWizard\fonts\" />
+    </ItemGroup>
+
     <Target Name="GetGitVersion" BeforeTargets="GenerateVersionedManifest">
         <Exec
             Command="git describe --tags --long --match &quot;v*&quot; --always --dirty"
