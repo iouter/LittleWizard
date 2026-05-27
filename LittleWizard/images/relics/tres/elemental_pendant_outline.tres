@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://ctc5unsm20kxx"]
+
+[ext_resource type="Texture2D" uid="uid://detj7i2x1f0li" path="res://LittleWizard/images/relics/atlas/elemental_pendant_outline.png" id="1_knsfx"]
+
+[resource]
+atlas = ExtResource("1_knsfx")

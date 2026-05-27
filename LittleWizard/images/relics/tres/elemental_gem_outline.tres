@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://g30vh4n6kdkh"]
+
+[ext_resource type="Texture2D" uid="uid://bi03d8qd1ry7q" path="res://LittleWizard/images/relics/atlas/elemental_gem_outline.png" id="1_gug4n"]
+
+[resource]
+atlas = ExtResource("1_gug4n")

@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://7q5ka0nydkio"]
+
+[ext_resource type="Texture2D" uid="uid://bw1716b6v4f34" path="res://LittleWizard/images/relics/atlas/arcane_tome_outline.png" id="1_2fxwt"]
+
+[resource]
+atlas = ExtResource("1_2fxwt")

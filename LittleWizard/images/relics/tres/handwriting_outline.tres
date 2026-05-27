@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://bwotp0q711rbb"]
+
+[ext_resource type="Texture2D" uid="uid://dlttqno72ykag" path="res://LittleWizard/images/relics/atlas/handwriting_outline.png" id="1_ee08a"]
+
+[resource]
+atlas = ExtResource("1_ee08a")
