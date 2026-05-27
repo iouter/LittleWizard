@@ -7,10 +7,10 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
+namespace LittleWizard.LittleWizardCode.Cards.Rare;
 
 public class WildSwing()
-    : LittleWizardCard(0, CardType.Attack, CardRarity.Uncommon, TargetType.AllEnemies)
+    : LittleWizardCard(0, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies)
 {
     protected override bool HasEnergyCostX => true;
 
