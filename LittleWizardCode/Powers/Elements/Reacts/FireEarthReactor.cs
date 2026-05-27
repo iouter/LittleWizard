@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Monsters;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.LittleWizardCode.Powers.Elements.Reacts;
@@ -64,6 +65,9 @@ public class FireEarthReactor : LittleWizardPower
     )
     {
         if (target != Owner || dealer == null || result.WasFullyBlocked)
+            return;
+
+        if (cardSource == null && !dealer.HasPower<ThornsPower>())
             return;
 
         var creature = dealer;
