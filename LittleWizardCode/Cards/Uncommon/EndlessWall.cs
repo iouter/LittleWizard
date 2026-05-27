@@ -7,7 +7,8 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
 
-public class EndlessWall() : LittleWizardCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class EndlessWall()
+    : LittleWizardCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(11, ValueProp.Move)];
 

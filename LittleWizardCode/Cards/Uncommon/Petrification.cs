@@ -7,7 +7,8 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
 
-public class Petrification() : LittleWizardCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class Petrification()
+    : LittleWizardCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     private const string IncreasedBlock = "IncreasedBlock";
     private decimal _extraBlockFromPlays;
