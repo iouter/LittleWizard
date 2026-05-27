@@ -2,6 +2,7 @@ using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Commands.Builders;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -39,6 +40,8 @@ public class FireEarthReactor : LittleWizardPower
         if (command == null)
             return;
         if (command.Attacker?.Side != CombatSide.Player)
+            return;
+        if (command.ModelSource is not CardModel card || card.Type != CardType.Attack)
             return;
 
         await CreatureCmd.Damage(
