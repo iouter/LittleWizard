@@ -11,6 +11,7 @@ namespace LittleWizard.LittleWizardCode.Powers.Elements;
 
 public class WaterElement : BaseElement
 {
+    private int deleteStrength;
     public override decimal ModifyDamageAdditive(
         Creature? target,
         decimal amount,
@@ -73,31 +74,55 @@ public class WaterElement : BaseElement
     }
 
     public override async Task AfterPowerAmountChanged(
-        PlayerChoiceContext choiceContext,
-        PowerModel power,
-        decimal amount,
-        Creature? applier,
-        CardModel? cardSource
-    )
+           PlayerChoiceContext choiceContext,
+           PowerModel power,
+           decimal amount,
+           Creature? applier,
+           CardModel? cardSource
+       )
     {
         if (power != this)
             return;
 
-        var existing = Owner.GetPower<StrengthPower>();
-        await PowerCmd.Remove(existing);
+        int newReduction = Amount > 1 ? Amount / 2 : 0;
 
-        if (Amount > 1)
+        if (newReduction == deleteStrength)
+            return;
+
+            await PowerCmd.Apply<StrengthPower>(
+                choiceContext,
+                Owner,
+                deleteStrength,
+                applier,
+                cardSource
+            );
+
+        deleteStrength = newReduction;
+
+        if (newReduction > 0)
         {
             await PowerCmd.Apply<StrengthPower>(
                 choiceContext,
                 Owner,
-                -Amount / 2,
+                -newReduction,
                 applier,
                 cardSource
             );
         }
+    }
 
-        if (!applier!.HasPower<WaterElement>())
-            await PowerCmd.Remove(existing);
+    public override async Task AfterRemoved(Creature oldOwner)
+    {
+        if (deleteStrength > 0)
+        {
+            await PowerCmd.Apply<StrengthPower>(
+                new ThrowingPlayerChoiceContext(),
+                oldOwner,
+                deleteStrength,
+                null,
+                null
+            );
+        }
+        await base.AfterRemoved(oldOwner);
     }
 }
