@@ -11,7 +11,7 @@ namespace LittleWizard.LittleWizardCode.Powers.Elements;
 
 public class WaterElement : BaseElement
 {
-    private int deleteStrength;
+    private int oldReduction;
 
     public override decimal ModifyDamageAdditive(
         Creature? target,
@@ -85,45 +85,19 @@ public class WaterElement : BaseElement
         if (power != this)
             return;
 
-        int newReduction = Amount > 1 ? Amount / 2 : 0;
-
-        if (newReduction == deleteStrength)
-            return;
-
-        await PowerCmd.Apply<StrengthPower>(
-            choiceContext,
-            Owner,
-            deleteStrength,
-            applier,
-            cardSource
-        );
-
-        deleteStrength = newReduction;
-
-        if (newReduction > 0)
+        int newReduction = Amount / 2;
+        int delta = newReduction - oldReduction;
+        if (delta != 0)
         {
-            await PowerCmd.Apply<StrengthPower>(
-                choiceContext,
-                Owner,
-                -newReduction,
-                applier,
-                cardSource
-            );
+            await PowerCmd.Apply<WaterTempPower>(choiceContext, Owner, delta, applier, cardSource);
+            oldReduction = newReduction;
         }
     }
 
-    public override async Task AfterRemoved(Creature oldOwner)
+    public override async Task AfterRemoved(Creature Owner)
     {
-        if (deleteStrength > 0)
-        {
-            await PowerCmd.Apply<StrengthPower>(
-                new ThrowingPlayerChoiceContext(),
-                oldOwner,
-                deleteStrength,
-                null,
-                null
-            );
-        }
-        await base.AfterRemoved(oldOwner);
+        var temp = Owner.GetPower<WaterTempPower>();
+        await PowerCmd.Remove(temp);
+        await base.AfterRemoved(Owner);
     }
 }
