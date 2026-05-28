@@ -1,4 +1,3 @@
-
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -34,4 +33,3 @@ public sealed class WarmupBeamPower : LittleWizardPower
         return true;
     }
 }
-
