@@ -44,6 +44,8 @@ public class FireEarthReactor : LittleWizardPower
             return;
         if (command.ModelSource is not CardModel card || card.Type != CardType.Attack)
             return;
+        if (!command.GetPossibleTargets().Contains(Owner))
+            return;
 
         await CreatureCmd.Damage(
             choiceContext,
