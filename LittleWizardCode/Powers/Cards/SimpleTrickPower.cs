@@ -16,7 +16,7 @@ public class SimpleTrickPower : LittleWizardPower
         out decimal modifiedCost
     )
     {
-        if (card.Type == CardType.Power)
+        if (card.Owner.Creature == Owner && card.Type == CardType.Power)
         {
             modifiedCost = originalCost - Amount;
             return true;
