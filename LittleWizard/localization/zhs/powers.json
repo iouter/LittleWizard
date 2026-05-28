@@ -109,5 +109,8 @@
     "LITTLEWIZARD-STUN_POWER.title": "StunPower",
     "LITTLEWIZARD-FLUSTERED_POWER.description": "每打出1张牌就抽1张牌。",
     "LITTLEWIZARD-FLUSTERED_POWER.smartDescription": "每打出1张牌就抽1张牌。",
-    "LITTLEWIZARD-FLUSTERED_POWER.title": "手忙脚乱"
+    "LITTLEWIZARD-FLUSTERED_POWER.title": "手忙脚乱",
+    "LITTLEWIZARD-WATER_TEMP_POWER.title": "水之衰弱",
+    "LITTLEWIZARD-WATER_TEMP_POWER.description": "每有2层[blue]水元素[/blue]该敌人失去1层数的力量。",
+    "LITTLEWIZARD-WATER_TEMP_POWER.smartDescription": "减少 {Amount} 层力量。"
 }
