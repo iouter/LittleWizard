@@ -16,7 +16,7 @@ public class FocusedCasting()
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new PowerVar<FocusedCastingPower>(1)];
+        [new PowerVar<FocusedCastingPower>(2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
