@@ -12,8 +12,6 @@ namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
 public class ElementDraw()
     : LittleWizardCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
-
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(2)];

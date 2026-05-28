@@ -14,8 +14,6 @@ namespace LittleWizard.LittleWizardCode.Cards.Common;
 public class WarmupBeam()
     : LittleWizardCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
-    protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
-
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new DamageVar(5, ValueProp.Move), new PowerVar<WarmupBeamPower>(1)];
 
