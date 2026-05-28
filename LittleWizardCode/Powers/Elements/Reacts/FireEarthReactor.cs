@@ -66,6 +66,7 @@ public class FireEarthReactor : LittleWizardPower
         CardModel? cardSource
     )
     {
+
         if (target != Owner || dealer == null || result.WasFullyBlocked)
             return;
 
