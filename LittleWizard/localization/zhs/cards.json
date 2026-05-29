@@ -163,7 +163,7 @@
     "LITTLEWIZARD-THESIS.title": "毕业论文",
     "LITTLEWIZARD-THESIS.description": "每回合使用的第一张卡牌变为{energyPrefix:energyIcons(0)}。",
     "LITTLEWIZARD-THORN_GROWTH.title": "荆棘生长",
-    "LITTLEWIZARD-THORN_GROWTH.description": "所有玩家受到{HpLoss:diff()}点伤害。获得{ThornsPower:diff()}层[gold]荆棘[/gold]与{Block:diff()}点[gold]格挡[/gold]。。",
+    "LITTLEWIZARD-THORN_GROWTH.description": "所有玩家受到{HpLoss:diff()}点伤害。获得{ThornsPower:diff()}层[gold]荆棘[/gold]与{Block:diff()}点[gold]格挡[/gold]。",
     "LITTLEWIZARD-TIDAL_WAVE.title": "潮涌",
     "LITTLEWIZARD-TIDAL_WAVE.description": "对有至少6层[gold]水元素[/gold]的敌人造成{Damage:diff()}点伤害。\n[gold]击晕[/gold]击晕该敌人。",
     "LITTLEWIZARD-UNLEARNED.title": "不学无术",
