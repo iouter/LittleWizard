@@ -63,8 +63,7 @@ public class WaterEarthReactor : LittleWizardPower
     {
         if (target != Owner || dealer == null || result.WasFullyBlocked)
             return;
-
-        if (cardSource == null)
+        
             if (cardSource == null && !dealer.HasPower<ThornsPower>())
                 return;
 
