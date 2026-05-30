@@ -45,7 +45,7 @@
     "LITTLEWIZARD-REMOVE_DEFENSE.title": "除你防御",
     "LITTLEWIZARD-REMOVE_DEFENSE.description": "去除敌人身上的所有[gold]格挡[/gold]。并给予{VulnerablePower:diff()}层[gold]易伤[/gold]。",
     "LITTLEWIZARD-MAGIC_MISSILE.title": "魔法飞弹",
-    "LITTLEWIZARD-MAGIC_MISSILE.description": "随机对敌人造成\nX乘X次{Damage:diff()}点伤害。\n魔法飞弹的伤害不会受到\n常规的增益、减益以及附魔的影响。",
+    "LITTLEWIZARD-MAGIC_MISSILE.description": "随机对敌人造成\nX乘X次{Damage:diff()}点伤害。",
     "LITTLEWIZARD-WARMUP_BEAM.title": "预热光束",
     "LITTLEWIZARD-WARMUP_BEAM.description": "造成{Damage:diff()}点伤害。\n你给予的[gold]元素[/gold]额外增加{WarmupBeamPower:diff()}层。",
     "LITTLEWIZARD-EROSION_RAY.title": "侵蚀射线",
