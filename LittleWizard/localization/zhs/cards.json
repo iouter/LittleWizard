@@ -1,5 +1,5 @@
 {
-    "LITTLEWIZARD-CALLBACK.description": "将弃牌堆中的1张能给予[gold]元素[/gold]的牌放到你的抽牌堆顶。",
+    "LITTLEWIZARD-CALLBACK.description": "将弃牌堆中的1张能给予[gold]元素[/gold]的牌放入你的[gold]手牌[/gold]。",
     "LITTLEWIZARD-CALLBACK.title": "回拨",
     "LITTLEWIZARD-CALLBACK.selectionScreenPrompt": "将1张牌放到你的抽牌堆顶",
     "LITTLEWIZARD-COLORFUL_BALLS.description": "造成{Damage:diff()}点伤害。\n给予{RandomElement:diff()}层随机的一种[gold]元素[/gold]。",
