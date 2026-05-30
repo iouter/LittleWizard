@@ -134,7 +134,7 @@
     "LITTLEWIZARD-ELEMENT_BLESSING.title": "元素庇佑",
     "LITTLEWIZARD-ELEMENT_BLESSING.description": "打出能给予[gold]元素[/gold]的卡牌时，获得{energyPrefix:energyIcons(1)}。",
     "LITTLEWIZARD-EMERGE.title": "涌现",
-    "LITTLEWIZARD-EMERGE.description": "当敌人触发元素结合时，{IfUpgraded:show:有概率给予该敌人大量的随机元素|有概率给予该敌人随机元素}。",
+    "LITTLEWIZARD-EMERGE.description": "该敌人触发元素结合时，{IfUpgraded:show:有概率给予该敌人大量的随机元素|有概率给予该敌人随机元素}。",
     "LITTLEWIZARD-ENDLESS_WALL.title": "无尽城墙",
     "LITTLEWIZARD-ENDLESS_WALL.description": "获得{Block:diff()}点[gold]格挡[/gold]。将该牌放入抽牌堆。",
     "LITTLEWIZARD-GUIDANCE.title": "指引术",
