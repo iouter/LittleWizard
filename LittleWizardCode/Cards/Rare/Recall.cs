@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 
 namespace LittleWizard.LittleWizardCode.Cards.Rare;
 
-public class Recall() : LittleWizardCard(1, CardType.Power, CardRarity.Rare, TargetType.Self)
+public class Recall() : LittleWizardCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     protected override Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
