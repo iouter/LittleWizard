@@ -4,7 +4,6 @@ using LittleWizard.LittleWizardCode.Api.Animation;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Elements;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -14,7 +13,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
 
 public class BurnOut()
-    : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
+    : LittleWizardCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
