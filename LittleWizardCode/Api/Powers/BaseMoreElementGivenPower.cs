@@ -9,18 +9,10 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace LittleWizard.LittleWizardCode.Api.Powers;
 
-public abstract class BaseMoreElementGivenPower : CustomPowerModel
+public abstract class BaseMoreElementGivenPower : LittleWizardPower
 {
     public override PowerType Type => Owner.IsPlayer ? PowerType.Buff : PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
-
-    private string GetIconBaseName() => Id.Entry.RemovePrefix().ToLowerInvariant();
-
-    public override string CustomPackedIconPath =>
-        $"res://{MainFile.ModId}/images/powers/{GetIconBaseName()}.png";
-
-    public override string CustomBigIconPath =>
-        $"res://{MainFile.ModId}/images/powers/{GetIconBaseName()}.png";
 
     public override decimal ModifyPowerAmountGiven(
         PowerModel canonicalPower,
