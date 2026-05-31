@@ -5,6 +5,7 @@ using LittleWizard.LittleWizardCode.Cards.Basic;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 
 namespace LittleWizard.LittleWizardCode.Cards.Others;
@@ -13,6 +14,8 @@ public sealed class Turnback()
     : LittleWizardCard(1, CardType.Skill, CardRarity.Ancient, TargetType.Self),
         ITranscendenceCard
 {
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new CardsVar(3)];
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         var cards = await CommonActions.SelectCards(
@@ -21,7 +24,7 @@ public sealed class Turnback()
             choiceContext,
             PileType.Discard,
             0,
-            2
+            DynamicVars.Cards.IntValue
         );
         await CardPileCmd.Add(cards, PileType.Hand);
     }
