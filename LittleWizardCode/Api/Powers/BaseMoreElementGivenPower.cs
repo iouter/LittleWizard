@@ -1,4 +1,5 @@
 using BaseLib.Abstracts;
+using BaseLib.Extensions;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -12,6 +13,14 @@ public abstract class BaseMoreElementGivenPower : CustomPowerModel
 {
     public override PowerType Type => Owner.IsPlayer ? PowerType.Buff : PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
+
+    private string GetIconBaseName() => Id.Entry.RemovePrefix().ToLowerInvariant();
+
+    public override string CustomPackedIconPath =>
+        $"res://{MainFile.ModId}/images/powers/{GetIconBaseName()}.png";
+
+    public override string CustomBigIconPath =>
+        $"res://{MainFile.ModId}/images/powers/{GetIconBaseName()}.png";
 
     public override decimal ModifyPowerAmountGiven(
         PowerModel canonicalPower,
