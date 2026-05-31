@@ -13,23 +13,21 @@ public class MagicMissile()
 {
     protected override bool HasEnergyCostX => true;
 
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DamageVar(3, ValueProp.Unpowered)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(1, ValueProp.Move)];
+
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        int times = ResolveEnergyXValue() * ResolveEnergyXValue();
+        var times = ResolveEnergyXValue() * ResolveEnergyXValue();
 
-        await CommonActions
-            .CardAttack(this, cardPlay, hitCount: times)
-            .Unpowered()
-            .Execute(choiceContext);
+        await CommonActions.CardAttack(this, cardPlay, hitCount: times).Execute(choiceContext);
 
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(1);
+        RemoveKeyword(CardKeyword.Exhaust);
     }
 }
