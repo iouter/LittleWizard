@@ -24,7 +24,7 @@ public sealed class Callback()
         ).FirstOrDefault();
         if (card == null)
             return;
-        await CardPileCmd.Add(card, PileType.Draw, CardPilePosition.Top);
+        await CardPileCmd.Add(card, PileType.Hand);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 
