@@ -187,7 +187,7 @@
     "LITTLEWIZARD-REBIRTH_CEREMONY.title": "重生仪式",
     "LITTLEWIZARD-REBIRTH_CEREMONY.description": "失去{HpLoss:diff()}点生命值。移除自身所有[gold]负面状态[/gold]。",
     "LITTLEWIZARD-TURNBACK.title": "回转",
-    "LITTLEWIZARD-TURNBACK.description": "将弃牌堆的两张能给予[gold]元素[/gold]的牌放入手牌。",
+    "LITTLEWIZARD-TURNBACK.description": "将3张牌从[gold]弃牌堆[/gold]放入你的手牌。",
     "LITTLEWIZARD-TURNBACK.selectionScreenPrompt": "选择要放入手牌的牌",
     "LITTLEWIZARD-FROZEN_WORLD.description": "获得{CalculatedBlock:diff()}点[gold]格挡[/gold]。如果敌人拥有至少4层[gold]水元素[/gold]，则额外获得{CalculationExtra:diff()}点[gold]格挡[/gold]",
     "LITTLEWIZARD-FROZEN_WORLD.title": "冻结领域",
