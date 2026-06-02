@@ -1,8 +1,11 @@
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Powers;
-using MegaCrit.Sts2.Core.Entities.Cards;
+using LittleWizard.LittleWizardCode.Powers.Elements;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
@@ -13,6 +16,13 @@ public class WildMagicPower : LittleWizardPower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
+    {
+        if (player.Creature != Owner)
+            return;
+        await PowerCmd.Apply<FireElement>(choiceContext, Owner, 2, Owner, null);
+    }
+
     public override decimal ModifyDamageMultiplicative(
         Creature? target,
         decimal amount,
@@ -21,9 +31,9 @@ public class WildMagicPower : LittleWizardPower
         CardModel? cardSource
     )
     {
-        return dealer != Owner || !Utils.IsPoweredAttack(props)
-            ? base.ModifyDamageMultiplicative(target, amount, props, dealer, cardSource)
-            : Amount + 1;
+        if (dealer == Owner && Utils.IsPoweredAttack(props))
+            return Amount + 1;
+        return base.ModifyDamageMultiplicative(target, amount, props, dealer, cardSource);
     }
 
     public override decimal ModifyPowerAmountGiven(
@@ -34,22 +44,8 @@ public class WildMagicPower : LittleWizardPower
         CardModel? cardSource
     )
     {
-        if (giver != Owner || power is not BaseElement)
-            return base.ModifyPowerAmountGiven(power, giver, amount, target, cardSource);
-
-        return (Amount + 1) * amount;
-    }
-
-    public override decimal ModifyBlockMultiplicative(
-        Creature target,
-        decimal block,
-        ValueProp props,
-        CardModel? cardSource,
-        CardPlay? cardPlay
-    )
-    {
-        return target != Owner
-            ? base.ModifyBlockMultiplicative(target, block, props, cardSource, cardPlay)
-            : 0;
+        if (giver == Owner && power is BaseElement)
+            return (Amount + 1) * amount;
+        return base.ModifyPowerAmountGiven(power, giver, amount, target, cardSource);
     }
 }
