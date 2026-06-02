@@ -23,7 +23,7 @@ public class WildMagicPower : LittleWizardPower
     {
         if (player.Creature != Owner)
             return;
-        await PowerCmd.Apply<FireElement>(choiceContext, Owner, 2, Owner, null);
+        await PowerCmd.Apply<FireElement>(choiceContext, Owner, Amount + 1, Owner, null);
     }
 
     public override decimal ModifyDamageMultiplicative(
