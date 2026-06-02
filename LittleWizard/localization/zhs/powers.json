@@ -111,6 +111,6 @@
     "LITTLEWIZARD-FLUSTERED_POWER.smartDescription": "每打出[gold]1[/gold]张牌就抽[gold]1[/gold]张牌。",
     "LITTLEWIZARD-FLUSTERED_POWER.title": "手忙脚乱",
     "LITTLEWIZARD-WATER_TEMP_POWER.title": "水之衰弱",
-    "LITTLEWIZARD-WATER_TEMP_POWER.description": "每有[blue]3[/blue]层[gold]水元素[/gold]，该敌人就失去[blue]1[/blue]点力量。",
+    "LITTLEWIZARD-WATER_TEMP_POWER.description": "每有[gold]1[/gold]层[gold]水之衰弱[/gold]，该敌人就失去[blue]1[/blue]点力量。",
     "LITTLEWIZARD-WATER_TEMP_POWER.smartDescription": "减少 {Amount} 层力量。"
 }
