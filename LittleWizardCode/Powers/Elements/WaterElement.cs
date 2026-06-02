@@ -3,6 +3,7 @@ using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -12,6 +13,7 @@ namespace LittleWizard.LittleWizardCode.Powers.Elements;
 public class WaterElement : BaseElement
 {
     private int oldReduction;
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.TempWater];
 
     public override decimal ModifyDamageAdditive(
         Creature? target,

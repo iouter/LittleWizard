@@ -15,7 +15,6 @@ namespace LittleWizard.LittleWizardCode.Powers;
 public class WaterTempPower : LittleWizardPower
 {
     private int totalStrength = 0;
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.TempWater];
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
