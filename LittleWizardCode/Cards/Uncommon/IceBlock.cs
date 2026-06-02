@@ -21,7 +21,8 @@ public class IceBlock()
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WaterElement>(6)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Water];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        [HoverTipsValue.Water, HoverTipsValue.TempWater];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
