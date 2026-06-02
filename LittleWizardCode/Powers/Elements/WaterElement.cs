@@ -5,8 +5,6 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.LittleWizardCode.Powers.Elements;
 
@@ -14,20 +12,6 @@ public class WaterElement : BaseElement
 {
     private int oldReduction;
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.TempWater];
-
-    public override decimal ModifyDamageAdditive(
-        Creature? target,
-        decimal amount,
-        ValueProp props,
-        Creature? dealer,
-        CardModel? cardSource
-    )
-    {
-        // ReSharper disable once PossibleLossOfFraction
-        return Owner != dealer || !Utils.IsPoweredAttack(props)
-            ? 0M
-            : -Math.Ceiling((decimal)(Amount / 2));
-    }
 
     public override bool TryModifyPowerAmountReceived(
         PowerModel canonicalPower,
