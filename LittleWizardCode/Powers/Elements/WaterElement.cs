@@ -85,7 +85,7 @@ public class WaterElement : BaseElement
         if (power != this)
             return;
 
-        int newReduction = Amount / 2;
+        int newReduction = Amount / 3;
         int delta = newReduction - oldReduction;
         if (delta != 0)
         {
