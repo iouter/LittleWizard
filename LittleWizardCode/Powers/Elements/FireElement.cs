@@ -12,7 +12,9 @@ namespace LittleWizard.LittleWizardCode.Powers.Elements;
 
 public class FireElement : BaseElement
 {
-    private static readonly Color HealthBarColor = new("FF4F7F");
+    private static readonly Material? FireBarMaterial = GD.Load<Material>(
+        "res://materials/vfx/bar/vfx_fire_bar.tres"
+    );
 
     public override async Task AfterSideTurnStart(
         CombatSide side,
@@ -92,5 +94,17 @@ public class FireElement : BaseElement
 
     public override IEnumerable<HealthBarForecastSegment> GetHealthBarForecastSegments(
         HealthBarForecastContext context
-    ) => [new(Amount / 2, HealthBarColor, HealthBarForecastDirection.FromRight)];
+    )
+    {
+        int damage = Amount == 1 ? 1 : Amount / 2;
+        if (damage <= 0)
+            yield break;
+        yield return new HealthBarForecastSegment(
+            amount: damage,
+            color: new Color("FF4F7F"),
+            direction: HealthBarForecastDirection.FromRight,
+            order: 10,
+            overlayMaterial: FireBarMaterial
+        );
+    }
 }

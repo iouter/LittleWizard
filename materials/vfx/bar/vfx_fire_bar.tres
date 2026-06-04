@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bpge7wef1xpd2"]
+
+[ext_resource type="Shader" uid="uid://bo25c7l3mwqmb" path="res://shaders/vfx/bar/vfx_fire_bar.gdshader" id="1_ipqna"]
+
+[resource]
+shader = ExtResource("1_ipqna")
