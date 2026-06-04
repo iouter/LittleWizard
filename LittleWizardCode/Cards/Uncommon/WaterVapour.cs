@@ -17,7 +17,8 @@ public class WaterVapour()
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WaterVapourPower>(2)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Water];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        [HoverTipsValue.Water, HoverTipsValue.TempWater];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

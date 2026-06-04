@@ -11,7 +11,6 @@ namespace LittleWizard.LittleWizardCode.Powers;
 public class WaterTempPower : LittleWizardPower
 {
     private int totalStrength = 0;
-
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
 

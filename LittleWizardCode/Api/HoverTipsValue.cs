@@ -1,3 +1,4 @@
+using LittleWizard.LittleWizardCode.Powers;
 using LittleWizard.LittleWizardCode.Powers.Elements;
 using MegaCrit.Sts2.Core.HoverTips;
 
@@ -8,4 +9,5 @@ public static class HoverTipsValue
     public static readonly IHoverTip Fire = HoverTipFactory.FromPower<FireElement>();
     public static readonly IHoverTip Water = HoverTipFactory.FromPower<WaterElement>();
     public static readonly IHoverTip Earth = HoverTipFactory.FromPower<EarthElement>();
+    public static readonly IHoverTip TempWater = HoverTipFactory.FromPower<WaterTempPower>();
 }

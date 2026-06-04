@@ -38,25 +38,20 @@ public class FireWaterReactor : LittleWizardPower
         );
     }
 
-    public override async Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)
+    public override async Task AfterDamageReceivedLate(
+        PlayerChoiceContext choiceContext,
+        Creature target,
+        DamageResult result,
+        ValueProp props,
+        Creature? dealer,
+        CardModel? cardSource
+    )
     {
-        if (command == null)
+        if (target != Owner)
             return;
-        if (command.Attacker?.Side != CombatSide.Player)
+        if (cardSource == null || cardSource.Type != CardType.Attack)
             return;
-        if (command.ModelSource is not CardModel card || card.Type != CardType.Attack)
-            return;
-        if (!command.GetPossibleTargets().Contains(Owner))
-            return;
-
-        await CreatureCmd.Damage(
-            choiceContext,
-            Owner,
-            Amount,
-            ValueProp.Unpowered,
-            command.Attacker,
-            null
-        );
+        await CreatureCmd.Damage(choiceContext, Owner, Amount, ValueProp.Unpowered, dealer, null);
     }
 
     public override async Task AfterPowerAmountChanged(

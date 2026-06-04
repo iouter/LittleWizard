@@ -18,7 +18,8 @@ public class FreezingRay()
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new DamageVar(3, ValueProp.Move), new RepeatVar(1)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Water];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        [HoverTipsValue.Water, HoverTipsValue.TempWater];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

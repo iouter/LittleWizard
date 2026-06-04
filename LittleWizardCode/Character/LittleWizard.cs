@@ -43,8 +43,9 @@ public class LittleWizard : PlaceholderCharacterModel
     public override string CustomAttackSfx => "res://";
     public override string CustomCastSfx => "res://";
     public override string CustomDeathSfx => "res://";
-    public override string CustomTrailPath =>
-        "res://LittleWizard/scenes/LittleWizard/card_trail_LittleWizard.tscn";
+
+    /* public override string CustomTrailPath =>
+         "res://LittleWizard/scenes/LittleWizard/card_trail_LittleWizard.tscn";*/
     public override string CustomVisualPath =>
         "res://LittleWizard/scenes/LittleWizard/LittleWizard.tscn";
 

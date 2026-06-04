@@ -22,7 +22,8 @@ public class WaterBlade()
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Water];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+        [HoverTipsValue.Water, HoverTipsValue.TempWater];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
