@@ -101,7 +101,7 @@ public class FireElement : BaseElement
             yield break;
         yield return new HealthBarForecastSegment(
             amount: damage,
-            color: new Color("FF4F7F"),
+            color: new Color("ECAB1C"),
             direction: HealthBarForecastDirection.FromRight,
             order: 10,
             overlayMaterial: FireBarMaterial
