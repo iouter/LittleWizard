@@ -10,15 +10,33 @@ public class ElementBlessingPower : LittleWizardPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
+    public override int DisplayAmount => GetInternalData<Data>().CardPlayed;
+    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner != Owner.Player)
+        var card = cardPlay.Card;
+        if (card.Owner != Owner.Player)
             return;
 
-        var card = cardPlay.Card;
-
         if (ElementHelper.IsElementCard(card))
-            await PlayerCmd.GainEnergy(Amount, cardPlay.Card.Owner);
+        {
+            if (GetInternalData<Data>().CardPlayed > 0)
+            {
+                await PlayerCmd.GainEnergy(Amount, card.Owner);
+                GetInternalData<Data>().CardPlayed = 0;
+                InvokeDisplayAmountChanged();
+            }
+            else
+            {
+                GetInternalData<Data>().CardPlayed += 1;
+                InvokeDisplayAmountChanged();
+            }
+        }
+    }
+
+    private class Data
+    {
+        public int CardPlayed;
     }
 }
