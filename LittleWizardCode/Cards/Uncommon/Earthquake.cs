@@ -22,7 +22,6 @@ public class Earthquake()
         [
             new DamageVar(5, ValueProp.Move),
             new PowerVar<EarthElement>(3),
-            new PowerVar<VulnerablePower>(1),
             new PowerVar<WeakPower>(1),
         ];
 
@@ -32,7 +31,6 @@ public class Earthquake()
     {
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
         await Utils.GivePower<EarthElement>(this, play, choiceContext);
-        await Utils.GivePower<VulnerablePower>(this, play, choiceContext);
         await Utils.GivePower<WeakPower>(this, play, choiceContext);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
@@ -40,7 +38,6 @@ public class Earthquake()
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(2);
-        DynamicVars.Vulnerable.UpgradeValueBy(1);
         DynamicVars.Weak.UpgradeValueBy(1);
     }
 }
