@@ -1,5 +1,3 @@
-using BaseLib.Abstracts;
-using BaseLib.Extensions;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -14,24 +12,17 @@ public abstract class BaseMoreElementGivenPower : LittleWizardPower
     public override PowerType Type => Owner.IsPlayer ? PowerType.Buff : PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override decimal ModifyPowerAmountGiven(
-        PowerModel canonicalPower,
+    public override decimal ModifyPowerAmountGivenAdditive(
+        PowerModel power,
         Creature giver,
         decimal amount,
         Creature? target,
         CardModel? cardSource
     )
     {
-        if (
-            amount == 0
-            || giver != Owner
-            || canonicalPower is not BaseElement
-            || !canonicalPower.IsVisible
-        )
-        {
-            return amount;
-        }
-        return amount + Amount;
+        if (giver == Owner && power is BaseElement)
+            return Amount;
+        return base.ModifyPowerAmountGivenAdditive(power, giver, amount, target, cardSource);
     }
 
     public override async Task AfterSideTurnEnd(

@@ -39,7 +39,7 @@ public class WildMagicPower : LittleWizardPower
         return base.ModifyDamageMultiplicative(target, amount, props, dealer, cardSource);
     }
 
-    public override decimal ModifyPowerAmountGiven(
+    public override decimal ModifyPowerAmountGivenMultiplicative(
         PowerModel power,
         Creature giver,
         decimal amount,
@@ -48,7 +48,7 @@ public class WildMagicPower : LittleWizardPower
     )
     {
         if (giver == Owner && power is BaseElement)
-            return (Amount + 1) * amount;
-        return base.ModifyPowerAmountGiven(power, giver, amount, target, cardSource);
+            return Amount + 1;
+        return base.ModifyPowerAmountGivenMultiplicative(power, giver, amount, target, cardSource);
     }
 }
