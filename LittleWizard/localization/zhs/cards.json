@@ -100,7 +100,7 @@
     "LITTLEWIZARD-DEEP_THOUGHT.title": "深思熟虑",
     "LITTLEWIZARD-DEEP_THOUGHT.description": "结束你的回合。[gold]保留[/gold]当前剩余能量与手牌。",
     "LITTLEWIZARD-EARTHQUAKE.title": "地震",
-    "LITTLEWIZARD-EARTHQUAKE.description": "对所有敌人造成{Damage:diff()}点伤害。给予{EarthElement:diff()}层[gold]土元素[/gold]。\n{VulnerablePower:diff()}层[gold]易伤[/gold]、{WeakPower:diff()}层[gold]虚弱[/gold]。",
+    "LITTLEWIZARD-EARTHQUAKE.description": "对所有敌人造成{Damage:diff()}点伤害。\n给予{EarthElement:diff()}层[gold]土元素[/gold]，{WeakPower:diff()}层[gold]虚弱[/gold]。",
     "LITTLEWIZARD-FLAT_TUMBLE.title": "平地摔",
     "LITTLEWIZARD-FLAT_TUMBLE.description": "获得{Block:diff()}点[gold]格挡[/gold]。将此牌返回你的手牌。",
     "LITTLEWIZARD-FLUSTERED.title": "手忙脚乱",
