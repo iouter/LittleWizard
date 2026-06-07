@@ -15,7 +15,7 @@ public class WildSwing()
     protected override bool HasEnergyCostX => true;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new PowerVar<VulnerablePower>(1), new DamageVar(7, ValueProp.Move), new RepeatVar(2)];
+        [new PowerVar<VulnerablePower>(1), new DamageVar(5, ValueProp.Move), new RepeatVar(2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
