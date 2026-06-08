@@ -18,7 +18,7 @@ public class WaterBlade()
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DamageVar(18, ValueProp.Move), new PowerVar<WaterElement>(6)];
+        [new DamageVar(17, ValueProp.Move), new PowerVar<WaterElement>(5)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
 
