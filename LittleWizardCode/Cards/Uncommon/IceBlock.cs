@@ -28,9 +28,16 @@ public class IceBlock()
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
         var waterAmount = cardPlay.Target.GetPowerAmount<WaterElement>();
-        if (waterAmount >= DynamicVarsHelper.GetPowerVar<WaterElement>(DynamicVars).BaseValue)
+        var targetAmount = DynamicVarsHelper.GetPowerVar<WaterElement>(DynamicVars).BaseValue;
+        if (waterAmount >= targetAmount)
         {
-            await PowerCmd.Remove<WaterElement>(cardPlay.Target);
+            await PowerCmd.Apply<WaterElement>(
+                choiceContext,
+                cardPlay.Target,
+                -targetAmount,
+                Owner.Creature,
+                this
+            );
             await CreatureCmd.Stun(cardPlay.Target);
         }
 
