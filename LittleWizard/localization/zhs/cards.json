@@ -70,7 +70,7 @@
     "LITTLEWIZARD-BURN_OUT.title": "燃尽",
     "LITTLEWIZARD-BURN_OUT.description": "敌人每有1层[gold]火元素[/gold]，就造成{ExtraDamage:diff()}点伤害。",
     "LITTLEWIZARD-ICE_BLOCK.title": "冰封",
-    "LITTLEWIZARD-ICE_BLOCK.description": "如果该敌人至少有{WaterElement:diff()}层[gold]水元素[/gold]，则移除最多{WaterElement:diff()}层[gold]水元素[/gold]，并[gold]击晕[/gold]该敌人。",
+    "LITTLEWIZARD-ICE_BLOCK.description": "如果该敌人至少有{WaterElement:diff()}层[gold]水元素[/gold]，则移除最多6层[gold]水元素[/gold]，并[gold]击晕[/gold]该敌人。",
     "LITTLEWIZARD-ADAPT.title": "随机应变",
     "LITTLEWIZARD-ADAPT.description": "该敌人如果有：\n[gold]火元素[/gold]：自身抽2张牌。\n[gold]水元素[/gold]：获得{Energy:energyIcons()}。\n[gold]土元素[/gold]：自身获得{Block:diff()}点[gold]格挡[/gold]。",
     "LITTLEWIZARD-EXPLORE_TABOO.title": "探索禁忌",
