@@ -109,5 +109,8 @@
     "LITTLEWIZARD-STUN_POWER.title": "StunPower",
     "LITTLEWIZARD-FLUSTERED_POWER.description": "",
     "LITTLEWIZARD-FLUSTERED_POWER.smartDescription": "",
-    "LITTLEWIZARD-FLUSTERED_POWER.title": "FlusteredPower"
+    "LITTLEWIZARD-FLUSTERED_POWER.title": "FlusteredPower",
+    "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN_POWER.description": "",
+    "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN_POWER.smartDescription": "",
+    "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN_POWER.title": "CouldNotPutItDownPower"
 }
