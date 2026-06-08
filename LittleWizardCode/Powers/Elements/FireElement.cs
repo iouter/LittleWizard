@@ -1,3 +1,5 @@
+using BaseLib.Hooks;
+using Godot;
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -10,6 +12,10 @@ namespace LittleWizard.LittleWizardCode.Powers.Elements;
 
 public class FireElement : BaseElement
 {
+    private static readonly Material? FireBarMaterial = GD.Load<Material>(
+        "res://materials/vfx/bar/vfx_fire_bar.tres"
+    );
+
     public override async Task AfterSideTurnStart(
         CombatSide side,
         IReadOnlyList<Creature> creatures,
@@ -84,5 +90,21 @@ public class FireElement : BaseElement
                 modifiedAmount = amount;
                 return false;
         }
+    }
+
+    public override IEnumerable<HealthBarForecastSegment> GetHealthBarForecastSegments(
+        HealthBarForecastContext context
+    )
+    {
+        int damage = Amount == 1 ? 1 : Amount / 2;
+        if (damage <= 0)
+            yield break;
+        yield return new HealthBarForecastSegment(
+            amount: damage,
+            color: new Color("ECAB1C"),
+            direction: HealthBarForecastDirection.FromRight,
+            order: 10,
+            overlayMaterial: FireBarMaterial
+        );
     }
 }

@@ -1,0 +1,18 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bpge7wef1xpd2"]
+
+[ext_resource type="Shader" uid="uid://bo25c7l3mwqmb" path="res://shaders/vfx/bar/vfx_fire_bar.gdshader" id="1_ipqna"]
+[ext_resource type="Texture2D" uid="uid://d01icw14bn5tp" path="res://LittleWizard/images/vfx/vfx_bar/bar3.png" id="2_wlkdc"]
+
+[sub_resource type="Gradient" id="Gradient_3d8e8"]
+offsets = PackedFloat32Array(0, 0.30057803, 0.51497006, 1)
+colors = PackedColorArray(0.94509804, 0.21568628, 0.24313726, 1, 0.8995419, 0.44292462, 0.490789, 0.6313726, 0.7529412, 0.16862746, 0.011764706, 1, 0.91764706, 0.4862745, 0.16078432, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wlkdc"]
+gradient = SubResource("Gradient_3d8e8")
+
+[resource]
+shader = ExtResource("1_ipqna")
+shader_parameter/noise_tex = ExtResource("2_wlkdc")
+shader_parameter/gradient_tex = SubResource("GradientTexture1D_wlkdc")
+shader_parameter/intensity = 1.0
+shader_parameter/alpha_strength = 0.5
