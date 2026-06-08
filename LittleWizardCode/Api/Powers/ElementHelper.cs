@@ -3,6 +3,7 @@ using LittleWizard.LittleWizardCode.Api.Interface;
 using LittleWizard.LittleWizardCode.Powers.Elements;
 using LittleWizard.LittleWizardCode.Powers.Elements.Reacts;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -74,5 +75,27 @@ public static class ElementHelper
     {
         return card.Tags.Contains(CardTagExtensions.LittleWizardElement)
             || card.Enchantment is IElementEnchantment;
+    }
+
+    public static async Task<bool> RemoveElementAtMost(
+        CardModel card,
+        PlayerChoiceContext ctx,
+        CardPlay cardPlay,
+        decimal maxAmount
+    )
+    {
+        var target = cardPlay.Target;
+        if (target == null)
+        {
+            return false;
+        }
+        if (!target.HasPower<BaseElement>())
+        {
+            return false;
+        }
+
+        var targetAmount = Math.Min(maxAmount, target.GetPowerAmount<BaseElement>());
+        await PowerCmd.Apply<BaseElement>(ctx, target, -targetAmount, card.Owner.Creature, card);
+        return true;
     }
 }

@@ -1,3 +1,4 @@
+using BaseLib.Extensions;
 using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Api.Powers;
@@ -14,19 +15,20 @@ public class MagicTrajectory()
     private const string ExtraCards = "ExtraCards";
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new CardsVar(2), new(ExtraCards, 2)];
+        [new CardsVar(2), new(ExtraCards, 2), new PowerVar<BaseElement>(10)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CommonActions.Draw(this, choiceContext);
-        var target = cardPlay.Target;
-        if (target == null)
+        if (
+            await ElementHelper.RemoveElementAtMost(
+                this,
+                choiceContext,
+                cardPlay,
+                DynamicVars.Power<BaseElement>().BaseValue
+            )
+        )
         {
-            return;
-        }
-        if (target.HasPower<BaseElement>())
-        {
-            await PowerCmd.Remove<BaseElement>(target);
             await CardPileCmd.Draw(choiceContext, DynamicVars[ExtraCards].BaseValue, Owner);
         }
     }
