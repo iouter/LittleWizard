@@ -197,6 +197,6 @@
     "LITTLEWIZARD-OFFENSIVE_CONVERSION.title": "攻势转换",
     "LITTLEWIZARD-MAGIC_TRAJECTORY.description": "抽{Cards:diff()}张牌。\n如果该敌人身上拥有[gold]元素[/gold]，则移除最多10层[gold]元素[/gold]，并额外抽{ExtraCards:diff()}张牌",
     "LITTLEWIZARD-MAGIC_TRAJECTORY.title": "魔力轨迹",
-    "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN.description": "",
-    "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN.title": "CouldNotPutItDown"
+    "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN.description": "你每回合打出的第1张技能牌，在下个回合返回你的手牌。",
+    "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN.title": "爱不释手"
 }
