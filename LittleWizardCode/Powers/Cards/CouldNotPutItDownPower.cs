@@ -19,11 +19,10 @@ public class CouldNotPutItDownPower : LittleWizardPower
     public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         var card = cardPlay.Card;
-        if (Owner != card.Owner.Creature || GetInternalData<Data>().CardModel != null)
+        if (Owner == card.Owner.Creature && GetInternalData<Data>().CardModel == null && card.Type == CardType.Skill)
         {
-            return Task.CompletedTask;
+            GetInternalData<Data>().CardModel = card;
         }
-        GetInternalData<Data>().CardModel = card;
         return Task.CompletedTask;
     }
 
