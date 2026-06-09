@@ -13,7 +13,7 @@ public class OffensiveConversion()
     : LittleWizardCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new BlockVar(8, ValueProp.Move), new CardsVar(1), new PowerVar<DrawCardsNextTurnPower>(1)];
+        [new BlockVar(6, ValueProp.Move), new CardsVar(1), new PowerVar<DrawCardsNextTurnPower>(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
