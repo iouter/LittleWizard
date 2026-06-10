@@ -7,6 +7,8 @@ namespace LittleWizard.LittleWizardCode.Cards.Rare;
 
 public class StartOver() : LittleWizardCard(2, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (Owner.PlayerCombatState == null)
