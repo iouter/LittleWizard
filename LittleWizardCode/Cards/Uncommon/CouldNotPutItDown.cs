@@ -15,7 +15,8 @@ public class CouldNotPutItDown()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<CouldNotPutItDownPower>(this, cardPlay, choiceContext);
+        if (!Owner.Creature.HasPower<CouldNotPutItDownPower>())
+            await Utils.GivePower<CouldNotPutItDownPower>(this, cardPlay, choiceContext);
     }
 
     protected override void OnUpgrade()
