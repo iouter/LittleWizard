@@ -19,8 +19,14 @@ public class MagicTrajectory()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CommonActions.Draw(this, choiceContext);
-        int removeAmount = (int)DynamicVars["BaseElement"].BaseValue;
-        if (await ElementHelper.RemoveElementAtMost(this, choiceContext, cardPlay, removeAmount))
+        if (
+            await ElementHelper.RemoveElementAtMost(
+                this,
+                choiceContext,
+                cardPlay,
+                DynamicVars["BaseElement"].BaseValue
+            )
+        )
         {
             await CardPileCmd.Draw(choiceContext, DynamicVars[ExtraCards].BaseValue, Owner);
         }

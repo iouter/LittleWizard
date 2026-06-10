@@ -18,8 +18,14 @@ public class ElementDraw()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        int removeAmount = (int)DynamicVars["BaseElement"].BaseValue;
-        if (await ElementHelper.RemoveElementAtMost(this, choiceContext, cardPlay, removeAmount))
+        if (
+            await ElementHelper.RemoveElementAtMost(
+                this,
+                choiceContext,
+                cardPlay,
+                DynamicVars["BaseElement"].BaseValue
+            )
+        )
         {
             await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
         }

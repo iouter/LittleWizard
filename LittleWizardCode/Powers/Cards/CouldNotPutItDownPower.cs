@@ -10,7 +10,6 @@ public class CouldNotPutItDownPower : LittleWizardPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Single;
-    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
     public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(
         CardModel card,
@@ -20,11 +19,11 @@ public class CouldNotPutItDownPower : LittleWizardPower
         CardPilePosition position
     )
     {
-        if (card.Owner.Creature != Owner)
-            return (pileType, position);
-        if (card.Type != CardType.Skill)
-            return (pileType, position);
-        if (pileType != PileType.Discard)
+        if (
+            card.Owner.Creature != Owner
+            || card.Type != CardType.Skill
+            || pileType != PileType.Discard
+        )
             return (pileType, position);
 
         int playedCount = CombatManager.Instance.History.CardPlaysStarted.Count(e =>
