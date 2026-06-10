@@ -17,8 +17,6 @@ public class ElementBlessingPower : LittleWizardPower
 
     public override async Task AfterCardPlayed(PlayerChoiceContext context, CardPlay cardPlay)
     {
-        if (cardPlay?.Card == null)
-            return;
         var card = cardPlay.Card;
 
         if (card.Owner?.Creature != Owner)
@@ -28,8 +26,6 @@ public class ElementBlessingPower : LittleWizardPower
             return;
 
         var data = GetInternalData<Data>();
-        if (data == null)
-            return;
 
         if (data.CardPlayed > 0)
         {
@@ -40,7 +36,7 @@ public class ElementBlessingPower : LittleWizardPower
         }
         else
         {
-            data.CardPlayed = 1;
+            data.CardPlayed++;
             InvokeDisplayAmountChanged();
         }
     }
