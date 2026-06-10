@@ -91,21 +91,21 @@ public static class ElementHelper
         var fire = target.GetPowerAmount<FireElement>();
         if (fire > 0)
         {
-            int toRemove = (int)Math.Min(maxAmount, fire);
+            var toRemove = Math.Min(maxAmount, fire);
             await PowerCmd.Apply<FireElement>(ctx, target, -toRemove, card.Owner.Creature, card);
             return true;
         }
         var water = target.GetPowerAmount<WaterElement>();
         if (water > 0)
         {
-            int toRemove = (int)Math.Min(maxAmount, water);
+            var toRemove = Math.Min(maxAmount, water);
             await PowerCmd.Apply<WaterElement>(ctx, target, -toRemove, card.Owner.Creature, card);
             return true;
         }
         var earth = target.GetPowerAmount<EarthElement>();
         if (earth > 0)
         {
-            int toRemove = (int)Math.Min(maxAmount, earth);
+            var toRemove = Math.Min(maxAmount, earth);
             await PowerCmd.Apply<EarthElement>(ctx, target, -toRemove, card.Owner.Creature, card);
             return true;
         }
