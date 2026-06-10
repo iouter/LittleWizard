@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.LittleWizardCode.Cards.Rare;
 
-public class Emerge() : LittleWizardCard(1, CardType.Skill, CardRarity.Rare, TargetType.AnyEnemy)
+public class Emerge() : LittleWizardCard(2, CardType.Skill, CardRarity.Rare, TargetType.AnyEnemy)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
