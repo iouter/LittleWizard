@@ -22,17 +22,31 @@ public class NotMyTime()
         if (Owner.Creature.Player == null)
             return;
 
-        for (var i = 0; i < DynamicVars.Cards.IntValue; i++)
+        var exhaustPile = PileType.Exhaust.GetPile(Owner);
+        var attackCards = exhaustPile
+            .Cards.Where(c =>
+                !c.Keywords.Contains(CardKeyword.Unplayable) && c.Type == CardType.Attack
+            )
+            .ToList();
+
+        if (attackCards.Count == 0)
+            return;
+
+        int desiredCount = (int)DynamicVars.Cards.BaseValue;
+        int actualCount = Math.Min(desiredCount, attackCards.Count);
+
+        var rng = Owner.RunState.Rng.CombatCardSelection;
+        var shuffled = attackCards.OrderBy(_ => rng.NextInt()).ToList();
+        var toPlay = shuffled.Take(actualCount).ToList();
+
+        foreach (var card in toPlay)
         {
-            var card = Owner.Creature.Player.RunState.Rng.CombatCardSelection.NextItem(
-                PileType
-                    .Exhaust.GetPile(Owner)
-                    .Cards.Where(model => !model.Keywords.Contains(CardKeyword.Unplayable))
-                    .Where(c => c.Type == CardType.Attack)
-            );
-            if (card == null)
-                continue;
             await CardCmd.AutoPlay(choiceContext, card, cardPlay.Target);
+
+            if (card.Pile?.Type != PileType.Exhaust)
+            {
+                await CardPileCmd.Add(card, PileType.Exhaust, CardPilePosition.Bottom);
+            }
         }
     }
 
