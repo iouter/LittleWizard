@@ -86,16 +86,50 @@ public static class ElementHelper
     {
         var target = cardPlay.Target;
         if (target == null)
-        {
             return false;
-        }
-        if (!target.HasPower<BaseElement>())
-        {
+
+        int fire = target.GetPowerAmount<FireElement>();
+        int water = target.GetPowerAmount<WaterElement>();
+        int earth = target.GetPowerAmount<EarthElement>();
+        int total = fire + water + earth;
+        if (total == 0)
             return false;
+
+        int toRemove = (int)Math.Min(maxAmount, total);
+        var rng = card.Owner.RunState.Rng.CombatTargets;
+
+        for (int i = 0; i < toRemove; i++)
+        {
+            var available = new List<Type>();
+            if (fire > 0)
+                available.Add(typeof(FireElement));
+            if (water > 0)
+                available.Add(typeof(WaterElement));
+            if (earth > 0)
+                available.Add(typeof(EarthElement));
+            if (available.Count == 0)
+                break;
+
+            int idx = rng.NextInt(available.Count);
+            Type chosen = available[idx];
+
+            if (chosen == typeof(FireElement))
+            {
+                await PowerCmd.Apply<FireElement>(ctx, target, -1, card.Owner.Creature, card);
+                fire--;
+            }
+            else if (chosen == typeof(WaterElement))
+            {
+                await PowerCmd.Apply<WaterElement>(ctx, target, -1, card.Owner.Creature, card);
+                water--;
+            }
+            else if (chosen == typeof(EarthElement))
+            {
+                await PowerCmd.Apply<EarthElement>(ctx, target, -1, card.Owner.Creature, card);
+                earth--;
+            }
         }
 
-        var targetAmount = Math.Min(maxAmount, target.GetPowerAmount<BaseElement>());
-        await PowerCmd.Apply<BaseElement>(ctx, target, -targetAmount, card.Owner.Creature, card);
-        return true;
+        return toRemove > 0;
     }
 }

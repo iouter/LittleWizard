@@ -1,4 +1,3 @@
-using BaseLib.Extensions;
 using LittleWizard.LittleWizardCode.Api.Animation;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Api.Powers;
@@ -15,18 +14,12 @@ public class ElementDraw()
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new EnergyVar(2), new PowerVar<BaseElement>(10)];
+        [new EnergyVar(2), new DynamicVar("BaseElement", 10)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (
-            await ElementHelper.RemoveElementAtMost(
-                this,
-                choiceContext,
-                cardPlay,
-                DynamicVars.Power<BaseElement>().BaseValue
-            )
-        )
+        int removeAmount = (int)DynamicVars["BaseElement"].BaseValue;
+        if (await ElementHelper.RemoveElementAtMost(this, choiceContext, cardPlay, removeAmount))
         {
             await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
         }
