@@ -5,6 +5,7 @@ using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Elements;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -19,7 +20,11 @@ public class Waterball()
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DamageVar(8, ValueProp.Move), new PowerVar<WaterElement>(3)];
+        [
+            new DamageVar(8, ValueProp.Move),
+            new PowerVar<WaterElement>(3),
+            new PowerVar<WaterBallCostAdd>(1),
+        ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipsValue.Water, HoverTipsValue.TempWater];
@@ -29,6 +34,14 @@ public class Waterball()
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
         await Utils.GivePower<WaterElement>(this, play, choiceContext);
         await AnimationHelper.TriggerCastAnimationOwner(this);
+        if (!Owner.Creature.HasPower<WaterBallCostAdd>())
+            await PowerCmd.Apply<WaterBallCostAdd>(
+                choiceContext,
+                Owner.Creature,
+                DynamicVarsHelper.GetPowerVar<WaterBallCostAdd>(DynamicVars).BaseValue,
+                Owner.Creature,
+                this
+            );
     }
 
     protected override void OnUpgrade()

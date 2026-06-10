@@ -5,6 +5,7 @@ using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Elements;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -19,7 +20,11 @@ public class Rockball()
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DamageVar(7, ValueProp.Move), new PowerVar<EarthElement>(3)];
+        [
+            new DamageVar(7, ValueProp.Move),
+            new PowerVar<EarthElement>(3),
+            new PowerVar<EarthBallCostAdd>(1),
+        ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Earth];
 
@@ -28,11 +33,19 @@ public class Rockball()
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
         await Utils.GivePower<EarthElement>(this, play, choiceContext);
         await AnimationHelper.TriggerCastAnimationOwner(this);
+        if (!Owner.Creature.HasPower<EarthBallCostAdd>())
+            await PowerCmd.Apply<EarthBallCostAdd>(
+                choiceContext,
+                Owner.Creature,
+                DynamicVarsHelper.GetPowerVar<EarthBallCostAdd>(DynamicVars).BaseValue,
+                Owner.Creature,
+                this
+            );
     }
 
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(2m);
-        DynamicVarsHelper.GetPowerVar<EarthElement>(DynamicVars).UpgradeValueBy(3);
+        DynamicVarsHelper.GetPowerVar<EarthElement>(DynamicVars).UpgradeValueBy(1);
     }
 }

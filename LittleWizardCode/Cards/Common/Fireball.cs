@@ -4,6 +4,7 @@ using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Elements;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -18,15 +19,27 @@ public class Fireball()
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DamageVar(6, ValueProp.Move), new PowerVar<FireElement>(3)];
+        [
+            new DamageVar(6, ValueProp.Move),
+            new PowerVar<FireElement>(3),
+            new PowerVar<FireBallCostAdd>(1),
+        ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Fire];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
-
         await Utils.GivePower<FireElement>(this, play, choiceContext);
+
+        if (!Owner.Creature.HasPower<FireBallCostAdd>())
+            await PowerCmd.Apply<FireBallCostAdd>(
+                choiceContext,
+                Owner.Creature,
+                DynamicVarsHelper.GetPowerVar<FireBallCostAdd>(DynamicVars).BaseValue,
+                Owner.Creature,
+                this
+            );
     }
 
     protected override void OnUpgrade()
