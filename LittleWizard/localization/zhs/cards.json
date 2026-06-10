@@ -31,7 +31,7 @@
     "LITTLEWIZARD-DEADLINE_DASH.title": "赶稿",
     "LITTLEWIZARD-DEADLINE_DASH.description": "没有{energyPrefix:energyIcons(1)}时，获得{energyPrefix:energyIcons(1)}；\n有{energyPrefix:energyIcons(1)}时，抽1张牌。",
     "LITTLEWIZARD-ANVIL_TRANSFER.title": "铁砧砸击",
-    "LITTLEWIZARD-ANVIL_TRANSFER.description": "造成{Damage:diff()}点伤害。\n随机[gold]升级[/gold]你[gold]手牌[/gold]中的1张牌。",
+    "LITTLEWIZARD-ANVIL_TRANSFER.description": "造成{Damage:diff()}点伤害。\n随机[gold]升级[/gold]你[gold]手牌[/gold]中的{Cards}张牌。",
     "LITTLEWIZARD-TEMPORARY_HANDWRITING.title": "临时笔迹",
     "LITTLEWIZARD-TEMPORARY_HANDWRITING.description": "抽{Cards:diff()}张牌。\n如果[gold]手牌[/gold]数小于等于4张牌，则额外抽{ExtraCards:diff()}张牌。",
     "LITTLEWIZARD-REST_MOMENT.title": "休息片刻",
