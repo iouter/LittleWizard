@@ -2,6 +2,7 @@ using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Animation;
 using LittleWizard.LittleWizardCode.Api.Cards;
+using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -14,7 +15,7 @@ public class WeakeningCurse()
     : LittleWizardCard(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DamageVar(11, ValueProp.Move), new PowerVar<StrengthPower>(-4)];
+        [new DamageVar(11, ValueProp.Move), new PowerVar<StrengthPower>(-5)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -26,5 +27,6 @@ public class WeakeningCurse()
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(3);
+        DynamicVarsHelper.GetPowerVar<StrengthPower>(DynamicVars).UpgradeValueBy(-1);
     }
 }
