@@ -32,11 +32,10 @@ public class NotMyTime()
         if (attackCards.Count == 0)
             return;
 
-        int actualCount = (int)Math.Min(DynamicVars.Cards.BaseValue, attackCards.Count);
-
+        var actualCount = Math.Min(DynamicVars.Cards.BaseValue, attackCards.Count);
         var rng = Owner.RunState.Rng.CombatCardSelection;
         var shuffled = attackCards.OrderBy(_ => rng.NextInt()).ToList();
-        var toPlay = shuffled.Take(actualCount).ToList();
+        var toPlay = shuffled.Take((int)actualCount).ToList();
 
         foreach (var card in toPlay)
         {
