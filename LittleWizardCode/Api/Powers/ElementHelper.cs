@@ -86,16 +86,30 @@ public static class ElementHelper
     {
         var target = cardPlay.Target;
         if (target == null)
-        {
             return false;
+
+        var fire = target.GetPowerAmount<FireElement>();
+        if (fire > 0)
+        {
+            var toRemove = Math.Min(maxAmount, fire);
+            await PowerCmd.Apply<FireElement>(ctx, target, -toRemove, card.Owner.Creature, card);
+            return true;
         }
-        if (!target.HasPower<BaseElement>())
+        var water = target.GetPowerAmount<WaterElement>();
+        if (water > 0)
         {
-            return false;
+            var toRemove = Math.Min(maxAmount, water);
+            await PowerCmd.Apply<WaterElement>(ctx, target, -toRemove, card.Owner.Creature, card);
+            return true;
+        }
+        var earth = target.GetPowerAmount<EarthElement>();
+        if (earth > 0)
+        {
+            var toRemove = Math.Min(maxAmount, earth);
+            await PowerCmd.Apply<EarthElement>(ctx, target, -toRemove, card.Owner.Creature, card);
+            return true;
         }
 
-        var targetAmount = Math.Min(maxAmount, target.GetPowerAmount<BaseElement>());
-        await PowerCmd.Apply<BaseElement>(ctx, target, -targetAmount, card.Owner.Creature, card);
-        return true;
+        return false;
     }
 }

@@ -1,4 +1,3 @@
-using BaseLib.Extensions;
 using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Api.Powers;
@@ -15,7 +14,7 @@ public class MagicTrajectory()
     private const string ExtraCards = "ExtraCards";
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new CardsVar(2), new(ExtraCards, 2), new PowerVar<BaseElement>(10)];
+        [new CardsVar(2), new DynamicVar(ExtraCards, 2), new DynamicVar("BaseElement", 10)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -25,7 +24,7 @@ public class MagicTrajectory()
                 this,
                 choiceContext,
                 cardPlay,
-                DynamicVars.Power<BaseElement>().BaseValue
+                DynamicVars["BaseElement"].BaseValue
             )
         )
         {
