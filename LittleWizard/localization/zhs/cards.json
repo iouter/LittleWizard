@@ -90,7 +90,7 @@
     "LITTLEWIZARD-DEEPEN_MEMORY.title": "加深记忆",
     "LITTLEWIZARD-DEEPEN_MEMORY.description": "复制1张[gold]手牌[/gold]放入[gold]手牌[/gold]。",
     "LITTLEWIZARD-DEEPEN_MEMORY.selectionScreenPrompt": "选择要复制的牌",
-    "LITTLEWIZARD-MEMORY_PALACE.title": "记忆宫殿",
+    "LITTLEWIZARD-MEMORY_PALACE.title": "记忆回廊",
     "LITTLEWIZARD-MEMORY_PALACE.description": "复制抽牌堆内的{Cards:diff()}张牌，并放入[gold]手牌[/gold]。",
     "LITTLEWIZARD-MEMORY_PALACE.selectionScreenPrompt": "选择要复制的牌",
     "LITTLEWIZARD-FOCUSED_CASTING.title": "专注施法",
