@@ -17,14 +17,11 @@ namespace LittleWizard.LittleWizardCode.Cards.Common;
 public class Rockball()
     : LittleWizardCard(0, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
+    public bool _costThisTurn = false;
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [
-            new DamageVar(7, ValueProp.Move),
-            new PowerVar<EarthElement>(3),
-            new PowerVar<EarthBallCostAdd>(1),
-        ];
+        [new DamageVar(7, ValueProp.Move), new PowerVar<EarthElement>(3)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Earth];
 
@@ -33,14 +30,11 @@ public class Rockball()
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
         await Utils.GivePower<EarthElement>(this, play, choiceContext);
         await AnimationHelper.TriggerCastAnimationOwner(this);
-        if (!Owner.Creature.HasPower<EarthBallCostAdd>())
-            await PowerCmd.Apply<EarthBallCostAdd>(
-                choiceContext,
-                Owner.Creature,
-                DynamicVarsHelper.GetPowerVar<EarthBallCostAdd>(DynamicVars).BaseValue,
-                Owner.Creature,
-                this
-            );
+        if (!_costThisTurn)
+        {
+            EnergyCost.AddThisTurn(1);
+            _costThisTurn = true;
+        }
     }
 
     protected override void OnUpgrade()

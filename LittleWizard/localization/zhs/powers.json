@@ -116,16 +116,4 @@
     "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN_POWER.description": "每回合打出的第1张技能牌，在下回合返回手牌。",
     "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN_POWER.smartDescription": "每回合打出的第1张技能牌，在下回合返回手牌。",
     "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN_POWER.title": "爱不释手",
-
-    "LITTLEWIZARD-FIRE_BALL_COST_ADD.title": "火焰弹",
-    "LITTLEWIZARD-FIRE_BALL_COST_ADD.description": "本回合此牌的费用变为[gold]1[/gold]。",
-    "LITTLEWIZARD-FIRE_BALL_COST_ADD.smartDescription": "本回合卡牌费用变为 {Amount}。",
-
-    "LITTLEWIZARD-WATER_BALL_COST_ADD.title": "水弹",
-    "LITTLEWIZARD-WATER_BALL_COST_ADD.description": "本回合此牌的费用变为[gold]1[/gold]。",
-    "LITTLEWIZARD-WATER_BALL_COST_ADD.smartDescription": "本回合卡牌费用变为 {Amount}。",
-
-    "LITTLEWIZARD-EARTH_BALL_COST_ADD.title": "岩石弹",
-    "LITTLEWIZARD-EARTH_BALL_COST_ADD.description": "本回合此牌的费用变为[gold]1[/gold]。",
-    "LITTLEWIZARD-EARTH_BALL_COST_ADD.smartDescription": "本回合卡牌费用变为 {Amount}。"
 }

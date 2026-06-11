@@ -17,14 +17,11 @@ namespace LittleWizard.LittleWizardCode.Cards.Common;
 public class Waterball()
     : LittleWizardCard(0, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
+    public bool _costThisTurn = false;
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [
-            new DamageVar(8, ValueProp.Move),
-            new PowerVar<WaterElement>(3),
-            new PowerVar<WaterBallCostAdd>(1),
-        ];
+        [new DamageVar(8, ValueProp.Move), new PowerVar<WaterElement>(3)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipsValue.Water, HoverTipsValue.TempWater];
@@ -34,14 +31,11 @@ public class Waterball()
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
         await Utils.GivePower<WaterElement>(this, play, choiceContext);
         await AnimationHelper.TriggerCastAnimationOwner(this);
-        if (!Owner.Creature.HasPower<WaterBallCostAdd>())
-            await PowerCmd.Apply<WaterBallCostAdd>(
-                choiceContext,
-                Owner.Creature,
-                DynamicVarsHelper.GetPowerVar<WaterBallCostAdd>(DynamicVars).BaseValue,
-                Owner.Creature,
-                this
-            );
+        if (!_costThisTurn)
+        {
+            EnergyCost.AddThisTurn(1);
+            _costThisTurn = true;
+        }
     }
 
     protected override void OnUpgrade()
