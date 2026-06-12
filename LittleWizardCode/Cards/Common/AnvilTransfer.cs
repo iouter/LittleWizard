@@ -27,10 +27,10 @@ public class AnvilTransfer()
             .PlayerCombatState.Hand.Cards.Where(c => c.IsUpgradable)
             .ToList();
         var upgradedCards = new List<CardModel>();
-
+        var rng = Owner.RunState.Rng.CombatCardSelection;
         for (int i = 0; i < upgradeCount && upgradableCards.Count > 0; i++)
         {
-            var card = Owner.RunState.Rng.CombatCardSelection.NextItem(upgradableCards);
+            var card = rng.NextItem(upgradableCards);
             if (card == null)
                 continue;
             CardCmd.Upgrade(card);
