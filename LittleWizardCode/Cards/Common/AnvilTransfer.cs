@@ -32,10 +32,11 @@ public class AnvilTransfer()
         {
             var card = rng.NextItem(upgradableCards);
             if (card == null)
-                continue;
+                break;
             CardCmd.Upgrade(card);
             upgradedCards.Add(card);
-            upgradableCards.Remove(card);
+            if (!card.IsUpgradable)
+                upgradableCards.Remove(card);
         }
 
         CardCmd.Preview(upgradedCards, 1f);
