@@ -24,26 +24,31 @@ public class AnvilTransfer()
             return;
 
         var handCards = Owner.PlayerCombatState.Hand.Cards;
-        var upgradableCards = handCards.Where(c => c.IsUpgradable).ToList();
-        var upgradedCards = new List<CardModel>();
+        var maxUpgrades = DynamicVars.Cards.IntValue;
+        if (maxUpgrades <= 0)
+            return;
 
-        for (int i = 0; i < (int)DynamicVars.Cards.BaseValue && upgradableCards.Count > 0; i++)
+        var upgradableIndices = new List<int>();
+        for (int i = 0; i < handCards.Count; i++)
         {
-            var card = Owner.Creature.Player.RunState.Rng.CombatCardSelection.NextItem(
-                upgradableCards
-            );
-            if (card != null)
-            {
-                CardCmd.Upgrade(card);
-                upgradedCards.Add(card);
-                upgradableCards.Remove(card);
-            }
+            if (handCards[i].IsUpgradable)
+                upgradableIndices.Add(i);
+        }
+
+        var upgradedCards = new List<CardModel>();
+        var rng = Owner.RunState.Rng.CombatCardSelection;
+        for (int i = 0; i < maxUpgrades && upgradableIndices.Count > 0; i++)
+        {
+            int randPos = rng.NextInt(upgradableIndices.Count);
+            int cardIndex = upgradableIndices[randPos];
+            var card = handCards[cardIndex];
+            CardCmd.Upgrade(card);
+            upgradedCards.Add(card);
+            upgradableIndices.RemoveAt(randPos);
         }
 
         if (upgradedCards.Count > 0)
-        {
             CardCmd.Preview(upgradedCards, time: 1.0f, CardPreviewStyle.HorizontalLayout);
-        }
 
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
