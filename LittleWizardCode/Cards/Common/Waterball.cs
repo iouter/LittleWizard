@@ -16,9 +16,8 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace LittleWizard.LittleWizardCode.Cards.Common;
 
 public class Waterball()
-    : LittleWizardCard(0, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+    : LittleWizardCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
-    public bool _costThisTurn = false;
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>

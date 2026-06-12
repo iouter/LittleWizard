@@ -16,7 +16,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace LittleWizard.LittleWizardCode.Cards.Common;
 
 public class Rockball()
-    : LittleWizardCard(0, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+    : LittleWizardCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
