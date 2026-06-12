@@ -56,7 +56,7 @@
     "LITTLEWIZARD-CHILD_BODY_POWER.description": "每回合开始时失去[blue]1[/blue]点[gold]能量[/gold]。\n保留[gold]手牌[/gold]。",
     "LITTLEWIZARD-CHILD_BODY_POWER.title": "孩童之躯",
     "LITTLEWIZARD-CHILD_BODY_POWER.smartDescription": "每回合开始时失去[blue]1[/blue]点[gold]能量[/gold]。\n保留[gold]手牌[/gold]。",
-    "LITTLEWIZARD-ELEMENT_BLESSING_POWER.description": "每打出去[blue]2[/blue]张能给予[gold]元素[/gold]的卡牌时，获得{Amount}点[gold]能量[/gold]。"",
+    "LITTLEWIZARD-ELEMENT_BLESSING_POWER.description": "每打出去[blue]2[/blue]张能给予[gold]元素[/gold]的卡牌时，获得{Amount}点[gold]能量[/gold]。",
     "LITTLEWIZARD-ELEMENT_BLESSING_POWER.title": "元素形态",
     "LITTLEWIZARD-ELEMENT_BLESSING_POWER.smartDescription": "每打出去[blue]2[/blue]张能给予[gold]元素[/gold]的卡牌时，获得{Amount}点[gold]能量[/gold]。",
     "LITTLEWIZARD-EMERGE_POWER.title": "涌现",
