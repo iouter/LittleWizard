@@ -5,8 +5,9 @@ using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Elements;
-using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -26,16 +27,21 @@ public class Waterball()
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipsValue.Water, HoverTipsValue.TempWater];
 
+    public override async Task AfterSideTurnStart(
+        CombatSide side,
+        IReadOnlyList<Creature> participants,
+        ICombatState combatState
+    )
+    {
+        EnergyCost.SetUntilPlayed(0);
+        await base.AfterSideTurnStart(side, participants, combatState);
+    }
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
         await Utils.GivePower<WaterElement>(this, play, choiceContext);
         await AnimationHelper.TriggerCastAnimationOwner(this);
-        if (!_costThisTurn)
-        {
-            EnergyCost.AddThisTurn(1);
-            _costThisTurn = true;
-        }
     }
 
     protected override void OnUpgrade()

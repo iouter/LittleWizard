@@ -1,4 +1,3 @@
-using System;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Entities.Creatures;
