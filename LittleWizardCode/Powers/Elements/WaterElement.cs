@@ -10,7 +10,6 @@ namespace LittleWizard.LittleWizardCode.Powers.Elements;
 
 public class WaterElement : BaseElement
 {
-    private int oldReduction;
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.TempWater];
 
     public override bool TryModifyPowerAmountReceived(
