@@ -18,6 +18,8 @@ public sealed class Turnback()
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new CardsVar(3), new BlockVar(8, ValueProp.Move)];
 
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Retain];
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CommonActions.CardBlock(this, cardPlay);
