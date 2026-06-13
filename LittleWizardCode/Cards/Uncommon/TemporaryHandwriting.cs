@@ -5,10 +5,10 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
-namespace LittleWizard.LittleWizardCode.Cards.Common;
+namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
 
 public class TemporaryHandwriting()
-    : LittleWizardCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
+    : LittleWizardCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     private const string ExtraCards = "ExtraCards";
 

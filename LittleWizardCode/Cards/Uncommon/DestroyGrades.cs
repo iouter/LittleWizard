@@ -11,10 +11,10 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
-namespace LittleWizard.LittleWizardCode.Cards.Common;
+namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
 
 public class DestroyGrades()
-    : LittleWizardCard(1, CardType.Skill, CardRarity.Common, TargetType.AnyEnemy)
+    : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 

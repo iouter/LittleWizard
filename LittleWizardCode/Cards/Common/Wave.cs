@@ -11,10 +11,9 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
+namespace LittleWizard.LittleWizardCode.Cards.Common;
 
-public class Wave()
-    : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AllEnemies)
+public class Wave() : LittleWizardCard(1, CardType.Skill, CardRarity.Common, TargetType.AllEnemies)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 

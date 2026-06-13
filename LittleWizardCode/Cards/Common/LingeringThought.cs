@@ -5,10 +5,10 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
+namespace LittleWizard.LittleWizardCode.Cards.Common;
 
 public class LingeringThought()
-    : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+    : LittleWizardCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new BlockVar(7, ValueProp.Move), new CardsVar(1)];
