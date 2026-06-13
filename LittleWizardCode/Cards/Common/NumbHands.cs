@@ -13,16 +13,16 @@ public class NumbHands()
     : LittleWizardCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DamageVar(5, ValueProp.Move), new PowerVar<StrengthPower>(-1)];
+        [new DamageVar(5, ValueProp.Move), new PowerVar<WeakPower>(2)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
-        await Utils.GivePower<StrengthPower>(this, play, choiceContext);
+        await Utils.GivePower<WeakPower>(this, play, choiceContext);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(3);
+        DynamicVars.Weak.UpgradeValueBy(1);
     }
 }
