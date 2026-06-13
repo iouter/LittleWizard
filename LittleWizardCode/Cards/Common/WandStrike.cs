@@ -14,8 +14,8 @@ public class WandStrike()
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
-            new CalculationBaseVar(8),
-            new ExtraDamageVar(8),
+            new CalculationBaseVar(10),
+            new ExtraDamageVar(10),
             new CalculatedDamageVar(ValueProp.Move).WithMultiplier(
                 (_, target) => target is { Block: > 0 } ? 1 : 0
             ),
