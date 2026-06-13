@@ -1,13 +1,28 @@
+using BaseLib.Abstracts;
+using BaseLib.Cards.Variables;
+using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Powers;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.LittleWizardCode.Powers.Elements;
 
-public class WaterElement : BaseElement
+public class WaterElement : BaseElement, IHasSecondAmount
 {
+    private const string TempWaterPower = "tempWaterPower";
+
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [
+            new(TempWaterPower + "Base", 0),
+            new(TempWaterPower + "Extra", -1),
+            new CustomCalculatedVar("tempWaterPower").WithMultiplier(
+                (power, _) => GetDamageAdditive(power)
+            ),
+        ];
+
     public override bool TryModifyPowerAmountReceived(
         PowerModel canonicalPower,
         Creature target,
@@ -55,21 +70,23 @@ public class WaterElement : BaseElement
         }
     }
 
-    public override async Task AfterPowerAmountChanged(
-        PlayerChoiceContext choiceContext,
-        PowerModel power,
+    public override decimal ModifyDamageAdditive(
+        Creature? target,
         decimal amount,
-        Creature? applier,
+        ValueProp props,
+        Creature? dealer,
         CardModel? cardSource
     )
     {
-        if (power != this)
-            return;
-        await PowerCmd.Apply<WaterTempPower>(choiceContext, Owner, amount, applier, cardSource);
+        if (Owner != dealer || !Utils.IsPoweredAttack(props))
+            return 0M;
+        return GetDamageAdditive(this);
     }
 
-    public override async Task AfterRemoved(Creature owner)
+    private static decimal GetDamageAdditive(PowerModel power)
     {
-        await PowerCmd.Remove<WaterTempPower>(owner);
+        return -Math.Ceiling((decimal)power.Amount / 3);
     }
+
+    public string GetSecondAmount() => $"{GetDamageAdditive(this)}";
 }
