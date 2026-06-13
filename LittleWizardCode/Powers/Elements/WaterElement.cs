@@ -70,7 +70,15 @@ public class WaterElement : BaseElement
     {
         if (power != this)
             return;
-        await PowerCmd.Apply<WaterTempPower>(choiceContext, Owner, Amount, applier, cardSource);
+        var tempPower = Owner.GetPower<WaterTempPower>();
+        if (tempPower != null)
+        {
+            await PowerCmd.ModifyAmount(choiceContext, tempPower, amount, applier, cardSource);
+        }
+        else
+        {
+            await PowerCmd.Apply<WaterTempPower>(choiceContext, Owner, Amount, applier, cardSource);
+        }
     }
 
     public override async Task AfterRemoved(Creature Owner)
