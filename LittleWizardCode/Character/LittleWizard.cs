@@ -1,5 +1,7 @@
 using BaseLib.Abstracts;
+using BaseLib.Patches.UI;
 using Godot;
+using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Cards.Basic;
 using LittleWizard.LittleWizardCode.Relics;
 using MegaCrit.Sts2.Core.Entities.Characters;
@@ -19,6 +21,12 @@ public class LittleWizard : PlaceholderCharacterModel
     public override CardPoolModel CardPool => ModelDb.CardPool<LittleWizardCardPool>();
     public override RelicPoolModel RelicPool => ModelDb.RelicPool<LittleWizardRelicPool>();
     public override PotionPoolModel PotionPool => ModelDb.PotionPool<LittleWizardPotionPool>();
+    public override RelicIconData CustomYummyCookie =>
+        new(
+            "little_wizard_cookie.png".BigRelicImagePath(),
+            "little_wizard_cookie.tres".TresRelicImagePath(),
+            "little_wizard_cookie_outline.tres".TresRelicImagePath()
+        );
 
     public override IEnumerable<CardModel> StartingDeck =>
         [
