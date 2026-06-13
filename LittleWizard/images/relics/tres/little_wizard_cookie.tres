@@ -1,0 +1,6 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://cjvy7en1x468g"]
+
+[ext_resource type="Texture2D" uid="uid://bf6bt0teipyrw" path="res://LittleWizard/images/relics/atlas/little_wizard_cookie.png" id="1_6xqrq"]
+
+[resource]
+atlas = ExtResource("1_6xqrq")
