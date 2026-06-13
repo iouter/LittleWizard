@@ -20,8 +20,7 @@ public class StrikeWaterLittleWizard()
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new DamageVar(6, ValueProp.Move), new PowerVar<WaterElement>(1)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipsValue.Water, HoverTipsValue.TempWater];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Water];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {

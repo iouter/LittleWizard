@@ -20,8 +20,7 @@ public class Wave() : LittleWizardCard(1, CardType.Skill, CardRarity.Common, Tar
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new BlockVar(6, ValueProp.Move), new PowerVar<WaterElement>(1)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipsValue.Water, HoverTipsValue.TempWater];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Water];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

@@ -2,7 +2,6 @@ using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Animation;
 using LittleWizard.LittleWizardCode.Api.Cards;
-using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Elements;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -18,8 +17,7 @@ public class FreezingRay()
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new DamageVar(3, ValueProp.Move), new RepeatVar(1)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipsValue.Water, HoverTipsValue.TempWater];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Water];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {

@@ -23,8 +23,7 @@ public class Hail() : LittleWizardCard(2, CardType.Attack, CardRarity.Uncommon, 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new DamageVar(10, ValueProp.Move), new PowerVar<WaterElement>(3)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipsValue.Water, HoverTipsValue.TempWater];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Water];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {

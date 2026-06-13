@@ -23,8 +23,7 @@ public class Waterball()
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new DamageVar(8, ValueProp.Move), new PowerVar<WaterElement>(3)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipsValue.Water, HoverTipsValue.TempWater];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Water];
 
     public override async Task AfterSideTurnStart(
         CombatSide side,

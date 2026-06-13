@@ -17,8 +17,7 @@ public class WaterVapour()
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<WaterVapourPower>(2)];
 
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-        [HoverTipsValue.Water, HoverTipsValue.TempWater];
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Water];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 

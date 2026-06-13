@@ -1,17 +1,13 @@
-using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 
 namespace LittleWizard.LittleWizardCode.Powers.Elements;
 
 public class WaterElement : BaseElement
 {
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.TempWater];
-
     public override bool TryModifyPowerAmountReceived(
         PowerModel canonicalPower,
         Creature target,
@@ -69,22 +65,11 @@ public class WaterElement : BaseElement
     {
         if (power != this)
             return;
-        var tempPower = Owner.GetPower<WaterTempPower>();
-        if (tempPower != null)
-        {
-            await PowerCmd.ModifyAmount(choiceContext, tempPower, amount, applier, cardSource);
-        }
-        else
-        {
-            await PowerCmd.Apply<WaterTempPower>(choiceContext, Owner, Amount, applier, cardSource);
-        }
+        await PowerCmd.Apply<WaterTempPower>(choiceContext, Owner, amount, applier, cardSource);
     }
 
-    public override async Task AfterRemoved(Creature Owner)
+    public override async Task AfterRemoved(Creature owner)
     {
-        var temp = Owner.GetPower<WaterTempPower>();
-        if (temp != null)
-            await PowerCmd.Remove(temp);
-        await base.AfterRemoved(Owner);
+        await PowerCmd.Remove<WaterTempPower>(owner);
     }
 }
