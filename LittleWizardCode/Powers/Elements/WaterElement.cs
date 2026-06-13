@@ -1,13 +1,29 @@
+using BaseLib.Cards.Variables;
+using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.LittleWizardCode.Powers.Elements;
 
 public class WaterElement : BaseElement
 {
+    private const string TempWaterPower = "tempWaterPower";
+
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [
+            new(TempWaterPower + "Base", 0),
+            new(TempWaterPower + "Extra", -1),
+            new CustomCalculatedVar("tempWaterPower").WithMultiplier(
+                (power, _) => GetDamageAdditive(power.Amount)
+            ),
+        ];
+
     public override bool TryModifyPowerAmountReceived(
         PowerModel canonicalPower,
         Creature target,
@@ -55,6 +71,19 @@ public class WaterElement : BaseElement
         }
     }
 
+    public override decimal ModifyDamageAdditive(
+        Creature? target,
+        decimal amount,
+        ValueProp props,
+        Creature? dealer,
+        CardModel? cardSource
+    )
+    {
+        if (Owner != dealer || !Utils.IsPoweredAttack(props))
+            return 0M;
+        return GetDamageAdditive(Amount);
+    }
+
     public override async Task AfterPowerAmountChanged(
         PlayerChoiceContext choiceContext,
         PowerModel power,
@@ -63,13 +92,34 @@ public class WaterElement : BaseElement
         CardModel? cardSource
     )
     {
-        if (power != this)
+        if (power is not WaterElement)
+        {
             return;
-        await PowerCmd.Apply<WaterTempPower>(choiceContext, Owner, amount, applier, cardSource);
+        }
+        var valueBefore = GetDamageAdditive(Amount - amount);
+        var valueNow = GetDamageAdditive(Amount);
+        await PowerCmd.Apply<StrengthPower>(
+            choiceContext,
+            Owner,
+            valueNow - valueBefore,
+            applier,
+            null
+        );
     }
 
-    public override async Task AfterRemoved(Creature owner)
+    public override async Task AfterRemoved(Creature oldOwner)
     {
-        await PowerCmd.Remove<WaterTempPower>(owner);
+        await PowerCmd.Apply<StrengthPower>(
+            new ThrowingPlayerChoiceContext(),
+            Owner,
+            -GetDamageAdditive(Amount),
+            null,
+            null
+        );
+    }
+
+    private static decimal GetDamageAdditive(decimal amount)
+    {
+        return -Math.Ceiling(amount / 3);
     }
 }
