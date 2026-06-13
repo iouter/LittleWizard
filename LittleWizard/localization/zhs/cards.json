@@ -123,7 +123,7 @@
     "LITTLEWIZARD-WILD_SWING.title": "胡乱挥打",
     "LITTLEWIZARD-WILD_SWING.description": "给予自身1层[gold]易伤[/gold]。对所有敌人造成{Damage:diff()}点伤害{Repeat:diff()}+X次。",
     "LITTLEWIZARD-REJUVENATION.title": "返老还童",
-    "LITTLEWIZARD-REJUVENATION.description": "可选择{Cards:diff()}张[gold]手牌[/gold]移出牌组。",
+    "LITTLEWIZARD-REJUVENATION.description": "可选择{Cards:diff()}张[gold]手牌[/gold]，在战斗结束以后移出牌组。",
     "LITTLEWIZARD-BURN_EVERYTHING.title": "焚净一切",
     "LITTLEWIZARD-BURN_EVERYTHING.description": "给予所有敌人{FireElement:diff()}乘X层[gold]火元素[/gold]。\n在敌人的回合结束时，给予{BurnEverythingPower:diff()}层[gold]火元素[/gold]。",
     "LITTLEWIZARD-CHILD_BODY.title": "孩童之躯",
