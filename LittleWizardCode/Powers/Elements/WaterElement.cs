@@ -1,5 +1,4 @@
 using BaseLib.Cards.Variables;
-using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -7,7 +6,6 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.LittleWizardCode.Powers.Elements;
 
@@ -69,19 +67,6 @@ public class WaterElement : BaseElement
                 return false;
             }
         }
-    }
-
-    public override decimal ModifyDamageAdditive(
-        Creature? target,
-        decimal amount,
-        ValueProp props,
-        Creature? dealer,
-        CardModel? cardSource
-    )
-    {
-        if (Owner != dealer || !Utils.IsPoweredAttack(props))
-            return 0M;
-        return GetDamageAdditive(Amount);
     }
 
     public override async Task AfterPowerAmountChanged(
