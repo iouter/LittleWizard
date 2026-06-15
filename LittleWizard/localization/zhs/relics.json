@@ -15,7 +15,7 @@
     "LITTLEWIZARD-APPRENTICE_CODEX.description": "在每场战斗开始时，将一张随机的能给予元素的卡牌加入你的手牌，这张牌在本回合内可免费打出。",
     "LITTLEWIZARD-APPRENTICE_CODEX.flavor": "",
     "LITTLEWIZARD-APPRENTICE_CODEX.title": "学徒法典",
-    "LITTLEWIZARD-ELEMENTAL_PENDANT.description": "每回合首次触发元素结合时，给予自身2点能量。",
+    "LITTLEWIZARD-ELEMENTAL_PENDANT.description": "每场战斗首次触发元素结合时，给予自身2点能量。",
     "LITTLEWIZARD-ELEMENTAL_PENDANT.flavor": "",
     "LITTLEWIZARD-ELEMENTAL_PENDANT.title": "元素吊坠",
     "LITTLEWIZARD-ARCANE_TOME.description": "每当你触发元素结合时，抽1张牌。",
