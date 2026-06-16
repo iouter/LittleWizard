@@ -1,7 +1,7 @@
 {
     "LITTLEWIZARD-CALLBACK.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n将弃牌堆中的1张能给予[gold]元素[/gold]的牌放入你的[gold]手牌[/gold]。",
     "LITTLEWIZARD-CALLBACK.title": "回拨",
-    "LITTLEWIZARD-CALLBACK.selectionScreenPrompt": "将1张牌放到你的抽牌堆顶。",
+    "LITTLEWIZARD-CALLBACK.selectionScreenPrompt": "将1张牌放回你的手牌。",
     "LITTLEWIZARD-COLORFUL_BALLS.description": "造成{Damage:diff()}点伤害。\n给予{RandomElement:diff()}层随机的一种[gold]元素[/gold]。",
     "LITTLEWIZARD-COLORFUL_BALLS.title": "缤纷彩球",
     "LITTLEWIZARD-DEFEND_LITTLE_WIZARD.description": "获得{Block:diff()}点[gold]格挡[/gold]。",
@@ -47,7 +47,7 @@
     "LITTLEWIZARD-MAGIC_MISSILE.title": "魔法飞弹",
     "LITTLEWIZARD-MAGIC_MISSILE.description": "随机对敌人造成\nX乘X次{Damage:diff()}点伤害。",
     "LITTLEWIZARD-WARMUP_BEAM.title": "预热光束",
-    "LITTLEWIZARD-WARMUP_BEAM.description": "造成{Damage:diff()}点伤害。\n你给予的[gold]元素[/gold]额外增加{WarmupBeamPower:diff()}层。",
+    "LITTLEWIZARD-WARMUP_BEAM.description": "造成{Damage:diff()}点伤害。\n该敌人被给予[gold]元素[/gold]时额外增加{WarmupBeamPower:diff()}层。",
     "LITTLEWIZARD-EROSION_RAY.title": "侵蚀射线",
     "LITTLEWIZARD-EROSION_RAY.description": "造成{Damage:diff()}点伤害。随机使敌人的1种[gold]负面状态[/gold]翻倍。",
     "LITTLEWIZARD-PROPHECY.title": "预言术",
