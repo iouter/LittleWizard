@@ -1,8 +1,9 @@
+using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
-namespace LittleWizard.LittleWizardCode.Api.DynamicVars;
+namespace LittleWizard.LittleWizardCode.Api.Extensions;
 
-public static class DynamicVarsHelper
+public static class DynamicVarSetExtension
 {
     public static RandomElementVar RandomElement(this DynamicVarSet varSet)
     {

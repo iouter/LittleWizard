@@ -1,4 +1,5 @@
 using BaseLib.Extensions;
+using LittleWizard.LittleWizardCode.Api.Extensions;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -75,5 +76,12 @@ public static class Utils
         return (
             await CardSelectCmd.FromSimpleGrid(context, cardModelList, player, prefs)
         ).FirstOrDefault();
+    }
+
+    public static decimal GetThresholdMultiplier<T>(CardModel card, Creature? target)
+        where T : PowerModel
+    {
+        return Math.Floor((decimal)(target?.GetPowerAmount<T>() ?? 0))
+            / card.DynamicVars.Threshold().BaseValue;
     }
 }

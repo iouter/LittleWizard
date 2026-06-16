@@ -20,7 +20,7 @@ public class BurnOut()
             new CalculationBaseVar(0),
             new ExtraDamageVar(5),
             new CalculatedDamageVar(ValueProp.Move).WithMultiplier(
-                (_, target) => target?.GetPowerAmount<FireElement>() ?? 0
+                Utils.GetThresholdMultiplier<FireElement>
             ),
             new ThresholdVar(2),
         ];
