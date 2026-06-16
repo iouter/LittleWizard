@@ -12,6 +12,7 @@ namespace LittleWizard.LittleWizardCode.Powers.Elements;
 public class WaterElement : BaseElement
 {
     private const string TempWaterPower = "tempWaterPower";
+    private decimal AmountApplied { get; set; }
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
@@ -69,6 +70,21 @@ public class WaterElement : BaseElement
         }
     }
 
+    public override Task AfterApplied(Creature? applier, CardModel? cardSource)
+    {
+        Removed += async () =>
+        {
+            await PowerCmd.Apply<StrengthPower>(
+                new ThrowingPlayerChoiceContext(),
+                Owner,
+                -AmountApplied,
+                null,
+                null
+            );
+        };
+        return Task.CompletedTask;
+    }
+
     public override async Task AfterPowerAmountChanged(
         PlayerChoiceContext choiceContext,
         PowerModel power,
@@ -82,17 +98,8 @@ public class WaterElement : BaseElement
             return;
         }
         var amountApplied = GetDamageAdditive(Amount) - GetDamageAdditive(Amount - amount);
+        AmountApplied += amountApplied;
         await PowerCmd.Apply<StrengthPower>(choiceContext, Owner, amountApplied, applier, null);
-        Removed += async () =>
-        {
-            await PowerCmd.Apply<StrengthPower>(
-                new ThrowingPlayerChoiceContext(),
-                Owner,
-                -amountApplied,
-                null,
-                null
-            );
-        };
     }
 
     private static decimal GetDamageAdditive(decimal amount)
