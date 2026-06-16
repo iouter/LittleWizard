@@ -34,10 +34,18 @@ public class UndeadEssence : LittleWizardRelics
 
     public override int DisplayAmount => ResurrectionCount;
 
+    public override bool ShowCounter => true;
+
     public override Task AfterCombatEnd(CombatRoom room)
     {
         ResurrectionCount += 1;
+        Flash();
         return base.AfterCombatEnd(room);
+    }
+
+    public override bool ShouldDieLate(Creature creature)
+    {
+        return creature != Owner.Creature || ResurrectionCount <= 0;
     }
 
     public override async Task AfterPreventingDeath(Creature creature)
