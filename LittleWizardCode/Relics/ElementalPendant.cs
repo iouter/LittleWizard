@@ -1,7 +1,6 @@
 using LittleWizard.LittleWizardCode.Api.Relics;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -31,10 +30,8 @@ public class ElementalPendant : AfterElementReactRelics
         Status = RelicStatus.Normal;
     }
 
-    public override Task AfterPlayerTurnStartEarly(PlayerChoiceContext choiceContext, Player player)
+    public override Task BeforeCombatStart()
     {
-        if (player != Owner)
-            return Task.CompletedTask;
         Status = RelicStatus.Active;
         return Task.CompletedTask;
     }
