@@ -12,7 +12,6 @@ namespace LittleWizard.LittleWizardCode.Powers.Elements;
 public class WaterElement : BaseElement
 {
     private const string TempWaterPower = "tempWaterPower";
-    private decimal AmountApplied { get; set; }
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
@@ -77,7 +76,7 @@ public class WaterElement : BaseElement
             await PowerCmd.Apply<StrengthPower>(
                 new ThrowingPlayerChoiceContext(),
                 Owner,
-                -AmountApplied,
+                -GetDamageAdditive(Amount),
                 null,
                 null
             );
@@ -98,7 +97,6 @@ public class WaterElement : BaseElement
             return;
         }
         var amountApplied = GetDamageAdditive(Amount) - GetDamageAdditive(Amount - amount);
-        AmountApplied += amountApplied;
         await PowerCmd.Apply<StrengthPower>(choiceContext, Owner, amountApplied, applier, null);
     }
 
