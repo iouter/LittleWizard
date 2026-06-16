@@ -1,18 +1,22 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://bpge7wef1xpd2"]
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://bpge7wef1xpd2"]
 
-[ext_resource type="Shader" uid="uid://bo25c7l3mwqmb" path="res://shaders/vfx/bar/vfx_fire_bar.gdshader" id="1_ipqna"]
-[ext_resource type="Texture2D" uid="uid://d01icw14bn5tp" path="res://LittleWizard/images/vfx/vfx_bar/bar3.png" id="2_wlkdc"]
+[ext_resource type="Shader" uid="uid://cv2k5kplh3g4f" path="res://shaders/vfx/bar/vfx_fire_bar.gdshader" id="1_ipqna"]
 
 [sub_resource type="Gradient" id="Gradient_3d8e8"]
-offsets = PackedFloat32Array(0, 0.30057803, 0.51497006, 1)
-colors = PackedColorArray(0.94509804, 0.21568628, 0.24313726, 1, 0.8995419, 0.44292462, 0.490789, 0.6313726, 0.7529412, 0.16862746, 0.011764706, 1, 0.91764706, 0.4862745, 0.16078432, 0)
+offsets = PackedFloat32Array(0, 0.30838323, 0.51197606, 1)
+colors = PackedColorArray(0.9137255, 0.7058824, 0.15294118, 1, 0.89256275, 0.32053578, 0.33037558, 0.6313726, 0.4627451, 0.16862746, 0.05490196, 1, 1, 0.5254902, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_wlkdc"]
 gradient = SubResource("Gradient_3d8e8")
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3d8e8"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wlkdc"]
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_3d8e8")
+
 [resource]
 shader = ExtResource("1_ipqna")
-shader_parameter/noise_tex = ExtResource("2_wlkdc")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_wlkdc")
 shader_parameter/gradient_tex = SubResource("GradientTexture1D_wlkdc")
-shader_parameter/intensity = 1.0
-shader_parameter/alpha_strength = 0.5
