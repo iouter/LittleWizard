@@ -77,30 +77,22 @@ public class WaterElement : BaseElement
         CardModel? cardSource
     )
     {
-        if (power is not WaterElement)
+        if (power != this)
         {
             return;
         }
-        var valueBefore = GetDamageAdditive(Amount - amount);
-        var valueNow = GetDamageAdditive(Amount);
-        await PowerCmd.Apply<StrengthPower>(
-            choiceContext,
-            Owner,
-            valueNow - valueBefore,
-            applier,
-            null
-        );
-    }
-
-    public override async Task AfterRemoved(Creature oldOwner)
-    {
-        await PowerCmd.Apply<StrengthPower>(
-            new ThrowingPlayerChoiceContext(),
-            Owner,
-            -GetDamageAdditive(Amount),
-            null,
-            null
-        );
+        var amountApplied = GetDamageAdditive(Amount) - GetDamageAdditive(Amount - amount);
+        await PowerCmd.Apply<StrengthPower>(choiceContext, Owner, amountApplied, applier, null);
+        Removed += async () =>
+        {
+            await PowerCmd.Apply<StrengthPower>(
+                new ThrowingPlayerChoiceContext(),
+                Owner,
+                -amountApplied,
+                null,
+                null
+            );
+        };
     }
 
     private static decimal GetDamageAdditive(decimal amount)
