@@ -1,4 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Relics;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -16,22 +15,6 @@ public class ElementalOre : AfterElementReactRelics
     public override RelicRarity Rarity => RelicRarity.Starter;
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new PowerVar<DrawCardsNextTurnPower>(1)];
-    private bool _usedThisTurn;
-
-    [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
-    public bool UsedThisTurn
-    {
-        get => _usedThisTurn;
-        set
-        {
-            if (_usedThisTurn == value)
-            {
-                return;
-            }
-            AssertMutable();
-            _usedThisTurn = value;
-        }
-    }
 
     protected override async Task AfterElementReact(
         PlayerChoiceContext ctx,
@@ -41,21 +24,20 @@ public class ElementalOre : AfterElementReactRelics
         CardModel? cardSource
     )
     {
-        if (Owner.Creature != owner || UsedThisTurn)
+        if (Owner.Creature != owner || Status != RelicStatus.Active)
         {
             return;
         }
         Flash();
         await Utils.GivePower<DrawCardsNextTurnPower>(this, Owner.Creature, ctx);
-        UsedThisTurn = true;
+        Status = RelicStatus.Normal;
     }
 
     public override Task AfterPlayerTurnStartEarly(PlayerChoiceContext choiceContext, Player player)
     {
-        if (player == Owner)
-        {
-            UsedThisTurn = false;
-        }
+        if (player != Owner)
+            return Task.CompletedTask;
+        Status = RelicStatus.Active;
         return Task.CompletedTask;
     }
 
