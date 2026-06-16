@@ -1,6 +1,6 @@
+using BaseLib.Extensions;
 using LittleWizard.LittleWizardCode.Api.Animation;
 using LittleWizard.LittleWizardCode.Api.Cards;
-using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -40,7 +40,7 @@ public class ThornGrowth()
             await PowerCmd.Apply<ThornsPower>(
                 choiceContext,
                 creature,
-                DynamicVarsHelper.GetPowerVar<ThornsPower>(DynamicVars).IntValue,
+                DynamicVars.Power<ThornsPower>().IntValue,
                 Owner.Creature,
                 this
             );
@@ -50,7 +50,7 @@ public class ThornGrowth()
 
     protected override void OnUpgrade()
     {
-        DynamicVarsHelper.GetPowerVar<ThornsPower>(DynamicVars).UpgradeValueBy(3);
+        DynamicVars.Power<ThornsPower>().UpgradeValueBy(3);
         DynamicVars.Block.UpgradeValueBy(2);
     }
 }

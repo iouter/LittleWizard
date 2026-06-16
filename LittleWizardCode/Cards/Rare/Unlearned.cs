@@ -1,4 +1,4 @@
-using LittleWizard.LittleWizardCode.Api;
+using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Powers.Cards;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -13,7 +13,7 @@ public class Unlearned() : LittleWizardCard(2, CardType.Power, CardRarity.Rare, 
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<UnlearnedPower>(this, cardPlay, choiceContext);
+        await CommonActions.Apply<UnlearnedPower>(choiceContext, this, cardPlay);
     }
 
     protected override void OnUpgrade()

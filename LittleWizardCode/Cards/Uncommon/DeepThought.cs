@@ -1,4 +1,4 @@
-using LittleWizard.LittleWizardCode.Api;
+using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Powers.Cards;
 using MegaCrit.Sts2.Core.Commands;
@@ -17,7 +17,7 @@ public class DeepThought()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        await Utils.GivePower<DeepThoughtPower>(this, play, choiceContext);
+        await CommonActions.Apply<DeepThoughtPower>(choiceContext, this, play);
         PlayerCmd.EndTurn(Owner, false);
     }
 

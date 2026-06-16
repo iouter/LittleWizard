@@ -2,6 +2,7 @@ using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Animation;
 using LittleWizard.LittleWizardCode.Api.Cards;
+using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using LittleWizard.LittleWizardCode.Powers.Elements;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -17,10 +18,11 @@ public class BurnOut()
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
             new CalculationBaseVar(0),
-            new ExtraDamageVar(6),
+            new ExtraDamageVar(5),
             new CalculatedDamageVar(ValueProp.Move).WithMultiplier(
                 (_, target) => target?.GetPowerAmount<FireElement>() ?? 0
             ),
+            new ThresholdVar(2),
         ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Fire];

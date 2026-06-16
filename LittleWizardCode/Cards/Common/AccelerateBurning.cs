@@ -26,7 +26,7 @@ public class AccelerateBurning()
             new CalculatedVar(CalculatedFireElement).WithMultiplier(
                 (card, target) =>
                     Math.Floor((decimal)(target?.GetPowerAmount<FireElement>() ?? 0))
-                    / DynamicVarsHelper.GetThresholdVar(card.DynamicVars).BaseValue
+                    / card.DynamicVars.Threshold().BaseValue
             ),
         ];
 
@@ -46,7 +46,7 @@ public class AccelerateBurning()
 
     protected override void OnUpgrade()
     {
-        DynamicVarsHelper.GetThresholdVar(DynamicVars).UpgradeValueBy(-1);
+        DynamicVars.Threshold().UpgradeValueBy(-1);
         DynamicVars.CalculationExtra.UpgradeValueBy(1);
     }
 }

@@ -1,8 +1,6 @@
 using BaseLib.Utils;
-using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Animation;
 using LittleWizard.LittleWizardCode.Api.Cards;
-using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Cards;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -20,7 +18,7 @@ public class WarmupBeam()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
-        await Utils.GivePower<WarmupBeamPower>(this, play, choiceContext);
+        await CommonActions.Apply<WarmupBeamPower>(choiceContext, this, play);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 

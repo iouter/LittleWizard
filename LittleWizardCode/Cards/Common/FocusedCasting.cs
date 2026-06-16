@@ -1,7 +1,7 @@
-using LittleWizard.LittleWizardCode.Api;
+using BaseLib.Extensions;
+using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api.Animation;
 using LittleWizard.LittleWizardCode.Api.Cards;
-using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Cards;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -20,12 +20,12 @@ public class FocusedCasting()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<FocusedCastingPower>(this, cardPlay, choiceContext);
+        await CommonActions.Apply<FocusedCastingPower>(choiceContext, this, cardPlay);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVarsHelper.GetPowerVar<FocusedCastingPower>(DynamicVars).UpgradeValueBy(1);
+        DynamicVars.Power<FocusedCastingPower>().UpgradeValueBy(1);
     }
 }

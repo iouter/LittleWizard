@@ -1,5 +1,4 @@
 using BaseLib.Utils;
-using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -18,7 +17,7 @@ public class NumbHands()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
-        await Utils.GivePower<WeakPower>(this, play, choiceContext);
+        await CommonActions.Apply<WeakPower>(choiceContext, this, play);
     }
 
     protected override void OnUpgrade()

@@ -25,7 +25,7 @@ public class StrikeEarthLittleWizard()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         await CommonActions.CardAttack(this, play).Execute(choiceContext);
-        await Utils.GivePower<EarthElement>(this, play, choiceContext);
+        await CommonActions.Apply<EarthElement>(choiceContext, this, play);
     }
 
     protected override void OnUpgrade()

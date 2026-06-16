@@ -27,7 +27,7 @@ public class WaterBlade()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CommonActions.CardAttack(this, cardPlay).Execute(choiceContext);
-        await Utils.GivePower<WaterElement>(this, cardPlay, choiceContext);
+        await CommonActions.Apply<WaterElement>(choiceContext, this, cardPlay);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 

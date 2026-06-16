@@ -1,7 +1,8 @@
+using BaseLib.Extensions;
+using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Animation;
 using LittleWizard.LittleWizardCode.Api.Cards;
-using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Cards;
 using LittleWizard.LittleWizardCode.Powers.Elements;
@@ -29,9 +30,7 @@ public class BurnEverything()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        var xValue =
-            DynamicVarsHelper.GetPowerVar<FireElement>(DynamicVars).BaseValue
-            * ResolveEnergyXValue();
+        var xValue = DynamicVars.Power<FireElement>().BaseValue * ResolveEnergyXValue();
         foreach (var enemy in CombatState!.Enemies)
         {
             if (enemy.IsDead)
@@ -40,12 +39,12 @@ public class BurnEverything()
             }
             await PowerCmd.Apply<FireElement>(choiceContext, enemy, xValue, Owner.Creature, this);
         }
-        await Utils.GivePower<BurnEverythingPower>(this, cardPlay, choiceContext);
+        await CommonActions.Apply<BurnEverythingPower>(choiceContext, this, cardPlay);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVarsHelper.GetPowerVar<FireElement>(DynamicVars).UpgradeValueBy(1);
+        DynamicVars.Power<FireElement>().UpgradeValueBy(1);
     }
 }

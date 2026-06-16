@@ -1,5 +1,4 @@
 using BaseLib.Utils;
-using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -19,7 +18,7 @@ public class OffensiveConversion()
     {
         await CommonActions.CardBlock(this, cardPlay);
         await CommonActions.Draw(this, choiceContext);
-        await Utils.GivePower<DrawCardsNextTurnPower>(this, cardPlay, choiceContext);
+        await CommonActions.Apply<DrawCardsNextTurnPower>(choiceContext, this, cardPlay);
     }
 
     protected override void OnUpgrade()

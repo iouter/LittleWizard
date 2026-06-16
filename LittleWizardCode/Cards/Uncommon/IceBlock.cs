@@ -1,7 +1,7 @@
+using BaseLib.Extensions;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Animation;
 using LittleWizard.LittleWizardCode.Api.Cards;
-using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Elements;
 using MegaCrit.Sts2.Core.Commands;
@@ -27,7 +27,7 @@ public class IceBlock()
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
         var waterAmount = cardPlay.Target.GetPowerAmount<WaterElement>();
-        var targetAmount = DynamicVarsHelper.GetPowerVar<WaterElement>(DynamicVars).BaseValue;
+        var targetAmount = DynamicVars.Power<WaterElement>().BaseValue;
         if (waterAmount >= targetAmount)
         {
             await PowerCmd.Apply<WaterElement>(

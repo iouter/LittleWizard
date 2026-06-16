@@ -1,4 +1,3 @@
-using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -25,7 +24,7 @@ public class StunPower : LittleWizardPower
         CardModel? cardSource
     )
     {
-        if (target != Owner || !Utils.IsPoweredAttack(props) || result.UnblockedDamage <= 0)
+        if (target != Owner || !props.IsPoweredAttack() || result.UnblockedDamage <= 0)
             return;
         await PowerCmd.Remove(this);
     }

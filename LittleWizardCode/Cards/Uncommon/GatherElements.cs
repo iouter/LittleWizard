@@ -1,7 +1,7 @@
-using LittleWizard.LittleWizardCode.Api;
+using BaseLib.Extensions;
+using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api.Animation;
 using LittleWizard.LittleWizardCode.Api.Cards;
-using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using LittleWizard.LittleWizardCode.Powers.Cards;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -23,14 +23,14 @@ public class GatherElements()
             await PowerCmd.Apply<GatherElementsUpgradePower>(
                 choiceContext,
                 Owner.Creature,
-                DynamicVarsHelper.GetPowerVar<GatherElementsPower>(DynamicVars).BaseValue,
+                DynamicVars.Power<GatherElementsPower>().BaseValue,
                 Owner.Creature,
                 this
             );
         }
         else
         {
-            await Utils.GivePower<GatherElementsPower>(this, cardPlay, choiceContext);
+            await CommonActions.Apply<GatherElementsPower>(choiceContext, this, cardPlay);
         }
 
         await AnimationHelper.TriggerCastAnimationOwner(this);

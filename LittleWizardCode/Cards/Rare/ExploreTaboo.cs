@@ -1,6 +1,7 @@
+using BaseLib.Extensions;
+using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Cards;
-using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Cards;
 using LittleWizard.LittleWizardCode.Powers.Elements;
@@ -24,12 +25,12 @@ public class ExploreTaboo() : LittleWizardCard(1, CardType.Power, CardRarity.Rar
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<FireElement>(this, cardPlay, choiceContext);
-        await Utils.GivePower<ExploreTabooPower>(this, cardPlay, choiceContext);
+        await CommonActions.Apply<FireElement>(choiceContext, this, cardPlay);
+        await CommonActions.Apply<ExploreTabooPower>(choiceContext, this, cardPlay);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVarsHelper.GetPowerVar<ExploreTabooPower>(DynamicVars).UpgradeValueBy(1);
+        DynamicVars.Power<ExploreTabooPower>().UpgradeValueBy(1);
     }
 }

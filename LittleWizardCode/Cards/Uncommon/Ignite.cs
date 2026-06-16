@@ -1,5 +1,4 @@
 using BaseLib.Utils;
-using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Cards;
@@ -30,7 +29,7 @@ public class Ignite()
         await CommonActions.CardAttack(this, play.Target).Execute(choiceContext);
         if (!play.Target!.HasPower<FireElement>())
         {
-            await Utils.GivePower<IgnitePower>(this, play, choiceContext);
+            await CommonActions.Apply<IgnitePower>(choiceContext, this, play);
         }
         else
         {

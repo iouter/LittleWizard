@@ -1,4 +1,4 @@
-using LittleWizard.LittleWizardCode.Api;
+using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Powers.Cards;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -15,7 +15,7 @@ public class ElementBlessing()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<ElementBlessingPower>(this, cardPlay, choiceContext);
+        await CommonActions.Apply<ElementBlessingPower>(choiceContext, this, cardPlay);
     }
 
     protected override void OnUpgrade()

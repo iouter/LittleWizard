@@ -1,6 +1,6 @@
-using LittleWizard.LittleWizardCode.Api;
+using BaseLib.Extensions;
+using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api.Cards;
-using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using LittleWizard.LittleWizardCode.Powers.Cards;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -16,11 +16,11 @@ public class Emerge() : LittleWizardCard(2, CardType.Skill, CardRarity.Rare, Tar
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<EmergePower>(this, cardPlay, choiceContext);
+        await CommonActions.Apply<EmergePower>(choiceContext, this, cardPlay);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVarsHelper.GetPowerVar<EmergePower>(DynamicVars).UpgradeValueBy(1);
+        DynamicVars.Power<EmergePower>().UpgradeValueBy(1);
     }
 }

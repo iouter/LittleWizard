@@ -1,5 +1,4 @@
 using BaseLib.Utils;
-using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Powers.Cards;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -17,7 +16,7 @@ public class ManaShield() : LittleWizardCard(1, CardType.Power, CardRarity.Rare,
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CommonActions.CardBlock(this, cardPlay);
-        await Utils.GivePower<ManaShieldPower>(this, cardPlay, choiceContext);
+        await CommonActions.Apply<ManaShieldPower>(choiceContext, this, cardPlay);
     }
 
     protected override void OnUpgrade()

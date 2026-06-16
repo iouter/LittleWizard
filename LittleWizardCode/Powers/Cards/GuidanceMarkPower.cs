@@ -1,4 +1,3 @@
-using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -26,7 +25,7 @@ public class GuidanceMarkPower : LittleWizardPower
         if (target == null || target != Owner)
             return 1M;
 
-        if (!Utils.IsPoweredAttack(props))
+        if (!props.IsPoweredAttack())
             return 1M;
 
         return 1M + (decimal)Amount / 10;

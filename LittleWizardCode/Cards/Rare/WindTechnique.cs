@@ -1,4 +1,4 @@
-using LittleWizard.LittleWizardCode.Api;
+using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Powers.Cards;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -18,7 +18,7 @@ public class WindTechnique() : LittleWizardCard(2, CardType.Power, CardRarity.Ra
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<WindTechniquePower>(this, cardPlay, choiceContext);
+        await CommonActions.Apply<WindTechniquePower>(choiceContext, this, cardPlay);
     }
 
     protected override void OnUpgrade()

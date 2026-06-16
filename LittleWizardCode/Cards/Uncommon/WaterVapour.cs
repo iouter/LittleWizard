@@ -1,7 +1,8 @@
+using BaseLib.Extensions;
+using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Animation;
 using LittleWizard.LittleWizardCode.Api.Cards;
-using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using LittleWizard.LittleWizardCode.Powers.Cards;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -40,12 +41,12 @@ public class WaterVapour()
             );
         }
 
-        await Utils.GivePower<WaterVapourPower>(this, cardPlay, choiceContext);
+        await CommonActions.Apply<WaterVapourPower>(choiceContext, this, cardPlay);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVarsHelper.GetPowerVar<WaterVapourPower>(DynamicVars).UpgradeValueBy(1);
+        DynamicVars.Power<WaterVapourPower>().UpgradeValueBy(1);
     }
 }

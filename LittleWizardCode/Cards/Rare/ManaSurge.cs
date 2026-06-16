@@ -1,6 +1,6 @@
-using LittleWizard.LittleWizardCode.Api;
+using BaseLib.Extensions;
+using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api.Cards;
-using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using LittleWizard.LittleWizardCode.Powers.Cards;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -14,11 +14,11 @@ public class ManaSurge() : LittleWizardCard(3, CardType.Power, CardRarity.Rare, 
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<ManaSurgePower>(this, cardPlay, choiceContext);
+        await CommonActions.Apply<ManaSurgePower>(choiceContext, this, cardPlay);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVarsHelper.GetPowerVar<ManaSurgePower>(DynamicVars).UpgradeValueBy(1);
+        DynamicVars.Power<ManaSurgePower>().UpgradeValueBy(1);
     }
 }

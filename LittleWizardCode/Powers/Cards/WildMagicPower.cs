@@ -1,4 +1,3 @@
-using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Powers;
 using LittleWizard.LittleWizardCode.Powers.Elements;
 using MegaCrit.Sts2.Core.Commands;
@@ -34,7 +33,7 @@ public class WildMagicPower : LittleWizardPower
         CardModel? cardSource
     )
     {
-        if (dealer == Owner && Utils.IsPoweredAttack(props))
+        if (dealer == Owner && props.IsPoweredAttack())
             return Amount + 1;
         return base.ModifyDamageMultiplicative(target, amount, props, dealer, cardSource);
     }

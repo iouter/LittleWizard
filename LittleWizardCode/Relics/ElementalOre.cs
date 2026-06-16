@@ -29,7 +29,7 @@ public class ElementalOre : AfterElementReactRelics
             return;
         }
         Flash();
-        await Utils.GivePower<DrawCardsNextTurnPower>(this, Owner.Creature, ctx);
+        await Utils.Apply<DrawCardsNextTurnPower>(this, Owner.Creature, ctx);
         Status = RelicStatus.Normal;
     }
 

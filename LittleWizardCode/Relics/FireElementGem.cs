@@ -25,6 +25,6 @@ public sealed class FireElementGem : LittleWizardRelics
         if (side != Owner.Creature.Side || combatState.RoundNumber > 1)
             return;
         Flash();
-        await Utils.GivePower<FireElement>(this, combatState.HittableEnemies, choiceContext);
+        await Utils.Apply<FireElement>(this, combatState.HittableEnemies, choiceContext);
     }
 }

@@ -1,7 +1,7 @@
-using LittleWizard.LittleWizardCode.Api;
+using BaseLib.Extensions;
+using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api.Animation;
 using LittleWizard.LittleWizardCode.Api.Cards;
-using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using LittleWizard.LittleWizardCode.Powers.Cards;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -20,12 +20,12 @@ public class ManaBurst() : LittleWizardCard(1, CardType.Power, CardRarity.Uncomm
             await PowerCmd.Apply<ManaBurstUpgradePower>(
                 choiceContext,
                 Owner.Creature,
-                DynamicVarsHelper.GetPowerVar<ManaBurstPower>(DynamicVars).BaseValue,
+                DynamicVars.Power<ManaBurstPower>().BaseValue,
                 Owner.Creature,
                 this
             );
         else
-            await Utils.GivePower<ManaBurstPower>(this, cardPlay, choiceContext);
+            await CommonActions.Apply<ManaBurstPower>(choiceContext, this, cardPlay);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 }

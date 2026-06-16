@@ -26,7 +26,7 @@ public sealed class ColorfulBalls()
         await ElementHelper.RandomElement(
             choiceContext,
             play.Target,
-            DynamicVarsHelper.GetRandomElementVar(DynamicVars).BaseValue,
+            DynamicVars.RandomElement().BaseValue,
             Owner.Creature,
             this
         );
@@ -36,6 +36,6 @@ public sealed class ColorfulBalls()
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(1m);
-        DynamicVarsHelper.GetRandomElementVar(DynamicVars).UpgradeValueBy(1m);
+        DynamicVars.RandomElement().UpgradeValueBy(1m);
     }
 }

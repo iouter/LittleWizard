@@ -1,4 +1,3 @@
-using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -22,7 +21,7 @@ public class WindTechniquePower : LittleWizardPower
         CardModel? cardSource
     )
     {
-        if (target != Owner || !Utils.IsPoweredAttack(props))
+        if (target != Owner || !props.IsPoweredAttack())
             return base.ModifyDamageMultiplicative(target, amount, props, dealer, cardSource);
         return (decimal)0.5;
     }
@@ -36,7 +35,7 @@ public class WindTechniquePower : LittleWizardPower
         CardModel? cardSource
     )
     {
-        if (target != Owner || !Utils.IsPoweredAttack(props) || result.UnblockedDamage <= 0)
+        if (target != Owner || !props.IsPoweredAttack() || result.UnblockedDamage <= 0)
             return;
         await PowerCmd.Decrement(this);
     }

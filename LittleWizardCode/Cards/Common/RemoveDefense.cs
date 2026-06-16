@@ -1,4 +1,4 @@
-using LittleWizard.LittleWizardCode.Api;
+using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api.Animation;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using MegaCrit.Sts2.Core.Commands;
@@ -21,7 +21,7 @@ public class RemoveDefense()
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
         if (cardPlay.Target.Block > 0)
             await CreatureCmd.LoseBlock(cardPlay.Target, cardPlay.Target.Block);
-        await Utils.GivePower<VulnerablePower>(this, cardPlay, choiceContext);
+        await CommonActions.Apply<VulnerablePower>(choiceContext, this, cardPlay);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 

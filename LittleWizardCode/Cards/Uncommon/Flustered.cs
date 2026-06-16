@@ -1,4 +1,4 @@
-using LittleWizard.LittleWizardCode.Api;
+using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Powers.Cards;
 using MegaCrit.Sts2.Core.Commands;
@@ -22,7 +22,7 @@ public class Flustered() : LittleWizardCard(2, CardType.Skill, CardRarity.Uncomm
             await CardPileCmd.Draw(choiceContext, cardsToDraw, Owner);
         }
 
-        await Utils.GivePower<FlusteredPower>(this, play, choiceContext);
+        await CommonActions.Apply<FlusteredPower>(choiceContext, this, play);
     }
 
     protected override void OnUpgrade()

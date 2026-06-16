@@ -26,7 +26,7 @@ public class DestroyGrades()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await Utils.GivePower<FireElement>(this, cardPlay, choiceContext);
+        await CommonActions.Apply<FireElement>(choiceContext, this, cardPlay);
         var card = await CommonActions.SelectSingleCard(
             this,
             CardSelectorPrefs.ExhaustSelectionPrompt,

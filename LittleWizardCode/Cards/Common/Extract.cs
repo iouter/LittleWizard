@@ -21,7 +21,7 @@ public class Extract() : LittleWizardCard(1, CardType.Skill, CardRarity.Common, 
         await ElementHelper.RandomElement(
             choiceContext,
             cardPlay.Target!,
-            DynamicVarsHelper.GetRandomElementVar(DynamicVars).BaseValue,
+            DynamicVars.RandomElement().BaseValue,
             Owner.Creature,
             this
         );
@@ -30,7 +30,7 @@ public class Extract() : LittleWizardCard(1, CardType.Skill, CardRarity.Common, 
 
     protected override void OnUpgrade()
     {
-        DynamicVarsHelper.GetRandomElementVar(DynamicVars).UpgradeValueBy(1);
+        DynamicVars.RandomElement().UpgradeValueBy(1);
         DynamicVars.Cards.UpgradeValueBy(1);
     }
 }

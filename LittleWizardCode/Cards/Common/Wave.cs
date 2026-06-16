@@ -1,7 +1,8 @@
+using BaseLib.Extensions;
+using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Animation;
 using LittleWizard.LittleWizardCode.Api.Cards;
-using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Elements;
 using MegaCrit.Sts2.Core.Commands;
@@ -25,13 +26,13 @@ public class Wave() : LittleWizardCard(1, CardType.Skill, CardRarity.Common, Tar
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, cardPlay);
-        await Utils.GivePower<WaterElement>(this, cardPlay, choiceContext);
+        await CommonActions.Apply<WaterElement>(choiceContext, this, cardPlay);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 
     protected override void OnUpgrade()
     {
         DynamicVars.Block.UpgradeValueBy(2);
-        DynamicVarsHelper.GetPowerVar<WaterElement>(DynamicVars).UpgradeValueBy(1);
+        DynamicVars.Power<WaterElement>().UpgradeValueBy(1);
     }
 }

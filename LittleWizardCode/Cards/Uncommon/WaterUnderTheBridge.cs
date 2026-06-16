@@ -1,6 +1,6 @@
-using LittleWizard.LittleWizardCode.Api;
+using BaseLib.Extensions;
+using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api.Cards;
-using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using LittleWizard.LittleWizardCode.Powers.Cards;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -16,11 +16,11 @@ public class WaterUnderTheBridge()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        await Utils.GivePower<WaterUnderTheBridgePower>(this, play, choiceContext);
+        await CommonActions.Apply<WaterUnderTheBridgePower>(choiceContext, this, play);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVarsHelper.GetPowerVar<WaterUnderTheBridgePower>(DynamicVars).UpgradeValueBy(3);
+        DynamicVars.Power<WaterUnderTheBridgePower>().UpgradeValueBy(3);
     }
 }

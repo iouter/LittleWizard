@@ -1,7 +1,7 @@
+using BaseLib.Extensions;
 using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Cards;
-using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Elements;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -30,12 +30,12 @@ public class Stalagmite()
     {
         await CommonActions.CardBlock(this, cardPlay);
         await CommonActions.CardAttack(this, cardPlay).Execute(choiceContext);
-        await Utils.GivePower<EarthElement>(this, cardPlay, choiceContext);
+        await CommonActions.Apply<EarthElement>(choiceContext, this, cardPlay);
     }
 
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(1);
-        DynamicVarsHelper.GetPowerVar<EarthElement>(DynamicVars).UpgradeValueBy(2);
+        DynamicVars.Power<EarthElement>().UpgradeValueBy(2);
     }
 }

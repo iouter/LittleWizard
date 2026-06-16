@@ -32,7 +32,7 @@ public class ElementBurst()
                         target.GetPowerAmount<WaterElement>(),
                         target.GetPowerAmount<EarthElement>(),
                     ];
-                    var threshold = DynamicVarsHelper.GetThresholdVar(card.DynamicVars).IntValue;
+                    var threshold = card.DynamicVars.Threshold().IntValue;
                     return (
                         from amount in elementsAmount
                         where amount > 0

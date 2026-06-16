@@ -1,7 +1,7 @@
+using BaseLib.Extensions;
 using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Cards;
-using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Elements;
 using MegaCrit.Sts2.Core.Commands;
@@ -30,12 +30,12 @@ public class ShortCircuitWaterBall()
         await CommonActions.CardAttack(this, cardPlay).Execute(choiceContext);
         if (cardPlay.Target != null)
             await PowerCmd.Remove<ArtifactPower>(cardPlay.Target);
-        await Utils.GivePower<WaterElement>(this, cardPlay, choiceContext);
+        await CommonActions.Apply<WaterElement>(choiceContext, this, cardPlay);
     }
 
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(2);
-        DynamicVarsHelper.GetPowerVar<WaterElement>(DynamicVars).UpgradeValueBy(1);
+        DynamicVars.Power<WaterElement>().UpgradeValueBy(1);
     }
 }

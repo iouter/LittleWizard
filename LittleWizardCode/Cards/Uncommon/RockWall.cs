@@ -1,5 +1,4 @@
 using BaseLib.Utils;
-using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Animation;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Powers.Cards;
@@ -18,7 +17,7 @@ public class RockWall() : LittleWizardCard(2, CardType.Skill, CardRarity.Uncommo
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         await CommonActions.CardBlock(this, play);
-        await Utils.GivePower<RockWallPower>(this, play, choiceContext);
+        await CommonActions.Apply<RockWallPower>(choiceContext, this, play);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 

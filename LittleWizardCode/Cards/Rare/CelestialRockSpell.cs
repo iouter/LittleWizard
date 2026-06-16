@@ -1,8 +1,8 @@
+using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Elements;
-using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -31,22 +31,10 @@ public class CelestialRockSpell()
         {
             return;
         }
-
-        var damageValue = DynamicVars.Damage.BaseValue;
-
-        await new AttackCommand(damageValue)
-            .FromCard(this)
-            .WithHitFx("vfx/vfx_fire_ball")
-            .Targeting(target)
+        await CommonActions
+            .CardAttack(this, target, vfx: "vfx/vfx_fire_ball")
             .Execute(choiceContext);
-
-        await Utils.GivePower<FireElement>(
-            choiceContext,
-            target,
-            DynamicVars,
-            Owner.Creature,
-            this
-        );
+        await CommonActions.Apply<FireElement>(choiceContext, target, this);
     }
 
     protected override void OnUpgrade()
