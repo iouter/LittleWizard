@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dud2y3177m5jw"
-path="res://.godot/imported/could_not_put_it_down.png-90a68834ad5f6b420a2d600fb7a7e7e8.ctex"
+uid="uid://bc3iue61vleet"
+path="res://.godot/imported/could_not_put_it_down_power.png-2a0fb572cfbee2932d6a9c59ff69bbfb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LittleWizard/images/powers/big/could_not_put_it_down.png"
-dest_files=["res://.godot/imported/could_not_put_it_down.png-90a68834ad5f6b420a2d600fb7a7e7e8.ctex"]
+source_file="res://LittleWizard/images/powers/big/could_not_put_it_down_power.png"
+dest_files=["res://.godot/imported/could_not_put_it_down_power.png-2a0fb572cfbee2932d6a9c59ff69bbfb.ctex"]
 
 [params]
 
