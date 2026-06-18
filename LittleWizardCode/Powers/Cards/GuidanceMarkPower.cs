@@ -28,7 +28,7 @@ public class GuidanceMarkPower : LittleWizardPower
         if (!props.IsPoweredAttack())
             return 1M;
 
-        return 1M + (decimal)Amount / 10;
+        return 1M + (decimal)Amount / 100;
     }
 
     public override async Task AfterSideTurnEnd(
