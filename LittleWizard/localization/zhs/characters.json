@@ -1,0 +1,16 @@
+{
+    "LITTLEWIZARD-LITTLE_WIZARD.titleObject": "小巫师",
+    "LITTLEWIZARD-LITTLE_WIZARD.possessiveAdjective": "her",
+    "LITTLEWIZARD-LITTLE_WIZARD.goldMonologue": "Line spoken when obtaining a large amount of gold",
+    "LITTLEWIZARD-LITTLE_WIZARD.aromaPrinciple": "Lore",
+    "LITTLEWIZARD-LITTLE_WIZARD.pronounPossessive": "his/hers/its",
+    "LITTLEWIZARD-LITTLE_WIZARD.pronounObject": "him/her/it",
+    "LITTLEWIZARD-LITTLE_WIZARD.banter.dead.endTurnPing": "...",
+    "LITTLEWIZARD-LITTLE_WIZARD.eventDeathPrevention": "Co-op survival line",
+    "LITTLEWIZARD-LITTLE_WIZARD.title": "小巫师",
+    "LITTLEWIZARD-LITTLE_WIZARD.cardsModifierTitle": "__ Cards",
+    "LITTLEWIZARD-LITTLE_WIZARD.pronounSubject": "she",
+    "LITTLEWIZARD-LITTLE_WIZARD.cardsModifierDescription": "__ cards will now appear in rewards and shops.",
+    "LITTLEWIZARD-LITTLE_WIZARD.description": "因错误的仪式，强大的巫师被困在了轮回的诅咒中，每次死亡灵魂都会回到过去。\n回归最基础的三元素魔法，于高塔中寻找解除诅咒的方法。",
+    "LITTLEWIZARD-LITTLE_WIZARD.banter.alive.endTurnPing": "Co-op hurry up end turn ping message"
+}

@@ -24,7 +24,7 @@ public class FireElement : BaseElement
     {
         if (side != Owner.Side)
             return;
-        VfxCmd.PlayOnCreatureCenter(Owner, "vfx/vfx_fire_element");
+        /*VfxCmd.PlayOnCreatureCenter(Owner, "vfx/vfx_fire_element"); */
         PlaySound();
 
         int damage;
@@ -43,7 +43,7 @@ public class FireElement : BaseElement
                 null,
                 null
             );
-            VfxCmd.PlayOnCreatureCenter(Owner, "vfx/vfx_fire_element");
+            /*VfxCmd.PlayOnCreatureCenter(Owner, "vfx/vfx_fire_element"); */
         }
 
         if (!Owner.IsAlive)
