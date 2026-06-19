@@ -1,53 +1,55 @@
 LittleWizard_select.png
-	size: 6329, 10336
-	filter: Linear, Linear
-	pma: true
+size:5000,4551
+filter:Linear,Linear
+pma:true
+scale:0.7
 1
-	bounds: 1, 7853, 3510, 2482
+bounds:1,950,2457,1737
 12
-	bounds: 2446, 185, 1902, 1337
-	offsets: 8, 9, 2606, 1354
+bounds:1,1,1824,948
 3
-	bounds: 1, 2070, 2886, 1766
+bounds:2459,234,2020,1236
 4
-	bounds: 1, 5575, 3654, 2277
-	offsets: 844, 382, 5046, 2660
+bounds:1,2688,3532,1862
 5
-	bounds: 3527, 4524, 1826, 1050
+bounds:3534,3815,1278,735
 6
-	bounds: 3527, 3911, 204, 252
-7
-	bounds: 3512, 7535, 2800, 2448
-	rotate: 90
+bounds:4813,4374,143,176
 8
-	bounds: 3527, 4164, 563, 359
-9
-	bounds: 3866, 5575, 2462, 2319
-	rotate: 180
+bounds:4506,3209,394,251
 g111
-	bounds: 3512, 8869, 110, 110
-h1
-	bounds: 2887, 1523, 2313, 1489
-	rotate: 90
+bounds:4877,3609,77,77
 h2
-	bounds: 3656, 7516, 1345, 1419
+bounds:3534,2821,942,993
 h3
-	bounds: 1, 3837, 3525, 1737
-h4
-	bounds: 1, 1, 2444, 2068
+bounds:2459,1471,2468,1216
 q1
-	bounds: 3512, 8980, 227, 229
+bounds:4813,4213,159,160
 q2
-	bounds: 3942, 8936, 325, 318
+bounds:4771,3081,228,223
 q3
-	bounds: 3739, 8936, 202, 195
+bounds:4813,3804,141,137
 q4
-	bounds: 4319, 7, 202, 195
+bounds:4858,3938,141,137
 q5
-	bounds: 3512, 9728, 202, 195
+bounds:4824,4076,141,137
 q6
-	bounds: 3715, 9752, 187, 179
+bounds:4868,3687,131,125
 q7
-	bounds: 4078, 9255, 178, 179
+bounds:4874,3479,125,125
 q8
-	bounds: 3512, 9178, 570, 559
+bounds:4477,3423,399,391
+
+LittleWizard_select_2.png
+size:1962,5000
+filter:Linear,Linear
+pma:true
+scale:0.7
+7
+bounds:1,793,1960,1714
+9
+bounds:219,1,1723,1623
+h1
+bounds:1,2508,1619,1042
+h4
+bounds:1,3551,1711,1448

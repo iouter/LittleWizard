@@ -1,0 +1,14 @@
+[remap]
+
+importer="spine.skel"
+type="SpineSkeletonFileResource"
+uid="uid://dmmsmcfpk1f6w"
+path="res://.godot/imported/vfx_fire_mo.skel-264f579b89cabac2a34a9dd5e17358db.spskel"
+
+[deps]
+
+source_file="res://LittleWizard/animations/vfx/vfx_fire_mo/vfx_fire_mo.skel"
+dest_files=["res://.godot/imported/vfx_fire_mo.skel-264f579b89cabac2a34a9dd5e17358db.spskel"]
+
+[params]
+
