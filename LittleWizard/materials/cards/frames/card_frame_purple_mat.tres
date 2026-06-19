@@ -5,6 +5,6 @@
 [resource]
 resource_local_to_scene = true
 shader = ExtResource("1_4rywm")
-shader_parameter/h = 0.80
+shader_parameter/h = 0.8
 shader_parameter/s = 0.9
 shader_parameter/v = 1.0

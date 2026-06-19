@@ -17,7 +17,7 @@ public class Guidance() : LittleWizardCard(3, CardType.Power, CardRarity.Rare, T
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         [HoverTipFactory.FromPower<GuidanceMarkPower>()];
 
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<GuidancePower>(2)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<GuidancePower>(20)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Ethereal];
 
@@ -29,6 +29,6 @@ public class Guidance() : LittleWizardCard(3, CardType.Power, CardRarity.Rare, T
     protected override void OnUpgrade()
     {
         EnergyCost.UpgradeBy(-1);
-        DynamicVars.Power<GuidancePower>().UpgradeValueBy(1);
+        DynamicVars.Power<GuidancePower>().UpgradeValueBy(10);
     }
 }

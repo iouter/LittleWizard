@@ -1,7 +1,7 @@
 [gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://c7q25rly7cd1t"]
 
-[ext_resource type="SpineAtlasResource" uid="uid://c6pv70nm6hj" path="res://LittleWizard/animations/character_select/LittleWizard/LittleWizard_select.atlas" id="1_jwior"]
-[ext_resource type="SpineSkeletonFileResource" uid="uid://bvgd5pw3gduom" path="res://LittleWizard/animations/character_select/LittleWizard/LittleWizard_select.skel" id="2_44f7v"]
+[ext_resource type="SpineAtlasResource" uid="uid://dxglwsctnbx0w" path="res://LittleWizard/animations/character_select/LittleWizard/LittleWizard_select.atlas" id="1_jwior"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://bb8dk8kq5s4wi" path="res://LittleWizard/animations/character_select/LittleWizard/LittleWizard_select.skel" id="2_44f7v"]
 
 [resource]
 atlas_res = ExtResource("1_jwior")

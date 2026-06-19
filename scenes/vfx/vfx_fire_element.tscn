@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dear5rgdw4v5j"]
 
-[ext_resource type="Script" uid="uid://bxsmitt8fv182" path="res://LittleWizardCode/Api/Animation/SNVfxSpine.cs" id="1_hr2qw"]
+[ext_resource type="Script" uid="uid://fw4nuoevtrlp" path="res://LittleWizardCode/Api/Animation/SNVfxSpine.cs" id="1_hr2qw"]
 [ext_resource type="SpineSkeletonDataResource" uid="uid://8nccgsec1ajc" path="res://LittleWizard/animations/vfx/vfx_fire_elementl_skel_data_resource.tres" id="1_tygmh"]
 
 [node name="VfxFireElement" type="Node2D"]

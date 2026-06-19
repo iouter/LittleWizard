@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b3g2nshchsio5"]
 
-[ext_resource type="Script" uid="uid://b2kpk61ieigx0" path="res://LittleWizardCode/Api/Nodes/SNParticlesContainer.cs" id="1_dcan6"]
-[ext_resource type="PackedScene" path="res://LittleWizard/scenes/LittleWizard/vfx_common_glow.tscn" id="2_y5gtb"]
+[ext_resource type="Script" uid="uid://cxlbsbxs0ntsa" path="res://LittleWizardCode/Api/Nodes/SNParticlesContainer.cs" id="1_dcan6"]
+[ext_resource type="PackedScene" uid="uid://buri2as6capmp" path="res://LittleWizard/scenes/LittleWizard/vfx_common_glow.tscn" id="2_y5gtb"]
 
 [node name="watcher_energy_vfx_back" type="Node2D"]
 script = ExtResource("1_dcan6")
