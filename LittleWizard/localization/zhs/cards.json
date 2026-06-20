@@ -62,7 +62,7 @@
     "LITTLEWIZARD-MANA_CONVERT.title": "魔力转换",
     "LITTLEWIZARD-MANA_CONVERT.description": "[gold]消耗[/gold]任意能给予[gold]元素[/gold]的[gold]手牌[/gold]。每消耗1张，获得1点{energyPrefix:energyIcons(1)}。",
     "LITTLEWIZARD-MANAGER_MASTER.title": "能量残余",
-    "LITTLEWIZARD-MANAGER_MASTER.description": "每当你消耗1点{energyPrefix:energyIcons(1)}能量时，接下来打出的1张[gold]虚无[/gold]牌，耗能变为[gold]0[/gold]。",
+    "LITTLEWIZARD-MANAGER_MASTER.description": "每当你消耗1点{energyPrefix:energyIcons(1)}时，接下来打出的1张[gold]虚无[/gold]牌，耗能变为[gold]0[/gold]。",
     "LITTLEWIZARD-HUGE_FIREBALL.title": "火球术",
     "LITTLEWIZARD-HUGE_FIREBALL.description": "对所有敌人造成{Damage:diff()}点伤害。并给予{FireElement:diff()}层[gold]火元素[/gold]。",
     "LITTLEWIZARD-STALAGMITE.title": "石笋",
