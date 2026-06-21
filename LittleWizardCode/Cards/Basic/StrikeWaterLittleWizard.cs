@@ -18,7 +18,7 @@ public class StrikeWaterLittleWizard()
         [CardTag.Strike, CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DamageVar(6, ValueProp.Move), new PowerVar<WaterElement>(1)];
+        [new DamageVar(6, ValueProp.Move), new PowerVar<WaterElement>(2)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Water];
 
