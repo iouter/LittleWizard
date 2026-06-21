@@ -3,6 +3,7 @@ using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Elements;
+using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -31,9 +32,14 @@ public class CelestialRockSpell()
         {
             return;
         }
-        await CommonActions
-            .CardAttack(this, target, vfx: "vfx/vfx_fire_ball")
+        var damageValue = DynamicVars.Damage.BaseValue;
+
+        await new AttackCommand(damageValue)
+            .FromCard(this)
+            .WithHitFx("vfx/vfx_fire_ball")
+            .Targeting(target)
             .Execute(choiceContext);
+
         await CommonActions.Apply<FireElement>(choiceContext, target, this);
     }
 
