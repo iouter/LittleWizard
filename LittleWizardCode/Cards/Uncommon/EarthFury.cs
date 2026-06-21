@@ -1,4 +1,3 @@
-using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Animation;
 using LittleWizard.LittleWizardCode.Api.Cards;
@@ -14,7 +13,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
 
 public class EarthFury()
-    : LittleWizardCard(3, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
+    : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
@@ -23,7 +22,7 @@ public class EarthFury()
             new CalculationBaseVar(0),
             new ExtraDamageVar(1),
             new CalculatedDamageVar(ValueProp.Move).WithMultiplier(
-                (_, target) => target?.GetPowerAmount<EarthElement>() ?? 0
+                (card, _) => card.Owner?.Creature?.Block / 2 ?? 0
             ),
         ];
 
@@ -33,26 +32,28 @@ public class EarthFury()
     {
         var target = cardPlay.Target;
         if (target == null)
-        {
             return;
-        }
-        if (!target.HasPower<EarthElement>())
-        {
+
+        var ownerCreature = Owner.Creature;
+        if (ownerCreature == null)
             return;
-        }
+
+        int halfBlock = Owner.Creature.Block / 2;
+        if (halfBlock <= 0)
+            return;
+
         await AnimationHelper.TriggerCastAnimationOwner(this);
-        await CommonActions.CardAttack(this, cardPlay).Execute(choiceContext);
-        if (target.IsDead)
-        {
-            return;
-        }
-        await PowerCmd.Apply<EarthElement>(
+
+        await CreatureCmd.Damage(
             choiceContext,
             target,
-            target.GetPowerAmount<EarthElement>(),
+            halfBlock,
+            ValueProp.Move,
             Owner.Creature,
             this
         );
+
+        await PowerCmd.Apply<EarthElement>(choiceContext, target, halfBlock, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
