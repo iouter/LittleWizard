@@ -1,88 +1,84 @@
 using LittleWizard.LittleWizardCode.Api.Animation;
 using LittleWizard.LittleWizardCode.Api.Cards;
-using LittleWizard.LittleWizardCode.Api.DynamicVars;
 using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Elements;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 
 namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
 
 public class ElementBurst()
     : LittleWizardCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    private const string AnyElement = "AnyElement";
+    private const string ElementBurstKey = "ElementBurstAmount";
+
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
             new CalculationBaseVar(4),
-            new CalculationExtraVar(3),
-            new ThresholdVar(5),
-            new CalculatedVar(AnyElement).WithMultiplier(
+            new CalculationExtraVar(4),
+            new CalculatedVar(ElementBurstKey).WithMultiplier(
                 (card, target) =>
                 {
                     if (target == null)
                         return 0;
-                    int[] elementsAmount =
-                    [
-                        target.GetPowerAmount<FireElement>(),
-                        target.GetPowerAmount<WaterElement>(),
-                        target.GetPowerAmount<EarthElement>(),
-                    ];
-                    var threshold = card.DynamicVars.Threshold().IntValue;
-                    return (
-                        from amount in elementsAmount
-                        where amount > 0
-                        select Math.Floor((decimal)amount / threshold)
-                    ).FirstOrDefault();
+
+                    int fire = target.GetPowerAmount<FireElement>();
+                    int water = target.GetPowerAmount<WaterElement>();
+                    int earth = target.GetPowerAmount<EarthElement>();
+
+                    int currentAmount = 0;
+                    if (fire > 0)
+                        currentAmount = fire;
+                    else if (water > 0)
+                        currentAmount = water;
+                    else if (earth > 0)
+                        currentAmount = earth;
+                    else
+                        return 0;
+
+                    return currentAmount / 8;
                 }
             ),
         ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        ArgumentNullException.ThrowIfNull(cardPlay.Target);
-
-        var fireAmount = cardPlay.Target.GetPowerAmount<FireElement>();
-        var waterAmount = cardPlay.Target.GetPowerAmount<WaterElement>();
-        var earthAmount = cardPlay.Target.GetPowerAmount<EarthElement>();
-
-        if (fireAmount > 0)
-        {
-            await PowerCmd.Apply<FireElement>(
-                choiceContext,
-                cardPlay.Target,
-                ((CalculatedVar)DynamicVars[AnyElement]).Calculate(cardPlay.Target),
-                Owner.Creature,
-                this
-            );
+        var target = cardPlay.Target;
+        if (target == null)
             return;
-        }
 
-        if (waterAmount > 0)
-        {
-            await PowerCmd.Apply<WaterElement>(
-                choiceContext,
-                cardPlay.Target,
-                ((CalculatedVar)DynamicVars[AnyElement]).Calculate(cardPlay.Target),
-                Owner.Creature,
-                this
-            );
+        if (DynamicVars[ElementBurstKey] is not CalculatedVar calcVar)
             return;
-        }
+        int totalAmount = (int)calcVar.Calculate(target);
+        if (totalAmount <= 0)
+            return;
 
-        if (earthAmount > 0)
-            await PowerCmd.Apply<EarthElement>(
-                choiceContext,
-                cardPlay.Target,
-                ((CalculatedVar)DynamicVars[AnyElement]).Calculate(cardPlay.Target),
-                Owner.Creature,
-                this
-            );
+        PowerModel? power;
+        if (target.HasPower<FireElement>())
+            power = ModelDb.Power<FireElement>().ToMutable();
+        else if (target.HasPower<WaterElement>())
+            power = ModelDb.Power<WaterElement>().ToMutable();
+        else if (target.HasPower<EarthElement>())
+            power = ModelDb.Power<EarthElement>().ToMutable();
+        else
+            return;
+
         await AnimationHelper.TriggerCastAnimationOwner(this);
+
+        await PowerCmd.Apply(
+            choiceContext,
+            power,
+            target,
+            totalAmount,
+            Owner.Creature,
+            this,
+            false
+        );
     }
 
     protected override void OnUpgrade()
