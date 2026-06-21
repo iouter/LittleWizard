@@ -15,9 +15,9 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
 
 public class EarthFury()
-    : LittleWizardCard(3, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
+    : LittleWizardCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
-    private const string EarthElement = "EarthElement";
+    private const string EarthElementCalculation = "EarthElementCalculation";
 
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
@@ -29,7 +29,9 @@ public class EarthFury()
             new CalculatedDamageVar(ValueProp.Move).WithMultiplier(
                 (card, _) => GetMultiplierAmount(card)
             ),
-            new CalculatedVar(EarthElement).WithMultiplier((card, _) => GetMultiplierAmount(card)),
+            new CalculatedVar(EarthElementCalculation).WithMultiplier(
+                (card, _) => GetMultiplierAmount(card)
+            ),
         ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Earth];
@@ -51,7 +53,7 @@ public class EarthFury()
         await PowerCmd.Apply<EarthElement>(
             choiceContext,
             target,
-            ((CalculatedVar)DynamicVars[EarthElement]).Calculate(target),
+            ((CalculatedVar)DynamicVars[EarthElementCalculation]).Calculate(target),
             Owner.Creature,
             this
         );

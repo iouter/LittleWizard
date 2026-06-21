@@ -80,7 +80,7 @@
     "LITTLEWIZARD-ELEMENT_BURST.title": "元素爆发",
     "LITTLEWIZARD-ELEMENT_BURST.description": "该敌人如果拥有[gold]元素[/gold]，则给予{AnyElement:diff()}层该种元素。每有5层元素，则额外给予{AnyElement:diff()}层元素。",
     "LITTLEWIZARD-EARTH_FURY.title": "大地之怒",
-    "LITTLEWIZARD-EARTH_FURY.description": "造成等量于该敌人身上的[gold]土元素[/gold]层数的伤害。并将该敌人身上，当前的[gold]土元素[/gold]的层数翻倍。",
+    "LITTLEWIZARD-EARTH_FURY.description": "造成当前[gold]格挡[/gold]值一半的伤害，给予当前[gold]格挡[/gold]值一半的[gold]土元素[/gold]。\n{InCombat:(照成{CalculatedDamage:diff()}点伤害，给予{EarthElementCalculation:diff()}层[gold]土元素[/gold]。)|}",
     "LITTLEWIZARD-WATER_BLADE.title": "水刃切割",
     "LITTLEWIZARD-WATER_BLADE.description": "造成{Damage:diff()}点伤害。给予5层[gold]水元素[/gold]。",
     "LITTLEWIZARD-START_OVER.title": "推翻重来",
