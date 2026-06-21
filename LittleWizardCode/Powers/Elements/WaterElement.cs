@@ -1,15 +1,14 @@
+using BaseLib.Abstracts;
 using BaseLib.Cards.Variables;
 using LittleWizard.LittleWizardCode.Api.Powers;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.LittleWizardCode.Powers.Elements;
 
-public class WaterElement : BaseElement
+public class WaterElement : BaseElement, IHasSecondAmount
 {
     private const string TempWaterPower = "tempWaterPower";
 
@@ -18,90 +17,27 @@ public class WaterElement : BaseElement
             new(TempWaterPower + "Base", 0),
             new(TempWaterPower + "Extra", -1),
             new CustomCalculatedVar("tempWaterPower").WithMultiplier(
-                (power, _) => GetDamageAdditive(power.Amount)
+                (power, _) => GetDamageAdditive(power)
             ),
         ];
 
-    public override bool TryModifyPowerAmountReceived(
-        PowerModel canonicalPower,
-        Creature target,
+    public override decimal ModifyDamageAdditive(
+        Creature? target,
         decimal amount,
-        Creature? applier,
-        out decimal modifiedAmount
-    )
-    {
-        if (target != Owner || amount == 0)
-        {
-            modifiedAmount = amount;
-            return false;
-        }
-        switch (canonicalPower)
-        {
-            case FireElement fire:
-            {
-                ElementHelper.FireAndWater(
-                    new ThrowingPlayerChoiceContext(),
-                    Owner,
-                    Amount,
-                    amount,
-                    applier
-                );
-                modifiedAmount = 0;
-                return true;
-            }
-            case EarthElement earth:
-            {
-                ElementHelper.WaterAndEarth(
-                    new ThrowingPlayerChoiceContext(),
-                    Owner,
-                    Amount,
-                    amount,
-                    applier
-                );
-                modifiedAmount = 0;
-                return true;
-            }
-            default:
-            {
-                modifiedAmount = amount;
-                return false;
-            }
-        }
-    }
-
-    public override Task AfterApplied(Creature? applier, CardModel? cardSource)
-    {
-        Removed += async () =>
-        {
-            await PowerCmd.Apply<StrengthPower>(
-                new ThrowingPlayerChoiceContext(),
-                Owner,
-                -GetDamageAdditive(Amount),
-                null,
-                null
-            );
-        };
-        return Task.CompletedTask;
-    }
-
-    public override async Task AfterPowerAmountChanged(
-        PlayerChoiceContext choiceContext,
-        PowerModel power,
-        decimal amount,
-        Creature? applier,
+        ValueProp props,
+        Creature? dealer,
         CardModel? cardSource
     )
     {
-        if (power != this)
-        {
-            return;
-        }
-        var amountApplied = GetDamageAdditive(Amount) - GetDamageAdditive(Amount - amount);
-        await PowerCmd.Apply<StrengthPower>(choiceContext, Owner, amountApplied, applier, null);
+        if (Owner != dealer || !props.IsPoweredAttack())
+            return 0M;
+        return GetDamageAdditive(this);
     }
 
-    private static decimal GetDamageAdditive(decimal amount)
+    private static decimal GetDamageAdditive(PowerModel power)
     {
-        return -Math.Ceiling(amount / 3);
+        return -Math.Ceiling((decimal)power.Amount / 3);
     }
+
+    public string GetSecondAmount() => $"{GetDamageAdditive(this)}";
 }
