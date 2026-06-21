@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
@@ -16,40 +17,41 @@ namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
 public class EarthFury()
     : LittleWizardCard(3, CardType.Skill, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
+    private const string EarthElement = "EarthElement";
+
     protected override HashSet<CardTag> CanonicalTags => [CardTagExtensions.LittleWizardElement];
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
             new CalculationBaseVar(0),
+            new CalculationExtraVar(1),
             new ExtraDamageVar(1),
             new CalculatedDamageVar(ValueProp.Move).WithMultiplier(
-                (_, target) => target?.GetPowerAmount<EarthElement>() ?? 0
+                (card, _) => GetMultiplierAmount(card)
             ),
+            new CalculatedVar(EarthElement).WithMultiplier((card, _) => GetMultiplierAmount(card)),
         ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Earth];
 
+    private static int GetMultiplierAmount(CardModel card)
+    {
+        return card.Owner.Creature.Block / 2;
+    }
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         var target = cardPlay.Target;
-        if (target == null)
-        {
-            return;
-        }
-        if (!target.HasPower<EarthElement>())
-        {
-            return;
-        }
         await AnimationHelper.TriggerCastAnimationOwner(this);
         await CommonActions.CardAttack(this, cardPlay).Execute(choiceContext);
-        if (target.IsDead)
+        if (target!.IsDead)
         {
             return;
         }
         await PowerCmd.Apply<EarthElement>(
             choiceContext,
             target,
-            target.GetPowerAmount<EarthElement>(),
+            ((CalculatedVar)DynamicVars[EarthElement]).Calculate(target),
             Owner.Creature,
             this
         );
