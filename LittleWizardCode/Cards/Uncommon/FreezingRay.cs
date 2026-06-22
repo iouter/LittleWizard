@@ -12,7 +12,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
 
 public class FreezingRay()
-    : LittleWizardCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+    : LittleWizardCard(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [new DamageVar(3, ValueProp.Move), new RepeatVar(1)];
@@ -31,6 +31,6 @@ public class FreezingRay()
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Repeat.UpgradeValueBy(1);
+        EnergyCost.UpgradeBy(-1);
     }
 }
