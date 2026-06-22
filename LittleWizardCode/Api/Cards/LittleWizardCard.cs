@@ -1,7 +1,6 @@
 using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
-using LittleWizard.LittleWizardCode.Api.Audios;
 using LittleWizard.LittleWizardCode.Character;
 using MegaCrit.Sts2.Core.Entities.Cards;
 
@@ -20,10 +19,10 @@ public abstract class LittleWizardCard(
     public override string? CustomPortraitPath =>
         $"res://{MainFile.ModId}/images/card_portraits/{Id.Entry.RemovePrefix().ToLowerInvariant()}.png";
 
-    public override Task BeforeCardPlayed(CardPlay cardPlay)
-    {
-        if (cardPlay.Card.Type == CardType.Attack)
-            AudioHelper.PlayOnAttack(cardPlay.Card);
-        return base.BeforeCardPlayed(cardPlay);
-    }
+    /* public override Task BeforeCardPlayed(CardPlay cardPlay)
+     {
+         if (cardPlay.Card.Type == CardType.Attack)
+             AudioHelper.PlayOnAttack(cardPlay.Card);
+         return base.BeforeCardPlayed(cardPlay);
+     }*/
 }
