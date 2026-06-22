@@ -43,6 +43,16 @@ public static class ElementHelper
             || card.Enchantment is IElementEnchantment;
     }
 
+    public static bool HasElement(Creature creature)
+    {
+        return creature.HasPower<BaseElement>();
+    }
+
+    public static BaseElement? GetElement(Creature creature)
+    {
+        return creature.GetPower<BaseElement>();
+    }
+
     public static async Task<bool> RemoveElementAtMost(
         CardModel card,
         PlayerChoiceContext ctx,

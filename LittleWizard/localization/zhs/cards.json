@@ -78,7 +78,7 @@
     "LITTLEWIZARD-ELEMENT_CONVERT.title": "元素转换",
     "LITTLEWIZARD-ELEMENT_CONVERT.description": "将敌人身上的元素转换为另一种。\n[gold]火[/gold]转换成[gold]水[/gold]，\n[gold]水[/gold]转换成[gold]土[/gold]，\n[gold]土[/gold]转换成[gold]火[/gold]。\n{IfUpgraded:show:将此牌返回你的手牌。|}",
     "LITTLEWIZARD-ELEMENT_BURST.title": "元素爆发",
-    "LITTLEWIZARD-ELEMENT_BURST.description": "该敌人如果拥有[gold]元素[/gold]，则给予{AnyElement:diff()}层该种[gold]元素[/gold]。每有5层[gold]元素[/gold]，则额外给予{AnyElement:diff()}层[gold]元素[/gold]。",
+    "LITTLEWIZARD-ELEMENT_BURST.description": "该敌人如果拥有[gold]元素[/gold]，则给予{CalculationBase:diff()}层该种[gold]元素[/gold]。每有{Threshold}层[gold]元素[/gold]，则额外给予{CalculationExtra:diff()}层[gold]元素[/gold]。{InCombat:\n（施加{ElementName}，{AnyElement:diff()}层。）|}",
     "LITTLEWIZARD-EARTH_FURY.title": "大地之怒",
     "LITTLEWIZARD-EARTH_FURY.description": "造成当前[gold]格挡[/gold]值一半的伤害，给予当前[gold]格挡[/gold]值一半的[gold]土元素[/gold]。\n{InCombat:(照成{CalculatedDamage:diff()}点伤害，给予{EarthElementCalculation:diff()}层[gold]土元素[/gold]。)|}",
     "LITTLEWIZARD-WATER_BLADE.title": "水刃切割",
