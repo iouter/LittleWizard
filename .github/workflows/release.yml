@@ -1,12 +1,19 @@
-name: Release
+name: Publish
 on:
-  workflow_dispatch:
+  push:
+    tags: ["v*"]
 jobs:
-  release:
+  publish:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
-      - name: Release STS2 Mod
-        uses: iouter/iouter_actions/sts2/release@master
+      - name: Publish STS2 Mod
+        uses: iouter/iouter_actions/sts2/publish@master
         with:
           project-name: ${{ github.event.repository.name }}
+          workshop-item-id: 3747560296
+        env:
+          STEAM_USERNAME: ${{ secrets.STEAM_USERNAME }}
+          STEAM_CONFIG_VDF: ${{ secrets.STEAM_CONFIG_VDF }}
