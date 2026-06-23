@@ -25,7 +25,7 @@ public class HugeFireball()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        AttackCommand attackCommand = await CommonActions
+        await CommonActions
             .CardAttack(this, cardPlay)
             .WithHitFx("vfx/vfx_fire_ball")
             .Execute(choiceContext);
