@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 namespace LittleWizard.LittleWizardCode.Cards.Common;
 
 public class RemoveDefense()
-    : LittleWizardCard(0, CardType.Skill, CardRarity.Common, TargetType.AnyEnemy)
+    : LittleWizardCard(1, CardType.Skill, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<VulnerablePower>(4)];
 
@@ -27,6 +27,6 @@ public class RemoveDefense()
 
     protected override void OnUpgrade()
     {
-        AddKeyword(CardKeyword.Retain);
+        EnergyCost.UpgradeBy(-1);
     }
 }

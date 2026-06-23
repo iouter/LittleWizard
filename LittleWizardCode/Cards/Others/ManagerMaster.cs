@@ -9,11 +9,11 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
 
-namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
+namespace LittleWizard.LittleWizardCode.Cards.Others;
 
 [Pool(typeof(EventCardPool))]
 public class ManagerMaster()
-    : LittleWizardCard(3, CardType.Power, CardRarity.Uncommon, TargetType.Self),
+    : LittleWizardCard(3, CardType.Power, CardRarity.Event, TargetType.Self),
         ITrashHeapCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
