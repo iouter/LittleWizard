@@ -181,7 +181,7 @@
     "LITTLEWIZARD-RETRAIN.title": "重修",
     "LITTLEWIZARD-RETRAIN.description": "获得3张\"略过\"。",
     "LITTLEWIZARD-WATER_VAPOUR.title": "水蒸气",
-    "LITTLEWIZARD-WATER_VAPOUR.description": "去除敌人身上的所有[gold]人工制品[/gold]，\n并给予等量的[gold]水元素[/gold]。\n该敌人回合开始时获得{WaterVapourPower:diff()}层[gold]水元素[/gold]。",
+    "LITTLEWIZARD-WATER_VAPOUR.description": "去除敌人身上的所有[gold]人工制品[/gold]，\n并给予等量的[gold]水元素[/gold]。\n敌人回合开始时获得{WaterVapourPower:diff()}层[gold]水元素[/gold]。",
     "LITTLEWIZARD-SHORT_CIRCUIT_WATER_BALL.title": "短路水球",
     "LITTLEWIZARD-SHORT_CIRCUIT_WATER_BALL.description": "造成{Damage:diff()}点伤害。\n去除敌人身上的\n所有[gold]人工制品[/gold]，\n并给予{WaterElement:diff()}层[gold]水元素[/gold]。",
     "LITTLEWIZARD-REBIRTH_CEREMONY.title": "重生仪式",
