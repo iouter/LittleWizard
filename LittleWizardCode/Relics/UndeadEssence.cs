@@ -11,9 +11,11 @@ namespace LittleWizard.LittleWizardCode.Relics;
 
 public class UndeadEssence : LittleWizardRelics
 {
+    private const string TargetCombatAmount = "TargetCombatAmount";
     public override RelicRarity Rarity => RelicRarity.Rare;
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new HealVar(1)];
-    private int _resurrectionCount;
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [new HealVar(1), new(TargetCombatAmount, 3)];
+    private int _resurrectionCount = 1;
 
     [SuppressMessage("ReSharper", "MemberCanBePrivate.Global")]
     [SavedProperty]
@@ -32,13 +34,25 @@ public class UndeadEssence : LittleWizardRelics
         }
     }
 
+    [SavedProperty]
+    public int CombatAmount { get; private set; }
+
     public override int DisplayAmount => ResurrectionCount;
 
     public override bool ShowCounter => true;
 
     public override Task AfterCombatEnd(CombatRoom room)
     {
-        ResurrectionCount += 1;
+        if (CombatAmount < DynamicVars[TargetCombatAmount].BaseValue)
+        {
+            CombatAmount++;
+        }
+        else
+        {
+            ResurrectionCount++;
+            CombatAmount = 0;
+        }
+
         Flash();
         return base.AfterCombatEnd(room);
     }
