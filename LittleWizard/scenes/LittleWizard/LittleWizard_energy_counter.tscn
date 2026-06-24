@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cdp7665pcyurw"]
 
-[ext_resource type="Script" uid="uid://djaumrn3qfqb4" path="res://LittleWizardCode/Api/Nodes/SNEnergyCounter.cs" id="1_vejs6"]
+[ext_resource type="Script" uid="uid://dqpkj6vr6rlo2" path="res://LittleWizardCode/Api/Nodes/SNEnergyCounter.cs" id="1_vejs6"]
 [ext_resource type="PackedScene" uid="uid://b3g2nshchsio5" path="res://LittleWizard/scenes/LittleWizard/LittleWizard_energy_vfx_back.tscn" id="2_b6j3t"]
 [ext_resource type="Texture2D" uid="uid://dkqwwgiy0j8u3" path="res://LittleWizard/images/ui/combat/LittleWizard/LittleWizard_orb_layer_1.png" id="3_5tjhr"]
 [ext_resource type="PackedScene" uid="uid://dfmw8p4tmbtuj" path="res://LittleWizard/scenes/LittleWizard/LittleWizard_energy_vfx_front.tscn" id="3_mubnd"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bkkpdd6ea3j2p" path="res://LittleWizard/images/ui/combat/LittleWizard/LittleWizard_orb_layer_4.png" id="6_pweko"]
 [ext_resource type="Texture2D" uid="uid://dny2on0siliqi" path="res://LittleWizard/images/ui/combat/LittleWizard/LittleWizard_orb_layer_5.png" id="7_7mya8"]
 [ext_resource type="FontFile" uid="uid://bg4o1rcx1h5pa" path="res://LittleWizard/fonts/kreon_bold.ttf" id="9_56gsp"]
-[ext_resource type="Script" uid="uid://bmn02l3wkgp1f" path="res://LittleWizardCode/Api/Nodes/SMegaLabel.cs" id="9_61yas"]
+[ext_resource type="Script" uid="uid://bck1iof828ucl" path="res://LittleWizardCode/Api/Nodes/SMegaLabel.cs" id="9_61yas"]
 
 [sub_resource type="FontVariation" id="FontVariation_o1hxt"]
 base_font = ExtResource("9_56gsp")
