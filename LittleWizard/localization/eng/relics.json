@@ -21,7 +21,7 @@
     "LITTLEWIZARD-ARCANE_TOME.description": "Whenever you trigger [gold]Element Synergy[/gold], draw 1 card.",
     "LITTLEWIZARD-ARCANE_TOME.flavor": "",
     "LITTLEWIZARD-ARCANE_TOME.title": "Arcane Tome",
-    "LITTLEWIZARD-UNDEAD_ESSENCE.description": "After each combat victory, gain 1 chance to avoid death (when your HP would drop to 0 or below, heal 1 HP instead).",
+    "LITTLEWIZARD-UNDEAD_ESSENCE.description": "After every 3 combats victory, gain 1 chance to avoid death (when your HP would drop to 0 or below, heal 1 HP instead).",
     "LITTLEWIZARD-UNDEAD_ESSENCE.flavor": "",
     "LITTLEWIZARD-UNDEAD_ESSENCE.title": "Undead Essence",
     "LITTLEWIZARD-HANDWRITING.description": "At the start of each combat, add 1 random [gold]Power[/gold] into your hand. This card costs 0.",
