@@ -78,7 +78,7 @@
     "LITTLEWIZARD-ELEMENT_CONVERT.title": "Element Convert",
     "LITTLEWIZARD-ELEMENT_CONVERT.description": "Convert [gold]Element[/gold] on the enemy into another. \nConvert [gold]Fire Element[/gold] into [gold]Water Element[/gold]. \nConvert [gold]Water Element[/gold] into [gold]Earth Element[/gold]. \nConvert [gold]Earth Element[/gold] into [gold]Fire Element[/gold].\n{IfUpgraded:show: Return this card to your [gold]Hand[/gold].|}",
     "LITTLEWIZARD-ELEMENT_BURST.title": "Element Burst",
-    "LITTLEWIZARD-ELEMENT_BURST.description": "If target has [gold]element[gold],apply more {CalculationBase:diff()} stacks to target same of the [gold]Element[/gold] stacks. For every 8 stacks of the [gold]element[gold], apply {CalculationBase:diff()} extra [gold]element[gold] stacks.\n{InCombat:(apply {ElementName} [gold]element[gold]|} {AnyElement:diff()} stacks.)|}",
+    "LITTLEWIZARD-ELEMENT_BURST.description": "If the enemy has [gold]Element[/gold], apply {CalculationBase:diff()} the same [gold]Element[/gold].\nFor every {Threshold} [gold]Element[/gold], apply {CalculationExtra:diff()} additional [gold]Element[/gold].{InCombat:\nApply {AnyElement:diff()} {ElementName}.|}",
     "LITTLEWIZARD-EARTH_FURY.title": "Earth Fury",
     "LITTLEWIZARD-EARTH_FURY.description": "Deal damage that equals to the half of [gold]Block[/gold] you have.\nApply [gold]Earth Element[/gold] that equals to the half of [gold]block [/gold] you have.",
     "LITTLEWIZARD-WATER_BLADE.title": "Water Blade",
