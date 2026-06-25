@@ -14,13 +14,19 @@ namespace LittleWizard.LittleWizardCode.Powers.Elements;
 public class WaterElement : BaseElement, IHasSecondAmount
 {
     private const string TempWaterPower = "tempWaterPower";
+    private const string DecrementAmount = "decrementAmount";
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
             new(TempWaterPower + "Base", 0),
             new(TempWaterPower + "Extra", -1),
-            new CustomCalculatedVar("tempWaterPower").WithMultiplier(
+            new CustomCalculatedVar(TempWaterPower).WithMultiplier(
                 (power, _) => GetDamageAdditive(power)
+            ),
+            new(DecrementAmount + "Base", 0),
+            new(DecrementAmount + "Extra", 1),
+            new CustomCalculatedVar(DecrementAmount).WithMultiplier(
+                (power, _) => GetDecrementAmount(power)
             ),
         ];
 
@@ -48,12 +54,18 @@ public class WaterElement : BaseElement, IHasSecondAmount
             return;
         }
 
-        await PowerCmd.Decrement(this);
+        await PowerCmd.ModifyAmount(choiceContext, this, -GetDecrementAmount(this), null, null);
     }
 
     private static decimal GetDamageAdditive(PowerModel power)
     {
         return -Math.Ceiling((decimal)power.Amount / 3);
+    }
+
+    private static decimal GetDecrementAmount(PowerModel power)
+    {
+        var k = power.Amount / 10;
+        return 1 + 4 * k;
     }
 
     public string GetSecondAmount() => $"{GetDamageAdditive(this)}";
