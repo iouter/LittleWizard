@@ -190,7 +190,7 @@
     "LITTLEWIZARD-TURNBACK.description": "Gain {Block:diff()} [gold]Block[/gold].\nPut 3 cards from your [gold]Discard Pile[/gold] into your [gold]Hand[/gold].",
     "LITTLEWIZARD-TURNBACK.selectionScreenPrompt": "Choose cards to put into your Hand",
     "LITTLEWIZARD-FROZEN_WORLD.title": "Frozen World",
-    "LITTLEWIZARD-FROZEN_WORLD.description": "Gain {CalculatedBlock:diff()} [gold]Block[/gold].\nIf the enemy has at least 4 [gold]Water Element[/gold], gain {CalculationExtra:diff()} additional [gold]Block[/gold].",
+    "LITTLEWIZARD-FROZEN_WORLD.description": "Gain {CalculatedBlock:diff()} [gold]Block[/gold].\nIf the enemy has at least 3 [gold]Water Element[/gold], gain {CalculationExtra:diff()} additional [gold]Block[/gold].",
     "LITTLEWIZARD-EXTRACT.title": "Extract",
     "LITTLEWIZARD-EXTRACT.description": "Apply {RandomElement:diff()} random [gold]Element[/gold].\nDraw {Cards:diff()} cards.",
     "LITTLEWIZARD-OFFENSIVE_CONVERSION.title": "Offensive Conversion",
