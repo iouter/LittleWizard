@@ -13,8 +13,9 @@ namespace LittleWizard.LittleWizardCode.Cards.Rare;
 public class WeakeningCurse()
     : LittleWizardCard(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DamageVar(11, ValueProp.Move), new PowerVar<StrengthPower>(-5)];
+        [new DamageVar(11, ValueProp.Move), new PowerVar<StrengthPower>(-3)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
@@ -26,6 +27,6 @@ public class WeakeningCurse()
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(3);
-        DynamicVars.Power<StrengthPower>().UpgradeValueBy(-1);
+        DynamicVars.Power<StrengthPower>().UpgradeValueBy(-2);
     }
 }

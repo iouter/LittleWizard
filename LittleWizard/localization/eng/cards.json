@@ -173,7 +173,7 @@
     "LITTLEWIZARD-WIND_TECHNIQUE.title": "Wind Technique",
     "LITTLEWIZARD-WIND_TECHNIQUE.description": "Gain {WindTechniquePower:diff()} [gold]Fly[/gold].",
     "LITTLEWIZARD-WEAKENING_CURSE.title": "Weakening Curse",
-    "LITTLEWIZARD-WEAKENING_CURSE.description": "Deal {Damage:diff()} damage.\nThe enemy loses 4 [gold]Strength[/gold].",
+    "LITTLEWIZARD-WEAKENING_CURSE.description": "Deal {Damage:diff()} damage.\nThe enemy loses {IfUpgraded:show:5|3} [gold]Strength[/gold].",
     "LITTLEWIZARD-BREW_POTIONS.title": "Brew Potions",
     "LITTLEWIZARD-BREW_POTIONS.description": "At the end of combat, gain {BrewPotionsPower:diff()} random Potions.",
     "LITTLEWIZARD-IGNITE.title": "Ignite",
