@@ -53,8 +53,7 @@ public class WaterElement : BaseElement, IHasSecondAmount
 
     private static decimal GetDamageAdditive(PowerModel power)
     {
-        var k = power.Amount / 10;
-        return -1 - 4 * k;
+        return -Math.Ceiling((decimal)power.Amount / 3);
     }
 
     public string GetSecondAmount() => $"{GetDamageAdditive(this)}";
