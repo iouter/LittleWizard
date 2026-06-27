@@ -1,4 +1,3 @@
-using BaseLib.Cards.Variables;
 using BaseLib.Hooks;
 using Godot;
 using LittleWizard.LittleWizardCode.Api.Powers;
@@ -6,23 +5,12 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.LittleWizardCode.Powers.Elements;
 
 public class FireElement : BaseElement
 {
-    private const string FireDamage = "FireDamage";
-
-    protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [
-            new(FireDamage + "Base", 0),
-            new(FireDamage + "Extra", 1),
-            new CustomCalculatedVar(FireDamage).WithMultiplier((power, _) => GetDamage(power)),
-        ];
-
     private static readonly Material? FireBarMaterial = GD.Load<Material>(
         "res://materials/vfx/bar/vfx_fire_bar.tres"
     );
@@ -38,7 +26,11 @@ public class FireElement : BaseElement
         /*VfxCmd.PlayOnCreatureCenter(Owner, "vfx/vfx_fire_element"); */
         PlaySound();
 
-        var damage = GetDamage(this);
+        int damage;
+        if (Amount == 1)
+            damage = 1;
+        else
+            damage = Amount / 2;
 
         if (damage > 0)
         {
@@ -71,12 +63,5 @@ public class FireElement : BaseElement
             order: 10,
             overlayMaterial: FireBarMaterial
         );
-    }
-
-    private static int GetDamage(PowerModel powerModel)
-    {
-        if (powerModel.Amount == 1)
-            return 1;
-        return powerModel.Amount / 2;
     }
 }

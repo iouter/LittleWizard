@@ -2,7 +2,6 @@ using BaseLib.Extensions;
 using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api.Animation;
 using LittleWizard.LittleWizardCode.Api.Cards;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -16,24 +15,18 @@ public class WeakeningCurse()
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-        [new DamageVar(11, ValueProp.Move), new PowerVar<StrengthPower>(3)];
+        [new DamageVar(11, ValueProp.Move), new PowerVar<StrengthPower>(-3)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CommonActions.CardAttack(this, cardPlay).Execute(choiceContext);
-        await PowerCmd.Apply<StrengthPower>(
-            choiceContext,
-            cardPlay.Target!,
-            -DynamicVars.Strength.BaseValue,
-            Owner.Creature,
-            this
-        );
+        await CommonActions.Apply<StrengthPower>(choiceContext, this, cardPlay);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(3);
-        DynamicVars.Power<StrengthPower>().UpgradeValueBy(2);
+        DynamicVars.Power<StrengthPower>().UpgradeValueBy(-2);
     }
 }

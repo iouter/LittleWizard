@@ -7,7 +7,7 @@ namespace LittleWizard.LittleWizardCode.Powers.Cards;
 public sealed class ChildBodyPower : LittleWizardPower
 {
     public override PowerType Type => PowerType.Buff;
-    public override PowerStackType StackType => PowerStackType.Single;
+    public override PowerStackType StackType => PowerStackType.Counter;
 
     public override decimal ModifyMaxEnergy(Player player, decimal amount)
     {

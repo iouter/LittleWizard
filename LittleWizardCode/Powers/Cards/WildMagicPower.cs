@@ -14,7 +14,6 @@ public class WildMagicPower : LittleWizardPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
-    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
     public override async Task AfterPlayerTurnStart(
         PlayerChoiceContext choiceContext,
@@ -23,7 +22,7 @@ public class WildMagicPower : LittleWizardPower
     {
         if (player.Creature != Owner)
             return;
-        await PowerCmd.Apply<FireElement>(choiceContext, Owner, 4, Owner, null);
+        await PowerCmd.Apply<FireElement>(choiceContext, Owner, Amount + 1, Owner, null);
     }
 
     public override decimal ModifyDamageMultiplicative(
@@ -35,7 +34,7 @@ public class WildMagicPower : LittleWizardPower
     )
     {
         if (dealer == Owner && props.IsPoweredAttack())
-            return 2;
+            return Amount + 1;
         return base.ModifyDamageMultiplicative(target, amount, props, dealer, cardSource);
     }
 
@@ -48,7 +47,7 @@ public class WildMagicPower : LittleWizardPower
     )
     {
         if (giver == Owner && power is BaseElement)
-            return 2;
+            return Amount + 1;
         return base.ModifyPowerAmountGivenMultiplicative(power, giver, amount, target, cardSource);
     }
 }
