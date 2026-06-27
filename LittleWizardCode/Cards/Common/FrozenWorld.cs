@@ -19,7 +19,7 @@ public class FrozenWorld() : LittleWizardCard(1, CardType.Skill, CardRarity.Comm
             new CalculatedBlockVar(ValueProp.Move).WithMultiplier(
                 (card, _) => IsWaterElementEnough(card) ? 1 : 0
             ),
-            new PowerVar<WaterElement>(4),
+            new PowerVar<WaterElement>(3),
         ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)

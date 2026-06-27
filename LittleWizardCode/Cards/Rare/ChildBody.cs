@@ -18,6 +18,6 @@ public class ChildBody() : LittleWizardCard(3, CardType.Power, CardRarity.Rare, 
 
     protected override void OnUpgrade()
     {
-        AddKeyword(CardKeyword.Innate);
+        EnergyCost.UpgradeBy(-1);
     }
 }
