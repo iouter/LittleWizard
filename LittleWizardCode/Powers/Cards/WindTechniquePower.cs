@@ -42,12 +42,13 @@ public class WindTechniquePower : LittleWizardPower
 
     public override async Task AfterRemoved(Creature oldOwner)
     {
-        await PowerCmd.Apply<StunPower>(
+        var stun = await PowerCmd.Apply<StunPower>(
             new ThrowingPlayerChoiceContext(),
             oldOwner,
             1,
             oldOwner,
             null
         );
+        stun!.SkipNextDurationTick = true;
     }
 }
