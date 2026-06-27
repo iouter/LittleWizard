@@ -1,4 +1,3 @@
-using BaseLib.Extensions;
 using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Powers.Cards;
@@ -10,15 +9,20 @@ namespace LittleWizard.LittleWizardCode.Cards.Rare;
 
 public class ManaSurge() : LittleWizardCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<ManaSurgePower>(1)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new EnergyVar(1)];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await CommonActions.Apply<ManaSurgePower>(choiceContext, this, cardPlay);
+        await CommonActions.Apply<ManaSurgePower>(
+            choiceContext,
+            Owner.Creature,
+            this,
+            DynamicVars.Energy.BaseValue
+        );
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Power<ManaSurgePower>().UpgradeValueBy(1);
+        DynamicVars.Energy.UpgradeValueBy(1);
     }
 }
