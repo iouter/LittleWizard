@@ -43,8 +43,8 @@ public class StunPower : LittleWizardPower
         IEnumerable<Creature> creatures
     )
     {
-        if (side != CombatSide.Enemy)
+        if (side != Owner.Side)
             return;
-        await PowerCmd.Decrement(this);
+        await PowerCmd.TickDownDuration(this);
     }
 }
