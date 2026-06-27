@@ -47,7 +47,7 @@
     "LITTLEWIZARD-MAGIC_MISSILE.title": "마력탄",
     "LITTLEWIZARD-MAGIC_MISSILE.description": "무작위 적에게\n피해를 {Damage:diff()}만큼\nX의 제곱 번 줍니다.",
     "LITTLEWIZARD-WARMUP_BEAM.title": "예열 광선",
-    "LITTLEWIZARD-WARMUP_BEAM.description": "피해를 {Damage:diff()} 줍니다.\n이번 턴에 대상 적이\n[gold]원소[/gold]를 얻을 때마다,\n추가로 {WarmupBeamPower:diff()} 얻습니다.",
+    "LITTLEWIZARD-WARMUP_BEAM.description": "피해를 {Damage:diff()} 줍니다.\n대상 적이\n[gold]원소[/gold]를 얻을 때마다,\n추가로 {WarmupBeamPower:diff()} 얻습니다.",
     "LITTLEWIZARD-EROSION_RAY.title": "침식 광선",
     "LITTLEWIZARD-EROSION_RAY.description": "피해를 {Damage:diff()} 줍니다.\n대상 적이 보유한\n무작위 해로운 효과 하나가\n2배로 증가합니다.",
     "LITTLEWIZARD-PROPHECY.title": "예언",
