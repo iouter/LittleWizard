@@ -1,0 +1,16 @@
+{
+    "LITTLEWIZARD-LITTLE_WIZARD.titleObject": "작은 마법사",
+    "LITTLEWIZARD-LITTLE_WIZARD.possessiveAdjective": "그녀의",
+    "LITTLEWIZARD-LITTLE_WIZARD.goldMonologue": "Line spoken when obtaining a large amount of gold",
+    "LITTLEWIZARD-LITTLE_WIZARD.aromaPrinciple": "Lore",
+    "LITTLEWIZARD-LITTLE_WIZARD.pronounPossessive": "그녀의 것",
+    "LITTLEWIZARD-LITTLE_WIZARD.pronounObject": "그녀를",
+    "LITTLEWIZARD-LITTLE_WIZARD.banter.dead.endTurnPing": "...",
+    "LITTLEWIZARD-LITTLE_WIZARD.eventDeathPrevention": "Co-op survival line",
+    "LITTLEWIZARD-LITTLE_WIZARD.title": "작은 마법사",
+    "LITTLEWIZARD-LITTLE_WIZARD.cardsModifierTitle": "__ Cards",
+    "LITTLEWIZARD-LITTLE_WIZARD.pronounSubject": "그녀를",
+    "LITTLEWIZARD-LITTLE_WIZARD.cardsModifierDescription": "__ cards will now appear in rewards and shops.",
+    "LITTLEWIZARD-LITTLE_WIZARD.description": "위대한 마법사가 잘못 진행된 의식 때문에\n윤회의 저주에 갇혔습니다.\n그녀는 가장 기초적인 삼원소 마법으로 돌아가,\n첨탑에서 저주를 풀 방법을 찾아 나섭니다.",
+    "LITTLEWIZARD-LITTLE_WIZARD.banter.alive.endTurnPing": "Co-op hurry up end turn ping message"
+}
