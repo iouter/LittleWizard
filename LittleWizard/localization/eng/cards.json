@@ -134,7 +134,7 @@
     "LITTLEWIZARD-ELEMENT_BLESSING.title": "Element Blessing",
     "LITTLEWIZARD-ELEMENT_BLESSING.description": "Every 2 cards with [gold]Element[/gold] you play, gain {energyPrefix:energyIcons(1)}.",
     "LITTLEWIZARD-EMERGE.title": "Emerge",
-    "LITTLEWIZARD-EMERGE.description": "When the enemy triggers [gold]Element Synergy[/gold], {IfUpgraded:show:have a chance to apply a large amount of random [gold]Element[/gold] to the enemy.|have a chance to apply random [gold]Element[/gold] to the enemy.}",
+    "LITTLEWIZARD-EMERGE.description": "When the enemy triggers [gold]Element Synergy[/gold], apply {EmergePower:diff()} ramdom [gold]Element[/gold] to the enemy.",
     "LITTLEWIZARD-ENDLESS_WALL.title": "Endless Wall",
     "LITTLEWIZARD-ENDLESS_WALL.description": "Gain {Block:diff()} [gold]Block[/gold].\nPut this card into your [gold]Draw Pile[/gold].",
     "LITTLEWIZARD-GUIDANCE.title": "Guidance",
