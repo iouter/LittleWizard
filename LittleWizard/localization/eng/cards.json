@@ -33,7 +33,7 @@
     "LITTLEWIZARD-ANVIL_TRANSFER.description": "Deal {Damage:diff()} damage. \n Randomly [gold]Upgrade[/gold] {Cards:diff()} card(s) in your [gold]Hand[/gold].",
     "LITTLEWIZARD-ANVIL_TRANSFER.title": "Anvil Transfer",
     "LITTLEWIZARD-TEMPORARY_HANDWRITING.title": "Temporary Handwriting",
-    "LITTLEWIZARD-TEMPORARY_HANDWRITING.description": "Draw {Cards:diff()} cards. \n If you have 4 or fewer cards in your [gold]Hand[/gold], draw {ExtraCards:diff()} additional cards.",
+    "LITTLEWIZARD-TEMPORARY_HANDWRITING.description": "Draw {Cards:diff()} card. \n If you have 4 or fewer cards in your [gold]Hand[/gold], draw {ExtraCards:diff()} additional card(s).",
     "LITTLEWIZARD-REST_MOMENT.title": "Rest Moment",
     "LITTLEWIZARD-REST_MOMENT.description": "Gain {Block:diff()} [gold]Block[/gold]. \n Next turn,\n gain {Energy:energyIcons()}.",
     "LITTLEWIZARD-WHIM.title": "Whim",
