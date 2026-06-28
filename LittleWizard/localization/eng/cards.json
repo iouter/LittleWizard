@@ -194,7 +194,7 @@
     "LITTLEWIZARD-EXTRACT.title": "Extract",
     "LITTLEWIZARD-EXTRACT.description": "Apply {RandomElement:diff()} random [gold]Element[/gold].\nDraw {Cards:diff()} card(s).",
     "LITTLEWIZARD-OFFENSIVE_CONVERSION.title": "Offensive Conversion",
-    "LITTLEWIZARD-OFFENSIVE_CONVERSION.description": "Gain {Block:diff()} [gold]Block[/gold].\nDraw {Cards:diff()} cards. \nDraw {Cards:diff()} additional cards next turn.",
+    "LITTLEWIZARD-OFFENSIVE_CONVERSION.description": "Gain {Block:diff()} [gold]Block[/gold].\nDraw {Cards:diff()} card. \nDraw {Cards:diff()} additional card next turn.",
     "LITTLEWIZARD-MAGIC_TRAJECTORY.title": "Magic Trajectory",
     "LITTLEWIZARD-MAGIC_TRAJECTORY.description": "Draw {Cards:diff()} cards.\nIf the enemy has [gold]Element[/gold], remove up to 10 [gold]Element[/gold] and draw {ExtraCards:diff()} additional cards.",
     "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN.title": "Could Not Put It Down",
