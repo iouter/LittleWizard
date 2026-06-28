@@ -37,7 +37,7 @@
     "LITTLEWIZARD-REST_MOMENT.title": "Rest Moment",
     "LITTLEWIZARD-REST_MOMENT.description": "Gain {Block:diff()} [gold]Block[/gold]. \n Next turn,\n gain {Energy:energyIcons()}.",
     "LITTLEWIZARD-WHIM.title": "Whim",
-    "LITTLEWIZARD-WHIM.description": "Discard {Discards:diff()} cards.\n Draw {Cards:diff()} cards.",
+    "LITTLEWIZARD-WHIM.description": "Discard {Discards:diff()} card.\n Draw {Cards:diff()} cards.",
     "LITTLEWIZARD-DESTROY_GRADES.title": "Destroy Grades",
     "LITTLEWIZARD-DESTROY_GRADES.description": "Apply {FireElement:diff()} [gold]Fire Element[/gold] to an enemy. \n Choose 1 card in your [gold]Hand[/gold] and [gold]Exhaust[/gold] it.",
     "LITTLEWIZARD-NUMB_HANDS.description": "Deal {Damage:diff()} damage. \n Apply {WeakPower:diff()} [gold]Weak[/gold].",
