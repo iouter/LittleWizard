@@ -28,16 +28,13 @@ public class CouldNotPutItDownPower : LittleWizardPower
         )
             return (pileType, position);
 
-        int playedCount = CombatManager.Instance.History.CardPlaysStarted.Count(e =>
+        var playedCount = CombatManager.Instance.History.CardPlaysStarted.Count(e =>
             e.HappenedThisTurn(CombatState)
             && e.CardPlay.Card.Type == CardType.Skill
             && e.CardPlay.Card.Owner == Owner.Player
         );
 
-        if (playedCount == 0)
-            return (PileType.Draw, CardPilePosition.Top);
-
-        return (pileType, position);
+        return playedCount < Amount ? (PileType.Draw, CardPilePosition.Top) : (pileType, position);
     }
 
     public override Task AfterModifyingCardPlayResultPileOrPosition(
