@@ -44,7 +44,11 @@ public class WaterEarthReactor : LittleWizardPower
         await PowerCmd.Apply<StrengthPower>(
             new ThrowingPlayerChoiceContext(),
             target,
-            this.CalculateElementAmount(isPositive: false),
+            this.CalculateElementAmount(
+                isPositive: false,
+                amount: (int)amount,
+                combatState: target.CombatState
+            ),
             applier,
             null
         );
