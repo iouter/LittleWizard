@@ -88,4 +88,30 @@ public static class ElementHelper
 
         return false;
     }
+
+    public static int CalculateElementAmount(
+        this PowerModel powerModel,
+        int threshold = 1,
+        bool isPositive = true,
+        int amount = 0
+    )
+    {
+        var playerAmount =
+            powerModel.Owner.CombatState != null ? powerModel.Owner.CombatState.Players.Count : 1;
+        threshold *= playerAmount;
+        var calculatedAmount = (powerModel.Amount - 1) / threshold;
+        if (amount == 0)
+        {
+            calculatedAmount += 1;
+        }
+        else
+        {
+            calculatedAmount -= (amount - 1) / threshold;
+        }
+        if (!isPositive)
+        {
+            calculatedAmount *= -1;
+        }
+        return calculatedAmount;
+    }
 }
