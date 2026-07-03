@@ -173,7 +173,7 @@
     "LITTLEWIZARD-WIND_TECHNIQUE.title": "바람 조종",
     "LITTLEWIZARD-WIND_TECHNIQUE.description": "[gold]비행[/gold]을 {WindTechniquePower:diff()} 얻습니다.",
     "LITTLEWIZARD-WEAKENING_CURSE.title": "약화 주문",
-    "LITTLEWIZARD-WEAKENING_CURSE.description": "피해를 {Damage:diff()} 줍니다.\n대상 적이 [gold]힘[/gold]을 {IfUpgraded:show:6|5} 잃습니다.",
+    "LITTLEWIZARD-WEAKENING_CURSE.description": "피해를 {Damage:diff()} 줍니다.\n대상 적이 [gold]힘[/gold]을 {StrengthPower:diff()} 잃습니다.",
     "LITTLEWIZARD-BREW_POTIONS.title": "포션 양조",
     "LITTLEWIZARD-BREW_POTIONS.description": "전투 종료 시,\n무작위 포션을\n{BrewPotionsPower:diff()}개 얻습니다.",
     "LITTLEWIZARD-IGNITE.title": "점화",
