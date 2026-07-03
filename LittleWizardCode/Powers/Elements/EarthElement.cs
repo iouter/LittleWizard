@@ -1,8 +1,10 @@
+using BaseLib.Cards.Variables;
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Monsters;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -11,6 +13,15 @@ namespace LittleWizard.LittleWizardCode.Powers.Elements;
 
 public class EarthElement : BaseElement
 {
+    private const string EarthBlock = "EarthBlock";
+
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [
+            new(EarthBlock + "Base", 0),
+            new(EarthBlock + "Extra", 1),
+            new CustomCalculatedVar(EarthBlock).WithMultiplier((power, _) => GetBlock(power)),
+        ];
+
     protected override object InitInternalData() => new Data();
 
     private class Data
@@ -38,7 +49,7 @@ public class EarthElement : BaseElement
             return;
         GetInternalData<Data>().IsAttacked = true;
         Flash();
-        await CreatureCmd.GainBlock(creature, Amount, ValueProp.Move, null);
+        await CreatureCmd.GainBlock(creature, GetBlock(this), ValueProp.Move, null);
     }
 
     public override Task BeforeSideTurnStart(
@@ -53,5 +64,10 @@ public class EarthElement : BaseElement
             GetInternalData<Data>().IsAttacked = false;
         }
         return Task.CompletedTask;
+    }
+
+    private static int GetBlock(PowerModel power)
+    {
+        return power.CalculateElementAmount();
     }
 }

@@ -1,11 +1,12 @@
+using BaseLib.Cards.Variables;
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Monsters;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -15,6 +16,15 @@ namespace LittleWizard.LittleWizardCode.Powers.Elements.Reacts;
 
 public class FireEarthReactor : LittleWizardPower
 {
+    private const string FireEarthBlock = "FireEarthBlock";
+
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [
+            new(FireEarthBlock + "Base", 0),
+            new(FireEarthBlock + "Extra", 1),
+            new CustomCalculatedVar(FireEarthBlock).WithMultiplier((power, _) => GetBlock(power)),
+        ];
+
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
@@ -22,19 +32,6 @@ public class FireEarthReactor : LittleWizardPower
         "res://LittleWizard/images/powers/fire_and_earth_element_reactor_power.png";
     public override string CustomBigIconPath =>
         "res://LittleWizard/images/powers/big/fire_and_earth_element_reactor_power.png";
-
-    public override async Task AfterPowerAmountChanged(
-        PlayerChoiceContext choiceContext,
-        PowerModel power,
-        decimal amount,
-        Creature? applier,
-        CardModel? cardSource
-    )
-    {
-        if (power != this || amount == Amount)
-            return;
-        await CreatureCmd.Damage(choiceContext, Owner, amount, ValueProp.Unpowered, applier, null);
-    }
 
     public override async Task AfterDamageReceivedLate(
         PlayerChoiceContext choiceContext,
@@ -77,7 +74,7 @@ public class FireEarthReactor : LittleWizardPower
             return;
 
         Flash();
-        await CreatureCmd.GainBlock(creature, Amount, ValueProp.Move, null);
+        await CreatureCmd.GainBlock(creature, GetBlock(this), ValueProp.Move, null);
     }
 
     public override async Task AfterSideTurnEnd(
@@ -90,5 +87,10 @@ public class FireEarthReactor : LittleWizardPower
         {
             await PowerCmd.Remove(this);
         }
+    }
+
+    private static int GetBlock(PowerModel power)
+    {
+        return power.CalculateElementAmount();
     }
 }

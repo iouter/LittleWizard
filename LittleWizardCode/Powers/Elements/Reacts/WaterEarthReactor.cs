@@ -1,9 +1,11 @@
+using BaseLib.Cards.Variables;
 using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Monsters;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -15,6 +17,17 @@ public class WaterEarthReactor : LittleWizardPower
 {
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
+
+    private const string WaterEarth = "WaterEarth";
+
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+        [
+            new(WaterEarth + "Base", 0),
+            new(WaterEarth + "Extra", 1),
+            new CustomCalculatedVar(WaterEarth).WithMultiplier(
+                (power, _) => power.CalculateElementAmount()
+            ),
+        ];
 
     public override string CustomPackedIconPath =>
         "res://LittleWizard/images/powers/water_and_earth_element_reactor_power.png";
@@ -31,7 +44,11 @@ public class WaterEarthReactor : LittleWizardPower
         await PowerCmd.Apply<StrengthPower>(
             new ThrowingPlayerChoiceContext(),
             target,
-            -amount,
+            this.CalculateElementAmount(
+                isPositive: false,
+                amount: (int)amount,
+                combatState: target.CombatState
+            ),
             applier,
             null
         );
@@ -49,7 +66,13 @@ public class WaterEarthReactor : LittleWizardPower
         {
             return;
         }
-        await PowerCmd.Apply<StrengthPower>(choiceContext, Owner, -amount, applier, null);
+        await PowerCmd.Apply<StrengthPower>(
+            choiceContext,
+            Owner,
+            this.CalculateElementAmount(isPositive: false, amount: (int)amount),
+            applier,
+            null
+        );
     }
 
     public override async Task AfterDamageReceived(
@@ -77,7 +100,7 @@ public class WaterEarthReactor : LittleWizardPower
             return;
 
         Flash();
-        await CreatureCmd.GainBlock(creature, Amount, ValueProp.Move, null);
+        await CreatureCmd.GainBlock(creature, this.CalculateElementAmount(), ValueProp.Move, null);
     }
 
     public override async Task AfterSideTurnEnd(
@@ -88,7 +111,13 @@ public class WaterEarthReactor : LittleWizardPower
     {
         if (side == CombatSide.Enemy)
         {
-            await PowerCmd.Apply<StrengthPower>(choiceContext, Owner, Amount, null, null);
+            await PowerCmd.Apply<StrengthPower>(
+                choiceContext,
+                Owner,
+                this.CalculateElementAmount(),
+                null,
+                null
+            );
             await PowerCmd.Remove(this);
         }
     }

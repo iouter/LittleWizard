@@ -20,7 +20,7 @@ public class WaterUnderTheBridgePower : LittleWizardPower
     {
         if (cardPlay.Card.Owner != Owner.Player || GetInternalData<Data>().IsPlayed)
             return;
-        if (cardPlay.Card.CanonicalKeywords.Contains(CardKeyword.Ethereal))
+        if (cardPlay.Card.Keywords.Contains(CardKeyword.Ethereal))
         {
             await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Move, cardPlay);
             GetInternalData<Data>().IsPlayed = true;

@@ -1,6 +1,7 @@
 using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Api.Interface;
 using LittleWizard.LittleWizardCode.Powers.Elements;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -87,5 +88,45 @@ public static class ElementHelper
         }
 
         return false;
+    }
+
+    public static int CalculateElementAmount(
+        this PowerModel powerModel,
+        int threshold = 1,
+        bool isPositive = true,
+        int amount = 0,
+        ICombatState? combatState = null
+    )
+    {
+        var isBeforeApplied = combatState is not null;
+        int playerAmount;
+        if (isBeforeApplied)
+        {
+            playerAmount = combatState!.Players.Count;
+        }
+        else
+        {
+            playerAmount =
+                powerModel.Owner.CombatState != null
+                    ? powerModel.Owner.CombatState.Players.Count
+                    : 1;
+        }
+        threshold *= playerAmount;
+        var calculatedAmount = isBeforeApplied ? amount : powerModel.Amount;
+        calculatedAmount -= 1;
+        calculatedAmount /= threshold;
+        if (amount == 0 || isBeforeApplied)
+        {
+            calculatedAmount += 1;
+        }
+        else
+        {
+            calculatedAmount -= (amount - 1) / threshold;
+        }
+        if (!isPositive)
+        {
+            calculatedAmount *= -1;
+        }
+        return calculatedAmount;
     }
 }
