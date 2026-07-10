@@ -69,7 +69,7 @@ public class WaterEarthReactor : LittleWizardPower
         await PowerCmd.Apply<StrengthPower>(
             choiceContext,
             Owner,
-            this.CalculateElementAmount(isPositive: false, amount: (int)amount),
+            this.CalculateElementAmount(isPositive: false, amount: (int)(Amount - amount)),
             applier,
             null
         );
