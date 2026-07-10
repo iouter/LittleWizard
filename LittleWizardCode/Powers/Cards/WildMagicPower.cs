@@ -49,7 +49,7 @@ public class WildMagicPower : LittleWizardPower
         CardModel? cardSource
     )
     {
-        if (giver == Owner && power is BaseElement)
+        if (giver == Owner && power is BaseElement && amount > 0)
             return 2;
         return base.ModifyPowerAmountGivenMultiplicative(power, giver, amount, target, cardSource);
     }
