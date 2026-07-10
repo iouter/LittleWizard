@@ -20,7 +20,7 @@ public abstract class BaseMoreElementGivenPower : LittleWizardPower
         CardModel? cardSource
     )
     {
-        if (giver == Owner && power is BaseElement)
+        if (giver == Owner && power is BaseElement && amount > 0)
             return Amount;
         return base.ModifyPowerAmountGivenAdditive(power, giver, amount, target, cardSource);
     }

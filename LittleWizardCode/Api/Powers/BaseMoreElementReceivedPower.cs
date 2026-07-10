@@ -31,7 +31,7 @@ public abstract class BaseMoreElementReceivedPower : CustomPowerModel
     )
     {
         if (
-            amount == 0
+            amount <= 0
             || target != Owner
             || canonicalPower is not BaseElement
             || !canonicalPower.IsVisible
