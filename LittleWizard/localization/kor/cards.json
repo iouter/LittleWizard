@@ -198,5 +198,15 @@
     "LITTLEWIZARD-MAGIC_TRAJECTORY.title": "마력의 자취",
     "LITTLEWIZARD-MAGIC_TRAJECTORY.description": "카드를 {Cards:diff()}장 뽑습니다.\n대상 적이 [gold]원소[/gold]를\n보유하고 있다면,\n10까지 제거하고\n추가로 {ExtraCards:diff()}장 뽑습니다.",
     "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN.title": "애착",
-    "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN.description": "매 턴마다 처음 사용하는\n스킬 카드를\n[gold]뽑을 카드 더미[/gold]\n맨 위에 놓습니다."
+    "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN.description": "매 턴마다 처음 사용하는\n스킬 카드를\n[gold]뽑을 카드 더미[/gold]\n맨 위에 놓습니다.",
+    "LITTLEWIZARD-BURNING_TRAIL.title": "불꽃의 자취",
+    "LITTLEWIZARD-BURNING_TRAIL.description": "[gold]불 원소[/gold]를 {FireElement:diff()} 부여합니다.\n[gold]방어도[/gold]를 얻을 때마다,\n[gold]뽑을 카드 더미[/gold]나 [gold]손[/gold]에서\n자동으로 사용합니다.",
+    "LITTLEWIZARD-REJECT_FIRETONGUE.title": "화염 저항",
+    "LITTLEWIZARD-REJECT_FIRETONGUE.description": "[gold]방어도[/gold]를 {Block:diff()} 얻습니다.\n[gold]불 원소[/gold]를 부여할 때마다,\n이 카드를 손으로 가져옵니다.",
+    "LITTLEWIZARD-WIND_BLESSING.title": "바람의 가호",
+    "LITTLEWIZARD-WIND_BLESSING.description": "[gold]민첩[/gold]을 {DexterityPower:diff()} 얻습니다.",
+    "LITTLEWIZARD-SKYFIRE.title": "천상의 불꽃",
+    "LITTLEWIZARD-SKYFIRE.description": "[gold]불 원소[/gold]의 피해가 2배가 됩니다.",
+    "LITTLEWIZARD-FIRELINE.title": "관통 화염",
+    "LITTLEWIZARD-FIRELINE.description": "카드를 1장 [gold]소멸[/gold]시킵니다.\n모든 적에게\n[gold]불 원소[/gold]를 {CalculationBase:diff()} 부여합니다.\n[gold]소멸된 카드 더미[/gold]에 있는\n카드 1장당 추가로\n{CalculationExtra:diff()} 부여합니다.{InCombat:\n([gold]불 원소[/gold]를 {FirelineFireElement:diff()} 부여합니다)|}"
 }
