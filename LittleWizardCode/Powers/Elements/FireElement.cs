@@ -2,6 +2,7 @@ using BaseLib.Cards.Variables;
 using BaseLib.Hooks;
 using Godot;
 using LittleWizard.LittleWizardCode.Api.Powers;
+using LittleWizard.LittleWizardCode.Powers.Cards;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -61,7 +62,7 @@ public class FireElement : BaseElement
         HealthBarForecastContext context
     )
     {
-        var damage = Amount == 1 ? 1 : Amount / 2;
+        var damage = GetDamage(this);
         if (damage <= 0)
             yield break;
         yield return new HealthBarForecastSegment(
@@ -75,8 +76,11 @@ public class FireElement : BaseElement
 
     private static int GetDamage(PowerModel powerModel)
     {
-        if (powerModel.Amount == 1)
-            return 1;
-        return powerModel.Amount / 2;
+        var playerCreatures = powerModel.Owner.CombatState?.PlayerCreatures;
+        var hasSkyfire =
+            playerCreatures != null
+            && playerCreatures.Any(creature => creature.HasPower<SkyfirePower>());
+        var amount = hasSkyfire ? powerModel.Amount * 2 : powerModel.Amount;
+        return amount == 1 ? 1 : amount / 2;
     }
 }

@@ -20,7 +20,7 @@ public class ErosionRay()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        await CommonActions.CardAttack(this, play.Target).Execute(choiceContext);
+        await CommonActions.CardAttack(this, play).Execute(choiceContext);
         ArgumentNullException.ThrowIfNull(play.Target);
         var debuffs = play.Target.Powers.Where(p => p.Type == PowerType.Debuff).ToList();
         if (debuffs.Count <= 0)
