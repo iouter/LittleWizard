@@ -107,4 +107,8 @@
     "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN_POWER.description": "每回合打出的第[blue]1[/blue]张技能牌，将放入你的抽牌堆顶。",
     "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN_POWER.smartDescription": "每回合打出的第[blue]1[/blue]张技能牌，将放入你的抽牌堆顶。",
     "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN_POWER.title": "爱不释手"
+    ,
+    "LITTLEWIZARD-SKYFIRE_POWER.title": "天火",
+    "LITTLEWIZARD-SKYFIRE_POWER.description": "[gold]火元素[/gold]伤害翻倍。",
+    "LITTLEWIZARD-SKYFIRE_POWER.smartDescription": "[gold]火元素[/gold]伤害翻倍。"
 }

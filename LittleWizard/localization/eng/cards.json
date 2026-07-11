@@ -198,5 +198,15 @@
     "LITTLEWIZARD-MAGIC_TRAJECTORY.title": "Magic Trajectory",
     "LITTLEWIZARD-MAGIC_TRAJECTORY.description": "Draw {Cards:diff()} cards.\nIf the enemy has [gold]Element[/gold], remove up to 10 [gold]Element[/gold] and draw {ExtraCards:diff()} additional cards.",
     "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN.title": "Could Not Put It Down",
-    "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN.description": "The first [gold]Skill[/gold] card you play each turn is placed on top of your [gold]Draw Pile[/gold]."
+    "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN.description": "The first [gold]Skill[/gold] card you play each turn is placed on top of your [gold]Draw Pile[/gold].",
+    "LITTLEWIZARD-SKYFIRE.title": "Skyfire",
+    "LITTLEWIZARD-SKYFIRE.description": "[gold]Fire Element[/gold] damage is doubled.",
+    "LITTLEWIZARD-REJECT_FIRETONGUE.title": "Reject Firetongue",
+    "LITTLEWIZARD-REJECT_FIRETONGUE.description": "Gain {Block:diff()} [gold]Block[/gold].\nWhenever you apply [gold]Fire Element[/gold], wherever this card is, put it into your [gold]Hand[/gold].",
+    "LITTLEWIZARD-BURNING_TRAIL.title": "Burning Trail",
+    "LITTLEWIZARD-BURNING_TRAIL.description": "Apply {FireElement:diff()} [gold]Fire Element[/gold].\nWhenever you gain [gold]Block[/gold], if this card is in your [gold]Draw Pile[/gold] or [gold]Hand[/gold], play it.",
+    "LITTLEWIZARD-FIRELINE.title": "Fireline",
+    "LITTLEWIZARD-FIRELINE.description": "[gold]Exhaust[/gold] 1 card.\nApply {CalculationBase:diff()} [gold]Fire Element[/gold] to ALL enemies.\nFor each card in your [gold]Exhaust Pile[/gold], apply {CalculationExtra:diff()} additional [gold]Fire Element[/gold].{InCombat:\n(Apply {FirelineFireElement:diff()} [gold]Fire Element[/gold].)|}",
+    "LITTLEWIZARD-WIND_BLESSING.title": "Wind's Blessing",
+    "LITTLEWIZARD-WIND_BLESSING.description": "Gain {DexterityPower:diff()} [gold]Dexterity[/gold]."
 }

@@ -199,4 +199,15 @@
     "LITTLEWIZARD-MAGIC_TRAJECTORY.title": "魔力轨迹",
     "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN.description": "将你每回合打出的第1张技能牌，置于你的抽牌堆顶。",
     "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN.title": "爱不释手"
+    ,
+    "LITTLEWIZARD-SKYFIRE.title": "天火",
+    "LITTLEWIZARD-SKYFIRE.description": "[gold]火元素[/gold]伤害翻倍。",
+    "LITTLEWIZARD-REJECT_FIRETONGUE.title": "抗拒火舌",
+    "LITTLEWIZARD-REJECT_FIRETONGUE.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n每当你给予[gold]火元素[/gold]时，无论何处，将此牌放入手牌。",
+    "LITTLEWIZARD-BURNING_TRAIL.title": "燃迹",
+    "LITTLEWIZARD-BURNING_TRAIL.description": "给予{FireElement:diff()}层[gold]火元素[/gold]。\n每当你获得[gold]格挡[/gold]时，如果此牌处于抽牌堆或手牌中，则自动打出。",
+    "LITTLEWIZARD-FIRELINE.title": "火线",
+    "LITTLEWIZARD-FIRELINE.description": "[gold]消耗[/gold]1张牌。\n给予所有敌人{CalculationBase:diff()}层[gold]火元素[/gold]。\n消耗牌堆每有1张牌，就额外给予{CalculationExtra:diff()}层[gold]火元素[/gold]。{InCombat:\n（当前给予{FirelineFireElement:diff()}层[gold]火元素[/gold]。）|}",
+    "LITTLEWIZARD-WIND_BLESSING.title": "风之加护",
+    "LITTLEWIZARD-WIND_BLESSING.description": "获得{DexterityPower:diff()}点[gold]敏捷[/gold]。"
 }
