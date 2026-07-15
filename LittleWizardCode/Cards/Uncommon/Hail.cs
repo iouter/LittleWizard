@@ -42,6 +42,13 @@ public class Hail() : LittleWizardCard(2, CardType.Attack, CardRarity.Uncommon, 
         await CardCmd.AutoPlay(choiceContext, this, null);
     }
 
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        if (cardPlay.Card != this)
+            return;
+        VfxCmd.PlayOnCreature(cardPlay.Target!, "vfx/vfx_hail");
+    }
+
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(3);

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bttncup5ghasy"]
+
+[ext_resource type="Script" uid="uid://bxsmitt8fv182" path="res://LittleWizardCode/Api/Animation/SNVfxSpine.cs" id="1_nemnp"]
+[ext_resource type="SpineSkeletonDataResource" uid="uid://sscepsng5na6" path="res://LittleWizard/animations/vfx/vfx_erosion_ray_skel_data_resource.tres" id="2_yhdq3"]
+
+[node name="VfxErosionRay" type="Node2D"]
+script = ExtResource("1_nemnp")
+
+[node name="SpineSprite" type="SpineSprite" parent="."]
+skeleton_data_res = ExtResource("2_yhdq3")
+preview_skin = "Default"
+preview_animation = "animation"
+preview_frame = false
+preview_time = 0.0
+position = Vector2(0, -100)
+scale = Vector2(0.3, 0.3)

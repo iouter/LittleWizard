@@ -21,6 +21,7 @@ public class ErosionRay()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         await CommonActions.CardAttack(this, play.Target).Execute(choiceContext);
+        VfxCmd.PlayOnCreature(Owner.Creature, "vfx/vfx_erosion_ray");
         ArgumentNullException.ThrowIfNull(play.Target);
         var debuffs = play.Target.Powers.Where(p => p.Type == PowerType.Debuff).ToList();
         if (debuffs.Count <= 0)
@@ -44,7 +45,6 @@ public class ErosionRay()
                 this
             );
         }
-
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 

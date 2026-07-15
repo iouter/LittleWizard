@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://bx6glxqmykjwm"
+path="res://.godot/imported/vfx_hail.atlas-4c279b64a88b1f330d6ecb3452305e67.spatlas"
+
+[deps]
+
+source_file="res://LittleWizard/animations/vfx/vfx_hail/vfx_hail.atlas"
+dest_files=["res://.godot/imported/vfx_hail.atlas-4c279b64a88b1f330d6ecb3452305e67.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"
