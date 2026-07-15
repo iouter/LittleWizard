@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://dn7dy6r5isirf"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://bx6glxqmykjwm" path="res://LittleWizard/animations/vfx/vfx_hail/vfx_hail.atlas" id="1_aijqa"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://djlx1na63jcup" path="res://LittleWizard/animations/vfx/vfx_hail/vfx_hail.skel" id="2_csm0r"]
+
+[resource]
+atlas_res = ExtResource("1_aijqa")
+skeleton_file_res = ExtResource("2_csm0r")

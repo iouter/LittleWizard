@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace LittleWizard.LittleWizardCode.Cards.Uncommon;
@@ -27,7 +28,7 @@ public class Hail() : LittleWizardCard(2, CardType.Attack, CardRarity.Uncommon, 
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        await CommonActions.CardAttack(this, play).Execute(choiceContext);
+        await CommonActions.CardAttack(this, play).WithHitFx("vfx/vfx_hail").Execute(choiceContext);
         await CommonActions.Apply<WaterElement>(choiceContext, this, play);
     }
 
