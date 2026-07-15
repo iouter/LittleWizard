@@ -12,5 +12,4 @@ preview_skin = "Default"
 preview_animation = "animation"
 preview_frame = false
 preview_time = 0.0
-position = Vector2(0, -30)
 scale = Vector2(0.4, 0.4)
