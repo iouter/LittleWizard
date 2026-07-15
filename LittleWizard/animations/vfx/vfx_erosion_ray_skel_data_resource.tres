@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" load_steps=3 format=3 uid="uid://sscepsng5na6"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://cry26hvpffbe1" path="res://LittleWizard/animations/vfx/vfx_erosion_ray/vfx_erosion_ray.atlas" id="1_tsitu"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://bmqw3ae6nyi2l" path="res://LittleWizard/animations/vfx/vfx_erosion_ray/vfx_erosion_ray.skel" id="2_4g36r"]
+
+[resource]
+atlas_res = ExtResource("1_tsitu")
+skeleton_file_res = ExtResource("2_4g36r")
