@@ -20,7 +20,12 @@ public class RemoveDefense()
     {
         ArgumentNullException.ThrowIfNull(cardPlay.Target);
         if (cardPlay.Target.Block > 0)
-            await CreatureCmd.LoseBlock(cardPlay.Target, cardPlay.Target.Block);
+            await CreatureCmd.LoseBlock(
+                choiceContext,
+                cardPlay.Target,
+                cardPlay.Target.Block,
+                Owner.Creature
+            );
         await CommonActions.Apply<VulnerablePower>(choiceContext, this, cardPlay);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }

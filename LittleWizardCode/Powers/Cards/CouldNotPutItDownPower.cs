@@ -13,20 +13,19 @@ public class CouldNotPutItDownPower : LittleWizardPower
 
     public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
 
-    public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(
+    public override CardLocation ModifyCardPlayResultLocation(
         CardModel card,
         bool isAutoPlay,
         ResourceInfo resources,
-        PileType pileType,
-        CardPilePosition position
+        CardLocation cardLocation
     )
     {
         if (
             card.Owner.Creature != Owner
             || card.Type != CardType.Skill
-            || pileType != PileType.Discard
+            || cardLocation.pileType != PileType.Discard
         )
-            return (pileType, position);
+            return cardLocation;
 
         var playedCount = CombatManager.Instance.History.CardPlaysStarted.Count(e =>
             e.HappenedThisTurn(CombatState)
@@ -34,18 +33,23 @@ public class CouldNotPutItDownPower : LittleWizardPower
             && e.CardPlay.Card.Owner == Owner.Player
         );
 
-        return playedCount < Amount ? (PileType.Draw, CardPilePosition.Top) : (pileType, position);
+        if (playedCount >= Amount)
+        {
+            return cardLocation;
+        }
+        cardLocation.pileType = PileType.Draw;
+        cardLocation.position = CardPilePosition.Top;
+        return cardLocation;
     }
 
-    public override Task AfterModifyingCardPlayResultPileOrPosition(
+    public override Task AfterModifyingCardPlayResultLocation(
         CardModel card,
-        PileType pileType,
-        CardPilePosition position
+        CardLocation cardLocation
     )
     {
         if (card.Owner.Creature != Owner)
             return Task.CompletedTask;
-        if (pileType == PileType.Draw && position == CardPilePosition.Top)
+        if (cardLocation is { pileType: PileType.Draw, position: CardPilePosition.Top })
             Flash();
         return Task.CompletedTask;
     }

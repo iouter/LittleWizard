@@ -142,7 +142,7 @@
     </ItemGroup>
 
     <ItemGroup Condition="!Exists('$(Sts2DataDir)/sts2.dll')">
-        <PackageReference Include="Book.StS2.RefLib" Version="0.108.0-beta" />
+        <PackageReference Include="Book.StS2.RefLib" Version="0.109.0-beta" />
     </ItemGroup>
 
     <ItemGroup>

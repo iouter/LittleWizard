@@ -17,10 +17,15 @@ public class EndlessWall()
         await CommonActions.CardBlock(this, cardPlay);
     }
 
-    protected override (PileType, CardPilePosition) GetResultPileTypeAndPositionForCardPlay()
+    protected override CardLocation GetResultLocationForCardPlay()
     {
-        var result = base.GetResultPileTypeAndPositionForCardPlay();
-        return result.Item1 != PileType.Discard ? result : (PileType.Draw, result.Item2);
+        var result = base.GetResultLocationForCardPlay();
+        if (result.pileType != PileType.Discard)
+        {
+            return result;
+        }
+        result.pileType = PileType.Draw;
+        return result;
     }
 
     protected override void OnUpgrade()
