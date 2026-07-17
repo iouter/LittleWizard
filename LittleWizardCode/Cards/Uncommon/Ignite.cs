@@ -26,7 +26,7 @@ public class Ignite()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        await CommonActions.CardAttack(this, play.Target).Execute(choiceContext);
+        await CommonActions.CardAttack(this, play).Execute(choiceContext);
         if (!play.Target!.HasPower<FireElement>())
         {
             await CommonActions.Apply<IgnitePower>(choiceContext, this, play);

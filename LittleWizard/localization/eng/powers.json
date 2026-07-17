@@ -115,5 +115,8 @@
     "LITTLEWIZARD-WATER_TEMP_POWER.smartDescription": "Reduces [blue]{tempWaterPower}[/blue] Strength.",
     "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN_POWER.description": "The [blue]1[/blue]st [gold]Skill[/gold] card you play each turn is placed on top of your draw pile.",
     "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN_POWER.smartDescription": "The [blue]1[/blue]st [gold]Skill[/gold] card you play each turn is placed on top of your draw pile.",
-    "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN_POWER.title": "Could Not Put It Down"
+    "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN_POWER.title": "Could Not Put It Down",
+    "LITTLEWIZARD-SKYFIRE_POWER.title": "Skyfire",
+    "LITTLEWIZARD-SKYFIRE_POWER.description": "[gold]Fire Element[/gold] damage is doubled.",
+    "LITTLEWIZARD-SKYFIRE_POWER.smartDescription": "[gold]Fire Element[/gold] damage is doubled."
 }
