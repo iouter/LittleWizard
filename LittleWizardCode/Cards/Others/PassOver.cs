@@ -11,6 +11,8 @@ namespace LittleWizard.LittleWizardCode.Cards.Others;
 [Pool(typeof(TokenCardPool))]
 public class PassOver() : CustomCardModel(0, CardType.Skill, CardRarity.Token, TargetType.Self)
 {
+    public override string? CustomPortraitPath =>
+        $"res://{MainFile.ModId}/images/card_portraits/pass_over.png";
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
