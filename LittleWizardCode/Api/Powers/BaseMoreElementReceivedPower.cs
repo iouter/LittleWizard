@@ -11,7 +11,7 @@ namespace LittleWizard.LittleWizardCode.Api.Powers;
 
 public abstract class BaseMoreElementReceivedPower : CustomPowerModel
 {
-    public override PowerType Type => Owner.IsPlayer ? PowerType.Buff : PowerType.Debuff;
+    public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
     private string GetIconBaseName() => Id.Entry.RemovePrefix().ToLowerInvariant();
