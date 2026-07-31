@@ -9,7 +9,7 @@ namespace LittleWizard.LittleWizardCode.Api.Powers;
 
 public abstract class BaseMoreElementGivenPower : LittleWizardPower
 {
-    public override PowerType Type => Owner.IsPlayer ? PowerType.Buff : PowerType.Debuff;
+    public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
     public override decimal ModifyPowerAmountGivenAdditive(
