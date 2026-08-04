@@ -1,6 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdp7665pcyurw"]
+[gd_scene load_steps=20 format=3 uid="uid://cdp7665pcyurw"]
 
-[ext_resource type="Script" uid="uid://dqpkj6vr6rlo2" path="res://LittleWizardCode/Api/Nodes/SNEnergyCounter.cs" id="1_vejs6"]
+[ext_resource type="Script" uid="uid://dhhvfc1o83wmi" path="res://LittleWizardCode/Api/Nodes/SNEnergyCounter.cs" id="1_vejs6"]
 [ext_resource type="PackedScene" uid="uid://b3g2nshchsio5" path="res://LittleWizard/scenes/LittleWizard/LittleWizard_energy_vfx_back.tscn" id="2_b6j3t"]
 [ext_resource type="Texture2D" uid="uid://dkqwwgiy0j8u3" path="res://LittleWizard/images/ui/combat/LittleWizard/LittleWizard_orb_layer_1.png" id="3_5tjhr"]
 [ext_resource type="PackedScene" uid="uid://dfmw8p4tmbtuj" path="res://LittleWizard/scenes/LittleWizard/LittleWizard_energy_vfx_front.tscn" id="3_mubnd"]
@@ -9,7 +9,15 @@
 [ext_resource type="Texture2D" uid="uid://bkkpdd6ea3j2p" path="res://LittleWizard/images/ui/combat/LittleWizard/LittleWizard_orb_layer_4.png" id="6_pweko"]
 [ext_resource type="Texture2D" uid="uid://dny2on0siliqi" path="res://LittleWizard/images/ui/combat/LittleWizard/LittleWizard_orb_layer_5.png" id="7_7mya8"]
 [ext_resource type="FontFile" uid="uid://bg4o1rcx1h5pa" path="res://LittleWizard/fonts/kreon_bold.ttf" id="9_56gsp"]
-[ext_resource type="Script" uid="uid://bck1iof828ucl" path="res://LittleWizardCode/Api/Nodes/SMegaLabel.cs" id="9_61yas"]
+[ext_resource type="Script" uid="uid://16qk8uk3ayqo" path="res://LittleWizardCode/Api/Nodes/SMegaLabel.cs" id="9_61yas"]
+[ext_resource type="Texture2D" uid="uid://cvohi4wa3dmfh" path="res://LittleWizard/images/ui/combat/LittleWizard/element_wheel/element_wheel_basic.png" id="11_sm7ek"]
+[ext_resource type="Texture2D" uid="uid://b2v20p8082bqv" path="res://LittleWizard/images/ui/combat/LittleWizard/element_wheel/fire_highlight.png" id="12_rnafb"]
+[ext_resource type="Texture2D" uid="uid://fjvna5nuol31" path="res://LittleWizard/images/ui/combat/LittleWizard/element_wheel/water_highlight.png" id="13_vpxkw"]
+[ext_resource type="Texture2D" uid="uid://7lq0arbyy58c" path="res://LittleWizard/images/ui/combat/LittleWizard/element_wheel/earth_highlight.png" id="14_hkxwt"]
+[ext_resource type="Texture2D" uid="uid://tfsy3pw5kwpm" path="res://LittleWizard/images/ui/combat/LittleWizard/element_wheel/fire_water_highlight.png" id="15_xhp84"]
+[ext_resource type="Texture2D" uid="uid://s0qqtktlq27b" path="res://LittleWizard/images/ui/combat/LittleWizard/element_wheel/fire_earth_highlight.png" id="16_xhp84"]
+[ext_resource type="Texture2D" uid="uid://dtxe1g67wri3y" path="res://LittleWizard/images/ui/combat/LittleWizard/element_wheel/water_earth_highlight.png" id="17_u5y8h"]
+[ext_resource type="Script" uid="uid://b7id72t0j6v16" path="res://LittleWizardCode/Api/Nodes/ElementWheel.cs" id="18_element_wheel"]
 
 [sub_resource type="FontVariation" id="FontVariation_o1hxt"]
 base_font = ExtResource("9_56gsp")
@@ -143,3 +151,90 @@ vertical_alignment = 1
 script = ExtResource("9_61yas")
 MinFontSize = 32
 MaxFontSize = 36
+
+[node name="ElementWheel" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("18_element_wheel")
+
+[node name="ElementWheelBasic" type="TextureRect" parent="ElementWheel"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = -210.0
+offset_right = 405.0
+offset_bottom = 231.0
+scale = Vector2(0.45, 0.45)
+mouse_filter = 2
+texture = ExtResource("11_sm7ek")
+
+[node name="FireWaterHighlight" type="TextureRect" parent="ElementWheel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 101.0
+offset_top = -184.0
+offset_right = 264.0
+offset_bottom = 17.0
+scale = Vector2(0.45, 0.45)
+mouse_filter = 0
+texture = ExtResource("15_xhp84")
+
+[node name="FireEarthHighlight" type="TextureRect" parent="ElementWheel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -15.0
+offset_top = -184.0
+offset_right = 148.0
+offset_bottom = 16.0
+scale = Vector2(0.45, 0.45)
+mouse_filter = 0
+texture = ExtResource("16_xhp84")
+
+[node name="WaterEarthHighlight" type="TextureRect" parent="ElementWheel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 33.0
+offset_top = -77.0
+offset_right = 238.0
+offset_bottom = 69.0
+scale = Vector2(0.45, 0.45)
+mouse_filter = 0
+texture = ExtResource("17_u5y8h")
+
+[node name="FireHighlight" type="TextureRect" parent="ElementWheel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 53.0
+offset_top = -210.0
+offset_right = 167.0
+offset_bottom = -95.0
+scale = Vector2(0.45, 0.45)
+mouse_filter = 0
+texture = ExtResource("12_rnafb")
+
+[node name="WaterHighlight" type="TextureRect" parent="ElementWheel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 114.0
+offset_top = -100.0
+offset_right = 228.0
+offset_bottom = 15.0
+scale = Vector2(0.45, 0.45)
+mouse_filter = 0
+texture = ExtResource("13_vpxkw")
+
+[node name="EarthHighlight" type="TextureRect" parent="ElementWheel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = -6.0
+offset_top = -100.0
+offset_right = 109.0
+offset_bottom = 15.0
+scale = Vector2(0.45, 0.45)
+mouse_filter = 0
+texture = ExtResource("14_hkxwt")
