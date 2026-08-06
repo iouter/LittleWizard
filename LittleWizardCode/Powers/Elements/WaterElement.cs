@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -13,8 +14,19 @@ namespace LittleWizard.LittleWizardCode.Powers.Elements;
 
 public class WaterElement : BaseElement, IHasSecondAmount
 {
+    private const string ElementThreshold = "ElementThreshold";
     private const string TempWaterPower = "tempWaterPower";
     private const string DecrementAmount = "decrementAmount";
+
+    public override LocString Description
+    {
+        get
+        {
+            var description = base.Description;
+            description.Add(ElementThreshold, ElementHelper.GetElementThreshold(3));
+            return description;
+        }
+    }
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [

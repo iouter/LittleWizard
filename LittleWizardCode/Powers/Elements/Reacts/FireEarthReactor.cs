@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Monsters;
@@ -16,7 +17,18 @@ namespace LittleWizard.LittleWizardCode.Powers.Elements.Reacts;
 
 public class FireEarthReactor : LittleWizardPower
 {
+    private const string ElementThreshold = "ElementThreshold";
     private const string FireEarthBlock = "FireEarthBlock";
+
+    public override LocString Description
+    {
+        get
+        {
+            var description = base.Description;
+            description.Add(ElementThreshold, ElementHelper.GetElementThreshold());
+            return description;
+        }
+    }
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
         [
