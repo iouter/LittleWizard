@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Runs;
 
 namespace LittleWizard.LittleWizardCode.Api.Powers;
 
@@ -128,5 +129,19 @@ public static class ElementHelper
             calculatedAmount *= -1;
         }
         return calculatedAmount;
+    }
+
+    public static int GetElementThreshold(int baseThreshold = 1)
+    {
+        return baseThreshold * GetCurrentPlayerCount();
+    }
+
+    // 因为要在静态描述中获取玩家人数，所以这里使用了官方不推荐使用的 DebugOnlyGetState 方法
+    // 不过这个方法官方自己也在 dev 外的场景中用了
+    private static int GetCurrentPlayerCount()
+    {
+        return CombatManager.Instance.DebugOnlyGetState()?.Players.Count
+            ?? RunManager.Instance.DebugOnlyGetState()?.Players.Count
+            ?? 1;
     }
 }
