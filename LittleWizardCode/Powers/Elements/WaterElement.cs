@@ -18,12 +18,17 @@ public class WaterElement : BaseElement, IHasSecondAmount
     private const string TempWaterPower = "tempWaterPower";
     private const string DecrementAmount = "decrementAmount";
 
+    private const int ElementThresholdValue = 3;
+
     public override LocString Description
     {
         get
         {
             var description = base.Description;
-            description.Add(ElementThreshold, ElementHelper.GetElementThreshold(3));
+            description.Add(
+                ElementThreshold,
+                ElementHelper.GetElementThreshold(ElementThresholdValue)
+            );
             return description;
         }
     }
@@ -71,7 +76,7 @@ public class WaterElement : BaseElement, IHasSecondAmount
 
     private static decimal GetDamageAdditive(PowerModel power)
     {
-        return power.CalculateElementAmount(3, false);
+        return power.CalculateElementAmount(ElementThresholdValue, false);
     }
 
     private static decimal GetDecrementAmount(PowerModel power)
