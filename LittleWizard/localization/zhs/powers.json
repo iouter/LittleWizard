@@ -5,7 +5,7 @@
     "LITTLEWIZARD-WATER_ELEMENT.title": "水元素",
     "LITTLEWIZARD-WATER_ELEMENT.description": "每[blue]{ElementThreshold}[/blue][gold]水元素[/gold]，减少敌人[blue]1[/blue][gold]力量[/gold]。\n（多人模式数值会调整）\n敌人回合结束时，失去[blue]1[/blue][gold]水元素[/gold]，\n每[blue]10[/blue][gold]水元素[/gold]额外失去4[gold]水元素[/gold]。",
     "LITTLEWIZARD-WATER_ELEMENT.smartDescription": "当前水元素减少[blue]{tempWaterPower}[/blue]力量。\n即将失去[blue]{decrementAmount}[/blue][gold]水元素[/gold]。",
-    "LITTLEWIZARD-EARTH_ELEMENT.smartDescription": "每回合首次对该敌人造成伤害时，获得[blue]{EarthBlock}[/blue]点[gold]格挡[/gold]。",
+    "LITTLEWIZARD-EARTH_ELEMENT.smartDescription": "每回合首次对该敌人造成伤害时，给予你[blue]{EarthBlock}[/blue]点[gold]格挡[/gold]。",
     "LITTLEWIZARD-EARTH_ELEMENT.description": "每回合首次对该敌人造成伤害时，该敌人每有[blue]{ElementThreshold}[/blue][gold]土元素[/gold]，就获得[blue]1[/blue]点[gold]格挡[/gold]。\n（多人模式数值会调整）",
     "LITTLEWIZARD-EARTH_ELEMENT.title": "土元素",
     "LITTLEWIZARD-FOCUSED_CASTING_POWER.smartDescription": "本回合内给予的[gold]元素[/gold]增加[blue]{Amount}[/blue]层。",
