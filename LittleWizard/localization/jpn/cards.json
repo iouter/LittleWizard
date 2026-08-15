@@ -126,6 +126,8 @@
     "LITTLEWIZARD-REJUVENATION.description": "カードを{Cards:diff()}枚選び、戦闘終了後にデッキから取り除く。",
     "LITTLEWIZARD-BURN_EVERYTHING.title": "全てを焼き尽くす",
     "LITTLEWIZARD-BURN_EVERYTHING.description": "全ての敵に[gold]火属性[/gold]を{FireElement:diff()}×X層付与する。\n敵のターン終了時、[gold]火属性[/gold]を{BurnEverythingPower:diff()}層付与する。",
+    "LITTLEWIZARD-CHILD_BODY.title": "子供の身体",
+    "LITTLEWIZARD-CHILD_BODY.description": "各ターン開始時に{energyPrefix:energyIcons(1)}を1失う。だがターン終了時に[gold]手札[/gold]を捨てなくなる。",
     "LITTLEWIZARD-COPYING.title": "盗作",
     "LITTLEWIZARD-COPYING.description": "他のキャラクターの9枚のカードから最大{Cards:diff()}枚を選んで[gold]手札[/gold]に加える。",
     "LITTLEWIZARD-COPYING.selectionScreenPrompt": "[gold]手札[/gold]に加えるカードを選択",
