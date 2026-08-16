@@ -126,8 +126,6 @@
     "LITTLEWIZARD-REJUVENATION.description": "[gold]손[/gold]에서 카드를 {Cards:diff()}장 골라\n다음 전투부터\n덱에서 제거합니다.",
     "LITTLEWIZARD-BURN_EVERYTHING.title": "만물 연소",
     "LITTLEWIZARD-BURN_EVERYTHING.description": "모든 적에게\n[gold]불 원소[/gold]를 {FireElement:diff()}X 부여합니다.\n모든 적들이 이번 전투 동안\n턴 종료 시\n[gold]불 원소[/gold]를 {BurnEverythingPower:diff()} 얻습니다.",
-    "LITTLEWIZARD-CHILD_BODY.title": "작은 체구",
-    "LITTLEWIZARD-CHILD_BODY.description": "내 턴 시작 시,\n{energyPrefix:energyIcons(1)}를 잃습니다.\n더 이상 내 턴 종료 시\n카드를 버리지 않습니다.",
     "LITTLEWIZARD-COPYING.title": "베끼기",
     "LITTLEWIZARD-COPYING.description": "다른 캐릭터의\n무작위 카드 9장 중\n{Cards:diff()}장까지 골라\n[gold]손[/gold]으로 가져옵니다.",
     "LITTLEWIZARD-COPYING.selectionScreenPrompt": "손으로 가져올 카드를 선택하세요.",

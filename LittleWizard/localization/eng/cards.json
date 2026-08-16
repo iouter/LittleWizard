@@ -126,8 +126,6 @@
     "LITTLEWIZARD-REJUVENATION.description": "Choose {Cards:diff()} card(s) in your [gold]Hand[/gold] and remove them from your deck after combat.",
     "LITTLEWIZARD-BURN_EVERYTHING.title": "Burn Everything",
     "LITTLEWIZARD-BURN_EVERYTHING.description": "Apply {FireElement:diff()}X [gold]Fire Element[/gold] to ALL enemies. \nAt the end of enemy turn, apply {BurnEverythingPower:diff()} [gold]Fire Element[/gold].",
-    "LITTLEWIZARD-CHILD_BODY.title": "Child Body",
-    "LITTLEWIZARD-CHILD_BODY.description": "At the start of your turn, lose {energyPrefix:energyIcons(1)}. \nAt the end of your turn, you no longer discard your [gold]Hand[/gold].",
     "LITTLEWIZARD-COPYING.title": "Copying",
     "LITTLEWIZARD-COPYING.description": "Choose up to {Cards:diff()} cards from 9 random cards from other characters and add them into your [gold]Hand[/gold].",
     "LITTLEWIZARD-COPYING.selectionScreenPrompt": "Choose cards to add into your Hand",
