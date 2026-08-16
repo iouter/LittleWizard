@@ -21,9 +21,9 @@ scale = Vector2(0.32, 0.32)
 [node name="SpineBoneNode" type="SpineBoneNode" parent="Visuals"]
 bone_name = "WE"
 show_behind_parent = true
-position = Vector2(-65.891106, -384.98322)
-rotation = -1.589903
-scale = Vector2(0.6867025, 0.6867025)
+position = Vector2(-48.552532, -385.51096)
+rotation = -1.5463328
+scale = Vector2(0.68670255, 0.68670255)
 
 [node name="LittleWizardEnergyA" parent="Visuals/SpineBoneNode" instance=ExtResource("3_ifk35")]
 scale = Vector2(2.45, 2.45)
@@ -46,6 +46,7 @@ unique_name_in_owner = true
 position = Vector2(0, -317)
 
 [node name="FormVfx" type="Control" parent="."]
+unique_name_in_owner = true
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
