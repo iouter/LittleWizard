@@ -36,7 +36,7 @@ public class DestroyGrades()
         if (card == null)
             return;
         await CardCmd.Exhaust(choiceContext, card);
-        VfxCmd.PlayOnCreatureCenter(cardPlay.Target!, "vfx/vfx_fire_mo");
+        VfxCmd.PlayOnCreatureCenter(cardPlay.Target!, "vfx/vfx_fire_element");
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 

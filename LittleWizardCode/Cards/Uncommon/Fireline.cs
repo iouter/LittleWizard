@@ -52,6 +52,10 @@ public class Fireline()
             Owner.Creature,
             this
         );
+        foreach (var enemy in CombatState!.HittableEnemies)
+        {
+            VfxCmd.PlayOnCreatureCenter(enemy, "vfx/vfx_fire_element");
+        }
     }
 
     protected override void OnUpgrade()
