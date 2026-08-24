@@ -1,36 +1,40 @@
 vfx_fire_element.png
-size:2803,2803
+size:2899,2899
 filter:Linear,Linear
 pma:true
-tx2_animation_00
-bounds:0,2106,867,697
-tx2_animation_01
-bounds:0,2106,867,697
-tx2_animation_14
-bounds:0,2106,867,697
-tx2_animation_15
-bounds:0,2106,867,697
-tx2_animation_02
-bounds:0,1404,867,697
-tx2_animation_03
-bounds:872,2106,867,697
-tx2_animation_04
-bounds:0,702,867,697
-tx2_animation_05
-bounds:872,1404,867,697
-tx2_animation_06
-bounds:1744,2106,867,697
-tx2_animation_07
-bounds:0,0,867,697
-tx2_animation_08
-bounds:872,702,867,697
-tx2_animation_09
-bounds:1744,1404,867,697
-tx2_animation_10
-bounds:872,0,867,697
-tx2_animation_11
-bounds:1744,702,867,697
-tx2_animation_12
-bounds:1744,0,867,697
-tx2_animation_13
-bounds:1744,0,867,697
+scale:0.5
+命中 火/1
+bounds:0,1466,1447,1433
+命中 火/10
+bounds:0,28,1447,1433
+命中 火/11
+bounds:1452,1466,1447,1433
+命中 火/2
+bounds:1452,28,1447,1433
+
+vfx_fire_element_2.png
+size:2899,2899
+filter:Linear,Linear
+pma:true
+scale:0.5
+命中 火/3
+bounds:0,1466,1447,1433
+命中 火/4
+bounds:0,28,1447,1433
+命中 火/5
+bounds:1452,1466,1447,1433
+命中 火/6
+bounds:1452,28,1447,1433
+
+vfx_fire_element_3.png
+size:2885,2885
+filter:Linear,Linear
+pma:true
+scale:0.5
+命中 火/7
+bounds:0,1452,1447,1433
+命中 火/8
+bounds:0,14,1447,1433
+命中 火/9
+bounds:1452,1438,1447,1433
+rotate:90

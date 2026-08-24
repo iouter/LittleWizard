@@ -38,6 +38,7 @@ public class BurnEverything()
                 continue;
             }
             await PowerCmd.Apply<FireElement>(choiceContext, enemy, xValue, Owner.Creature, this);
+            VfxCmd.PlayOnCreatureCenter(enemy, "vfx/vfx_fire_element");
         }
         await CommonActions.Apply<BurnEverythingPower>(choiceContext, this, cardPlay);
         await AnimationHelper.TriggerCastAnimationOwner(this);
