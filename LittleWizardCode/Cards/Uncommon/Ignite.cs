@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Cards;
@@ -26,7 +27,10 @@ public class Ignite()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        await CommonActions.CardAttack(this, play.Target).Execute(choiceContext);
+        await CommonActions
+            .CardAttack(this, play.Target)
+            .WithHitFx(VfxPaths.FireElement)
+            .Execute(choiceContext);
         if (!play.Target!.HasPower<FireElement>())
         {
             await CommonActions.Apply<IgnitePower>(choiceContext, this, play);
