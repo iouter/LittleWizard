@@ -39,7 +39,7 @@ public class AccelerateBurning()
             Owner.Creature,
             this
         );
-        VfxCmd.PlayOnCreatureCenter(cardPlay.Target!, "vfx/vfx_fire_element");
+        VfxCmd.PlayOnCreatureCenter(cardPlay.Target!, VfxPaths.FireElement);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 

@@ -1,6 +1,7 @@
 using BaseLib.Cards.Variables;
 using BaseLib.Hooks;
 using Godot;
+using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Powers;
 using LittleWizard.LittleWizardCode.Powers.Cards;
 using MegaCrit.Sts2.Core.Combat;
@@ -42,7 +43,7 @@ public class FireElement : BaseElement
 
         if (damage > 0)
         {
-            VfxCmd.PlayOnCreatureCenter(Owner, "vfx/vfx_fire_element");
+            VfxCmd.PlayOnCreatureCenter(Owner, VfxPaths.FireElement);
             await CreatureCmd.Damage(
                 new ThrowingPlayerChoiceContext(),
                 Owner,

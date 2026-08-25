@@ -1,4 +1,3 @@
-using BaseLib.Extensions;
 using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Cards;
@@ -54,7 +53,7 @@ public class Fireline()
         );
         foreach (var enemy in CombatState!.HittableEnemies)
         {
-            VfxCmd.PlayOnCreatureCenter(enemy, "vfx/vfx_fire_element");
+            VfxCmd.PlayOnCreatureCenter(enemy, VfxPaths.FireElement);
         }
     }
 

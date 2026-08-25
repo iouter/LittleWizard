@@ -26,7 +26,7 @@ public class StrikeFireLittleWizard()
     {
         await CommonActions
             .CardAttack(this, play)
-            .WithHitFx("vfx/vfx_fire_element")
+            .WithHitFx(VfxPaths.FireElement)
             .Execute(choiceContext);
         await CommonActions.Apply<FireElement>(choiceContext, this, play);
     }

@@ -1,4 +1,5 @@
 using BaseLib.Utils;
+using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Cards;
 using LittleWizard.LittleWizardCode.Api.Extensions;
 using LittleWizard.LittleWizardCode.Powers.Cards;
@@ -28,7 +29,7 @@ public class Ignite()
     {
         await CommonActions
             .CardAttack(this, play.Target)
-            .WithHitFx("vfx/vfx_fire_element")
+            .WithHitFx(VfxPaths.FireElement)
             .Execute(choiceContext);
         if (!play.Target!.HasPower<FireElement>())
         {
