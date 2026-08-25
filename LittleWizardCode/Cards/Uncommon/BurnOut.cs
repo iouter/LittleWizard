@@ -30,9 +30,10 @@ public class BurnOut()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await CommonActions.CardAttack(this, cardPlay).Execute(choiceContext);
-        ArgumentNullException.ThrowIfNull(cardPlay.Target);
-        VfxCmd.PlayOnCreatureCenter(cardPlay.Target!, "vfx/vfx_fire_mo");
+        await CommonActions
+            .CardAttack(this, cardPlay)
+            .WithHitFx(VfxPaths.FireElement)
+            .Execute(choiceContext);
         await AnimationHelper.TriggerCastAnimationOwner(this);
     }
 

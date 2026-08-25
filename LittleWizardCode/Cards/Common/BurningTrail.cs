@@ -27,6 +27,7 @@ public class BurningTrail()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         await CommonActions.Apply<FireElement>(choiceContext, this, cardPlay);
+        VfxCmd.PlayOnCreatureCenter(cardPlay.Target!, VfxPaths.FireElement);
     }
 
     public override async Task AfterBlockGained(

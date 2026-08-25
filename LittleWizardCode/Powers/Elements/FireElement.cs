@@ -1,6 +1,7 @@
 using BaseLib.Cards.Variables;
 using BaseLib.Hooks;
 using Godot;
+using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Powers;
 using LittleWizard.LittleWizardCode.Powers.Cards;
 using MegaCrit.Sts2.Core.Combat;
@@ -36,13 +37,13 @@ public class FireElement : BaseElement
     {
         if (side != Owner.Side)
             return;
-        /*VfxCmd.PlayOnCreatureCenter(Owner, "vfx/vfx_fire_element"); */
         PlaySound();
 
         var damage = GetDamage(this);
 
         if (damage > 0)
         {
+            VfxCmd.PlayOnCreatureCenter(Owner, VfxPaths.FireElement);
             await CreatureCmd.Damage(
                 new ThrowingPlayerChoiceContext(),
                 Owner,
@@ -51,7 +52,6 @@ public class FireElement : BaseElement
                 null,
                 null
             );
-            /*VfxCmd.PlayOnCreatureCenter(Owner, "vfx/vfx_fire_element"); */
         }
 
         if (!Owner.IsAlive)
