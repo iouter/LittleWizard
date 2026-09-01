@@ -24,7 +24,10 @@ public class StrikeFireLittleWizard()
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        await CommonActions.CardAttack(this, play).Execute(choiceContext);
+        await CommonActions
+            .CardAttack(this, play)
+            .WithHitFx(VfxPaths.FireElement)
+            .Execute(choiceContext);
         await CommonActions.Apply<FireElement>(choiceContext, this, play);
     }
 

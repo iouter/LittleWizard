@@ -1,4 +1,3 @@
-using BaseLib.Extensions;
 using BaseLib.Utils;
 using LittleWizard.LittleWizardCode.Api;
 using LittleWizard.LittleWizardCode.Api.Cards;
@@ -52,6 +51,10 @@ public class Fireline()
             Owner.Creature,
             this
         );
+        foreach (var enemy in CombatState!.HittableEnemies)
+        {
+            VfxCmd.PlayOnCreatureCenter(enemy, VfxPaths.FireElement);
+        }
     }
 
     protected override void OnUpgrade()
