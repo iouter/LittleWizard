@@ -113,7 +113,12 @@ public class WaterEarthReactor : LittleWizardPower
             return;
 
         Flash();
-        await CreatureCmd.GainBlock(creature, this.CalculateElementAmount(), ValueProp.Move, null);
+        await CreatureCmd.GainBlock(
+            creature,
+            this.CalculateElementAmount(),
+            ValueProp.Unpowered,
+            null
+        );
     }
 
     public override async Task AfterSideTurnEnd(

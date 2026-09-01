@@ -61,7 +61,7 @@ public class EarthElement : BaseElement
             return;
         GetInternalData<Data>().IsAttacked = true;
         Flash();
-        await CreatureCmd.GainBlock(creature, GetBlock(this), ValueProp.Move, null);
+        await CreatureCmd.GainBlock(creature, GetBlock(this), ValueProp.Unpowered, null);
     }
 
     public override Task BeforeSideTurnStart(
