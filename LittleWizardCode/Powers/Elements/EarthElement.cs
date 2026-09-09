@@ -3,6 +3,7 @@ using LittleWizard.LittleWizardCode.Api.Powers;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -38,7 +39,7 @@ public class EarthElement : BaseElement
 
     private class Data
     {
-        public bool IsAttacked;
+        public readonly Dictionary<Player, bool> IsPlayerAttacked = new();
     }
 
     public override async Task AfterDamageReceived(
@@ -57,9 +58,14 @@ public class EarthElement : BaseElement
         {
             creature = dealer.PetOwner!.Creature;
         }
-        if (creature.Player == null || GetInternalData<Data>().IsAttacked)
+
+        var player = creature.Player;
+        if (
+            player == null
+            || GetInternalData<Data>().IsPlayerAttacked.GetValueOrDefault(player, false)
+        )
             return;
-        GetInternalData<Data>().IsAttacked = true;
+        GetInternalData<Data>().IsPlayerAttacked[player] = true;
         Flash();
         await CreatureCmd.GainBlock(creature, GetBlock(this), ValueProp.Unpowered, null);
     }
@@ -71,9 +77,12 @@ public class EarthElement : BaseElement
         ICombatState combatState
     )
     {
-        if (side == Owner.Side)
+        if (side != Owner.Side)
+            return Task.CompletedTask;
+        var dict = GetInternalData<Data>().IsPlayerAttacked;
+        foreach (var key in dict.Keys)
         {
-            GetInternalData<Data>().IsAttacked = false;
+            dict[key] = false;
         }
         return Task.CompletedTask;
     }
