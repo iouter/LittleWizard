@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using BaseLib.Abstracts;
 using BaseLib.Patches.UI;
 using Godot;
@@ -9,6 +10,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace LittleWizard.LittleWizardCode.Character;
 
+[SuppressMessage("Localization", "STS001:Symbol missing localization")]
 public class LittleWizard : PlaceholderCharacterModel
 {
     public const string InnerName = "little_wizard";

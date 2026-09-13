@@ -7,7 +7,7 @@ namespace LittleWizard.LittleWizardCode.Powers.Cards;
 
 public sealed class WarmupBeamPower : LittleWizardPower
 {
-    public override PowerType Type => Owner.IsPlayer ? PowerType.Buff : PowerType.Debuff;
+    public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
     public override bool TryModifyPowerAmountReceived(

@@ -86,7 +86,7 @@ public class FireEarthReactor : LittleWizardPower
             return;
 
         Flash();
-        await CreatureCmd.GainBlock(creature, GetBlock(this), ValueProp.Move, null);
+        await CreatureCmd.GainBlock(creature, GetBlock(this), ValueProp.Unpowered, null);
     }
 
     public override async Task AfterSideTurnEnd(
