@@ -62,7 +62,7 @@
     "LITTLEWIZARD-GUIDANCE_POWER.title": "약점!",
     "LITTLEWIZARD-GUIDANCE_POWER.smartDescription": "카드를 사용할 때마다, 이번 턴 동안 {OnPlayer:내가|대상 적이} 공격 카드를 통해 받는 피해량이 [blue]{Amount}%[/blue] 증가합니다.",
     "LITTLEWIZARD-GUIDANCE_POWER.description": "카드를 사용할 때마다, 이번 턴 동안 공격 카드를 통해 받는 피해량이 [blue]5%[/blue] 증가합니다.",
-    "LITTLEWIZARD-MANA_SHIELD_POWER.smartDescription": "매 턴 시작 시, [gold]방어도[/gold]를 [blue]3[/blue] 얻습니다. [gold]원소[/gold]를 가진 카드를 사용할 때마다, [gold]방어도[/gold]를 [blue]2[/blue]얻습니다.",
+    "LITTLEWIZARD-MANA_SHIELD_POWER.smartDescription": "매 턴 시작 시, [gold]방어도[/gold]를 [blue]{PlayerTurnStart}[/blue] 얻습니다. [gold]원소[/gold]를 가진 카드를 사용할 때마다, [gold]방어도[/gold]를 [blue]{CardPlayed}[/blue]얻습니다.",
     "LITTLEWIZARD-MANA_SHIELD_POWER.title": "마력 방패",
     "LITTLEWIZARD-MANA_SHIELD_POWER.description": "매 턴 시작 시, [gold]방어도[/gold]를 [blue]3[/blue] 얻습니다. [gold]원소[/gold]를 가진 카드를 사용할 때마다, [gold]방어도[/gold]를 [blue]2[/blue]얻습니다.",
     "LITTLEWIZARD-MANA_SURGE_POWER.description": "[gold]에너지[/gold]를 얻을 때마다, 추가로 [gold]에너지[/gold]를 얻습니다.",
