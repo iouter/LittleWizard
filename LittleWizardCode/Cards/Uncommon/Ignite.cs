@@ -28,7 +28,7 @@ public class Ignite()
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         await CommonActions
-            .CardAttack(this, play.Target)
+            .CardAttack(this, play)
             .WithHitFx(VfxPaths.FireElement)
             .Execute(choiceContext);
         if (!play.Target!.HasPower<FireElement>())
