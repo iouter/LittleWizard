@@ -1,5 +1,8 @@
 {
     "LITTLEWIZARD-FIRE_ELEMENT.description": "每[blue]2[/blue][img height=25]res://LittleWizard/images/powers/fire_element.png[/img]，在回合开始时，造成[blue]1[/blue]点伤害。",
+    "LITTLEWIZARD-OCEANUS_POWER.title": "水神形态",
+    "LITTLEWIZARD-OCEANUS_POWER.description": "每打出1张[gold]攻击牌[/gold]，给予被攻击的目标[blue]{Amount}[/blue]层[gold]水元素[/gold]。",
+    "LITTLEWIZARD-OCEANUS_POWER.smartDescription": "每打出1张[gold]攻击牌[/gold]，给予被攻击的目标[blue]{Amount}[/blue]层[gold]水元素[/gold]。",
     "LITTLEWIZARD-FIRE_ELEMENT.smartDescription": "在回合开始时，受到[blue]{FireDamage}[/blue]点伤害。",
     "LITTLEWIZARD-FIRE_ELEMENT.title": "火元素",
     "LITTLEWIZARD-WATER_ELEMENT.title": "水元素",

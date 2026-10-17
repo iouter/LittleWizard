@@ -2,6 +2,8 @@
     "LITTLEWIZARD-CALLBACK.description": "获得{Block:diff()}点[gold]格挡[/gold]。\n将弃牌堆中的1张能给予[gold]元素[/gold]的牌放入你的[gold]手牌[/gold]。",
     "LITTLEWIZARD-CALLBACK.title": "回拨",
     "LITTLEWIZARD-CALLBACK.selectionScreenPrompt": "将1张牌放回你的手牌。",
+    "LITTLEWIZARD-OCEANUS.title": "水神形态",
+    "LITTLEWIZARD-OCEANUS.description": "每打出1张[gold]攻击牌[/gold]，给予{OceanusPower:diff()}层[gold]水元素[/gold]。",
     "LITTLEWIZARD-COLORFUL_BALLS.description": "造成{Damage:diff()}点伤害。\n给予{RandomElement:diff()}层随机的一种[gold]元素[/gold]。",
     "LITTLEWIZARD-COLORFUL_BALLS.title": "缤纷彩球",
     "LITTLEWIZARD-DEFEND_LITTLE_WIZARD.description": "获得{Block:diff()}点[gold]格挡[/gold]。",
