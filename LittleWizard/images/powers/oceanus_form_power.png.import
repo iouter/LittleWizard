@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjwnbg8rvawb6"
-path="res://.godot/imported/oceanus_power.png-e24f15c4e6015428c9f58e3f85931ce4.ctex"
+uid="uid://byjkvajbtaau6"
+path="res://.godot/imported/oceanus_form_power.png-33bde6f50d9e9267dc7e5c87f0e41d9b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://LittleWizard/images/powers/big/oceanus_power.png"
-dest_files=["res://.godot/imported/oceanus_power.png-e24f15c4e6015428c9f58e3f85931ce4.ctex"]
+source_file="res://LittleWizard/images/powers/oceanus_form_power.png"
+dest_files=["res://.godot/imported/oceanus_form_power.png-33bde6f50d9e9267dc7e5c87f0e41d9b.ctex"]
 
 [params]
 

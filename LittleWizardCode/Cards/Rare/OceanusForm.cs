@@ -9,9 +9,9 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.LittleWizardCode.Cards.Rare;
 
-public class Oceanus() : LittleWizardCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
+public class OceanusForm() : LittleWizardCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<OceanusPower>(5)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<OceanusFormPower>(5)];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipsValue.Water];
 
@@ -19,7 +19,7 @@ public class Oceanus() : LittleWizardCard(3, CardType.Power, CardRarity.Rare, Ta
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await CommonActions.Apply<OceanusPower>(choiceContext, this, cardPlay);
+        await CommonActions.Apply<OceanusFormPower>(choiceContext, this, cardPlay);
     }
 
     protected override void OnUpgrade()

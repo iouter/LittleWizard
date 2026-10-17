@@ -1,8 +1,8 @@
 {
     "LITTLEWIZARD-FIRE_ELEMENT.description": "턴 시작 시, [img height=25]res://LittleWizard/images/powers/fire_element.png[/img] [blue]2[/blue]중첩마다 피해를 [blue]1[/blue] 입습니다.",
-    "LITTLEWIZARD-OCEANUS_POWER.title": "오케아노스",
-    "LITTLEWIZARD-OCEANUS_POWER.description": "[gold]공격[/gold] 카드를 1장 사용할 때마다 공격 대상에게 [blue]{Amount}[/blue] [gold]물 원소[/gold]를 부여합니다.",
-    "LITTLEWIZARD-OCEANUS_POWER.smartDescription":"[gold]공격[/gold] 카드를 1장 사용할 때마다 공격 대상에게 [blue]{Amount}[/blue] [gold]물 원소[/gold]를 부여합니다.",
+    "LITTLEWIZARD-OCEANUS_FORM_POWER.title": "물의 신 형태",
+    "LITTLEWIZARD-OCEANUS_FORM_POWER.description": "[gold]공격[/gold] 카드를 1장 사용할 때마다 무작위 적 하나에게 [blue]{Amount}[/blue] [gold]물 원소[/gold]를 부여합니다.",
+    "LITTLEWIZARD-OCEANUS_FORM_POWER.smartDescription":"[gold]공격[/gold] 카드를 1장 사용할 때마다 무작위 적 하나에게 [blue]{Amount}[/blue] [gold]물 원소[/gold]를 부여합니다.",
     "LITTLEWIZARD-FIRE_ELEMENT.smartDescription": "{OnPlayer:내|대상의} 턴 시작 시, 피해를 [blue]{FireDamage}[/blue] 입습니다.",
     "LITTLEWIZARD-FIRE_ELEMENT.title": "불 원소",
     "LITTLEWIZARD-WATER_ELEMENT.title": "물 원소",

@@ -1,8 +1,8 @@
 {
     "LITTLEWIZARD-FIRE_ELEMENT.description": "[img height=25]res://LittleWizard/images/powers/fire_element.png[/img]が[blue]2[/blue]あるごとに、ターンの開始時に[blue]1[/blue]ダメージを与える。",
-    "LITTLEWIZARD-OCEANUS_POWER.title": "オケアノス",
-    "LITTLEWIZARD-OCEANUS_POWER.description": "[gold]攻撃[/gold]カードを1枚プレイするたび、攻撃対象に[blue]{Amount}[/blue]層の[gold]水属性[/gold]を付与する。",
-    "LITTLEWIZARD-OCEANUS_POWER.smartDescription":"[gold]攻撃[/gold]カードを1枚プレイするたび、攻撃対象に[blue]{Amount}[/blue]層の[gold]水属性[/gold]を付与する。",
+    "LITTLEWIZARD-OCEANUS_FORM_POWER.title": "水神形態",
+    "LITTLEWIZARD-OCEANUS_FORM_POWER.description": "[gold]攻撃[/gold]カードを1枚プレイするたび、ランダムな敵1体に[blue]{Amount}[/blue]層の[gold]水属性[/gold]を付与する。",
+    "LITTLEWIZARD-OCEANUS_FORM_POWER.smartDescription":"[gold]攻撃[/gold]カードを1枚プレイするたび、ランダムな敵1体に[blue]{Amount}[/blue]層の[gold]水属性[/gold]を付与する。",
     "LITTLEWIZARD-FIRE_ELEMENT.smartDescription": "ターンの開始時に[blue]{FireDamage}[/blue]ダメージを受ける。",
     "LITTLEWIZARD-FIRE_ELEMENT.title": "火属性",
     "LITTLEWIZARD-WATER_ELEMENT.title": "水属性",
