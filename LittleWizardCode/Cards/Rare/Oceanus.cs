@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace LittleWizard.LittleWizardCode.Cards.Rare;
 
-public class Oceanus() : LittleWizardCard(3, CardType.Status, CardRarity.Rare, TargetType.Self)
+public class Oceanus() : LittleWizardCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<OceanusPower>(5)];
 
