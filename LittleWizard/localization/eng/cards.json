@@ -2,6 +2,8 @@
     "LITTLEWIZARD-CALLBACK.description": "Gain {Block:diff()} [gold]Block[/gold].\nPut a card with [gold]Element[/gold] from your [gold]Discard Pile[/gold] into your [gold]Hand[/gold].",
     "LITTLEWIZARD-CALLBACK.title": "Call Back",
     "LITTLEWIZARD-CALLBACK.selectionScreenPrompt": "Put a card into your [gold]Hand[/gold].",
+    "LITTLEWIZARD-OCEANUS_FORM.title": "Oceanus Form",
+    "LITTLEWIZARD-OCEANUS_FORM.description": "Whenever you play an [gold]Attack[/gold], randomly apply {OceanusFormPower:diff()} [gold]Water Element[/gold] to an enemy.",
     "LITTLEWIZARD-COLORFUL_BALLS.description": "Deal {Damage:diff()} damage. \n Apply {RandomElement:diff()} random [gold]Element[/gold].",
     "LITTLEWIZARD-COLORFUL_BALLS.title": "Colorful Balls",
     "LITTLEWIZARD-DEFEND_LITTLE_WIZARD.description": "Gain {Block:diff()} [gold]Block[/gold].",

@@ -1,5 +1,8 @@
 {
     "LITTLEWIZARD-FIRE_ELEMENT.description": "At the begining of the turn, deal [blue]1[/blue] damage per [blue]2[/blue] [img height=25]res://LittleWizard/images/powers/fire_element.png[/img] to the affected creatures.",
+    "LITTLEWIZARD-OCEANUS_FORM_POWER.title": "Oceanus Form",
+    "LITTLEWIZARD-OCEANUS_FORM_POWER.description": "Whenever you play an [gold]Attack[/gold], randomly apply [blue]{Amount}[/blue] [gold]Water Element[/gold] to an enemy.",
+    "LITTLEWIZARD-OCEANUS_FORM_POWER.smartDescription": "Whenever you play an [gold]Attack[/gold], randomly apply [blue]{Amount}[/blue] [gold]Water Element[/gold] to an enemy.",
     "LITTLEWIZARD-FIRE_ELEMENT.smartDescription": "At the start of turn, take [blue]{FireDamage}[/blue] damage.",
     "LITTLEWIZARD-FIRE_ELEMENT.title": "Fire Element",
     "LITTLEWIZARD-WATER_ELEMENT.title": "Water Element",
