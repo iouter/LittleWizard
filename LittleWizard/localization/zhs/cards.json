@@ -200,8 +200,7 @@
     "LITTLEWIZARD-MAGIC_TRAJECTORY.description": "抽{Cards:diff()}张牌。\n如果该敌人身上拥有[gold]元素[/gold]，则移除最多{BaseElement:inverseDiff()}层[gold]元素[/gold]，并额外抽{ExtraCards:diff()}张牌。",
     "LITTLEWIZARD-MAGIC_TRAJECTORY.title": "魔力轨迹",
     "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN.description": "将你每回合打出的第1张技能牌，置于你的抽牌堆顶。",
-    "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN.title": "爱不释手"
-    ,
+    "LITTLEWIZARD-COULD_NOT_PUT_IT_DOWN.title": "爱不释手",
     "LITTLEWIZARD-SKYFIRE.title": "天火",
     "LITTLEWIZARD-SKYFIRE.description": "[gold]火元素[/gold]伤害翻倍。",
     "LITTLEWIZARD-REJECT_FIRETONGUE.title": "抗拒火舌",
