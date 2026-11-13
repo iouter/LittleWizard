@@ -26,5 +26,7 @@
     "LITTLEWIZARD-UNDEAD_ESSENCE.title": "Undead Essence",
     "LITTLEWIZARD-HANDWRITING.description": "At the start of each combat, add 1 random [gold]Power[/gold] into your hand. This card costs 0.",
     "LITTLEWIZARD-HANDWRITING.flavor": "",
-    "LITTLEWIZARD-HANDWRITING.title": "Handwriting"
+    "LITTLEWIZARD-HANDWRITING.title": "Handwriting",
+
+    "SEA_GLASS.LITTLEWIZARD-LITTLE_WIZARD.title": "Element Glass"
 }
