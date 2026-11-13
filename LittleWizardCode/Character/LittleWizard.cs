@@ -20,6 +20,8 @@ public class LittleWizard : PlaceholderCharacterModel
 
     public static readonly Color MapDarwColor = new(1.0f, 0.8f, 0.0f);
     public override Color MapDrawingColor => MapDarwColor;
+
+    public override Color DreadNameColor => CharacterColor;
     public override CharacterGender Gender => CharacterGender.Feminine;
     public override int StartingHp => 76;
 
